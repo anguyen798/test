@@ -1,0 +1,5 @@
+git clone https://github.com/anguyen798/test
+git add -all
+git status
+git commit -m 'adding your file'
+git push
