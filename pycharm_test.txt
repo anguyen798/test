@@ -1,0 +1,2 @@
+Test this page for PyCharm GitHub authorizations
+Ctrl+Alt+S to access settings or right top settings toolbar and plugins
