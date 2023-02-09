@@ -1,0 +1,6 @@
+8:ate
+2:to
+2:too
+4:for
+@:at
+&:and

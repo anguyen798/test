@@ -1,0 +1,814 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/><title></title>
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body><dl></dl><ol><li>What is a <code>list</code> in Python?
+<ol class="multiple-choice"><li>a series of numbers</li><li class="correct">a container that stores a collection of elements that are
+arranged in a linear or sequential order</li><li>a series of strings</li><li>a series of references or locations of data in memory</li></ol><dl><dt>Section</dt><dd>6.1 Basic Properties of Lists</dd><dt>Title</dt><dd>What is a list in Python?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.1 Basic Properties of Lists</dd><dt>id</dt><dd>testbank-py-1-ch06-01</dd></dl></li><li>Given the following list, what value is at index 5?<pre>
+ values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+</pre><ol class="multiple-choice"><li>5</li><li class="correct">6</li><li>7</li><li>4</li></ol><dl><dt>Section</dt><dd>6.1 Basic Properties of Lists</dd><dt>Title</dt><dd>Given the following list, what value is at index 5?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.1 Basic Properties of Lists</dd><dt>id</dt><dd>testbank-py-1-ch06-02</dd></dl></li><li><p>Consider the following line of code:</p><pre>
+somelist = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;, &quot;h&quot;, &quot;i&quot;, &quot;j&quot;, &quot;k&quot;, &quot;l&quot;, &quot;m&quot;, &quot;n&quot;,  &quot;o&quot;, &quot;p&quot;, &quot;q&quot;, &quot;r&quot;, &quot;s&quot;, &quot;t&quot;, &quot;u&quot;, &quot;v&quot;, &quot;w&quot;, &quot;x&quot;, &quot;y&quot;, &quot;z&quot;]
+</pre><p>Which one of the following options is a valid line of code for
+displaying the element at the twenty-second position in the
+list?</p><ol class="multiple-choice">
+          <li>
+            <code>somelist(21)</code>
+          </li>
+          <li>
+            <code>somelist[21]</code>
+          </li>
+          <li>
+            <code>print(somelist(21))</code>
+          </li>
+          <li class="correct">
+            <code>print(somelist[21])</code>
+          </li>
+        </ol><dl><dt>Section</dt><dd>6.1 Basic Properties of Lists</dd><dt>Title</dt><dd>Which one of the following options is a valid line of code for displaying the element at the twenty-second position in the list?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.1 Basic Properties of Lists</dd><dt>id</dt><dd>testbank-py-1-ch06-03</dd></dl></li><li><p>Given the list below, what are the upper and lower bounds?</p><pre>
+somelist = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;, &quot;h&quot;, &quot;i&quot;, &quot;j&quot;, &quot;k&quot;, &quot;l&quot;, &quot;m&quot;, &quot;n&quot;,  &quot;o&quot;, &quot;p&quot;, &quot;q&quot;, &quot;r&quot;, &quot;s&quot;, &quot;t&quot;, &quot;u&quot;, &quot;v&quot;, &quot;w&quot;, &quot;x&quot;, &quot;y&quot;, &quot;z&quot;]
+</pre><ol class="multiple-choice">
+          <li>
+            <code>1, 26</code>
+          </li>
+          <li class="correct">
+            <code>0, 25</code>
+          </li>
+          <li>
+            <code>1, 25</code>
+          </li>
+          <li>
+            <code>0, 26</code>
+          </li>
+        </ol><dl><dt>Section</dt><dd>6.1 Basic Properties of Lists</dd><dt>Title</dt><dd>What are the upper and lower bounds of a given list?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.1 Basic Properties of Lists</dd><dt>id</dt><dd>testbank-py-1-ch06-04</dd></dl></li><li><p>What is the valid range of index values for a list?</p><ol class="multiple-choice">
+          <li class="correct">at least zero and less than the number of elements in the
+list</li>
+          <li>at least one and less than the number of elements in the
+list</li>
+          <li>at least zero and less than or equal to the number of elements
+in the list</li>
+          <li>at least one and less than or equal to the number of elements
+in the list</li>
+        </ol><dl><dt>Section</dt><dd>6.1 Basic Properties of Lists</dd><dt>Title</dt><dd>What is the valid range of index values for a list?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.1 Basic Properties of Lists</dd><dt>id</dt><dd>testbank-py-1-ch06-05</dd></dl></li><li><p>What is printed after executing the following code snippet?</p><pre>
+somelist = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;, &quot;h&quot;, &quot;i&quot;, &quot;j&quot;, &quot;k&quot;, &quot;l&quot;, &quot;m&quot;, &quot;n&quot;,  &quot;o&quot;, &quot;p&quot;, &quot;q&quot;, &quot;r&quot;, &quot;s&quot;, &quot;t&quot;, &quot;u&quot;, &quot;v&quot;, &quot;w&quot;, &quot;x&quot;, &quot;y&quot;, &quot;z&quot;]
+for i in range(len(somelist)) :
+   print(somelist[i], end = &quot;&quot;)        
+</pre><ol class="multiple-choice">
+          <li class="correct">
+            <code>abcdefghijklmnopqrstuvwxyz</code>
+          </li>
+          <li>
+            <code>a b c d e f g h i j k l m n o p q r s t u v w x y
+z</code>
+          </li>
+          <li>
+            <code>bcdefghijklmnopqrstuvwxyz</code>
+          </li>
+          <li>
+            <code>abcdefghijklmnopqrstuvwxy</code>
+          </li>
+        </ol><dl><dt>Section</dt><dd>6.1 Basic Properties of Lists</dd><dt>Title</dt><dd>What is printed after executing the following code snippet?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.1 Basic Properties of Lists</dd><dt>id</dt><dd>testbank-py-1-ch06-06</dd></dl></li><li><p>What is printed after executing the following code snippet?</p><pre>
+somelist = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;, &quot;h&quot;, &quot;i&quot;, &quot;j&quot;, &quot;k&quot;, &quot;l&quot;, &quot;m&quot;, &quot;n&quot;,  &quot;o&quot;, &quot;p&quot;, &quot;q&quot;, &quot;r&quot;, &quot;s&quot;, &quot;t&quot;, &quot;u&quot;, &quot;v&quot;, &quot;w&quot;, &quot;x&quot;, &quot;y&quot;, &quot;z&quot;]
+for i in range(0, len(somelist), 2) :
+   print(somelist[i], end = &quot;&quot;)       
+</pre><ol class="multiple-choice">
+          <li>
+            <code>abcdefghijklmnopqrstuvwxyz</code>
+          </li>
+          <li>
+            <code>a b c d e f g h i j k l m n o p q r s t u v w x y
+z</code>
+          </li>
+          <li class="correct">
+            <code>acegikmoqsuwy</code>
+          </li>
+          <li>
+            <code>bdfhjlnprtvxz</code>
+          </li>
+        </ol><dl><dt>Section</dt><dd>6.1 Basic Properties of Lists</dd><dt>Title</dt><dd>What is printed after executing the following code snippet?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.1 Basic Properties of Lists</dd><dt>id</dt><dd>testbank-py-1-ch06-07</dd></dl></li><li><p>Which statement correctly creates a list that contains four
+elements?</p><ol class="multiple-choice">
+          <li>
+            <code>values[4]</code>
+          </li>
+          <li>
+            <code>values = [4]</code>
+          </li>
+          <li class="correct">
+            <code>values = [1, 2, 3, 4]</code>
+          </li>
+          <li>
+            <code>value[4] = [1, 2, 3, 4]</code>
+          </li>
+        </ol><dl><dt>Section</dt><dd>6.1 Basic Properties of Lists</dd><dt>Title</dt><dd>Which statement correctly creates a list that contains four elements?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.1 Basic Properties of Lists</dd><dt>id</dt><dd>testbank-py-1-ch06-08</dd></dl></li><li><p>What is the difference between a list and a string?</p><ol class="multiple-choice">
+          <li>lists are sequences but strings are not and therefore you
+cannot access a string element using <code>[]</code></li>
+          <li>lists are immutable, but strings can be changed</li>
+          <li class="correct">lists can hold values of any type, whereas strings are only
+sequences of characters</li>
+          <li>elements in a list can be accessed using an integer as the
+index value, but strings can use any numeric data type for the
+index</li>
+        </ol><dl><dt>Section</dt><dd>6.1 Basic Properties of Lists</dd><dt>Title</dt><dd>What is the difference between a list and a string?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.1 Basic Properties of Lists</dd><dt>id</dt><dd>testbank-py-1-ch06-10</dd></dl></li><li><p>Which statement gets the length of the list
+<code>values</code>?</p><ol class="multiple-choice">
+          <li>
+            <code>numValues = length(values)</code>
+          </li>
+          <li class="correct">
+            <code>numValues = len(values)</code>
+          </li>
+          <li>
+            <code>numValues = size(values)</code>
+          </li>
+          <li>
+            <code>numValues = values.length</code>
+          </li>
+        </ol><dl><dt>Section</dt><dd>6.1 Basic Properties of Lists</dd><dt>Title</dt><dd>Which statement gets the length of the list values?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.1 Basic Properties of Lists</dd><dt>id</dt><dd>testbank-py-1-ch06-11</dd></dl></li><li>Given a list <code>values</code> that contains the first ten
+prime numbers, which statement prints the index and value of each
+element in the list?<ol class="multiple-choice"><li><pre>
+for i in range(11) :
+   print(i, values[i])
+</pre></li><li class="correct"><pre>
+for i in range(10) : 
+   print(i, values[i])
+</pre></li><li><pre>
+for i in range(1, 10) : 
+   print(i, values[i])
+</pre></li><li><pre>
+for i in range(1, 11) : 
+   print(i, values[i])
+</pre></li></ol><dl><dt>Section</dt><dd>6.1 Basic Properties of Lists</dd><dt>Title</dt><dd>Given a list values that contains the first ten prime numbers, which statement prints each element in the list?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.1 Basic Properties of Lists</dd><dt>id</dt><dd>testbank-py-1-ch06-12</dd></dl></li><li>Given a list <code>values</code> that contains the first ten
+prime numbers, which statement does NOT print each element in the
+list?<ol class="multiple-choice"><li><pre>
+for i in range(len(values)) :
+   print(values[i])
+</pre></li><li><pre>
+for element in values : 
+   print(element)
+</pre></li><li><pre>
+for i in range(0, len(values)) :
+   print(values[i])
+</pre></li><li class="correct"><pre>
+for i in range(1, len(values)) : 
+   print(values[i])
+</pre></li></ol><dl><dt>Section</dt><dd>6.1 Basic Properties of Lists</dd><dt>Title</dt><dd>Given a list values that contains the first ten prime numbers, which statement does NOT print each element in the list?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.1 Basic Properties of Lists</dd><dt>id</dt><dd>testbank-py-1-ch06-13</dd></dl></li><li>For the list: <code>prices = [10.00, 15.50, 13.25,
+20.15]</code>, what value is contained in
+<code>prices</code>?<ol class="multiple-choice"><li class="correct">the location of the list</li><li>the first value in the list</li><li>the size of the list</li><li>the number of elements in the list</li></ol><dl><dt>Section</dt><dd>6.1 Basic Properties of Lists</dd><dt>Title</dt><dd>For the list: prices = [10.00, 15.50, 13.25, 20.15], what value is contained in prices?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.1 Basic Properties of Lists</dd><dt>id</dt><dd>testbank-py-1-ch06-14</dd></dl></li><li>Given the following code snippet, which statement correctly
+creates an alias for the list <code>prices</code>?<pre>
+prices = [10.00, 15.50, 13.25, 20.15]     
+</pre><ol class="multiple-choice"><li><code>values[10] = prices</code></li><li class="correct"><code>values = prices</code></li><li><code>for element in prices : values = element</code></li><li><code>values[10] = prices[10]</code></li></ol><dl><dt>Section</dt><dd>6.1 Basic Properties of Lists</dd><dt>Title</dt><dd>Given the following code snippet, which statement correctly creates an alias for the list prices?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.1 Basic Properties of Lists</dd><dt>id</dt><dd>testbank-py-1-ch06-15</dd></dl></li><li>Which of the following statements stores the numbers 1 through
+5 into a list named <code>values</code>?
+<ol class="multiple-choice"><li><code>values = 1, 2, 3, 4, 5</code></li><li><code>values = (1, 2, 3, 4, 5)</code></li><li class="correct"><code>values = [1, 2, 3, 4, 5]</code></li><li><code>values = {1, 2, 3, 4, 5}</code></li></ol><dl><dt>Section</dt><dd>6.1 Basic Properties of Lists</dd><dt>Title</dt><dd>Which statement stores the numbers 1 through 5 into a list?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.1 Basic Properties of Lists</dd><dt>id</dt><dd>testbank-py-1-ch06-17</dd></dl></li><li>Consider the following code segment:
+<pre>
+values = [4, 12, 0, 1, 5]
+print(values[1])
+</pre>
+What is displayed when it runs?
+<ol class="multiple-choice"><li><code>0</code></li><li><code>1</code></li><li><code>4</code></li><li class="correct"><code>12</code></li></ol><dl><dt>Section</dt><dd>6.1 Basic Properties of Lists</dd><dt>Title</dt><dd>Trace code that accesses a list element</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.1 Basic Properties of Lists</dd><dt>id</dt><dd>testbank-py-1-ch06-18</dd></dl></li><li>Consider the following list:
+<pre>
+values = [12, 4, 8, 16, 24]
+</pre>
+Which statement displays the last element in the list?
+<ol class="multiple-choice"><li><code>print(values[0])</code></li><li class="correct"><code>print(values[4])</code></li><li><code>print(values[5])</code></li><li><code>print(values[24])</code></li></ol><dl><dt>Section</dt><dd>6.1 Basic Properties of Lists</dd><dt>Title</dt><dd>Which statement displays the last element in the list?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.1 Basic Properties of Lists</dd><dt>id</dt><dd>testbank-py-1-ch06-19</dd></dl></li><li>Consider the following code segment:
+<pre>
+values = [1, 2, 3, 4, 5]
+moreValues = values
+moreValues[3] = 6
+
+print(values)
+</pre>
+What is displayed when it runs?
+<ol class="multiple-choice"><li><code>[1, 2, 3, 4, 5]</code></li><li><code>[1, 2, 6, 4, 5]</code></li><li class="correct"><code>[1, 2, 3, 6, 5]</code></li><li><code>[1, 2, 3, 4, 5, 6]</code></li></ol><dl><dt>Section</dt><dd>6.1 Basic Properties of Lists</dd><dt>Title</dt><dd>Trace code involving two lists</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.1 Basic Properties of Lists</dd><dt>id</dt><dd>testbank-py-1-ch06-20</dd></dl></li><li>What will happen when the following code segment is executed?
+<pre>
+values = [1.618, 2.71, 3.14]
+print(values[3])
+</pre><ol class="multiple-choice"><li class="correct">Python will display an out-of-range error</li><li>Python won't display anything</li><li>Python will display <code>3</code></li><li>Python will display <code>3.14</code></li></ol><dl><dt>Section</dt><dd>6.1 Basic Properties of Lists</dd><dt>Title</dt><dd>What will happen when a code segment involving lists is executed?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.1 Basic Properties of Lists</dd><dt>id</dt><dd>testbank-py-1-ch06-21</dd></dl></li><li>Consider the following code snippet.  What will be stored in the
+list <code>prices</code> after this code executes?<pre>
+prices = [10.00, 15.50, 13.50, 20.15]
+for i in range(len(prices)) :
+   prices[i] = prices[i] * 1.06
+</pre><ol class="multiple-choice"><li><code>[10.00, 15.50, 13.50, 20.15]</code></li><li class="correct"><code>[10.60, 16.43, 14.31, 21.36]</code></li><li><code>[1.06, 1.06, 1.06, 1.06]</code></li><li><code>[0.0, 0.0, 0.0, 0.0]</code></li></ol><dl><dt>Section</dt><dd>6.1 Basic Properties of Lists</dd><dt>Title</dt><dd>What is stored in the list after the code executes?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch06-16</dd><dt>section</dt><dd>6.1 Basic Properties of Lists</dd><dt>id</dt><dd>testbank-py-2-ch06-16</dd></dl></li><li>Given the list <code>values = [0, 0, 0, 0, 0, 0, 0, 0, 0,
+0]</code>, which statement fills the list with these numbers:<pre>
+1 2 3 4 5 6 7 8 9 10
+</pre><ol class="multiple-choice"><li><pre>
+for i in range(10) : 
+   values[i] = i
+</pre></li><li class="correct"><pre>
+for i in range(10) : 
+   values[i] = i + 1
+</pre></li><li><pre>
+for i in range(0, 10) : 
+   values[i] = i
+</pre></li><li><pre>
+for i in range(1, 10) : 
+   values[i] = i
+</pre></li></ol><dl><dt>Section</dt><dd>6.1 Basic Properties of Lists</dd><dt>Title</dt><dd>Which statement stores the numbers 1 through 10 into an existing list?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch06-74</dd><dt>section</dt><dd>6.1 Basic Properties of Lists</dd><dt>id</dt><dd>testbank-py-2-ch06-74</dd></dl></li><li>
+  Which statement creates a new, empty list?
+
+  <ol class="multiple-choice">
+    <li><code>data = 0</code></li>
+    <li><code>data = .</code></li>
+    <li><code>data = ()</code></li>
+    <li class="correct"><code>data = []</code></li>
+  </ol>
+<dl><dt>Section</dt><dd>6.1 Basic Properties of Lists</dd><dt>Title</dt><dd>Which statement creates a new, empty list?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.1 Basic Properties of Lists</dd><dt>id</dt><dd>testbank-py-2-ch06-87</dd></dl></li><li><p>Which statement correctly identifies the error in this code
+snippet?</p><pre>
+scores = [80, 85, 60.5, 95, 70]
+print(scores[5])
+</pre><ol class="multiple-choice">
+          <li>
+            <code>DataTypeError: cannot mix integer and floating point
+numbers</code>
+          </li>
+          <li>There is no error.  The code runs and prints
+<code>70</code>.</li>
+          <li>
+            <code>NameError: name 'scores' is not defined</code>
+          </li>
+          <li class="correct">
+            <code>IndexError: list index out of range</code>
+          </li>
+        </ol><dl><dt>Section</dt><dd>6.1 Basic Properties of Lists</dd><dt>Title</dt><dd>Which statement correctly identifies the error in this code snippet?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch06-09</dd><dt>section</dt><dd>6.1 Basic Properties of Lists</dd><dt>id</dt><dd>testbank-py-2-ch06-09</dd></dl></li><li>Given the following code snippet, which statement correctly
+copies the contents of the list <code>prices</code>?<pre>
+prices = [10.00, 15.50, 13.25, 20.15]
+</pre><ol class="multiple-choice"><li><pre>
+values[10] = prices
+</pre></li><li class="correct"><pre>
+values = list(prices)
+</pre></li><li><pre>
+for element in prices : 
+   values = element
+</pre></li><li><pre>
+values[10] = prices[10]
+</pre></li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>Given the following code snippet, which statement correctly copies the contents of the list prices?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-1-ch06-22</dd></dl></li><li>Given the definition of a list: <code>names = []</code> which
+statement correctly adds <code>&quot;Harry&quot;</code> to the list?<ol class="multiple-choice"><li><code>names[] = &quot;Harry&quot;</code></li><li><code>names[len(names) + 1] = &quot;Harry&quot;</code></li><li><code>names.add(&quot;Harry&quot;)</code></li><li class="correct"><code>names.append(&quot;Harry&quot;)</code></li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>Given the definition of a list: names = [] which statement correctly adds &quot;Harry&quot; to the list?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-1-ch06-23</dd></dl></li><li>Which of the following statements looks for the name
+<code>'Bob'</code> in the list <code>names</code>?<ol class="multiple-choice"><li><pre>
+if &quot;Bob&quot; found in names :
+   print(&quot;found Bob&quot;)
+</pre></li><li class="correct"><pre>
+if &quot;Bob&quot; in names : 
+   print(&quot;found Bob&quot;)
+</pre></li><li><pre>
+if names contains &quot;Bob&quot; : 
+   print(&quot;found Bob&quot;)
+</pre></li><li><pre>
+if names.indexOf(&quot;Bob&quot;) &gt;= 0 :
+   print(&quot;found Bob&quot;)
+</pre></li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>Which of the following statements looks for the name 'Bob' in the list names?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-1-ch06-26</dd></dl></li><li>Given the following code snippet, what is the value of the
+variable <code>indexValue</code>?<pre>
+states = [&quot;Alaska&quot;, &quot;Hawaii&quot;, &quot;Florida&quot;, &quot;Maine&quot;, &quot;Ohio&quot;, &quot;Florida&quot;]
+indexValue = states.index(&quot;Hawaii&quot;)
+</pre><ol class="multiple-choice"><li><code>2</code></li><li class="correct"><code>1</code></li><li><code>-1</code></li><li><code>0</code></li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>Given the following code snippet, what is the value of the variable indexValue?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-1-ch06-28</dd></dl></li><li>Given the following code snippet, what is the value of the
+variable <code>removedValue</code>?<pre>
+states = [&quot;Alaska&quot;, &quot;Hawaii&quot;, &quot;Florida&quot;, &quot;Maine&quot;, &quot;Ohio&quot;, &quot;Florida&quot;]
+removedValue = states.pop(3)
+</pre><ol class="multiple-choice"><li><code>3</code></li><li class="correct"><code>Maine</code></li><li><code>Florida</code></li><li><code>Hawaii</code></li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>Given the following code snippet, what is the value of the variable removedValue?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-1-ch06-29</dd></dl></li><li>Given the following code snippet, what is the content of the
+list <code>states</code>?<pre>
+states = [&quot;Alaska&quot;, &quot;Hawaii&quot;, &quot;Florida&quot;, &quot;Maine&quot;, &quot;Ohio&quot;, &quot;Florida&quot;]
+states.pop()
+</pre><ol class="multiple-choice"><li><code>[&quot;Alaska&quot;, &quot;Hawaii&quot;, &quot;Florida&quot;, &quot;Maine&quot;, &quot;Ohio&quot;,
+&quot;Florida&quot;]</code></li><li><code>[&quot;Hawaii&quot;, &quot;Florida&quot;, &quot;Maine&quot;, &quot;Ohio&quot;,
+&quot;Florida&quot;]</code></li><li class="correct"><code>[&quot;Alaska&quot;, &quot;Hawaii&quot;, &quot;Florida&quot;, &quot;Maine&quot;,
+&quot;Ohio&quot;]</code></li><li><code>[]</code></li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>Given the following code snippet, what are the contents of list states?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-1-ch06-30</dd></dl></li><li>Given the following code snippet, what are the contents of the
+list <code>states</code>?<pre>
+states = [&quot;Alaska&quot;, &quot;Hawaii&quot;, &quot;Florida&quot;, &quot;Maine&quot;, &quot;Ohio&quot;, &quot;Florida&quot;]
+states.remove(&quot;Florida&quot;)
+</pre><ol class="multiple-choice"><li class="correct"><code>[&quot;Alaska&quot;, &quot;Hawaii&quot;, &quot;Maine&quot;, &quot;Ohio&quot;,
+&quot;Florida&quot;]</code></li><li><code>[&quot;Hawaii&quot;, &quot;Hawaii&quot;, &quot;Maine&quot;, &quot;Ohio&quot;]</code></li><li><code>[&quot;Alaska&quot;, &quot;Hawaii&quot;, &quot;Florida&quot;, &quot;Maine&quot;,
+&quot;Ohio&quot;]</code></li><li><code>[&quot;Alaska&quot;, &quot;Hawaii&quot;, &quot;Florida&quot;, &quot;Maine&quot;, &quot;Ohio&quot;,
+&quot;Florida&quot;]</code></li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>Given the following code snippet, what are the contents of the list states?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-1-ch06-31</dd></dl></li><li>Given the following code snippet, what are the contents of the
+list <code>fullNames</code>?<pre>
+firstNames = [&quot;Joe&quot;, &quot;Jim&quot;, &quot;Betsy&quot;, &quot;Shelly&quot;]
+lastNames = states = [&quot;Jones&quot;, &quot;Patel&quot;, &quot;Hicks&quot;, &quot;Fisher&quot;]
+fullNames = firstNames + lastNames
+</pre><ol class="multiple-choice"><li><code>[&quot;Joe&quot;, &quot;Jones&quot;, &quot;Jim&quot;, &quot;Patel&quot;, &quot;Betsy&quot;, &quot;Hicks&quot;,
+&quot;Shelly&quot;, &quot;Fisher&quot;]</code></li><li><code>[&quot;Joe Jones&quot;, &quot;Jim Patel&quot;, &quot;Betsy Hicks&quot;, &quot;Shelly
+Fisher&quot;]</code></li><li class="correct"><code>[&quot;Joe&quot;, &quot;Jim&quot;, &quot;Betsy&quot;, &quot;Shelly&quot;, &quot;Jones&quot;, &quot;Patel&quot;,
+&quot;Hicks&quot;, &quot;Fisher&quot;]</code></li><li><code>[&quot;Joe&quot;, &quot;Jim&quot;, &quot;Betsy&quot;, &quot;Shelly&quot;]</code></li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>Given the following code snippet, what are the contents of the list fullNames?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-1-ch06-33</dd></dl></li><li>Given the following code snippet, what are the contents of the
+list <code>names</code>?<pre>
+firstNames = [&quot;Joe&quot;, &quot;Jim&quot;, &quot;Betsy&quot;, &quot;Shelly&quot;]
+names = firstNames * 2
+</pre><ol class="multiple-choice"><li class="correct"><code>[&quot;Joe&quot;, &quot;Jim&quot;, &quot;Betsy&quot;, &quot;Shelly&quot;, &quot;Joe&quot;, &quot;Jim&quot;, &quot;Betsy&quot;,
+&quot;Shelly&quot;]</code></li><li><code>[&quot;Joe&quot;, &quot;Joe&quot;, &quot;Jim&quot;, &quot;Jim&quot;, &quot;Betsy&quot;, &quot;Betsy&quot;, &quot;Shelly&quot;,
+&quot;Shelly&quot;]</code></li><li><code>[&quot;Joe&quot;, &quot;Jim&quot;, &quot;Betsy&quot;, &quot;Shelly&quot;, 2]</code></li><li><code>[&quot;Joe&quot;, &quot;Jim&quot;, &quot;Betsy&quot;, &quot;Shelly&quot;]</code></li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>Given the following code snippet, what are the contents of the list names?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-1-ch06-34</dd></dl></li><li>Which statement(s) allows us to initialize the list
+<code>numbers</code> with 10 elements all set to zero?<ol class="multiple-choice"><li><code>numbers = [0]</code></li><li><code>numbers[10] = 0</code></li><li class="correct"><code>numbers = [0] * 10</code></li><li><code>numbers[10] = [0] * 10</code></li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>Which statement(s) allows us to initialize the list numbers with 10 elements all set to zero?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-1-ch06-35</dd></dl></li><li>Given the following code snippet, what is printed?<pre>
+nums = [1, 2, 3, 4, 5]
+nums2 = [5, 4, 3, 2, 1]
+if nums == nums2 :
+   print(&quot;lists are equal&quot;)
+else :
+   print(&quot;lists are not equal&quot;)
+</pre><ol class="multiple-choice"><li><code>lists are equal</code></li><li class="correct"><code>lists are not equal</code></li><li><code>lists are equallists are not equal</code></li><li>an error occurs and nothing is printed</li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>Given the following code snippet, what is printed?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-1-ch06-36</dd></dl></li><li>What is the resulting value of this code snippet?<pre>
+sum([1, 2, 3, 4, 5])
+</pre><ol class="multiple-choice"><li><code>121</code></li><li><code>16</code></li><li class="correct"><code>15</code></li><li><code>14</code></li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>What is the resulting value of this code snippet?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-1-ch06-38</dd></dl></li><li>What is the resulting value of this code snippet?<pre>
+max([&quot;Roland&quot;, &quot;Kent&quot;, &quot;Ravi&quot;, &quot;Amy&quot;])
+</pre><ol class="multiple-choice"><li><code>Invalid Type Error</code></li><li class="correct"><code>&quot;Roland&quot;</code></li><li><code>&quot;Amy&quot;</code></li><li><code>&quot;Ravi&quot;</code></li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>What is the resulting value of this code snippet?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-1-ch06-39</dd></dl></li><li>What is the resulting content of the list after this code
+snippet?<pre>
+min([&quot;Roland&quot;, &quot;Kent&quot;, &quot;Ravi&quot;, &quot;Amy&quot;])
+</pre><ol class="multiple-choice"><li><code>Invalid Type Error</code></li><li><code>&quot;Roland&quot;</code></li><li class="correct"><code>&quot;Amy&quot;</code></li><li><code>&quot;Ravi&quot;</code></li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>What is the resulting content of this code snippet?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-1-ch06-40</dd></dl></li><li>What is the resulting content of the list <code>values</code>
+after this code snippet?<pre>
+values = [1991, 1875, 1980, 1965, 2000]
+values.sort()
+</pre><ol class="multiple-choice"><li><code>[1991, 1875, 1980, 1965, 2000]</code></li><li><code>[2000, 1991, 1980, 1965, 1875]</code></li><li><code>[2000, 1991, 1875, 1980, 1965]</code></li><li class="correct"><code>[1875, 1965, 1980, 1991, 2000]</code></li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>What is the resulting contents of the list values after this code snippet?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-1-ch06-41</dd></dl></li><li>What is the resulting content of the list <code>letters</code>
+after this code snippet?<pre>
+letters = list(&quot;abcdefg&quot;)
+</pre><ol class="multiple-choice"><li class="correct"><code>letters</code> contains a list with the contents:
+<code>[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;]</code></li><li><code>letters</code> contains a list with the contents:
+<code>[&quot;abcdefg&quot;]</code></li><li><code>Invalid Type Error</code></li><li><code>letters</code> contains a list with the contents:
+<code>(&quot;abcdefg&quot;)</code></li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>What is the resulting value of this code snippet?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-1-ch06-42</dd></dl></li><li>Which of the following code segments will result in
+<code>values</code> containing the list <code>[&quot;Hydrogen&quot;,
+&quot;Helium&quot;, &quot;Lithium&quot;]</code>?
+<ol class="multiple-choice"><li><pre>
+values = []
+values.append(&quot;Lithium&quot;)
+values.append(&quot;Helium&quot;)
+values.append(&quot;Hydrogen&quot;)
+</pre></li><li class="correct"><pre>
+values = []
+values.append(&quot;Hydrogen&quot;)
+values.append(&quot;Helium&quot;)
+values.append(&quot;Lithium&quot;)
+</pre></li><li><pre>
+values = [&quot;Hydrogen&quot;]
+values.append(&quot;Helium&quot;, &quot;Lithium&quot;)
+</pre></li><li><pre>
+values = []
+values.append([&quot;Hydrogen&quot;, &quot;Helium&quot;, &quot;Lithium&quot;])
+</pre></li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>Use append to construct the desired list</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-1-ch06-43</dd></dl></li><li>Which of the following code segments will result in
+<code>values</code> containing the list <code>[&quot;X&quot;, &quot;Y&quot;,
+&quot;Z&quot;]</code>?
+<ol class="multiple-choice"><li><pre>
+values = &quot;X&quot;
+values.insert(1, Y)
+values.insert(1, Z)
+</pre></li><li><pre>
+values = [&quot;X&quot;]
+values.insert(1, &quot;Y&quot;)
+values.insert(1, &quot;Z&quot;)
+</pre></li><li class="correct"><pre>
+values = [&quot;X&quot;]
+values.insert(1, &quot;Y&quot;)
+values.insert(2, &quot;Z&quot;)
+</pre></li><li><pre>
+values = []
+values.insert(0, &quot;X&quot;)
+values.insert(0, &quot;Y&quot;)
+values.insert(0, &quot;Z&quot;)
+</pre></li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>Use insert to construct the desired list</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-1-ch06-44</dd></dl></li><li>What is stored in <code>pos</code> when the following code
+segment executes?
+<pre>
+values = [&quot;J&quot;, &quot;Q&quot;, &quot;X&quot;, &quot;Z&quot;]
+pos = values.find(&quot;Y&quot;)
+</pre><ol class="multiple-choice"><li>-1</li><li>0</li><li>4</li><li class="correct">No value is stored because a runtime exception occurs</li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>Trace code that finds an element in a list</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-1-ch06-45</dd></dl></li><li>What is in <code>grades</code> after the follow code segment
+executes?
+<pre>
+grades = [&quot;A&quot;, &quot;B+&quot;, &quot;C&quot;, &quot;C+&quot;, &quot;C&quot;, &quot;B-&quot;]
+grades.remove(&quot;C&quot;)
+</pre><ol class="multiple-choice"><li><code>[&quot;A&quot;, &quot;B+&quot;, &quot;B-&quot;]</code></li><li><code>[&quot;A&quot;, &quot;B+&quot;, &quot;C+&quot;, &quot;B-&quot;]</code></li><li class="correct"><code>[&quot;A&quot;, &quot;B+&quot;, &quot;C+&quot;, &quot;C&quot;, &quot;B-&quot;]</code></li><li><code>[&quot;A&quot;, &quot;B+&quot;, &quot;&quot;, &quot;C+&quot;, &quot;C&quot;, &quot;B-&quot;]</code></li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>Trace code that removes an element form a list</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-1-ch06-46</dd></dl></li><li>What is displayed by the following code segment?
+<pre>
+values = [&quot;Q&quot;, &quot;W&quot;, &quot;E&quot;, &quot;R&quot;, &quot;T&quot;, &quot;Y&quot;]
+print(min(values))
+</pre><ol class="multiple-choice"><li>Q</li><li>W</li><li class="correct">E</li><li>R</li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>Trace code that calls the min function</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-1-ch06-48</dd></dl></li><li>What is output by the following code segment?
+<pre>
+x = list(&quot;QWERTY&quot;)
+print(x)
+</pre><ol class="multiple-choice"><li><code>Q</code></li><li><code>[&quot;Q&quot;]</code></li><li><code>[&quot;QWERTY&quot;]</code></li><li class="correct"><code>[&quot;Q&quot;, &quot;W&quot;, &quot;E&quot;, &quot;R&quot;, &quot;T&quot;, &quot;Y&quot;]</code></li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>Trace code that calls the list function</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-1-ch06-49</dd></dl></li><li>What is output by the following code segment?
+<pre>
+values = [&quot;Q&quot;, &quot;W&quot;, &quot;E&quot;, &quot;R&quot;, &quot;T&quot;, &quot;Y&quot;]
+print(values[2 : 4])
+</pre><ol class="multiple-choice"><li><code>[&quot;W&quot;, &quot;E&quot;]</code></li><li><code>[&quot;W&quot;, &quot;E&quot;, &quot;R&quot;]</code></li><li class="correct"><code>[&quot;E&quot;, &quot;R&quot;]</code></li><li><code>[&quot;E&quot;, &quot;R&quot;, &quot;T&quot;]</code></li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>Trace code that uses a slice</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-1-ch06-50</dd></dl></li><li>What is the value of <code>names</code> after the
+  following code segment has run?
+<pre>
+names = []
+names.append(&quot;Amy&quot;)
+names.append(&quot;Bob&quot;)
+names.append(&quot;Peg&quot;)
+names[0] = &quot;Cy&quot;
+names.insert(0, &quot;Ravi&quot;)
+</pre><ol class="multiple-choice"><li><code>['Ravi', 'Cy', 'Amy', 'Bob', 'Peg']</code></li><li><code>['Cy', 'Amy', 'Bob', 'Peg']</code></li><li class="correct"><code>['Ravi', 'Cy', 'Bob', 'Peg']</code></li><li><code>['Ravi', 'Amy', 'Bob', 'Peg']</code></li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>What is stored in a list after performing append and insert operations?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch06-24</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-2-ch06-24</dd></dl></li><li>What is the value of <code>names</code> after the
+  following code segment has run?
+<pre>
+names = []
+names.append(&quot;Amy&quot;)
+names.append(&quot;Bob&quot;)
+names.append(&quot;Peg&quot;)
+names[0] = &quot;Cy&quot;
+names.insert(0, &quot;Ravi&quot;)
+names.insert(4, &quot;Savannah&quot;)
+</pre><ol class="multiple-choice"><li class="correct"><code>['Ravi', 'Cy', 'Bob', 'Peg', 'Savannah']</code></li><li><code>['Ravi', 'Cy', 'Amy', 'Bob', 'Peg',
+'Savannah']</code></li><li><code>['Cy', 'Amy', 'Bob', 'Peg', 'Savannah']</code></li><li><code>IndexError: list assignment index out of
+range</code></li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>What is stored in a list after performing several append and insert operations?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch06-25</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-2-ch06-25</dd></dl></li><li>What is the value of the
+variable <code>indexValue</code> after the following code snippet runs?<pre>
+states = [&quot;Alaska&quot;, &quot;Hawaii&quot;, &quot;Florida&quot;, &quot;Maine&quot;, &quot;Ohio&quot;, &quot;Florida&quot;]
+indexValue = states.index(&quot;Pennsylvania&quot;)
+</pre><ol class="multiple-choice">
+<li><code>-1</code></li>
+<li><code>0</code></li>
+<li><code>6</code></li>
+<li class="correct">A <code>ValueError</code> exception is raised.</li>
+</ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>What value is computed by a code segment that invokes the index method?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch06-27</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-2-ch06-27</dd></dl></li><li>What is the value of <code>states</code> after the
+  following code segment has run?
+<pre>
+element = &quot;Ohio&quot;
+states = [&quot;Alaska&quot;, &quot;Hawaii&quot;, &quot;Florida&quot;, &quot;Maine&quot;, &quot;Ohio&quot;, &quot;Florida&quot;]
+states.remove(element)
+</pre><ol class="multiple-choice"><li><code>[&quot;Alaska&quot;, &quot;Hawaii&quot;, &quot;Florida&quot;, &quot;Maine&quot;]</code></li><li><code>[]</code></li><li><code>[&quot;Alaska&quot;, &quot;Hawaii&quot;, &quot;Florida&quot;, &quot;Maine&quot;, &quot;Ohio&quot;,
+&quot;Florida&quot;]</code></li><li class="correct"><code>[&quot;Alaska&quot;, &quot;Hawaii&quot;, &quot;Florida&quot;, &quot;Maine&quot;,
+&quot;Florida&quot;]</code></li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>What value is calculated by a code segment that invokes the remove method?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch06-32</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-2-ch06-32</dd></dl></li><li>Which statement correctly compares these two lists for
+equality?<pre>
+nums = [1, 2, 3, 4, 5]
+nums2 = [5, 4, 3, 2, 1]
+</pre><ol class="multiple-choice"><li class="correct"><code>if nums == nums2</code></li><li><code>if nums equals nums2</code></li><li><code>if nums in nums2</code></li><li>None of the above.  A loop is needed to compare each item individually.</li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>Which statement correctly compares two lists for equality?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch06-37</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-2-ch06-37</dd></dl></li><li>What is in <code>values</code> after the following code segment
+executes?
+<pre>
+values = [1, 2, 3]
+values = values * 4
+</pre><ol class="multiple-choice">
+<li><code>[4, 8, 12]</code></li>
+<li><code>[1, 2, 3, 4]</code></li>
+<li class="correct"><code>[1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3]</code></li>
+<li>Nothing because a runtime error occurs</li></ol><dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>Trace code that attempts to multiply a list by an integer</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch06-47</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-2-ch06-47</dd></dl></li><li>
+  Consider the following code segment:
+
+  <pre>
+  x = [5, 3, 7]
+  y = sorted(x)
+  print(x)
+  </pre>
+
+  What is displayed when it executes?
+
+  <ol class="multiple-choice">
+    <li><code>[]</code></li>
+    <li><code>[3, 5, 7]</code></li>
+    <li class="correct"><code>[5, 3, 7]</code></li>
+    <li><code>[7, 5, 3]</code></li>
+  </ol>
+<dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>What output is generated by a code segment involving lists?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-2-ch06-88</dd></dl></li><li>
+  Consider the following code segment:
+
+  <pre>
+  x = [5, 3, 7]
+  y = x.pop()
+  print(y)
+  </pre>
+
+  What is displayed when it executes?
+
+  <ol class="multiple-choice">
+    <li><code>5</code></li>
+    <li class="correct"><code>7</code></li>
+    <li><code>[3, 7]</code></li>
+    <li><code>[5, 3]</code></li>
+  </ol>
+<dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>What output is generated by a code segment involving lists?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-2-ch06-89</dd></dl></li><li>
+  Consider the following code segment:
+
+  <pre>
+  x = [5, 3, 7, 9, 1]
+  y = x[2 : 4]
+  print(y)
+  </pre>
+
+  What is displayed when it executes?
+
+  <ol class="multiple-choice">
+    <li><code>[3, 7]</code></li>
+    <li class="correct"><code>[7, 9]</code></li>
+    <li><code>[3, 7, 9]</code></li>
+    <li><code>[7, 9, 1]</code></li>
+  </ol>
+<dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>What output is generated by a code segment involving a slice?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-2-ch06-90</dd></dl></li><li>
+  Consider the following code segment:
+
+  <pre>
+  x = [5, 3, 7, 9, 1]
+  y = x[3 : ]
+  print(y)
+  </pre>
+
+  What is displayed when it executes?
+
+  <ol class="multiple-choice">
+    <li><code>[9]</code></li>
+    <li class="correct"><code>[9, 1]</code></li>
+    <li><code>[3, 7, 9, 1]</code></li>
+    <li><code>[5, 3, 7, 9]</code></li>
+  </ol>
+<dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>What output is generated by a code segment involving a slice?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-2-ch06-91</dd></dl></li><li>
+  Consider the following code segment:
+
+  <pre>
+  x = [5, 3, 7, 9, 1]
+  y = x[ : 2]
+  print(y)
+  </pre>
+
+  What is displayed when it executes?
+
+  <ol class="multiple-choice">
+    <li><code>7</code></li>
+    <li><code>[7]</code></li>
+    <li class="correct"><code>[5, 3]</code></li>
+    <li><code>[5, 3, 7]</code></li>
+  </ol>
+<dl><dt>Section</dt><dd>6.2 List Operations</dd><dt>Title</dt><dd>What output is generated by a code segment involving a slice?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.2 List Operations</dd><dt>id</dt><dd>testbank-py-2-ch06-92</dd></dl></li><li>What is the resulting contents of the list <code>values</code>
+in this code snippet?<pre>
+values = []
+for i in range(10) :
+   values.append(i)
+</pre><ol class="multiple-choice"><li class="correct"><code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code></li><li><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</code></li><li><code>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</code></li><li><code>[1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0,
+10.0]</code></li></ol><dl><dt>Section</dt><dd>6.3 Common List Algorithms</dd><dt>Title</dt><dd>What is the resulting contents of the list values in this code snippet?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.3 Common List Algorithms</dd><dt>id</dt><dd>testbank-py-1-ch06-51</dd></dl></li><li>What is the resulting value of the variable
+<code>sentence</code> in this code snippet?<pre>
+words = [&quot;Mary&quot;, &quot;had&quot;, &quot;a&quot;, &quot;little&quot;, &quot;lamb&quot;]
+sentence = &quot;&quot;
+for word in words :
+   sentence = sentence + word
+</pre><ol class="multiple-choice"><li><code>Mary had a little lamb</code></li><li class="correct"><code>Maryhadalittlelamb</code></li><li><code>&quot;Mary had a little lamb&quot;</code></li><li><code>Mary, had, a, little, lamb</code></li></ol><dl><dt>Section</dt><dd>6.3 Common List Algorithms</dd><dt>Title</dt><dd>What is the resulting value of the variable sentence in this code snippet?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.3 Common List Algorithms</dd><dt>id</dt><dd>testbank-py-1-ch06-52</dd></dl></li><li>What is the resulting value of the variable
+<code>sentence</code> in this code snippet?<pre>
+words = [&quot;Mary&quot;, &quot;had&quot;, &quot;a&quot;, &quot;little&quot;, &quot;lamb&quot;]
+sentence = str(words)
+</pre><ol class="multiple-choice"><li><code>Mary had a little lamb</code></li><li><code>Maryhadalittlelamb</code></li><li class="correct"><code>['Mary', 'had', 'a', 'little', 'lamb']</code></li><li><code>Mary, had, a, little, lamb</code></li></ol><dl><dt>Section</dt><dd>6.3 Common List Algorithms</dd><dt>Title</dt><dd>What is the resulting value of the variable sentence in this code snippet?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.3 Common List Algorithms</dd><dt>id</dt><dd>testbank-py-1-ch06-53</dd></dl></li><li>What is missing from this code snippet to find the largest
+value in the list?<pre>
+largest = values[0]
+for i in range(1, len(values)) :
+   if values[i] &gt; largest :
+      ____________________
+</pre><ol class="multiple-choice"><li><code>i = i + 1</code></li><li class="correct"><code>largest = values[i]</code></li><li><code>largest = values[0]</code></li><li><code>largest = values[i-1]</code></li></ol><dl><dt>Section</dt><dd>6.3 Common List Algorithms</dd><dt>Title</dt><dd>What is missing from this code snippet to find the largest value in the list?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.3 Common List Algorithms</dd><dt>id</dt><dd>testbank-py-1-ch06-54</dd></dl></li><li>What code completes this code snippet to swap the first and
+last element in the list?<pre>
+states = [&quot;Alaska&quot;, &quot;Hawaii&quot;, &quot;Florida&quot;, &quot;Maine&quot;]
+i = 0
+________________________
+temp = states[j]
+states[j] = states[0]
+states[i] = temp
+</pre><ol class="multiple-choice"><li><code>j = len(states)</code></li><li class="correct"><code>j = len(states) - 1</code></li><li><code>j = len(states) + 1</code></li><li><code>j = 0</code></li></ol><dl><dt>Section</dt><dd>6.3 Common List Algorithms</dd><dt>Title</dt><dd>What code completes this code snippet to swap the first and last element in the list?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.3 Common List Algorithms</dd><dt>id</dt><dd>testbank-py-1-ch06-59</dd></dl></li><li>The following code segment is supposed to display all of the
+elements in a list with dashes between them. For example, if
+<code>values</code> contains <code>[1, 2, 3, 4, 5]</code> then the
+program should display <code>1-2-3-4-5</code>.
+<pre>
+result = &quot;&quot;
+for i in range(len(values) :
+   if i &gt; 0 :
+      _____________________
+   result = result + str(values[i])
+
+print(result)
+</pre>
+What line of code should be placed in the blank to achieve this
+goal?
+<ol class="multiple-choice"><li><code>print(&quot;-&quot;)</code></li><li><code>result = &quot;-&quot;</code></li><li><code>values[i] = &quot;-&quot;</code></li><li class="correct"><code>result = result + &quot;-&quot;</code></li></ol><dl><dt>Section</dt><dd>6.3 Common List Algorithms</dd><dt>Title</dt><dd>Complete the code segment for displaying a list</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.3 Common List Algorithms</dd><dt>id</dt><dd>testbank-py-1-ch06-60</dd></dl></li><li>Consider the following code segment:
+<pre>
+x = values[0]
+for i in range(1, len(values)) :
+   if values[i] &gt; x :
+      x = values[i]
+</pre>
+Which of the following statements assigns the same value to
+<code>x</code> as the code segment above?
+<ol class="multiple-choice"><li class="correct"><code>x = max(values)</code></li><li><code>x = min(values)</code></li><li><code>x = sum(values)</code></li><li><code>x = sorted(values)</code></li></ol><dl><dt>Section</dt><dd>6.3 Common List Algorithms</dd><dt>Title</dt><dd>Which line of code is equivalent to this code segment?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.3 Common List Algorithms</dd><dt>id</dt><dd>testbank-py-1-ch06-61</dd></dl></li><li>The following code segment is supposed to count the number of
+times that the number 5 appears in the list <code>values</code>.
+<pre>
+counter = 0
+____________________
+   if (element == 5) :
+      counter = counter + 1
+</pre>
+What line of code should be placed in the blank in order to achieve
+this goal?
+<ol class="multiple-choice"><li><code>for counter in element :</code></li><li><code>for counter in values :</code></li><li><code>for element in counter :</code></li><li class="correct"><code>for element in values :</code></li></ol><dl><dt>Section</dt><dd>6.3 Common List Algorithms</dd><dt>Title</dt><dd>Complete the code segment for counting the number of occurrences of a value in a list</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.3 Common List Algorithms</dd><dt>id</dt><dd>testbank-py-1-ch06-62</dd></dl></li><li>What does the following code segment do?
+<pre>
+i = 0
+while i &lt; len(values) :
+   if values[i] &gt;= 4 and values[i] &lt;= 6 :
+      values.pop(i)
+   else :
+      i = i + 1
+</pre><ol class="multiple-choice"><li>It removes all 5 from <code>values</code></li><li class="correct">It removes all 4s, 5s and 6s from <code>values</code></li><li>It removes the element at position 5 from
+<code>values</code></li><li>It removes the elements at positions 4, 5 and 6 from
+<code>values</code></li></ol><dl><dt>Section</dt><dd>6.3 Common List Algorithms</dd><dt>Title</dt><dd>What does this code segment involving lists do?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.3 Common List Algorithms</dd><dt>id</dt><dd>testbank-py-1-ch06-63</dd></dl></li><li>Which code segment swaps the elements at position 0 and
+position 2 within the <code>values</code> list?
+<ol class="multiple-choice"><li><pre>
+values[0] = values[2]
+</pre></li><li><pre>
+values[0] = values[2]
+values[2] = values[0]
+</pre></li><li><pre>
+values[0] = temp
+values[0] = values[2]
+temp = values[2]
+</pre></li><li class="correct"><pre>
+temp = values[2]
+values[2] = values[0]
+values[0] = temp
+</pre></li></ol><dl><dt>Section</dt><dd>6.3 Common List Algorithms</dd><dt>Title</dt><dd>Which code segment swap two elements in a list?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.3 Common List Algorithms</dd><dt>id</dt><dd>testbank-py-1-ch06-64</dd></dl></li><li>The following code segment is supposed to read all of the
+integers entered by the user until a blank line is entered and
+store them in <code>values</code>.
+<pre>
+values = []
+inputStr = input(&quot;Enter a value (blank line to quit): &quot;)
+____________________
+   values.append(int(inputStr))
+   inputStr = input(&quot;Enter a value (blank line to quit): &quot;)
+</pre>
+What line of code should be placed in the blank to achieve this
+goal?
+<ol class="multiple-choice"><li><code>for ch in inputStr :</code></li><li><code>for values in inputStr :</code></li><li class="correct"><code>while inputStr != &quot;&quot; :</code></li><li><code>while inputStr in values :</code></li></ol><dl><dt>Section</dt><dd>6.3 Common List Algorithms</dd><dt>Title</dt><dd>Complete the code segment for reading a list of values from the user</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.3 Common List Algorithms</dd><dt>id</dt><dd>testbank-py-1-ch06-65</dd></dl></li><li>What is missing from this code snippet to find the longest
+value in the list?<pre>
+colors = [&quot;red&quot;, &quot;purple&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;yellow&quot;, &quot;light green&quot;]
+longest = colors[0]
+for i in range(1, len(colors)) :
+   _____________________
+      longest = colors[i]
+</pre><ol class="multiple-choice"><li><code>if colors[i] &gt; longest :</code></li><li><code>if len(colors[i]) &gt; longest</code> :</li><li class="correct"><code>if len(colors[i]) &gt; len(longest) :</code></li><li><code>if colors[i] &gt; len(longest) :</code></li></ol><dl><dt>Section</dt><dd>6.3 Common List Algorithms</dd><dt>Title</dt><dd>What is missing from this code snippet to find the longest value in the list?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch06-55</dd><dt>section</dt><dd>6.3 Common List Algorithms</dd><dt>id</dt><dd>testbank-py-2-ch06-55</dd></dl></li><li>What type of search inspects every element sequentially?<ol class="multiple-choice">
+    <li>binary search</li>
+    <li class="correct">linear search</li>
+    <li>simple search</li>
+    <li>recursive search</li></ol><dl><dt>Section</dt><dd>6.3 Common List Algorithms</dd><dt>Title</dt><dd>When type of search inspects every element sequentially?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch06-56</dd><dt>section</dt><dd>6.3 Common List Algorithms</dd><dt>id</dt><dd>testbank-py-2-ch06-56</dd></dl></li><li>What is printed by the following code snippet?<pre>
+words = [&quot;Today&quot;, &quot;is&quot;, &quot;Wednesday&quot;, &quot;tomorrow&quot;, &quot;is&quot;, &quot;Thursday&quot;]
+for i in range(len(words)) :
+  word = words[i]
+  if len(word) &lt; 8 :
+     words.pop(i)
+print(words)      
+</pre><ol class="multiple-choice">
+<li class="correct">Nothing, this code snippet causes an <code>IndexError: list
+  index out of range</code> error.</li>
+<li><code>[&quot;Today&quot;, &quot;is&quot;, &quot;Wednesday&quot;, &quot;tomorrow&quot;, &quot;is&quot;,
+&quot;Thursday&quot;]</code></li><li><code>[&quot;Wednesday&quot;, &quot;tomorrow&quot;, &quot;Thursday&quot;]</code></li><li><code>[&quot;Today&quot;, &quot;is&quot;, &quot;is&quot;]</code></li></ol><dl><dt>Section</dt><dd>6.3 Common List Algorithms</dd><dt>Title</dt><dd>What is printed by a code snippet that includes lists, loops and the pop method?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch06-57</dd><dt>section</dt><dd>6.3 Common List Algorithms</dd><dt>id</dt><dd>testbank-py-2-ch06-57</dd></dl></li><li>What is printed by the following code snippet?<pre>
+words = [&quot;Today&quot;, &quot;is&quot;, &quot;Wednesday&quot;, &quot;tomorrow&quot;, &quot;is&quot;, &quot;Thursday&quot;]
+i = 0
+while i &lt; (len(words)) :
+   word = words[i]
+   if len(word) &lt; 8 :
+      words.pop(i)
+   else :
+      i = i  + 1
+print(words)    
+</pre><ol class="multiple-choice"><li>Nothing, this code snippet causes an <code>IndexError: list
+index out of range</code> error.</li><li><code>[&quot;Today&quot;, &quot;is&quot;, &quot;Wednesday&quot;, &quot;tomorrow&quot;, &quot;is&quot;,
+&quot;Thursday&quot;]</code></li><li class="correct"><code>[&quot;Wednesday&quot;, &quot;tomorrow&quot;, &quot;Thursday&quot;]</code></li><li><code>[&quot;Today&quot;, &quot;is&quot;, &quot;is&quot;]</code></li></ol><dl><dt>Section</dt><dd>6.3 Common List Algorithms</dd><dt>Title</dt><dd>What is printed by a code snippet that includes lists, loops and the pop method?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch06-58</dd><dt>section</dt><dd>6.3 Common List Algorithms</dd><dt>id</dt><dd>testbank-py-2-ch06-58</dd></dl></li><li>Which of the following statements is NOT true about functions
+and lists:<ol class="multiple-choice"><li>a function can return a list</li><li>a function can be called with a list as an argument</li><li class="correct">when calling a function with a list argument, the function
+receives a copy of the list</li><li>when calling a function with a list argument, the function
+receives a reference to the list not a copy of the list</li></ol><dl><dt>Section</dt><dd>6.4 Using Lists with Functions</dd><dt>Title</dt><dd>Which of the following statements is NOT true about functions and lists:</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.4 Using Lists with Functions</dd><dt>id</dt><dd>testbank-py-1-ch06-66</dd></dl></li><li>The following function is supposed to add 1 to every element in
+a list of integers.
+<pre>
+def addOne(values) :
+   for i in range(len(values)) :
+      values[i] = values[i] + 1
+</pre>
+What is wrong with the following function?
+<ol class="multiple-choice"><li>The statement <code>print(values)</code> must be added to the
+end of the function.</li><li>The statement <code>return values</code> must be added to the
+end of the function.</li><li>The for loop must be replaced with a while loop.</li><li class="correct">There is nothing wrong with the function. It works as
+intended.</li></ol><dl><dt>Section</dt><dd>6.4 Using Lists with Functions</dd><dt>Title</dt><dd>Identify the error in a function that adds 1 to every element in a list of integers</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.4 Using Lists with Functions</dd><dt>id</dt><dd>testbank-py-1-ch06-67</dd></dl></li><li>Given a list containing prices, how do you find the highest
+priced item and remove it from the list:<ol class="multiple-choice"><li>find the minimum, remove it from the list</li><li class="correct">find the maximum, remove it from the list</li><li>find the maximum, create a second list without this value</li><li>find the minimum, create a second list without this value</li></ol><dl><dt>Section</dt><dd>6.5 Problem Solving: Adapting Algorithms</dd><dt>Title</dt><dd>Given a list containing prices, how do you find the highest priced item and remove it from the list:</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.5 Problem Solving: Adapting Algorithms</dd><dt>id</dt><dd>testbank-py-1-ch06-68</dd></dl></li><li>What does the following code segment do?
+<pre>
+x = 0
+for i in range(1, len(values)) :
+   if values[i] &gt; values[x] :
+      x = i
+</pre><ol class="multiple-choice"><li>It finds the largest item in <code>values</code> and stores it
+in <code>x</code></li><li class="correct">It finds the position of the largest item in
+<code>values</code> and stores the position in <code>x</code></li><li>It finds the smallest item in <code>values</code> and stores it
+in <code>x</code></li><li>It finds the position of the smallest item in
+<code>values</code> and stores it in <code>x</code></li></ol><dl><dt>Section</dt><dd>6.5 Problem Solving: Adapting Algorithms</dd><dt>Title</dt><dd>What does this code segment involving lists do?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.5 Problem Solving: Adapting Algorithms</dd><dt>id</dt><dd>testbank-py-1-ch06-69</dd></dl></li><li>What does the following code segment do?
+<pre>
+x = 0
+for i in range(1, len(values)) :
+   if values[i] &lt; values[x] :
+      x = i
+</pre><ol class="multiple-choice">
+<li>It finds the largest item in <code>values</code> and stores it
+in x</li>
+<li>It finds the position of the largest item in
+<code>values</code> and stores it in x</li>
+<li>It finds the smallest item in <code>values</code> and stores it
+in x</li>
+<li class="correct">It finds the position of the smallest item in
+<code>values</code> and stores it in x</li></ol><dl><dt>Section</dt><dd>6.5 Problem Solving: Adapting Algorithms</dd><dt>Title</dt><dd>What does this code segment involving lists do?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch06-76</dd><dt>section</dt><dd>6.5 Problem Solving: Adapting Algorithms</dd><dt>id</dt><dd>testbank-py-2-ch06-76</dd></dl></li><li>
+  What library is used to read and write sound files?
+
+  <ol class="multiple-choice">
+    <li><code>scipy.file.sound</code></li>
+    <li><code>scipy.file.wavfile</code></li>
+    <li><code>scipy.io.sound</code></li>
+    <li class="correct"><code>scipy.io.wavfile</code></li>
+  </ol>
+<dl><dt>Section</dt><dd>6.5 Problem Solving: Adapting Algorithms</dd><dt>Title</dt><dd>What library is used to read and write sound files?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.5 Problem Solving: Adapting Algorithms</dd><dt>id</dt><dd>testbank-py-2-ch06-85</dd></dl></li><li>
+  What is stored in <code>contents</code> when a sound file is read by the <code>scipy</code> library using the following statement?
+
+  <pre>
+  contents = scipy.io.wavfile.read(&quot;meow.wav&quot;)
+  </pre>
+
+  <ol class="multiple-choice">
+    <li>A list of integers</li>
+    <li>A numPy array</li>
+    <li class="correct">A tuple containing the sample rate and a NumPy array</li>
+    <li>A tuple containing the sample rate and a list of integers</li>
+  </ol>
+<dl><dt>Section</dt><dd>6.5 Problem Solving: Adapting Algorithms</dd><dt>Title</dt><dd>What is returned when a sound file is read by the scipy library?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.5 Problem Solving: Adapting Algorithms</dd><dt>id</dt><dd>testbank-py-2-ch06-86</dd></dl></li><li>Which of the following items would not be a good object to use
+while solving algorithms such as swapping the first half of a list
+with the second half:<ol class="multiple-choice"><li>deck of cards</li><li>dice</li><li>coins</li><li class="correct">toothpicks</li></ol><dl><dt>Section</dt><dd>6.6 Problem Solving: Discovering Algorithms Manipulating Physical Objects</dd><dt>Title</dt><dd>Which of the following items would not be a good object to use while solving algorithms:</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.6 Problem Solving: Discovering Algorithms by Manipulating Physical Objects</dd><dt>id</dt><dd>testbank-py-1-ch06-71</dd></dl></li><li>What is the purpose of the following pseudocode:<pre class="pseudo">
+i = 0
+j = length / 2
+While i &lt; length / 2
+   #  Swap elements at positions i and j
+   temp = a[i]
+   a[i] = a[j]
+   a[j] = temp
+
+   i = i + 1
+   j = j + 1
+</pre><ol class="multiple-choice"><li class="correct">flip the first half of a list with the second half</li><li>sort the list from smallest to largest</li><li>sort the list from largest to smallest</li><li>reverse the entire list</li></ol><dl><dt>Section</dt><dd>6.6 Problem Solving: Discovering Algorithms Manipulating Physical Objects</dd><dt>Title</dt><dd>What is the purpose of some pseudocode?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch06-70</dd><dt>section</dt><dd>6.6 Problem Solving: Discovering Algorithms by Manipulating Physical Objects</dd><dt>id</dt><dd>testbank-py-2-ch06-70</dd></dl></li><li>What does the following code segment do?
+<pre>
+x = []
+for i in range(5) :
+   x.append([])
+   for j in range(3) :
+      x[i].append(0)
+</pre><ol class="multiple-choice"><li class="correct">It creates a table with 3 columns and 5 rows and stores it in
+<code>x</code>.</li><li>It creates a table with 5 columns and 3 rows and stores it in
+<code>x</code>.</li><li>It creates a list of 15 elements and stores it in
+<code>x</code>.</li><li>It creates an empty list and stores it in <code>x</code>.</li></ol><dl><dt>Section</dt><dd>6.7 Tables</dd><dt>Title</dt><dd>What does this code segment involving lists do?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.7 Tables</dd><dt>id</dt><dd>testbank-py-1-ch06-77</dd></dl></li><li>What output is generated by the following code segment?
+<pre>
+table = [[&quot;T&quot;, &quot;U&quot;, &quot;V&quot;], [&quot;W&quot;, &quot;X&quot;, &quot;Y&quot;]]
+print(table[0])
+</pre><ol class="multiple-choice"><li><code>T</code></li><li><code>[&quot;T&quot;, &quot;W&quot;]</code></li><li class="correct"><code>[&quot;T&quot;, &quot;U&quot;, &quot;V&quot;]</code></li><li><code>[[&quot;T&quot;, &quot;U&quot;, &quot;V&quot;], [&quot;W&quot;, &quot;X&quot;, &quot;Y&quot;]]</code></li></ol><dl><dt>Section</dt><dd>6.7 Tables</dd><dt>Title</dt><dd>Trace the output for a code segment involving a table</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.7 Tables</dd><dt>id</dt><dd>testbank-py-1-ch06-78</dd></dl></li><li>What output is generated by the following code segment?
+<pre>
+table = [[&quot;T&quot;, &quot;U&quot;, &quot;V&quot;], [&quot;W&quot;, &quot;X&quot;, &quot;Y&quot;]]
+print(table[1][1])
+</pre><ol class="multiple-choice"><li><code>T</code></li><li><code>U</code></li><li><code>W</code></li><li class="correct"><code>X</code></li></ol><dl><dt>Section</dt><dd>6.7 Tables</dd><dt>Title</dt><dd>Trace the output for a code segment involving a table</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.7 Tables</dd><dt>id</dt><dd>testbank-py-1-ch06-79</dd></dl></li><li>Consider the following table:
+<pre>
+table = [[&quot;T&quot;, &quot;U&quot;, &quot;V&quot;], [&quot;W&quot;, &quot;X&quot;, &quot;Y&quot;]]
+</pre>
+Which statement will display <code>Y</code>?
+<ol class="multiple-choice"><li class="correct"><code>print(table[len(table) - 1][len(table[1]) -
+1])</code></li><li><code>print(table[len(table) - 1][len(table[1])])</code></li><li><code>print(table[len(table)][len(table[1])] - 1)</code></li><li><code>print(table[len(table)][len(table[1])])</code></li></ol><dl><dt>Section</dt><dd>6.7 Tables</dd><dt>Title</dt><dd>Which statement involving tables will display the letter Y?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.7 Tables</dd><dt>id</dt><dd>testbank-py-1-ch06-80</dd></dl></li><li>Which of the following statements best represents a deck of
+  cards?<ol class="multiple-choice">
+    <li><pre>suits = [&quot;Hearts&quot;, &quot;Spades&quot;, &quot;Diamonds&quot;, &quot;Clubs&quot;]
+faceValues = [&quot;Ace&quot;, 2, 3, 4, 5, 6, 7, 8, 9, 10, &quot;Jack&quot;, &quot;Queen&quot;, &quot;King&quot;]</pre></li>
+  <li><pre>
+suits = [&quot;Hearts&quot;, &quot;Spades&quot;, &quot;Diamonds&quot;, &quot;Clubs]
+faceValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+</pre></li>
+<li class="correct"><pre>
+cards = [[&quot;Ace of Hearts&quot;, &quot;Ace of Spades&quot;, &quot;Ace of Diamonds&quot;, &quot;Ace of Clubs&quot;],
+         [&quot;2 of Hearts&quot;, &quot;2 of Spades&quot;, &quot;2 of Diamonds&quot;, &quot;2 of Clubs&quot;], etc.]
+</pre></li>
+<li><pre>
+suits = [&quot;Hearts&quot;, &quot;Spades&quot;, &quot;Diamonds&quot;, &quot;Clubs]
+faceValues = [2, 3, 4, 5, 6, 7, 8, 9, 10]
+faceValues2 = [&quot;Ace&quot;, &quot;Jack&quot;, &quot;Queen&quot;, &quot;King&quot;]
+</pre></li></ol><dl><dt>Section</dt><dd>6.7 Tables</dd><dt>Title</dt><dd>Which of the following statements best represents a deck of cards?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch06-72</dd><dt>section</dt><dd>6.7 Tables</dd><dt>id</dt><dd>testbank-py-2-ch06-72</dd></dl></li><li>What is printed from the following code snippet?<pre>
+prices = [[ 1.0, 3.50, 7.50 ],
+   [ 10.0, 30.50, 70.50 ],
+   [ 100.0, 300.50, 700.50 ],
+   [ 1000.0, 3000.50, 7000.50 ]]
+print(prices[1][2])     
+</pre><ol class="multiple-choice"><li><code>30.5</code></li><li class="correct"><code>70.5</code></li><li><code>700.5</code></li><li><code>10.0</code></li></ol><dl><dt>Section</dt><dd>6.7 Tables</dd><dt>Title</dt><dd>What is printed by a code snippet involving a table?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch06-73</dd><dt>section</dt><dd>6.7 Tables</dd><dt>id</dt><dd>testbank-py-2-ch06-73</dd></dl></li><li>Given the list <code>values = [0, 0, 0, 0, 0, 0, 0, 0, 0,
+0]</code>, which statement fills the list with these numbers:<pre>
+1 4 9 16 25 36 49 64 81 100
+</pre><ol class="multiple-choice"><li class="correct"><pre>
+for i in range(10) : 
+   values[i] = (i + 1) * (i + 1)
+</pre></li><li><pre>
+for i in range(10) : 
+   values[i] = i * i
+</pre></li><li><pre>
+for i in range(0, 10) : 
+   values[i] = i + i
+</pre></li><li><pre>
+for i in range(1, 10) : 
+   values[i] = (i + 1) * (i + 1)
+</pre></li></ol><dl><dt>Section</dt><dd>6.7 Tables</dd><dt>Title</dt><dd>Which statement stores 10 numbers into an existing list?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch06-75</dd><dt>section</dt><dd>6.7 Tables</dd><dt>id</dt><dd>testbank-py-2-ch06-75</dd></dl></li><li>What list is stored in <code>x</code> after this code
+  segment has run?
+<pre>
+x = []
+for i in range(3) :
+   x.append([])
+   for j in range(i) :
+      x[j].append(0)
+</pre><ol class="multiple-choice">
+  <li class="correct"><code>[[0, 0], [0], []]</code></li>
+  <li><code>[[0, 0], [0, 0], []]</code></li>
+  <li><code>[[0, 0], [0, 0], [0, 0]]</code></li>
+<li><code>[[0, 0, 0], [0, 0, 0], [0, 0, 0]]</code></li></ol><dl><dt>Section</dt><dd>6.7 Tables</dd><dt>Title</dt><dd>What does this code segment involving lists do?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch06-81</dd><dt>section</dt><dd>6.7 Tables</dd><dt>id</dt><dd>testbank-py-2-ch06-81</dd></dl></li><li>
+  How many values does a stereo sound file have for each sample?
+
+  <ol class="multiple-choice">
+    <li>1</li>
+    <li class="correct">2</li>
+    <li>16</li>
+    <li>44,100</li>
+  </ol>
+<dl><dt>Section</dt><dd>6.7 Tables</dd><dt>Title</dt><dd>How many values does a stereo sound file have for each sample?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.7 Tables</dd><dt>id</dt><dd>testbank-py-3-ch6-93</dd></dl></li><li>
+  What is returned when <code>scipi.io.wavfile.read</code> is called?
+
+  <ol class="multiple-choice">
+    <li>A list of integer values</li>
+    <li>A numpy array of integer values</li>
+    <li class="correct">A tuple containing the sample rate and the sound data</li>
+    <li>The sample rate for the sound file</li>
+  </ol>
+<dl><dt>Section</dt><dd>6.7 Tables</dd><dt>Title</dt><dd>What is returned when scipi.io.wavfile.read is called?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>6.7 Tables</dd><dt>id</dt><dd>testbank-py-3-ch6-94</dd></dl></li></ol></body>
+    </html>

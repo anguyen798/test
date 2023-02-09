@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="generator" content="HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+    <title>Chapter 3, Python for Everyone, 2e</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="font-size-adjustment" content="-1" />
+    <meta name="copyright"
+          content="Copyright &#169; 2015 Wiley" />
+    <link rel="stylesheet" href="styles/slidy.css" type="text/css" />
+    <link rel="stylesheet" href="styles/horstmann.css" type="text/css" />
+</head>
+<body>
+    <div class="background">
+        <div class="slide ppLayoutCustom">
+    <div><p class="title" >Chapter Three</p><br />
+</div>
+<div><p class="subtitle" ><span class="fontColorClass1">Part One: Decisions, Relational Operators</span></p><br />
+</div>
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Chapter Goals</p><br />
+</div>
+<div><ul><li>To implement decisions using the if statement
+</li><li>To compare integers, floating-point numbers, and strings
+</li><li>To write statements using the Boolean data type
+</li><li>To develop strategies for testing your programs
+</li><li>To validate user input
+</li></ul></div>
+<div><p><strong>In this chapter, you will learn how to program simple and complex decisions. You will apply what you learn to the task of checking user input.</strong>
+</p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Contents</p><br />
+</div>
+<div><ul><li>The <code>if</code> Statement
+</li><li>Relational Operators
+</li><li>Nested Branches
+</li><li>Multiple Alternatives
+</li><li>Problem Solving: Flowcharts
+</li><li>Problem Solving: Test Cases
+</li><li>Boolean Variables and Operators
+</li><li>Analyzing Strings
+</li><li>Application:  Input Validation
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The <code>if</code> Statement</p><br />
+</div>
+<div><ul><li>A computer program often needs to make decisions based on input, or circumstances
+</li><li>For example, buildings often 'skip' the 13th floor, and elevators should too
+<ul><li>The 14th floor is really the 13th floor
+</li><li>So every floor above 12 is really 'floor - 1'
+<ul><li>If floor > 12, Actual floor = floor - 1
+</li></ul></li><li>The two keywords of the if statement are:
+<ul><li><code>if
+</code> and <code>else
+</code></li></ul><p class="object" >
+</p>
+<p class="object" >
+</p>
+<ul></ul></li></ul><p class="object" >
+</p>
+<ul></ul></li></ul><ul></ul></div>
+<div><p><strong>The if statement allows a program to carry out different actions depending on the nature of the data to be processed.
+</strong></p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Flowchart of the <code>if</code> Statement</p><br />
+</div>
+<div><ul><li>One of the two branches is executed once
+<ul><li>True (<code>if</code>) branch &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;False (<code>else</code>) branch</li></ul></li></ul><ul></ul></div>
+<div style="float:left;width:50%;"><img src='images/slide5-Picture8.png' /></div>
+<div style="float:left;width:25%;"><img src='images/slide5-Picture1.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Flowchart with only a True Branch</p><br />
+</div>
+<div><ul><li>An <code>if</code> statement may not need a 'false' (<code>else</code>) branch
+</li></ul><ul></ul></div>
+<div><img src='images/slide6-Picture1.png' /></div>
+<div style="position:absolute;top:30%;left:50%;"><img src='images/slide6-Picture1-0.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Syntax 3.1: The <code>if</code> Statement</p><br />
+</div>
+<div><img src='images/slide7-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Elevatorsim.py</p><br />
+</div>
+<div><pre>##
+#  This program simulates an elevator panel that skips the 13th floor.
+#
+
+# Obtain the floor number from the user as an integer.
+floor = int(input("Floor: "))
+
+# Adjust floor if necessary.
+if floor > 13 :
+   actualFloor = floor - 1
+else :
+   actualFloor = floor
+
+# Print the result.
+print("The elevator will travel to the actual floor ", actualFloor)
+</pre></div>
+<div><ul><li>Program Run
+</li></ul><p>Floor: 20
+</p><p>The elevator will travel to the actual floor 19
+</p>
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Our First Example</p><br />
+</div>
+<div><ul><li>Open the file:
+<ul><li>elevatorsim.py
+</li><li>This is a slightly modified program 
+</li></ul></li><li>Run the program
+<ul><li>Try a value that is less that 13
+<ul><li>What is the result?
+</li></ul></li><li>Run the program again with a value that is greater than 13
+<ul><li>What is the result?
+</li></ul></li><li>What happens if you enter 13?</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Our First Example (2)</p><br />
+</div>
+<div><ul><li>Revised Problem Statement (1)
+<ul><li>Check the input entered by the user
+</li><li>If the input is 13, set the value to 14 and print a message
+</li><li>Modify the elevatorsim program to test the input
+</li></ul></li></ul><p class="object" ><em><strong>The relational operator for equal is "=="
+</strong></em></p>
+<ul><li>Modified Problem Statement (2)
+<ul><li>In some countries the number 14 is considered unlucky
+</li><li>What is the revised algorithm?
+</li><li>Modify the elevatorsim program to "skip" both the 13th and 14th floors
+</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Compound Statements</p><br />
+</div>
+<div><ul><li>Some constructs in Python are <strong>compound statements</strong>
+</li><li><strong>Compound statements </strong>span multiple lines and consist of a <em>header</em> and a statement block
+</li></ul><p class="object" ><strong>The <code>if</code> statement is an example of a compound statement
+</strong></p>
+<ul><li>Compound statements require a colon ":" at the end of the header
+</li><li>The statement block is a group of one or more statements, <em>all indented to the same column
+</em></li><li>The statement block <em><strong>starts on the line after the header </strong></em>and <em><strong>ends at the first statement indented less than the first statement in the block
+</strong></em><p class="object" ><em><strong>
+</strong></em></p>
+<p class="object" ><em><strong><span class="fontColorClass5">If you use Wing; Wing properly indents the statement block
+</span></strong></em></p>
+<p class="object" ><em><strong><span class="fontColorClass5">At the end of the block enter a blank line and Wing will shift back to the first column in the current block
+</span></strong></em></p>
+<ul></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Compound Statements</p><br />
+</div>
+<div><ul><li><span class="fontColorClass6">Statement blocks can be nested inside other types of blocks (we will learn about more blocks later) 
+</span></li><li><span class="fontColorClass6">Statement blocks signal that one or more statements are part of a given compound statement
+</span></li><li><span class="fontColorClass6">In the case of the if construct the statement block specifies:
+</span><ul><li><span class="fontColorClass6">The instructions that are executed if the condition is true
+</span></li><li><span class="fontColorClass6">Or skipped if the condition is false
+</span></li></ul></li></ul><p class="object" ><strong><span class="fontColorClass6">Statement blocks are visual cues that allow you to follow the login and flow of a program</span></strong></p>
+<ul></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Tips on Indenting Blocks</p><br />
+</div>
+<div><ul><li>Let Wing do the indenting for you…</li></ul><ul></ul></div>
+<div><img src='images/slide13-Picture1.png' /></div>
+<div><p><strong>This is referred to as “block structured” code.  Indenting consistently is not only syntactically required in Python, it also makes code much easier to follow
+</strong></p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >A Common Error</p><br />
+</div>
+<div><ul><li>Avoid duplication in branches
+</li><li>If the same code is duplicated in each branch then move it out of the <code>if</code> statement
+</li></ul><ul></ul></div>
+<div><img src='images/slide14-Group5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The Conditional Operator</p><br />
+</div>
+<div><ul><li>A "shortcut" you may find in existing code
+<ul><li>It is not used in this book
+</li><li>The shortcut notation <em><strong>can</strong></em> be used anywhere that a value is expected
+</li></ul></li></ul><ul></ul></div>
+<div style="position:absolute;top:25%;left:54%;"><img src='images/slide15-Group5.png' /></div>
+<div style="position:absolute;top:25%;left:71%;"><img src='images/slide15-Group3.png' /></div>
+<div style="position:absolute;top:25%;left:8%;"><img src='images/slide15-Group10.png' /></div>
+<div style="position:absolute;top:33%;left:5%;"><img src='images/slide15-Picture1.png' /></div>
+<div style="position:absolute;top:43%;left:5%;"><img src='images/slide15-Picture11.png' /></div>
+<div style="position:absolute;top:49%;"><p class="" ><strong><span class="fontColorClass5">Complexity is BAD…<br />This "shortcut" is difficult to read and a poor programming practice</span></strong></p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Relational Operators</p><br />
+</div>
+<div><ul><li>Every <code>if</code> statement has a condition
+<ul><li>Usually compares two values with an operator
+</li></ul></li></ul><ul></ul></div>
+<div style="float:left;width:33%"></br></br></br></br><pre>
+if floor > 13 :
+ ..
+if floor >= 13 :
+ ..
+if floor < 13 :
+ ..
+if floor <= 13 :
+ ..
+if floor == 13 : 
+ ..
+if floor != 13 :
+</pre></div>
+<div style="float:left;"><img src='images/slide16-Picture1.png' /></div>
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Assignment vs. Equality Testing</p><br />
+</div>
+<div><ul><li>Assignment: <em>makes</em> something true
+</li></ul><ul></ul></div>
+<div><p><code>floor = 13
+</code></p></div>
+<div><ul><li class="">Equality testing: <em>checks</em> if something is true
+</li></ul><ul></ul></div>
+<div><p><code>if floor == 13 :
+</code></p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Comparing Strings</p><br />
+</div>
+<div><ul><li>Checking if two strings are equal
+</li></ul><p class="object" >
+</p>
+<ul></ul><ul></ul></div>
+<div><pre>if name1 == name2 :
+   print("The strings are identical")
+</pre></div>
+<div><ul><li class="">Checking if two strings are not equal
+</li></ul><p class="" >
+</p>
+<ul></ul><ul></ul></div>
+<div><pre>if name1 != name2 :
+   print("The strings are not identical")
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Checking for String Equality (1)</p><br />
+</div>
+<div><ul><li>For two strings to be equal, they must be of the same length and contain the same sequence of characters:</li></ul><ul></ul></div>
+<div><img src='images/slide19-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Checking for String Equality (2)</p><br />
+</div>
+<div><ul><li>If any character is different, the two strings will not be equal:</li></ul><ul></ul></div>
+<div><img src='images/slide20-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Relational Operator Examples (1)</p><br />
+</div>
+<div><img src='images/slide21-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Relational Operator Examples (2)</p><br />
+</div>
+<div><img src='images/slide22-Group1.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Another Example</p><br />
+</div>
+<div><ul><li>Open the file:
+<ul><li>compare.py
+</li></ul></li><li>Run the program
+<ul><li>What are the results?
+</li></ul><p class="object" >
+</p>
+<ul></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Common Error (Floating Point)</p><br />
+</div>
+<div><ul><li>Floating-point numbers have only a limited precision, and calculations can introduce roundoff errors
+</li><li>You must take these inevitable roundoffs into account when comparing floating point numbers
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Common Error (Floating Point 2) </p><br />
+</div>
+<div><ul><li>For example, the following code multiplies the square root of 2 by itself
+</li><li>Ideally, we expect to get the answer 2:
+</li></ul><ul></ul></div>
+<div><pre>r = math.sqrt(2.0)
+if r * r == 2.0 :
+   print("sqrt(2.0) squared is 2.0")
+else :
+   print("sqrt(2.0) squared is not 2.0 but", r * r)
+</pre></div>
+<div><pre>Output:
+sqrt(2.0) squared is not 2.0 but 2.0000000000000004</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The Use of <code>EPSILON</code></p><br />
+</div>
+<div><ul><li>Use a very small value to compare the difference to determine if floating-point values are '<em>close enough</em>'
+<ul><li>The magnitude of their difference should be less than some threshold 
+</li><li>Mathematically, we would write that x and y are close enough if:</li></ul></li></ul><ul></ul></div>
+<div><img src='images/slide26-Picture8.png' /></div>
+<div><pre>EPSILON = 1E-14
+r = math.sqrt(2.0)
+if abs(r * r - 2.0) < EPSILON :
+   print("sqrt(2.0) squared is approximately 2.0")</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Lexicographical Order</p><br />
+</div>
+<div><ul><li> To compare strings in 'dictionary' like order:
+<p class="object" ><code>string1 < string2
+</code></p>
+<p class="object" >
+</p>
+<ul></ul><ul><li>Notes
+<ul><li> All UPPERCASE letters come before lowercase
+</li><li>'space' comes before all other printable characters
+</li><li>Digits (0-9) come before all letters
+</li><li>See Appendix A for the Basic Latin (ASCII) Subset of Unicode</li></ul></li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Operator Precedence</p><br />
+</div>
+<div><ul><li>The comparison operators have lower precedence than arithmetic operators
+<ul><li><em><strong>Calculations are done before the comparison
+</strong></em></li><li>Normally your calculations are on the 'right side' of the comparison or assignment operator</li></ul></li></ul><ul></ul></div>
+<div style="position:absolute;top:27%;left:27%;"><p class="" >Calculations</p>
+</div>
+<div style="position:absolute;top:32%;left:28%;"><img style="width:75%;" src='images/slide28-LeftBrace7.png' /></div>
+<div style="position:absolute;top:35%;left:5%;"><p><code>actualFloor = floor + 1
+</code></p></div>
+<div style="position:absolute;top:40%;left:5%;"><p><code>if floor > height + 1 :
+</code></p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Implementing an <code>if</code> Statement (1)</p><br />
+</div>
+<div><p class="object" >1)&nbsp;&nbsp;&nbsp;Decide on a branching condition
+</p></div>
+<div><p class="pseudo">original price &lt; 128?
+</p></div></br>
+<div><p class="" >2)&nbsp;&nbsp;&nbsp;Write pseudocode for the true branch
+</p></div>
+<div><p class="pseudo">discounted price = 0.92 x original price
+</p></div></br>
+<div><p class="" >3) &nbsp;&nbsp;&nbsp;Write pseudocode for the false branch
+</p></div>
+<div><p class="pseudo">discounted price = 0.84 x original price
+</p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Implementing an <code>if</code> Statement (2)</p><br />
+</div>
+<div><p class="object" >4)&nbsp;&nbsp;&nbsp;Double-check relational operators
+</p>
+<ul><li>Test values below, at, and above the comparison (127, 128, 129)
+</li></ul><p class="object" >
+</p></br></div>
+<div><p class="object" >5)&nbsp;&nbsp;Remove duplication
+</p></div>
+<div><p class="pseudo">discounted price = _____ x original price
+</p></div></br>
+<div><p class="" >6) &nbsp;&nbsp;&nbsp;Test both branches
+</p></div>
+<div><p class="pseudo">discounted price = 0.92 x 100 = 92
+</p></div>
+<div><p class="pseudo">discounted price = 0.84 x 100 = 84
+</p></div><br/>
+<div><p class="object" >7. &nbsp;&nbsp;&nbsp;Write the code in Python
+</p>
+<ul></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >A Third Example</p><br />
+</div>
+<div><ul><li>The university bookstore has a Kilobyte Day sale every October 24 (10.24), giving an 8 percent discount on all computer accessory purchases if the price is less than $128, and a 16 percent discount if the price is at least $128.</li></ul><ul></ul></div>
+<div><pre>if originalPrice < 128 :
+   discountRate = 0.92
+else :
+   discountRate = 0.84
+discountedPrice = discountRate * originalPrice</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The Sale Example</p><br />
+</div>
+<div><ul><li>Open the file:
+<ul><li>sale.py
+</li></ul></li><li>Run the program several time using different values
+<ul><li>Use values less than 128
+</li><li>Use values greater that 128
+</li><li>Enter 128
+</li></ul></li><li>What results do you get?</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Nested Branches</p><br />
+</div>
+<div><ul><li>You can <em>nest</em> an <code>if</code> inside either branch of an <code>if</code> statement
+</li><li>Simple example:  Ordering drinks
+</li></ul>
+<pre class"pseudo">Ask the customer for their drink order
+If customer orders wine
+  Ask customer for ID
+  If customer's age is 21 or over
+    Serve wine
+  Else
+    Politely explain the law to the customer
+  Else
+    Serve customers a non-alcoholic drink
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Flowchart of a Nested <code>if</code></p><br />
+</div>
+<div><ul><li>Nested <code>if-else</code> inside true branch of an <code>if</code> statement 
+<ul><li>Three paths</li></ul></li></ul><ul></ul></div>
+<div><img src='images/slide35.png' /></div>
+
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Tax Example:  nested <code>if</code>s</p><br />
+</div>
+<div><ul><li>Four outcomes (branches)</li></ul><ul></ul></div>
+<div style="float:left;width:33%;"><ul><li class="">Single
+<ul><li class=""><= 32000
+</li><li class="">> 32000
+</li></ul></li></ul><p class="" >
+</p>
+<ul><li class="">Married
+<ul><li class=""> <= 64000
+</li><li class="">> 64000
+</li></ul></li></ul></div>
+<div style="float:left;width:65%;"><img src='images/slide36-Picture2.png' /></div>
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Flowchart for the Tax Example</p><br />
+</div>
+<div><img src='images/slide37-Picture8.png' /></div>
+<div><ul><li>Four branches</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Taxes.py (1)</p><br />
+</div>
+<div><pre>##
+#  This program computes income taxes, using a simplified tax schedule.
+#
+
+# Initialize constant variables for the tax rates and rate limits.
+RATE1 = 0.10
+RATE2 = 0.25
+RATE1_SINGLE_LIMIT = 32000.0
+RATE1_MARRIED_LIMIT = 64000.0     
+
+# Read income and marital status     
+income = float(input("Please enter your income: "))
+maritalStatus = input("Please enter s for single, m for married: ")
+
+# Compute taxes due.
+tax1 = 0
+tax2 = 0
+
+if maritalStatus == "s" :
+   if income <= RATE1_SINGLE_LIMIT :
+      tax1 = RATE1 * income
+   else :
+      tax1 = RATE1 * RATE1_SINGLE_LIMIT
+      tax2 = RATE2 * (income - RATE1_SINGLE_LIMIT)
+else :
+   if income <= RATE1_MARRIED_LIMIT :
+      tax1 = RATE1 * income
+   else : 
+      tax1 = RATE1 * RATE1_MARRIED_LIMIT
+      tax2 = RATE2 * (income - RATE1_MARRIED_LIMIT)
+          
+totalTax = tax1 + tax2
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Taxes.py (2)</p><br />
+</div>
+<div><ul><li>The 'True' branch (Single)
+<ul><li>Two branches within this branch</li></ul></li></ul><ul></ul></div>
+<div><pre>if maritalStatus == "s" :
+   if income <= RATE1_SINGLE_LIMIT :
+      tax1 = RATE1 * income
+   else :
+      tax1 = RATE1 * RATE1_SINGLE_LIMIT
+      tax2 = RATE2 * (income - RATE1_SINGLE_LIMIT)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Taxes.py (3)</p><br />
+</div>
+<div><ul><li>The 'False' branch (Married)</li></ul><ul></ul></div>
+<div><pre>else :
+   if income <= RATE1_MARRIED_LIMIT :
+      tax1 = RATE1 * income
+   else : 
+      tax1 = RATE1 * RATE1_MARRIED_LIMIT
+      tax2 = RATE2 * (income - RATE1_MARRIED_LIMIT)
+	  </pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Running the Tax Example</p><br />
+</div>
+<div><ul><li>Open the file:
+<ul><li>taxes.py
+</li></ul></li><li>Run the program several time using different values for income and marital status
+<ul><li>Use income values less than $32,000
+</li><li>Use income values greater than $64,000
+</li><li>Enter "&" as the marital status
+</li></ul></li><li>What results do you get?</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Hand-tracing</p><br />
+</div>
+<div><ul><li>Hand-tracing helps you understand whether a program works correctly
+</li><li>Create a table of key variables
+<ul><li>Use pencil and paper to track their values
+</li></ul></li><li>Works with pseudocode or code
+<ul><li>Track location with a marker 
+</li></ul></li><li>Use example input values that:
+<ul><li>You know what the correct outcome should be
+</li><li>Will test each branch of your code</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Hand-tracing the Tax Example </p><br />
+</div>
+<div><ul><li>Setup
+<ul><li>Table of variables
+</li><li>Initial values</li></ul></li></ul><ul></ul></div>
+<div><img src='images/slide43-Picture9.png' /></div>
+<div><img src='images/slide43-ContentPlaceholder1.png' /></div>
+<div><img src='images/slide43-ContentPlaceholder1-0.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Hand-tracing the Tax Example (2)</p><br />
+</div>
+<div><ul><li>Input variables
+<ul><li>From user 
+</li><li>Update table</li></ul></li></ul><ul></ul></div>
+<div><img src='images/slide44-Picture2.png' /></div>
+<div><img src='images/slide44-ContentPlaceholder1.png' /></div>
+<div><ul><li class=""><span class="fontColorClass6">Because marital status is not "</span><span class="fontColorClass6">s" we skip to the else on line 25 </span></li></ul><ul></ul></div>
+<div><img src='images/slide44-ContentPlaceholder1-0.png' /></div>
+<div><img src='images/slide44-ContentPlaceholder1-1.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Hand-tracing the Tax Example (3)</p><br />
+</div>
+<div><ul><li>Because income is not <= 64000, we move to the else clause on line 28
+<ul><li>Update variables on lines 29 and 30
+</li><li>Use constants</li></ul></li></ul><ul></ul></div>
+<div><img src='images/slide45-ContentPlaceholder1.png' /></div>
+<div><img src='images/slide45-Picture3.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Incremental Code and Test</p><br />
+</div>
+<div><ul><li>Using the flag problem statement as an example:
+</li><pre class="pseudo">Compute the data for the first panel
+Print out the data
+  Color
+  The X and Y coordinates of the top left corner of the panel
+  The width of the panel
+  The height of the panel
+Check the data
+  If the data is correct
+    Draw the panel
+  Else
+    Look at your equations
+    Find and fix any errors
+    Check the data again
+ Do the next panel
+ </pre></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass7">Multiple Alternatives</span></p><br />
+</div>
+<div><img src='images/slide47-TextPlaceholder6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >3.4 Multiple Alternatives</p><br />
+</div>
+<div style="float:right;width:33%;"><img src='images/slide48-Picture1.png' /></div>
+<div><ul><li>What if you have more than two branches?
+</li><li>Count the branches for the following earthquake effect example:
+<ul><li>8 (or greater)
+</li><li>7 to 7.99
+</li><li>6 to 6.99
+</li><li>4.5 to 5.99
+</li><li>Less than 4.5</li></ul></li></ul><ul></ul></div>
+<div><p><strong>When using multiple <code>if</code> statements, test the general conditions after the more specific conditions
+</strong></p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Flowchart of Multiway Branching</p><br />
+</div>
+<div><img src='images/slide49.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" ><code>elif</code> Statement</p><br />
+</div>
+<div><ul><li>Short for <code>else, if</code>…
+</li><li>As soon as one on the test conditions succeeds, the statement block is executed
+<ul><li>No other tests are attempted
+</li></ul></li><li>If none of the test conditions succeed the final else clause is executed
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" ><code>if</code><code>, </code><code>elif </code>Multiway Branching</p><br />
+</div>
+<div><pre>if richter >= 8.0 :   # Handle the ‘special case’ first
+   print("Most structures fall")
+elif richter >= 7.0 :
+   print("Many buildings destroyed")
+elif richter >= 6.0 :
+   print("Many buildings damaged, some collapse")
+elif richter >= 4.5 :
+   print("Damage to poorly constructed buildings")
+else :    # so that the ‘general case’ can be handled last
+   print("No destruction of buildings")</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >What is Wrong With This Code?</p><br />
+</div>
+<div><pre>if richter >= 8.0 : 
+   print("Most structures fall")
+if richter >= 7.0 :
+   print("Many buildings destroyed")
+if richter >= 6.0 :
+   print("Many buildings damaged, some collapse")
+if richter >= 4.5 :
+   print("Damage to poorly constructed buildings")</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Earthquake Example</p><br />
+</div>
+<div><ul><li>Open the file:
+<ul><li>earthquake.py
+</li></ul></li><li>Run the program with several different inputs
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass7">Using Flowcharts to Develop and Refine Algorithms</span></p><br />
+</div>
+<div><img src='images/slide54-TextPlaceholder6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >3.5 Problem Solving: Flowcharts</p><br />
+</div>
+<div><ul><li>You have seen a few basic flowcharts
+</li><li>A flowchart shows the structure of decisions and tasks to solve a problem
+</li><li>Basic flowchart elements:
+</li></ul><p class="object" >
+</p>
+<p class="object" >
+</p>
+<ul></ul><ul></ul></div>
+<div><img src='images/slide55-Picture2.png' /></div>
+<div style="float:left;width:56%;"><ul><li>Connect them with arrows
+<ul><li class="">But never point an arrow inside another branch!
+</li></ul></div>
+<div style="float:left;width:32%;"><p class="" >Each branch of a decision can contain tasks and further decisions
+</p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Using Flowcharts</p><br />
+</div>
+<div><ul><li>Flowcharts are an excellent tool 
+</li><li>They can help you visualize the flow of your algorithm
+</li><li> Building the flowchart
+<ul><li>Link your tasks and input / output boxes in the sequence they need to be executed
+</li><li>When you need to make a decision use the diamond (a conditional statement) with two outcomes 
+</li><li>Never point an arrow  inside another branch
+</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Conditional Flowcharts</p><br />
+</div>
+<div style="float:left;width:45%;"><p class="object" >Two Outcomes</p><br /><img src='images/slide57-Picture2.png' />
+</div>
+<div style="float:left;width:45%;"><p class="" >Multiple Outcomes</p><br /><img src='images/slide57-Picture3.png' />
+</div>
+
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Shipping Cost flowchart</p><br />
+</div>
+<div><p class="object" >Shipping costs are $5 inside the contiguous the United States (Lower 48 states), and $10 to Hawaii and Alaska. International shipping costs are also $10.
+</p>
+<ul><li>Three Branches:</li></ul><ul></ul></div>
+<div><img src='images/slide58-Picture2.png' /></div>
+<div style="float:left;width:22%;"><p style="text-align:center;">International<br />Branch</p>
+</div>
+<div style="float:left;width:22%;"><p style="text-align:center;">Hawaii/Alaska<br />Branch</p>
+</div>
+<div style="float:left;width:20%;"><p style="text-align:center;">Lower 48<br />Branch</p>
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Don't Connect Branches!</p><br />
+</div>
+<div><p class="object" >Shipping costs are $5 inside the United States, except that to Hawaii and Alaska they are $10. International shipping costs are also $10.
+</p>
+<ul><li> Don't do this!
+</li></ul><ul></ul></div>
+<div><img src='images/slide59-Group5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Shipping Cost Flowchart</p><br />
+</div>
+<div><p class="object" >Shipping costs are $5 inside the United States, except that to Hawaii and Alaska they are $10. International shipping costs are also $10.
+</p><br /></div>
+<div><img src='images/slide60-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Shipping Example</p><br />
+</div>
+<div><ul><li>Open the file:
+<ul><li>Shipping.py
+</li></ul></li><li>Run the program with several different inputs?
+<ul><li>What happens if you enter "usa" as the country?
+</li></ul></li><li>We will learn several ways to correct the code later in this chapter
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Complex Decision Making is Hard</p><br />
+</div>
+<div><ul><li>Computer systems are used to help sort and route luggage at airports
+</li><li>The systems:
+<ul><li>Scan the baggage tags
+</li><li>Sorts the items
+</li><li>Routes the items to conveyor belts
+</li><li>Humans then place the bags on trucks
+</li></ul></li><li>In 1993 Denver built a new airport with a "state of the art"  luggage system that replaced the human operators with robotic carts
+<ul><li>The system failed
+</li><li>The airport could not open with out a luggage system
+</li><li>The system was replaced (it took over a year)
+</li><li>The cost was almost $1B…yes one billion…1994 dollars)
+</li><li>The company that designed the system went bankrupt  
+</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass7">Building Test Cases</span></p><br />
+</div>
+<div><img src='images/slide63-TextPlaceholder6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Problem Solving: Test Cases</p><br />
+</div>
+<div><ul><li>Aim for complete coverage of all decision points:
+<ul><li>There are two possibilities for the marital status and two tax brackets for each status, yielding four test cases
+</li><li>Test a handful of boundary conditions, such as an income that is at the boundary between two tax brackets, and a zero income
+</li><li>If you are responsible for error checking (which is discussed in Section 3.9), also test an invalid input, such as a negative income
+</li></ul></li><li>Each branch of your code should be covered with a test case
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Choosing Test Cases</p><br />
+</div>
+<div><ul><li>Choose input values that:
+<ul><li>Test boundary cases and 0 values
+</li><li>Test each branch</li></ul></li></ul><ul></ul></div>
+<div><img src='images/slide65-Picture1.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Make a Schedule…</p><br />
+</div>
+<div><ul><li>Make a reasonable estimate of the time it will take you to:
+<ul><li>Design the algorithm
+</li><li>Develop test cases
+</li><li>Translate the algorithm to code and enter the code
+</li><li>Test and debug your program
+</li></ul></li><li>Leave some extra time for unanticipated problems
+</li></ul><p class="object" ><em><strong>As you gain more experience your estimates will become more accurate.  It is better to have some extra time than to be late
+</strong></em></p>
+<ul></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass7">Boolean Variables and Operators</span></p><br />
+</div>
+<div><img src='images/slide67-TextPlaceholder6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Boolean Variables</p><br />
+</div>
+<div><ul><li>Boolean Variables
+<ul><li>A Boolean variable is often called a flag because it can be either up (<code>True</code>) or down (<code>False</code>)
+</li><li><code>boolean</code> is a Python data type
+<ul><li><code>failed = True
+</code></li></ul></li><li>Boolean variables can be either <code>True</code> or <code>False
+</code></li></ul></li><li>There are two Boolean Operators:  <code>and, or
+</code><ul><li>They are used to combine multiple conditions
+</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Combined Conditions:  <code>and</code></p><br />
+</div>
+<div><ul><li>Combining two conditions is often used in range checking
+<ul><li>Is a value between two other values?
+</li></ul></li><li>Both sides of the <code>and</code> must be true for the result to be true
+</li></ul><ul></ul></div>
+<div style="float:left;width:40%;"><pre>if temp > 0 and temp < 100 : 
+   print("Liquid")</pre></div>
+<div style="float:left;"><img src='images/slide69-Picture1.png' /></div>
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Combined Conditions:  <code>or</code></p><br />
+</div>
+<div><ul><li>We use <code>or</code> if only one of two conditions need to be true
+<ul><li>Use a compound conditional with an <code>or</code>:
+</li></ul><ul></ul></li><li>If either condition is true
+<ul><li>The result is true</li></ul></li></ul><ul></ul></div>
+<div style="float:left;width:40%;"><pre>if temp <= 0 or temp >= 100 :
+   print("Not liquid")</pre></div>
+<div style="float:left;"><img src='images/slide70-Picture1.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The <em>not</em> operator:  <code>not</code></p><br />
+</div>
+<div><ul><li>If you need to invert a boolean variable or comparison, precede it with <code>not
+</code></div>
+<div style="float:left;width:50%;"><pre>if not attending or grade < 60 : 
+   print("Drop?")
+</pre>
+<pre>if attending and not(grade < 60) : 
+   print("Stay")</pre>
+<ul><li>If you are using <code>not</code>, try to use simpler logic:
+</li></ul>
+<pre>if attending and grade >= 60 :
+   print("Stay") </pre></div>
+<div style="float:left;"><img src='images/slide71-Picture1.png' /></div>
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The <code>not</code> operator: inequality <code>!</code></p><br />
+</div>
+<div><ul><li>A slightly different operator is used for the <code>not</code> when checking for inequality rather than negation
+</li><li>Example inequality:
+<ul><li>The password that the user entered is not equal to the password on file
+</li><li><code>if userPassword </code><code>!=</code><code> filePassword :</code>
+</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" ><code>and</code> Flowchart</p><br />
+</div>
+<div style="float:right;"><img src='images/slide73-Picture2.png' /></div>
+<div><ul><li>This is often called 'range checking'
+<ul><li>Used to validate that the input is between two values
+</li></ul></li></ul><ul></ul></div>
+<div><pre>if temp > 0 and temp < 100 :
+   print("Liquid") 
+</pre></div>
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" ><code>or</code> Flowchart</p><br />
+</div>
+<div style="float:right;"><img src='images/slide74-Picture2.png' /></div>
+<div><ul><li>Another form of 'range checking'
+<ul><li>Checks if value is outside a range
+</li></ul></li></ul><ul></ul></div>
+<div><pre>if temp <= 0 or temp >= 100 :
+   print("Not Liquid")</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Comparison Example</p><br />
+</div>
+<div><ul><li>Open the file:
+<ul><li>Compare2.py
+</li></ul></li><li>Run the program with several inputs
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Boolean Operator Examples</p><br />
+</div>
+<div><img src='images/slide76-ContentPlaceholder2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Common Errors with Boolean Conditions</p><br />
+</div>
+<div><p class="object" >Confusing <code>and</code> and <code>or</code> Conditions
+</p>
+<ul><li>It is a surprisingly common error to confuse <code>and</code> and <code>or</code> conditions 
+</li><li>A value lies between 0 and 100 if it is at least 0 <strong>and</strong> at most 100 
+</li><li>It lies outside that range if it is less than 0 <strong>or</strong> greater than 100 
+</li></ul><ul><li>There is no golden rule; you just have to think carefully
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Short-Circuit Evaluation:  <code>and</code></p><br />
+</div>
+<div><ul><li>Combined conditions are evaluated from left to right
+<ul><li>If the left half of an <em><span class="fontColorClass3">and</span></em> condition is false, why look further? </li></ul></li></ul><ul></ul></div>
+<div><pre>if temp > 0 and temp < 100 : 
+   print("Liquid")
+</pre></div>
+<div><img src='images/slide78-Group2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Short-Circuit evaluation:  <code>or</code></p><br />
+</div>
+<div><ul><li>If the left half of the <em><span class="fontColorClass3">or</span></em> is true, why look further?</li></ul><ul></ul></div>
+<div><pre>if temp <= 0 or temp >= 100 : 
+   print("Not Liquid")</pre></div>
+<div><img src='images/slide79-Group2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >De Morgan's Law</p><br />
+</div>
+<div><ul><li>De Morgan's Law tells you how to negate <code>and</code> and <code>or</code> conditions:
+<ul><li>not(A and B) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is the same as &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;notA or notB
+</li><li>not(A or B) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is the same as &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;notA and notB
+</li></ul></li><li>Example:  Shipping is higher to AK and HI
+</li></ul><p class="object" >
+</p>
+<p class="object" >
+</p>
+<p class="object" >
+</p></div>
+<div><pre>if not(country=="USA"
+  or state=="AK"
+  or state=="HI") : shippingCharge = 20.00</pre></div>
+<div><pre>if (country != "USA" 
+   and state != "AK" 
+   and state != "HI") :
+   shippingCharge = 20.00</pre></div>
+<div><ul><li>To simplify conditions with negations of <code>and</code> or <code>or</code> expressions, it's a good idea to apply De Morgan's Law to move the negations to the innermost level
+</li></ul><ul></ul></div>
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass7">Analyzing Strings</span></p><br />
+</div>
+<div><img src='images/slide81-TextPlaceholder6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Analyzing Strings: The <code>in</code> Operator</p><br />
+</div>
+<div><ul><li>Sometimes it's necessary to analyze or ask certain questions about a particular string
+<ul><li>Sometimes it is necessary to determine if a string contains a given substring. That is, one string contains an exact match of another string
+</li><li>Given this code segment,
+</li></ul><code>name = "John Wayne"
+</code><ul><li>the expression
+</li></ul><code>"Way" in name
+</code><ul><li>yields <code>True</code> because the substring "<code>Way</code>" occurs within the string stored in variable name
+</li><li>The <code>not in</code> operator is the inverse on the in operator
+</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Substrings: Suffixes</p><br />
+</div>
+<div><ul><li>Suppose you are given the name of a file and need to ensure that it has the correct extension
+</li></ul><pre>if filename.endswith(".html") :
+   print("This is an HTML file.")
+</pre><ul><li>The <code>endswith()</code> string method is applied to the string stored in filename and returns <code>True</code> if the string ends with the substring "<code>.html</code>" and <code>False</code> otherwise
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Operations for Testing Substrings</p><br />
+</div>
+<div><img src='images/slide84-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Methods: Testing String Characteristics (1)</p><br />
+</div>
+<div><img src='images/slide85-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Methods for Testing String Characteristics (2)</p><br />
+</div>
+<div><img src='images/slide86-ContentPlaceholder5.png' /></div>
+<div><img src='images/slide86-ContentPlaceholder5-0.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Comparing and Analyzing Strings (1)</p><br />
+</div>
+<div><img src='images/slide87-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Comparing and Analyzing Strings (2)</p><br />
+</div>
+<div><img src='images/slide88-ContentPlaceholder5.png' /></div>
+<div><img src='images/slide88-ContentPlaceholder5-0.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Substring Example</p><br />
+</div>
+<div><ul><li>Open the file:
+<ul><li>Substrings.ph
+</li></ul></li><li>Run the program and test several strings and substrings</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass7">Input Validation</span></p><br />
+</div>
+<div><img src='images/slide90-TextPlaceholder6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Input Validation</p><br />
+</div>
+<div><ul><li>Accepting user input is dangerous
+<ul><li>Consider the Elevator program:
+</li><li>Assume that the elevator panel has buttons labeled 1 through 20 (but not 13)
+</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Input Validation</p><br />
+</div>
+<div><ul><li>The following are illegal inputs:
+<ul><li>The number 13</li></ul></li></ul><ul></ul></div>
+<div><pre>if floor == 13 :
+    print("Error: There is no thirteenth floor.")</pre></div>
+<div><ul><li class="">Zero or a negative number
+</li><li class="">A number larger than 20
+</li></ul><p class="" >
+</p>
+<p class="" >
+</p>
+<ul></ul><ul></ul><ul></ul></div>
+<div><pre>if floor <= 0 or floor > 20 :
+    print("Error: The floor must be between 1 and 20.")</pre></div>
+<div><ul><li class="">An input that is not a sequence of digits, such as five:
+<ul><li class="">Python's exception mechanism is needed to help verify integer and floating point values (Chapter 7)</li></ul></li></ul><ul></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Elevatorsim2.py</p><br />
+</div>
+<div><pre>##
+#  This program simulates an elevator panel that skips the 13th floor, 
+#  checking for input errors.
+#
+
+# Obtain the floor number from the user as an integer.
+floor = int(input("Floor: "))
+   
+# Make sure the user input is valid.
+if floor == 13 :
+   print("Error: There is no thirteenth floor.")
+elif floor <= 0 or floor > 20 :
+   print("Error: The floor must be between 1 and 20.")    
+else :    
+   # Now we know that the input is valid
+   actualFloor = floor
+   if floor > 13 :
+      actualFloor = floor - 1
+      
+   print("The elevator will travel to the actual floor", actualFloor)
+   </pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Elevator Simulation</p><br />
+</div>
+<div><ul><li>Open the file:
+<ul><li>elevatorsim2.py
+</li></ul></li><li>Test the program with a range of inputs including:
+<ul><li>12
+</li><li>14
+</li><li>13
+</li><li>-1
+</li><li>0
+</li><li>23
+</li><li>19</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: <code>if</code> Statement</p><br />
+</div>
+<div><ul><li>The <code>if</code> statement allows a program to carry out different actions depending on the nature of the data to be processed
+</li><li>Relational operators ( <code>< <= > >= == !=</code> ) are used to compare numbers and <code>String</code>s
+</li><li><code>String</code>s are compared in lexicographic order
+</li><li>Multiple <code>if</code> statements can be combined to evaluate complex decisions
+</li><li>When using multiple <code>if</code> statements, test general conditions after more specific conditions
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Flowcharts and Testing</p><br />
+</div>
+<div><ul><li>When a decision statement is contained inside the branch of another decision statement, the statements are <em>nested
+</em></li><li>Nested decisions are required for problems that have two levels of decision making
+</li><li>Flow charts are made up of elements for tasks, input/output, and decisions
+</li><li>Each branch of a decision can contain tasks and further decisions
+</li><li>Never point an arrow inside another branch
+</li><li>Each branch of your program should be covered by a test case
+</li><li>It is a good idea to design test cases before implementing a program
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Boolean</p><br />
+</div>
+<div><ul><li>The type <code>boolean</code> has two values, <code>True</code> and <code>false</code>
+<ul><li>Python has two Boolean operators that combine conditions: <code>and</code> and <code>or</code>
+</li><li>To invert a condition, use the <code>not</code> operator
+</li><li>When checking for equality use the <code>!</code> operator
+</li><li>The <code>and</code> and <code>or</code> operators are computed lazily: 
+<ul><li>As soon as the truth value is determined, no further conditions are evaluated
+</li></ul></li><li>De Morgan's Law tells you how to negate <code>and</code> and <code>or</code> conditions
+</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+
+    </div>
+    <script src="scripts/jquery-2.1.4.min.js" charset="utf-8" type="text/javascript"></script>
+    <script src="scripts/slidy.js" charset="utf-8" type="text/javascript"></script>
+    
+</body>
+</html>

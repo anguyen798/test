@@ -1,0 +1,735 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/><title></title>
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body><dl></dl><ol><li>A set is a container that stores a collection of:<ol class="multiple-choice"><li>lists</li><li class="correct">unique values</li><li>models</li><li>operations</li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>What is stored in a set?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-01</dd></dl></li><li>One key difference between a set and a list is:<ol class="multiple-choice"><li class="correct">Set elements are not stored in any particular order</li><li>List elements are not stored in any particulary order</li><li>Set elements can be accessed directly using their position</li><li>List elements only contain string values</li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>What is an example of a difference between list and set?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-02</dd></dl></li><li>Which statement correctly creates a set named
+<code>colors</code> that contains the 7 colors in a rainbow?
+<ol class="multiple-choice"><li><pre>
+colors = [&quot;red&quot;, &quot;orange&quot;, &quot;yellow&quot; &quot;green&quot;, &quot;blue&quot;, &quot;indigo&quot;, &quot;violet&quot;]
+</pre></li><li><pre>
+colors = {red, orange, yellow, green, blue, indigo, violet}
+</pre></li><li><pre>
+colors = [red, orange, yellow, green, blue, indigo, violet]
+</pre></li><li class="correct"><pre>
+colors = {&quot;red&quot;, &quot;orange&quot;, &quot;yellow&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;indigo&quot;, &quot;violet&quot;}
+</pre></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>Which statement correctly creates a set named colors that contains the 7 colors in a rainbow?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-03</dd></dl></li><li>Which statement correctly creates a set named
+<code>rainbow</code> that contains the 7 colors in a rainbow?
+<ol class="multiple-choice"><li class="correct"><pre>
+colors = [&quot;red&quot;, &quot;orange&quot;, &quot;yellow&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;indigo&quot;, &quot;violet&quot;]
+rainbow = set(colors)       
+</pre></li><li><pre>
+colors = {red, orange, yellow, green, blue, indigo, violet}
+rainbow = colors       
+</pre></li><li><pre>
+colors = [red, orange, yellow, green, blue, indigo, violet]
+rainbow = set(colors)       
+</pre></li><li><pre>
+colors = {&quot;red&quot;, &quot;orange&quot;, &quot;yellow&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;indigo&quot;, &quot;violet&quot;}
+rainbow = colors.set    
+</pre></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>Which statement correctly creates a set named rainbow that contains the 7 colors in a rainbow?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-04</dd></dl></li><li>Which statement correctly creates an empty set
+<code>flags</code>?
+<ol class="multiple-choice"><li><pre>
+flags = {} 
+</pre></li><li><pre>
+flags = set{}
+</pre></li><li class="correct"><pre>
+flags = set()
+</pre></li><li><pre>
+flags = null
+</pre></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>Which statement correctly creates an empty set flags?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-05</dd></dl></li><li>Which statement correctly identifies the number of elements in
+the set <code>flags</code>?
+<ol class="multiple-choice"><li><pre>
+numflags = flags.size() 
+</pre></li><li><pre>
+numflags = flags.len()
+</pre></li><li class="correct"><pre>
+numflags = len(flags)
+</pre></li><li><pre>
+numflags = size(flags)
+</pre></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>Which statement correctly identifies the number of elements in the set flags?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-06</dd></dl></li><li>How can you print all the elements in the set
+<code>colors</code> each on a separate line?
+<ol class="multiple-choice"><li><pre>
+for i in range(len(colors)) : 
+   print(colors[i])
+</pre></li><li class="correct"><pre>
+for color in colors : 
+   print(color)
+</pre></li><li><pre>
+print(colors)
+</pre></li><li><pre>
+for i in range(0, len(colors)) : 
+   print(colors[i])
+</pre></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>How can you print all elements in a set, each on a separate line?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-08</dd></dl></li><li>In what order are the elements of a set visited when the set is
+traversed using a <code>for</code> loop?<ol class="multiple-choice"><li>sorted in ascending order</li><li>sorted in descending order</li><li>the order in which they were added</li><li class="correct">random order</li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>In what order are the elements of a set visited when the set is traversed using a for loop?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-09</dd></dl></li><li>Which statement(s) below print the set <code>colors</code> in
+sorted order?
+<ol class="multiple-choice"><li><pre>
+for i in range(len(colors)) :
+   print(colors[i])
+</pre></li><li class="correct"><pre>
+for color in sorted(colors) :
+   print(color) 
+</pre></li><li><pre>
+for color in colors.sorted() :
+   print(color)
+</pre></li><li><pre>
+for i in range(len(colors)) :
+   print(sorted(colors[i]))
+</pre></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>How can you make sure the elements in a set are printed in sorted order?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-11</dd></dl></li><li>Which of the following is a possible output after the following code snippet is executed?
+<pre>
+names = set([&quot;Jane&quot;, &quot;Joe&quot;, &quot;Amy&quot;, &quot;Lisa&quot;])
+names.add(&quot;Amber&quot;)
+names.add(&quot;Zoe&quot;)
+names.discard(&quot;Joe&quot;)
+print(names)  
+</pre><ol class="multiple-choice"><li class="correct"><pre>
+{'Amy', 'Lisa', 'Jane', 'Zoe', 'Amber'}
+</pre></li><li><pre>
+{'Jane', 'Joe', 'Amy', 'Lisa', 'Amber', 'Zoe'}
+</pre></li><li><pre>
+{'Jane', 'Joe', 'Amy', 'Lisa'}
+</pre></li><li><pre>
+{'Jane', 'Joe', 'Amy', 'Lisa', 'Amber'}
+</pre></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>What is printed after the following code snippet is executed?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-12</dd></dl></li><li>Which of the following is a possible output after the following code snippet is executed?
+<pre>
+names = set([&quot;Jane&quot;, &quot;Joe&quot;, &quot;Amy&quot;, &quot;Lisa&quot;])
+names.add(&quot;Amber&quot;)
+names.add(&quot;Zoe&quot;)
+names.discard(&quot;Jim&quot;)
+print(names)
+</pre><ol class="multiple-choice"><li>An exception is raised</li><li class="correct"><pre>
+{'Jane', 'Lisa', 'Joe', 'Amy',  'Amber', 'Zoe'}
+</pre></li><li><pre>
+{'Amy', 'Lisa', 'Jane', 'Zoe', 'Amber'}
+</pre></li><li><pre>
+{'Jane', 'Joe', 'Amy', 'Lisa', 'Amber', 'Zoe', 'Jim'}
+</pre></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>What is printed after the following code snippet is executed?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-13</dd></dl></li><li>What is printed after the following code snippet is executed?
+<pre>
+names = set([&quot;Jane&quot;, &quot;Joe&quot;, &quot;Amy&quot;, &quot;Lisa&quot;])
+names.add(&quot;Amber&quot;)
+names.add(&quot;Zoe&quot;)
+names.remove(&quot;Jim&quot;)
+print(names)
+</pre><ol class="multiple-choice"><li class="correct">An exception is raised</li><li><pre>
+{'Jane', 'Lisa', 'Joe', 'Amy',  'Amber', 'Zoe'}
+</pre></li><li><pre>
+{'Amy', 'Lisa', 'Jane', 'Zoe', 'Amber'}
+</pre></li><li><pre>
+{'Jane', 'Joe', 'Amy', 'Lisa', 'Amber', 'Zoe', 'Jim'}
+</pre></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>What is printed after the following code snippet is executed?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-14</dd></dl></li><li>In the following code snippet, what is true about these sets?
+<pre>
+names = set([&quot;Jane&quot;, &quot;Joe&quot;, &quot;Amy&quot;, &quot;Lisa&quot;])
+names1 = set([&quot;Joe&quot;, &quot;Amy&quot;, &quot;Lisa&quot;])
+names2 = set([&quot;Jane&quot;, &quot;Joe&quot;])
+  
+</pre><ol class="multiple-choice"><li class="correct"><code>names2</code> is a subset of <code>names</code></li><li><code>names2</code> is not a subset of <code>names</code></li><li><code>names2</code> is an intersection of the set
+<code>names</code> and <code>names1</code></li><li><code>names2</code> is a union of <code>names</code> and
+<code>names1</code></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>In the following code snippet, what is true about these sets?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-16</dd></dl></li><li>Given the following code snippet, which statement tests to see
+if all three sets are equal?
+<pre>
+fruit = set([&quot;apple&quot;, &quot;banana&quot;, &quot;grapes&quot;, &quot;kiwi&quot;])
+fruit2 = set([&quot;apple&quot;, &quot;banana&quot;, &quot;grapes&quot;, &quot;kiwi&quot;]
+fruit3 = set([&quot;apple&quot;, &quot;banana&quot;, &quot;pears&quot;, &quot;kiwi&quot;])  
+</pre><ol class="multiple-choice"><li><pre>
+if fruit.equal(fruit2) and fruit.equal(fruit3) :
+</pre></li><li class="correct"><pre>
+if fruit == fruit2 and fruit == fruit3 :
+</pre></li><li><pre>
+if fruit != fruit2 and fruit != fruit3 :
+</pre></li><li><pre>
+if fruit == fruit2 or fruit == fruit3 :
+</pre></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>Given the following code snippet, which statement tests to see if all three sets are equal?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-18</dd></dl></li><li>What is printed by the following code snippet?
+<pre>
+fruit = set([&quot;apple&quot;, &quot;banana&quot;, &quot;grapes&quot;, &quot;kiwi&quot;])
+fruit2 = set([&quot;apple&quot;, &quot;banana&quot;, &quot;grapes&quot;])
+fruit3 = set([&quot;apple&quot;, &quot;banana&quot;, &quot;pears&quot;, &quot;kiwi&quot;])
+if fruit2.issubset(fruit) : 
+   print(&quot;fruit2 is a subset of fruit&quot;)
+if fruit == fruit3 : 
+   print(&quot;fruit and fruit3 are equal&quot;)
+if fruit != fruit2 : 
+   print(&quot;fruit and fruit2 are not equal&quot;)  
+</pre><ol class="multiple-choice"><li><pre>
+fruit2 is a subset of fruit
+fruit and fruit3 are equal 
+fruit and fruit2 are not equal
+</pre></li><li><pre>
+fruit2 is a subset of fruit    
+</pre></li><li class="correct"><pre>
+fruit2 is a subset of fruit
+fruit and fruit2 are not equal
+</pre></li><li><pre>
+fruit and fruit2 are not equal
+</pre></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>What is printed by the following code snippet?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-19</dd></dl></li><li>What is in the set <code>fruit</code> after the following code
+snippet?
+<pre>
+fruit2 = set([&quot;blueberry&quot;, &quot;lemon&quot;, &quot;grapes&quot;])
+fruit3 = set([&quot;apple&quot;, &quot;banana&quot;, &quot;pears&quot;, &quot;kiwi&quot;])
+fruit = fruit2.union(fruit3)  
+</pre><ol class="multiple-choice"><li class="correct"><pre>
+{'blueberry', 'lemon', 'grapes', 'apple', 'banana', 'pears', 'kiwi'} 
+</pre></li><li><pre>
+{'blueberry', 'lemon', 'grapes'}
+</pre></li><li><pre>
+{}
+</pre></li><li><pre>
+{'apple', 'banana', 'pears', 'kiwi'}
+</pre></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>What is in the set fruit after the following code snippet?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-21</dd></dl></li><li>What method can be used to combine two sets in Python?<ol class="multiple-choice"><li><pre>
+subset()
+</pre></li><li class="correct"><pre>
+union()
+</pre></li><li><pre>
+join()
+</pre></li><li><pre>
+both()
+</pre></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>What method can be used to combine two sets in Python?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-22</dd></dl></li><li>What method is used to test if one set is contained entirely
+within another set in Python?<ol class="multiple-choice"><li class="correct"><pre>
+issubset()
+</pre></li><li><pre>
+isintersection()
+</pre></li><li><pre>
+inboth()
+</pre></li><li><pre>
+difference()
+</pre></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>What method is used to test if one set is contained entirely within another set in Python?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-23</dd></dl></li><li>What method is used to produce a new set with the elements that
+are contained in both sets?<ol class="multiple-choice"><li><pre>
+subset()
+</pre></li><li class="correct"><pre>
+intersection()
+</pre></li><li><pre>
+inboth()
+</pre></li><li><pre>
+difference()
+</pre></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>What method is used to produce a new set with the elements that are contained in both sets?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-24</dd></dl></li><li>What method is used to produce a new set with the elements that
+belong to the first set but not the second?<ol class="multiple-choice"><li><pre>
+subset()
+</pre></li><li><pre>
+intersection()
+</pre></li><li><pre>
+inboth()
+</pre></li><li class="correct"><pre>
+difference()
+</pre></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>What method is used to produce a new set with the elements that belong to the first set but not the second?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-25</dd></dl></li><li>What is the output of the following code snippet?
+<pre>
+fibonacci = {1, 1, 2, 3, 5, 8}
+primes = {2, 3, 5, 7, 11}
+both = fibonacci.intersection(primes)
+print(both)
+</pre><ol class="multiple-choice"><li><pre>
+{1, 2, 3, 5, 8}
+</pre></li><li><pre>
+{1, 2, 3, 5, 7, 8, 11}
+</pre></li><li class="correct"><pre>
+{2, 3, 5}
+</pre></li><li><pre>
+{}
+</pre></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>What is the output of the following code snippet?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-26</dd></dl></li><li>What is the output of the following code snippet?
+<pre>
+fibonacci = {1, 1, 2, 3, 5, 8}
+primes = {2, 3, 5, 7, 11}
+both = fibonacci.union(primes)
+print(both)
+</pre><ol class="multiple-choice"><li><pre>
+{1, 2, 3, 5, 8} 
+</pre></li><li class="correct"><pre>
+{1, 2, 3, 5, 7, 8, 11}
+</pre></li><li><pre>
+{2, 3, 5}
+</pre></li><li><pre>
+{}
+</pre></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>What is the output of the following code snippet?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-27</dd></dl></li><li>Which statement creates an empty set and stores it in
+<code>x</code>?
+<ol class="multiple-choice"><li><code>x = ()</code></li><li><code>x = []</code></li><li><code>x = {}</code></li><li class="correct"><code>x = set()</code></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>Which statement creates an empty set?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-29</dd></dl></li><li>What is the value of <code>x</code> after the following code
+segment executes?
+<pre>
+x = {1, 2, 3}
+x.add(1)
+</pre><ol class="multiple-choice"><li class="correct"><code>{1, 2, 3}</code></li><li><code>{1, 1, 2, 3}</code></li><li><code>{}</code></li><li><code>x</code> has no value because a runtime error occurs</li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>Trace code that adds to a set</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-31</dd></dl></li><li>Assume that x is initially the set <code>{1, 2, 3}</code>.
+Which statement results in <code>x</code> being the empty set?
+<ol class="multiple-choice"><li><code>x.discard()</code></li><li><code>x.remove(1, 2, 3)</code></li><li class="correct"><code>x.clear()</code></li><li><code>x.empty()</code></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>What statement results in an empty set?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-32</dd></dl></li><li>What is the value of <code>x</code> after the following code
+segment executes?
+<pre>
+x = {1, 2, 3}
+x.discard(4)
+</pre><ol class="multiple-choice"><li><code>{}</code></li><li class="correct"><code>{1, 2, 3}</code></li><li><code>{1, 2, 3, 4}</code></li><li>The program terminates with a runtime error</li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>Trace code that involving the discard method</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-33</dd></dl></li><li>Consider the following code segment:
+<pre>
+primes = {2, 3, 5, 7}
+odds = {1, 3, 5, 7}
+</pre>
+Which line of code will result in <code>x</code> containing
+<code>{1, 2, 3, 5, 7}</code>?
+<ol class="multiple-choice"><li><code>x = primes.difference(odds)</code></li><li><code>x = primes.intersection(odds)</code></li><li><code>x = primes.merge(odds)</code></li><li class="correct"><code>x = primes.union(odds)</code></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>Which line of code stores the desired set into x?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-35</dd></dl></li><li>What is stored in <code>x</code> at the end of this code
+segment?
+<pre>
+primes = {2, 3, 5, 7}
+odds = {1, 3, 5, 7}
+x = primes.intersection(odds)
+</pre><ol class="multiple-choice"><li><code>{}</code></li><li><code>{1, 2}</code></li><li class="correct"><code>{3, 5, 7}</code></li><li><code>{1, 2, 3, 5, 7}</code></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>Trace code involving set intersection</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-36</dd></dl></li><li>Consider the following code segment:
+<pre>
+primes = {2, 3, 5, 7}
+odds = {1, 3, 5, 7}
+</pre>
+Which line of code will result in <code>x</code> containing
+<code>{1}</code>?
+<ol class="multiple-choice"><li class="correct"><code>x = odds.difference(primes)</code></li><li><code>x = odds.intersection(primes)</code></li><li><code>x = primes.difference(odds)</code></li><li><code>x = primes.intersection(odds)</code></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>Which line of code stores the desired set into x?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-37</dd></dl></li><li>What method is used to remove elements from a set?<ol class="multiple-choice"><li><pre>
+clear()
+</pre></li><li><pre>
+delete()
+</pre></li><li class="correct"><pre>
+discard()
+</pre></li><li><pre>
+drop()
+</pre></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>What method is used to remove elements from a set?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-69</dd></dl></li><li>Which of the following is NOT true about sets?<ol class="multiple-choice"><li>a set has operations available for use such as union,
+difference, and intersection</li><li>in a set, elements cannot be accessed by position</li><li class="correct">in a set, elements are stored in the order they are added</li><li>set operations are much faster than the equivalent list
+operations</li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>Which of the following is NOT true about sets?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-71</dd></dl></li><li>What method is used to remove all elements from a set?<ol class="multiple-choice"><li class="correct"><pre>
+clear()
+</pre></li><li><pre>
+delete()
+</pre></li><li><pre>
+discard()
+</pre></li><li><pre>
+drop()
+</pre></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>What method is used to remove all elements from a set?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-72</dd></dl></li><li>Which statement determines if set <code>x</code> is a proper
+subset of set <code>y</code>?<ol class="multiple-choice"><li><pre>
+x.issubset(y)
+</pre></li><li class="correct"><pre>
+x.issubset(y) and x != y
+</pre></li><li><pre>
+x.issubset(y) and x == y
+</pre></li><li><pre>
+x == y
+</pre></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>Which statement determines if set x is a proper subset of set y?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-1-ch08-73</dd></dl></li><li>How can you make sure the elements in a set will be printed in
+  sorted order?<ol class="multiple-choice">
+    <li>Add the elements to the set in sorted order before printing the set</li>
+    <li>Use the <code>in</code> operator before printing the set</li>
+    <li>Use the <code>sort</code> method before printing the set</li>
+    <li class="correct">Use the <code>sorted</code> function when printing the set</li>
+</ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>How can you make sure the elements in a set are printed in sorted order?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch08-10</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-2-ch08-10</dd></dl></li><li>What is printed when the following code snippet executes?
+<pre>
+names = set([&quot;Jane&quot;, &quot;Joe&quot;, &quot;Amy&quot;, &quot;Lisa&quot;])
+names.add(&quot;Amber&quot;)
+names.add(&quot;Zoe&quot;)
+names.clear()
+print(names)
+</pre><ol class="multiple-choice"><li>An error message indicating that an exception was raised.</li><li><pre>
+{'Jane', 'Lisa', 'Joe', 'Amy',  'Amber', 'Zoe'}
+</pre></li><li><pre>
+{'Amy', 'Lisa', 'Jane', 'Zoe', 'Amber'}
+</pre></li><li class="correct"><pre>
+set()
+</pre></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>What is printed by a code snippet involving sets?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch08-15</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-2-ch08-15</dd></dl></li><li>Given the following code snippet, which statement tests to see
+if <code>names2</code> is a subset of <code>names</code>?
+<pre>
+names = set([&quot;Jane&quot;, &quot;Joe&quot;, &quot;Amy&quot;, &quot;Lisa&quot;])
+names2 = set([&quot;Jane&quot;, &quot;Joe&quot;])  
+</pre><ol class="multiple-choice"><li class="correct"><pre>
+if names2.issubset(names) : 
+   print(names2)
+</pre></li><li><pre>
+if names2 isA subset(names) : 
+   print(names2)
+</pre></li><li><pre>
+if names2.subset(names) : 
+   print(names2)
+</pre></li><li><pre>
+if names.subset(names2) : 
+   print(names2)
+</pre></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>Which statement tests to see if one set is a subset of another set?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch08-17</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-2-ch08-17</dd></dl></li><li>Consider the following code segment:
+<pre>
+names = set([&quot;Jane&quot;, &quot;Joe&quot;, &quot;Amy&quot;, &quot;Lisa&quot;])
+names1 = set([&quot;Joe&quot;, &quot;Amy&quot;, &quot;Lisa&quot;, &quot;Bob&quot;])
+names2 = set([&quot;Joe&quot;, &quot;Amy&quot;, &quot;Lisa&quot;]) 
+</pre>
+
+Which of the following statements is true?
+
+<ol class="multiple-choice">
+  <li><code>names1</code> is a subset of <code>names</code></li>
+  <li class="correct"><code>names2</code> is a subset of <code>names</code></li>
+  <li><code>names</code> is the intersection of the sets <code>names1</code> and <code>names2</code></li>
+  <li><code>names</code> is the union of <code>names1</code> and <code>names2</code></li>
+</ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>Which of the follow statements about sets is true?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch08-20</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-2-ch08-20</dd></dl></li><li>What values will be in the set <code>both</code> after the following code snippet runs?
+<pre>
+fibonacci = {1, 1, 2, 3, 5, 8}
+primes = {2, 3, 5, 7, 11}
+both = fibonacci.difference(primes)
+print(both)
+</pre>
+<ol class="multiple-choice"><li>
+2, 3, 5, 7, 11
+</li><li>
+1, 2, 3, 5, 7, 8, 11
+</li><li class="correct">
+1, 8
+</li><li>
+None (the set is empty)
+</li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>What is the output of the following code snippet involving a set difference operation?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch08-28</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-2-ch08-28</dd></dl></li><li>Which statement creates a set of 3 elements and stores it in
+<code>x</code>?
+<ol class="multiple-choice">
+  <li><code>x = [1, 2, 3]</code></li>
+  <li class="correct"><code>x = {1, 2, 3}</code></li>
+  <li><code>x = (1, 2, 3)</code></li>
+  <li><code>x = set(1, 2, 3)</code></li>
+</ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>Which statement creates a set of 3 elements?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch08-30</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-2-ch08-30</dd></dl></li><li>Consider the following code segment:
+<pre>
+primes = {2, 3, 5, 7}
+odds = {1, 3, 5, 7}
+x = primes.issubset(odds)
+</pre>
+What value will be stored in <code>x</code> after it has executed?
+
+<ol class="multiple-choice"><li><code>0</code></li><li><code>1</code></li><li class="correct"><code>False</code></li><li><code>True</code></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>Trace code involving the issubset method</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch08-34</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-2-ch08-34</dd></dl></li><li>
+  Which statement about lists and sets is correct?
+  <ol class="multiple-choice">
+    <li class="correct">In a list the elements are stored in order.  In a set they are not stored in any particular order.</li>
+    <li>In both a set and a list, the elements can be accessed by position.</li>
+    <li>Both sets and lists have methods for computing the union, difference and intersection of two containers.</li>
+    <li>List operations are much faster than the equivalent set operations.</li>
+</ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>Which statement about lists and sets is correct?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch08-70</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-2-ch08-70</dd></dl></li><li>Which of the following code segments prints <code>red is a color of the rainbow</code> when the set <code>colors</code> contains the
+  string <code>&quot;red&quot;</code>?
+<ol class="multiple-choice"><li><pre>
+if colors contains &quot;red&quot; :
+   print(&quot;red is a color of the rainbow&quot;)
+</pre></li><li class="correct"><pre>
+if &quot;red&quot; in colors : 
+   print(&quot;red is a color of the rainbow&quot;)
+</pre></li><li><pre>
+if &quot;red&quot; not in colors : 
+   print(&quot;red is a color of the rainbow&quot;)
+</pre></li><li><pre>
+if colors includes &quot;red&quot; : 
+   print(&quot;red is a color of the rainbow&quot;)
+</pre></li></ol><dl><dt>Section</dt><dd>8.1 Sets</dd><dt>Title</dt><dd>How can you search for an element in a set?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch08-07</dd><dt>section</dt><dd>8.1 Sets</dd><dt>id</dt><dd>testbank-py-2-ch08-07</dd></dl></li><li>Which of the following statements creates a dictionary of
+favorite foods?
+<ol class="multiple-choice"><li><pre>
+favoriteFoods = {&quot;burgers&quot;, &quot;hotdogs&quot;, &quot;apple pie&quot;}
+</pre></li><li class="correct"><pre>
+favoriteFoods = {&quot;Peg&quot;: &quot;burgers&quot;, &quot;Cy&quot;: &quot;hotdogs&quot;, &quot;Bob&quot;: &quot;apple pie&quot;}
+</pre></li><li><pre>
+favoriteFoods = {&quot;Peg&quot;, &quot;Cy&quot;, &quot;Bob&quot; : &quot;burgers&quot;, &quot;hotdogs&quot;, &quot;apple pie&quot;}
+</pre></li><li><pre>
+favoriteFoods = {&quot;Peg&quot;, &quot;burgers&quot;, &quot;Cy&quot;, &quot;hotdogs&quot;, &quot;Bob&quot;, &quot;apple pie&quot;}
+</pre></li></ol><dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>Which of the following statements creates a dictionary of favorite foods?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-1-ch08-39</dd></dl></li><li>Which operator tests to see if a key exists in a
+dictionary?<ol class="multiple-choice"><li class="correct"><code>in</code></li><li><code>contains</code></li><li><code>has</code></li><li><code>issubset</code></li></ol><dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>Which operator tests to see if a key exists in a dictionary?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-1-ch08-44</dd></dl></li><li>How do you add items to a dictionary?<ol class="multiple-choice"><li><code>add</code> method</li><li class="correct"><code>[]</code> operator</li><li><code>{}</code> operator</li><li><code>insert</code> method</li></ol><dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>How do you add items to a dictionary?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-1-ch08-46</dd></dl></li><li>How do you remove items from a dictionary?<ol class="multiple-choice"><li><code>remove</code> method</li><li class="correct"><code>pop</code> method</li><li><code>delete</code> method</li><li><code>get</code> method</li></ol><dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>How do you remove items from a dictionary?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-1-ch08-48</dd></dl></li><li>What is printed by the following code segment?
+<pre>
+x = dict()
+print(x)
+</pre><ol class="multiple-choice"><li class="correct"><code>{}</code></li><li><code>dict()</code></li><li>Nothing is printed</li><li>The program terminates with a runtime error</li></ol><dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>Trace code involving a dictionary</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-1-ch08-51</dd></dl></li><li>Which of the following statements creates a dictionary with 4
+entries?
+<ol class="multiple-choice"><li><code>x = {4}</code></li><li><code>x = dict(4)</code></li><li><code>x = {&quot;A&quot;: 1, &quot;B&quot;: 2}</code></li><li class="correct"><code>x = {&quot;A&quot;: 1, &quot;B&quot;: 2, &quot;C&quot;: 3, &quot;D&quot;: 4}</code></li></ol><dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>Which statement creates a dictionary with 4 keys?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-1-ch08-52</dd></dl></li><li>What are the keys in the following dictionary?
+<pre>
+fruit = {&quot;Apple&quot;: &quot;Green&quot;, &quot;Banana&quot;: &quot;Yellow&quot;}
+</pre><ol class="multiple-choice"><li class="correct">Apple and Banana</li><li>Green and Yellow</li><li>Apple, Green, Banana and Yellow</li><li>The dictionary does not have any keys</li></ol><dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>What are the keys in a dictionary?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-1-ch08-53</dd></dl></li><li>What are the values in the following dictionary?
+<pre>
+numbers = {1: 5.5, 2.0: 77, 3: 33}
+</pre><ol class="multiple-choice"><li>1, 2.0 and 3</li><li class="correct">5.5, 77 and 33</li><li>1, 77, 3 and 33</li><li>1, 5.5, 2.0, 77, 3 and 33</li></ol><dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>What are the values in a dictionary?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-1-ch08-54</dd></dl></li><li>Consider the following code segment:
+<pre>
+fruit = {&quot;Apple&quot;: &quot;Green&quot;, &quot;Banana&quot;: &quot;Yellow&quot;}
+fruit[&quot;Plum&quot;] = &quot;Purple&quot;
+</pre>
+After it executes, what is the value of <code>fruit</code>?
+<ol class="multiple-choice"><li><code>{&quot;Apple&quot;: &quot;Green&quot;, &quot;Banana&quot;: &quot;Yellow&quot;}</code></li><li class="correct"><code>{&quot;Apple&quot;: &quot;Green&quot;, &quot;Banana&quot;: &quot;Yellow&quot;, &quot;Plum&quot;:
+&quot;Purple&quot;}</code></li><li><code>{&quot;Apple&quot;: &quot;Green&quot;, &quot;Banana&quot;: &quot;Yellow&quot;, &quot;Purple&quot;:
+&quot;Plum&quot;}</code></li><li>The <code>fruit</code> dictionary has no value because the
+program terminates with a runtime error</li></ol><dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>Trace code that uses the subscript operator on a dictionary</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-1-ch08-55</dd></dl></li><li>Consider the following code segment:
+<pre>
+fruit = {&quot;Apple&quot;: &quot;Green&quot;, &quot;Banana&quot;: &quot;Yellow&quot;}
+fruit[&quot;Apple&quot;] = &quot;Red&quot;
+</pre>
+After it executes, what is the value of <code>fruit</code>?
+<ol class="multiple-choice"><li><code>{&quot;Apple&quot;: &quot;Green&quot;, &quot;Banana&quot;: &quot;Yellow&quot;}</code></li><li class="correct"><code>{&quot;Apple&quot;: &quot;Red&quot;, &quot;Banana&quot;: &quot;Yellow&quot;}</code></li><li><code>{&quot;Apple&quot;: &quot;Green&quot;, &quot;Banana&quot;: &quot;Yellow&quot;, &quot;Apple&quot;:
+&quot;Red&quot;}</code></li><li>The <code>fruit</code> dictionary has no value because the
+program terminates with a runtime error</li></ol><dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>Trace code that uses the subscript operator on a dictionary</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-1-ch08-56</dd></dl></li><li>Which of the following statements checks to see if the key
+<code>Apple</code> is already in the dictionary <code>fruit</code>?
+<ol class="multiple-choice"><li class="correct"><code>if &quot;Apple&quot; in fruit :</code></li><li><code>if &quot;Apple&quot;.in(fruit) :</code></li><li><code>if fruit in &quot;Apple&quot; :</code></li><li><code>if fruit.contains(&quot;Apple&quot;) :</code></li></ol><dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>Which statement checks to see if a key is in the dictionary?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-1-ch08-57</dd></dl></li><li>Assume that a dictionary has been initialized as shown below:
+<pre>
+fruit = {&quot;Apple&quot;: &quot;Green&quot;, &quot;Banana&quot;: &quot;Yellow&quot;, &quot;Plum&quot;: &quot;Purple&quot;}
+</pre>
+Which statement prints the color of a banana?
+<ol class="multiple-choice"><li><code>print(fruit.&quot;Banana&quot;)</code></li><li class="correct"><code>print(fruit[&quot;Banana&quot;])</code></li><li><code>print(fruit{&quot;Banana&quot;})</code></li><li><code>print(fruit(&quot;Banana&quot;))</code></li></ol><dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>Which statement displays a value in the dictionary?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-1-ch08-58</dd></dl></li><li>What is in the <code>fruit</code> dictionary after the
+following code segment executes?
+<pre>
+fruit = {&quot;Apple&quot;: &quot;Green&quot;, &quot;Banana&quot;: &quot;Yellow&quot;, &quot;Plum&quot;: &quot;Purple&quot;}
+fruit.pop(&quot;Banana&quot;)
+</pre><ol class="multiple-choice"><li class="correct"><code>{&quot;Apple&quot;: &quot;Green&quot;, &quot;Plum&quot;: &quot;Purple&quot;}</code></li><li><code>{&quot;Apple&quot;: &quot;Green&quot;, &quot;Banana&quot;, &quot;Plum&quot;:
+&quot;Purple&quot;}</code></li><li><code>{&quot;Apple&quot;: &quot;Green&quot;, &quot;Yellow&quot;, &quot;Plum&quot;:
+&quot;Purple&quot;}</code></li><li>There is no value in <code>fruit</code> because the program
+terminates with a runtime error</li></ol><dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>Removing an element from a dictionary</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-1-ch08-59</dd></dl></li><li>Which code segment prints only the values stored in the
+<code>fruit</code> dictionary?
+<ol class="multiple-choice"><li><pre>
+for item in fruit :
+   print(item)
+</pre></li><li><pre>
+for item in fruit.items() :
+   print(item)
+</pre></li><li><pre>
+for item in fruit.keys() :
+   print(item)
+</pre></li><li class="correct"><pre>
+for item in fruit.values() :
+   print(item)
+</pre></li></ol><dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>Which code segment prints only the values stored in a dictionary?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-1-ch08-60</dd></dl></li><li>Which statement correctly creates a dictionary for converting
+numbers 1 through 5 to roman numerals?<ol class="multiple-choice"><li><pre>
+numerals = {[1, &quot;I&quot;], [2, &quot;II&quot;], [3, &quot;III&quot;], [4, &quot;IV&quot;], [5, &quot;V&quot;]}
+</pre></li><li><pre>
+numerals = [1: &quot;I&quot;, 2: &quot;II&quot;, 3: &quot;III&quot;, 4: &quot;IV&quot;, 5: &quot;V&quot;]
+</pre></li><li><pre>
+numerals = (1: &quot;I&quot;, 2: &quot;II&quot;, 3: &quot;III&quot;, 4: &quot;IV&quot;, 5: &quot;V&quot;)
+</pre></li><li class="correct"><pre>
+numerals = {1: &quot;I&quot;, 2: &quot;II&quot;, 3: &quot;III&quot;, 4: &quot;IV&quot;, 5: &quot;V&quot;}
+</pre></li></ol><dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>Which statement correctly creates a dictionary for converting numbers 1 through 5 to roman numerals?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-1-ch08-74</dd></dl></li><li>What is the difference between a list and a dictionary?<ol class="multiple-choice"><li>a list is a subset of a dictionary</li><li>a dictionary can access elements by position</li><li class="correct">a list stores individual elements but a dictionary stores
+key/value pairs</li><li>list operations are much faster than the equivalent dictionary
+operations</li></ol><dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>What is the difference between a list and a dictionary?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-1-ch08-75</dd></dl></li><li>Which statement is most correct?
+  <ol class="multiple-choice">
+    <li>A Python dictionary contains a list of all of Python's reserved words.</li>
+    <li class="correct">A Python dictionary stores associations between keys and values.</li>
+    <li>Each value in a Python dictionary must be unique.</li>
+    <li>Every value in a Python dictionary must have the same data type.</li>
+</ol><dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>Which statement about Python dictionaries is most correct?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch08-38</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-2-ch08-38</dd></dl></li><li>Which of the following statements creates a duplicate
+  copy of the <code>favoriteFoods</code> dictionary?
+
+  <ol class="multiple-choice">
+    <li><code>favoriteFoods2 = copy(favoriteFoods)</code></li>
+    <li class="correct"><code>favoriteFoods2 = dict(favoriteFoods)</code></li>
+    <li><code>favoriteFoods2 = duplicate(favoriteFoods)</code></li>
+    <li><code>favoriteFoods2 = favoriteFoods</code></li>
+</ol><dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>Which statement creates a duplicate copy of a dictionary?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch08-40</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-2-ch08-40</dd></dl></li><li>
+Consider the following dictionary:
+<pre>
+favoriteFoods = {&quot;Peg&quot;: &quot;burgers&quot;, &quot;Cy&quot;: &quot;hotdogs&quot;, &quot;Bob&quot;: &quot;apple pie&quot;}
+</pre>
+  What statement will print Peg's favorite food?
+  
+  <ol class="multiple-choice">
+  <li><code>
+print(&quot;Peg's favorite food is: &quot;, favoriteFoods.get(1))
+</code></li>
+  <li><code>
+print(&quot;Peg's favorite food is: &quot;, favoriteFoods(Peg))
+</code></li>
+  <li class="correct"><code>
+print(&quot;Peg's favorite food is: &quot;, favoriteFoods[&quot;Peg&quot;])
+</code></li>
+  <li><code>
+print(&quot;Peg's favorite food is: &quot;, favoriteFoods[1])
+</code></li>
+</ol><dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>What statement prints a value stored in a dictionary?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch08-41</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-2-ch08-41</dd></dl></li><li>How can you access a value stored in a dictionary?
+  <ol class="multiple-choice">
+    <li>A value can only be accessed using a sequential search</li>
+    <li class="correct">A value can only be accessed using its associated key</li>
+    <li>A value can only be accessed using its index</li>
+    <li>A value can only be accessed using the <code>in</code> operator</li>
+</ol><dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>How can you access a value stored in a dictionary?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch08-42</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-2-ch08-42</dd></dl></li><li>Consider the following code segment:
+  
+  <pre>
+  data = {&quot;A&quot;: 65, &quot;B&quot;: 66, &quot;C&quot;: 67}
+  print(data[&quot;Z&quot;])
+  </pre>
+
+  What will be displayed when this code segment executes?
+  
+<ol class="multiple-choice">
+<li><code>-1</code></li>
+<li><code>0</code></li>
+<li><code>{}</code></li>
+<li class="correct">An error message indicating that an exception was raised.</li>
+</ol><dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>What happens when you try to read from a key that is not present in a dictionary?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch08-43</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-2-ch08-43</dd></dl></li><li>
+  Which of the following statements stores <code>seafood</code> in the <code>food</code> variable if <code>Joe</code> is <strong>not</strong> a key in the <code>favoriteFoods</code> dictionary?
+<ol class="multiple-choice">
+  <li class="correct"><code>food = favoriteFoods.get(&quot;Joe&quot;, &quot;seafood&quot;)</code></li>
+  <li><code>food = favoriteFoods.get([&quot;Joe&quot;], &quot;seafood&quot;)</code></li>
+  <li><code>food = favoriteFoods([&quot;Joe&quot;], &quot;seafood&quot;)</code></li>
+  <li><code>food = favoriteFoods.get(&quot;seafood&quot;, &quot;Joe&quot;)</code></li>
+</ol><dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>Which statement returns a default value when attempting to retrieve a value for a key that is not present in a dictionary?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch08-45</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-2-ch08-45</dd></dl></li><li>
+  You are creating a program that includes a dictionary where the keys are
+  people's names and the values are their favorite foods.  Which of the
+  following statements adds an entry to the dictionary that indicates that
+  Ravi's favorite food is chocolate?
+  
+  <ol class="multiple-choice">
+    <li><code>favoriteFoods[&quot;Ravi&quot;] = &quot;chocolate&quot;
+</code></li><li><code>
+favoriteFoods.add(&quot;Ravi&quot;, &quot;chocolate&quot;)
+</code></li><li><code>
+favoriteFoods = {&quot;Ravi&quot;, &quot;chocolate&quot;}
+</code></li><li class="correct"><code>
+favoriteFoods[&quot;Ravi&quot;] = &quot;chocolate&quot;
+</code></li>
+</ol><dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>How do you add an item to a dictionary?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch08-47</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-2-ch08-47</dd></dl></li><li>Which of the following code segments displays the favoriteFoods dictionary in alphabetical order by name?
+<pre>
+favoriteFoods = {&quot;Peg&quot;: &quot;burgers&quot;, &quot;Cy&quot;: &quot;hotdogs&quot;, &quot;Bob&quot;: &quot;apple pie&quot;}
+</pre><ol class="multiple-choice"><li><pre>
+print(favoriteFoods)
+</pre></li><li class="correct"><pre>
+for name in sorted(favoriteFoods) :
+   print(name, favoriteFoods[name])
+</pre></li><li><pre>
+for name in (favoriteFoods) :
+   print(name, favoriteFoods[name])
+</pre></li><li><pre>
+for name in favoriteFoods.sort() :
+   print(name, favoriteFoods[name])
+</pre></li></ol><dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>Which of the code segments displays a dictionary in alphabetical order by key?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-1-ch08-49</dd></dl></li><li>
+  Which code segment creates a dictionary with keys that are integers and values that are lists?
+<ol class="multiple-choice"><li><pre>
+cards = dict()
+cards.add(&quot;Ace&quot;, &quot;Spades&quot;, 1)
+cards.add(&quot;Two&quot;, &quot;Spades&quot;, 2)
+</pre></li><li class="correct"><pre>
+cards = dict()
+cards[1] = [&quot;Ace&quot;, &quot;Spades&quot;]
+cards[2] = [&quot;Two&quot;, &quot;Spades&quot;]
+</pre></li><li><pre>
+cards = dict()
+cards = {&quot;Ace&quot;, &quot;Spades&quot;, 1)
+cards = {&quot;Two&quot;, &quot;Spades&quot;, 2)
+</pre></li><li><pre>
+cards = dict()
+cards.put(&quot;Ace&quot;, &quot;Spades&quot;, 1)
+cards.put(&quot;Two&quot;, &quot;Spades&quot;, 2)
+</pre></li></ol><dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>Which code segment creates a dictionary with keys that are integers and values that are lists?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch08-50</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-2-ch08-50</dd></dl></li><li>
+  What is returned by a dictionary's items method?
+
+  <ol class="multiple-choice">
+    <li>A list of integers</li>
+    <li class="correct">A sequence of tuples</li>
+    <li>A set of floating point numbers</li>
+    <li>A string</li>
+  </ol>
+<dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>What is returned by a dictionary's items method?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-2-ch08-80</dd></dl></li><li>
+  Consider the following code segment:
+
+  <pre>
+  data = {&quot;A&quot;: 65, &quot;B&quot;: 66, &quot;C&quot;: 67}
+  data[&quot;D&quot;] = 68
+  print(len(data))
+</pre>
+
+  What is displayed when this code segment is executed?
+
+  <ol class="multiple-choice">
+    <li><code>3</code></li>
+    <li class="correct"><code>4</code></li>
+    <li><code>6</code></li>
+    <li><code>8</code></li>
+  </ol>
+<dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>What is displayed by a code segment involving a dictionary and the len function?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-2-ch08-81</dd></dl></li><li>
+  What structure should be used to store a collection of unique values when the order of the elements is not important?
+  <ol class="multiple-choice">
+    <li>A dictionary</li>
+    <li>A list</li>
+    <li class="correct">A set</li>
+    <li>A string</li>
+  </ol>
+<dl><dt>Section</dt><dd>8.2 Dictionaries</dd><dt>Title</dt><dd>What structure should be used to store a collection of unique values when the order of the elements is not important?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.2 Dictionaries</dd><dt>id</dt><dd>testbank-py-2-ch08-81</dd></dl></li><li>Which of the following code segments creates a dictionary of
+lists?
+<ol class="multiple-choice"><li><pre>
+days = {}
+days[&quot;February&quot;] = 28, 29
+</pre></li><li><pre>
+days = {}
+days[&quot;February&quot;] = (28, 29)
+</pre></li><li class="correct"><pre>
+days = {}
+days[&quot;February&quot;] = [28, 29]
+</pre></li><li><pre>
+days = {}
+days[&quot;February&quot;] = {28, 29}
+</pre></li></ol><dl><dt>Section</dt><dd>8.3 Complex Structures</dd><dt>Title</dt><dd>Which code segment creates a dictionary of lists?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.3 Complex Structures</dd><dt>id</dt><dd>testbank-py-1-ch08-63</dd></dl></li><li>What does the following code segment display?
+<pre>
+data = {&quot;Jan&quot;: 31, &quot;Feb&quot;: [28, 29], &quot;Mar&quot;, 31}
+print(data[&quot;Jan&quot;][0])
+</pre><ol class="multiple-choice"><li><code>3</code></li><li><code>31</code></li><li><code>J</code></li><li class="correct">The program raises an exception</li></ol><dl><dt>Section</dt><dd>8.3 Complex Structures</dd><dt>Title</dt><dd>Trace code involving a complex structure</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.3 Complex Structures</dd><dt>id</dt><dd>testbank-py-1-ch08-64</dd></dl></li><li>What does the following code segment display?
+<pre>
+data = {&quot;Jan&quot;: 31, &quot;Feb&quot;: [28, 29], &quot;Mar&quot;, 31}
+print(data[&quot;Feb&quot;][0])
+</pre><ol class="multiple-choice"><li><code>2</code></li><li class="correct"><code>28</code></li><li><code>29</code></li><li>The program raises an exception</li></ol><dl><dt>Section</dt><dd>8.3 Complex Structures</dd><dt>Title</dt><dd>Trace code involving a complex structure</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.3 Complex Structures</dd><dt>id</dt><dd>testbank-py-1-ch08-65</dd></dl></li><li>Assume that you have created a function named
+<code>drawBarGraph</code> for displaying bar graphs, and that you
+have stored it in a source file named <code>bargraph.py</code>. How
+should you import this function into another program so that it can
+be used as shown below:
+<pre>
+bargraph.drawBarGraph(data)
+</pre><ol class="multiple-choice"><li class="correct"><code>import bargraph</code></li><li><code>import bargraph.py</code></li><li><code>from bargraph import drawBarGraph</code></li><li><code>from bargrapy.py import drawBarGraph</code></li></ol><dl><dt>Section</dt><dd>8.3 Complex Structures</dd><dt>Title</dt><dd>How do you import a function from another source file?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.3 Complex Structures</dd><dt>id</dt><dd>testbank-py-1-ch08-66</dd></dl></li><li>Consider the following code segment:
+<pre>
+pets = {}
+pets[&quot;Snowball&quot;] = {77, 4.5, &quot;Cat&quot;}
+pets[&quot;Spike&quot;] = {132, 23.1, &quot;Dog&quot;}
+</pre>
+The complex structure <code>pets</code> would best be characterized
+as:
+<ol class="multiple-choice"><li>A dictionary of dictionaries</li><li>A dictionary of lists</li><li class="correct">A dictionary of sets</li><li>A dictionary of strings</li></ol><dl><dt>Section</dt><dd>8.3 Complex Structures</dd><dt>Title</dt><dd>Characterize a complex structure</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.3 Complex Structures</dd><dt>id</dt><dd>testbank-py-1-ch08-67</dd></dl></li><li>Consider the following code segment:
+<pre>
+x = {}
+x[&quot;Hello&quot;] = [4, 5]
+x[&quot;Hello&quot;].append(&quot;World&quot;)
+print(x[&quot;Hello&quot;])
+</pre>
+What is displayed when it is executed?
+<ol class="multiple-choice"><li><code>Hello</code></li><li><code>HelloWorld</code></li><li><code>[4, 5]</code></li><li class="correct"><code>[4, 5, &quot;World&quot;]</code></li></ol><dl><dt>Section</dt><dd>8.3 Complex Structures</dd><dt>Title</dt><dd>Trace code involving appending to a complex structure</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.3 Complex Structures</dd><dt>id</dt><dd>testbank-py-1-ch08-68</dd></dl></li><li>Consider the following scenario.  You have many
+  friends, each of whom has several phone numbers (home, work, cell, and
+  perhaps others).  You want to create a phone book program that stores all of
+  this data.  Which of the following data structures would be best suited to
+  this task?
+
+  <ol class="multiple-choice">
+    <li class="correct">a dictionary of lists</li>
+    <li>a list of lists</li>
+    <li>a list of strings</li>
+    <li>a set of integers</li>
+</ol><dl><dt>Section</dt><dd>8.3 Complex Structures</dd><dt>Title</dt><dd>What type of container or structure best solves the given scenario?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.3 Complex Structures</dd><dt>id</dt><dd>testbank-py-1-ch08-61</dd></dl></li><li><p>Consider the following problem:</p>
+  <p>A grocery store carries a wide variety of products that fall into broad categories such as fruit, milk and toys.  Each category contains many items.  For example, the fruit category contains items like apples, oranges and bananas while the milk category contains items like skim, 2% and chocolate, and the toys category includes items like balls, dolls and trucks.  A program for the grocery store needs to be able to add new items to a category, remove items from a category and display all of the items in a category.  The order in which the items are displayed is not important.</p>
+<p>
+Which container or structure best solves this problem?</p>
+<ol class="multiple-choice">
+  <li class="correct">a dictionary of sets</li>
+  <li>a dictionary of strings</li>
+  <li>a list of strings</li>
+  <li>a set of strings</li>
+</ol><dl><dt>Section</dt><dd>8.3 Complex Structures</dd><dt>Title</dt><dd>What type of container or structure best solves the given scenario?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch08-62</dd><dt>section</dt><dd>8.3 Complex Structures</dd><dt>id</dt><dd>testbank-py-2-ch08-62</dd></dl></li><li>
+  What can specify the address of a web application and the arguments that must be supplied to get it to produce the desired result?
+
+  <ol class="multiple-choice">
+    <li class="correct">The Application Programming Interface (API)</li>
+    <li>The Computing Resource Allocator (CRA)</li>
+    <li>The Global Representation of External Programs (GREP)</li>
+    <li>The Python Programming Principles (PPP)</li>
+  </ol>
+<dl><dt>Section</dt><dd>8.3 Complex Structures</dd><dt>Title</dt><dd>What specifies the address of a web application and the arguments that must be supplied to get it to produce the desired result?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.3 Complex Structures</dd><dt>id</dt><dd>testbank-py-2-ch08-76</dd></dl></li><li>
+  What plain text format is commonly used to exchange data between a Python program and a web application?
+
+  <ol class="multiple-choice">
+    <li>BitMap Protocol (BMP)</li>
+    <li>Internet Handshake Format (IHF)</li>
+    <li class="correct">JavaScript Object Notation (JSON)</li>
+    <li>Python to Python Protocol (PPP)</li>
+  </ol>
+<dl><dt>Section</dt><dd>8.3 Complex Structures</dd><dt>Title</dt><dd>What plain text format is commonly used to exchange data between a Python program and a web application?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.3 Complex Structures</dd><dt>id</dt><dd>testbank-py-2-ch08-77</dd></dl></li><li>
+  What is the purpose of the <code>loads</code> function in the <code>json</code> module?
+
+  <ol class="multiple-choice">
+    <li class="correct">The <code>loads</code> function converts from JSON format to a Python dictionary.</li>
+    <li>The <code>loads</code> function creates a string that can be sent to the web application to request additional data.</li>
+    <li>The <code>loads</code> function reads data from a file stored on the same computer as the Python program.</li>
+    <li>The <code>loads</code> function retrieves data from a web application.</li>
+  </ol>
+<dl><dt>Section</dt><dd>8.3 Complex Structures</dd><dt>Title</dt><dd>What is the purpose of the loads function in the json module?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.3 Complex Structures</dd><dt>id</dt><dd>testbank-py-2-ch08-78</dd></dl></li><li>
+  What character is used to separate the address from the arguments in a URL?
+
+  <ol class="multiple-choice">
+    <li><code>+</code></li>
+    <li class="correct"><code>?</code></li>
+    <li><code>,</code></li>
+    <li><code>:</code></li>
+  </ol>
+<dl><dt>Section</dt><dd>8.3 Complex Structures</dd><dt>Title</dt><dd>What character is used to separate the address from the arguments in a URL?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.3 Complex Structures</dd><dt>id</dt><dd>testbank-py-2-ch08-79</dd></dl></li><li>
+  Which of the following statements is <strong>not</strong> true?
+
+  <ol class="multiple-choice">
+    <li>Splitting a large program into multiple files can make it easier to debug the program.</li>
+    <li class="correct">Splitting a large program into multiple files can make the program run more quickly.</li>
+    <li>Splitting a large program into multiple files can make it easier for multiple programmers to work on the program at the same time.</li>
+    <li>Splitting a large program into multiple files can make it easier to test the program.</li>
+  </ol>
+<dl><dt>Section</dt><dd>8.3 Complex Structures</dd><dt>Title</dt><dd>Why is it beneficial to split a large program into multiple files?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>8.3 Complex Structures</dd><dt>id</dt><dd>testbank-py-2-ch08-81</dd></dl></li></ol></body>
+    </html>

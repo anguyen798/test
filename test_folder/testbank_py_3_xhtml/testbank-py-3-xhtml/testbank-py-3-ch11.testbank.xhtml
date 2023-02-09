@@ -1,0 +1,1078 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/><title></title>
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body><dl></dl><ol><li>Consider the <code>triangleArea</code> function from the
+textbook shown below:
+<pre>
+1. def triangleArea(sideLength) :
+2.    if sideLength &lt;= 0 :
+3.       return 0
+4.    if sideLength == 1 :
+5.       return 1
+6.    smallerSideLength = sideLength - 1
+7.    smallerArea = triangleArea(smallerSideLength)
+8.    area = smallerArea + sideLength
+9.    return area
+</pre>
+Where is/are the recursive call(s)?<ol class="multiple-choice"><li>line #3</li><li>line #5</li><li>lines #3 and #6</li><li class="correct">line #7</li></ol><dl><dt>Section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>Title</dt><dd>Where is the recursive call?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>id</dt><dd>testbank-py-1-ch11-02</dd></dl></li><li>Consider the <code>triangleArea</code> function from the
+textbook shown below:
+<pre>
+1. def triangleArea(sideLength) :
+2.    if sideLength &lt;= 0 :
+3.       return 0
+4.    if sideLength == 1 :
+5.       return 1
+6.    smallerSideLength = sideLength - 1
+7.    smallerArea = triangleArea(smallerSideLength)
+8.    area = smallerArea + sideLength
+9.    return area
+</pre>
+Where is/are the terminating condition(s)?
+<ol class="multiple-choice"><li>line #3</li><li>line #5</li><li class="correct">lines #3 and #5</li><li>line #7</li></ol><dl><dt>Section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>Title</dt><dd>Where is/are the terminating condition(s)?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>id</dt><dd>testbank-py-1-ch11-03</dd></dl></li><li>Consider the following code snippet for recursive addition:
+<pre>
+1. def add(i, j) :
+2.    # assumes i &gt;= 0
+3.    if i == 0 :
+4.       return j
+5.    else :
+6.       return add(i - 1, j + 1)
+</pre>
+Identify the terminating condition in this recursive function.
+<ol class="multiple-choice"><li class="correct"><pre>
+if i == 0 :
+</pre></li><li><pre>
+return j
+</pre></li><li><pre>
+return add(i - 1, j + 1)
+</pre></li><li>There is no terminating condition</li></ol><dl><dt>Section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>Title</dt><dd>Identify the terminating condition in code for recursive addition.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>id</dt><dd>testbank-py-1-ch11-06</dd></dl></li><li>Consider the following code snippet for calculating Fibonacci
+numbers recursively:
+<pre>
+1. def fib(n) :
+2.    # assumes n &gt;= 0
+3.    if n &lt;= 1 : 
+4.       return n
+5.    else : 
+6.       return fib(n - 1) + fib(n - 2)
+</pre>
+Identify the terminating condition in this recursive function.
+<ol class="multiple-choice"><li><pre>
+n &lt; 1 
+</pre></li><li class="correct"><pre>
+n &lt;= 1
+</pre></li><li><pre>
+fib(n - 1)
+</pre></li><li><pre>
+fib(n - 1) + fib(n - 1)
+</pre></li></ol><dl><dt>Section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>Title</dt><dd>Identify the terminating condition in code for Fibonacci.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>id</dt><dd>testbank-py-1-ch11-07</dd></dl></li><li>Consider the following recursive code snippet:
+<pre>
+1. def mystery(n, m) :
+2.    if n &lt;= 0 :
+3.       return 0
+4.    if n == 1 :
+5.       return m 
+6.    return m + mystery(n - 1, m)
+</pre>
+Identify the terminating condition(s) of function mystery?
+<ol class="multiple-choice"><li><pre>
+n &lt;= 0 
+</pre></li><li><pre>
+n == 1
+</pre></li><li class="correct"><pre>
+n &lt;= 0 or n == 1
+</pre></li><li><pre>
+n &gt; 0
+</pre></li></ol><dl><dt>Section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>Title</dt><dd>Identify the terminating condition(s) of function mystery</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>id</dt><dd>testbank-py-1-ch11-08</dd></dl></li><li>Consider the following recursive code snippet:
+<pre>
+1. def mystery(n, m) :
+2.    if n == 0 :
+3.       return 0 
+4.    if n == 1 :
+5.       return m 
+6.    return m + mystery(n - 1, m)
+</pre>
+What value is returned from a call to <code>mystery(1, 5)</code>?<ol class="multiple-choice"><li><pre>
+1
+</pre></li><li class="correct"><pre>
+5
+</pre></li><li><pre>
+6
+</pre></li><li><pre>
+11
+</pre></li></ol><dl><dt>Section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>Title</dt><dd>Find the return value from the call to mystery(1, 5)</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>id</dt><dd>testbank-py-1-ch11-09</dd></dl></li><li>Consider the following recursive code snippet:
+<pre>
+1. def mystery(n, m) :
+2.    if n == 0 :
+3.       return 0
+4.    if n == 1
+5.       return m 
+6.    return m + mystery(n - 1, m)
+</pre>
+What value is returned from a call to <code>mystery(3,6)</code><ol class="multiple-choice"><li><pre>
+3
+</pre></li><li><pre>
+6
+</pre></li><li class="correct"><pre>
+18
+</pre></li><li><pre>
+729
+</pre></li></ol><dl><dt>Section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>Title</dt><dd>Find the return value from the call to mystery(3, 6).</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>id</dt><dd>testbank-py-1-ch11-10</dd></dl></li><li>Consider the recursive function <code>myPrint</code>:
+<pre>
+1. def myPrint(n) :
+2.    if n &lt; 10 :
+3.       print(n)
+4.    else :
+5.       m = n % 10
+6.       print(m)
+7.       myPrint(n / 10)
+</pre>
+What is printed for the call <code>myPrint(8)</code>?
+<ol class="multiple-choice"><li>10</li><li class="correct">8</li><li>4</li><li>21</li></ol><dl><dt>Section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>Title</dt><dd>What is printed for the call myPrint(8)?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>id</dt><dd>testbank-py-1-ch11-11</dd></dl></li><li>Complete the code for the recursive function printSum shown in
+this code snippet, which is intended to return the sum of digits
+from 1 to n:
+<pre>
+1. def printSum(n) :
+2.     if n == 0 :
+3.        return 0
+4.     else :
+5.        ________________________________
+</pre><ol class="multiple-choice"><li><pre>
+return printSum(n - 1) 
+</pre></li><li><pre>
+return n + printSum(n + 1)
+</pre></li><li class="correct"><pre>
+return n + printSum(n - 1)
+</pre></li><li><pre>
+return n - printSum(n - 1)
+</pre></li></ol><dl><dt>Section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>Title</dt><dd>Complete the code for the recursive function printSum</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>id</dt><dd>testbank-py-1-ch11-13</dd></dl></li><li>Consider the code for the recursive function
+<code>myPrint</code> shown in this code snippet:
+<pre>
+1. def myPrint(n) :
+2.    if n == 0 :
+3.       return 0
+4.    else :
+5.       return n + mysteryPrint(n - 1)
+</pre>
+To avoid infinite recursion, which of the following lines of code
+should replace the current terminating case?
+<ol class="multiple-choice"><li><pre>
+if n == -1
+</pre></li><li class="correct"><pre>
+if n &lt;= 0
+</pre></li><li><pre>
+if n &gt;= 0
+</pre></li><li>The terminating case as shown will avoid infinite
+recursion</li></ol><dl><dt>Section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>Title</dt><dd>Complete the code for the recursive function myPrint</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>id</dt><dd>testbank-py-1-ch11-16</dd></dl></li><li>Consider the following code segment:
+<pre>
+def fib(n) :                          # Line 1
+   if n &lt;= 2 :
+      return 1                        # Line 2
+   else :
+      return fib(n - 1) + fib(n - 2)  # Line 3
+
+print(fib(6))                         # Line 4
+</pre>
+Which line is the base case for this recursive function?
+<ol class="multiple-choice"><li>Line 1</li><li class="correct">Line 2</li><li>Line 3</li><li>Line 4</li></ol><dl><dt>Section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>Title</dt><dd>Which line is the base case for a recursive function?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>id</dt><dd>testbank-py-1-ch11-19</dd></dl></li><li>The following function is supposed to use recursion to compute
+the area of a square from the length of its sides. For example,
+<code>squareArea(3)</code> should return 9.
+<pre>
+def squareArea(sideLength) :
+   if sideLength == 1 :
+      return 1
+   else :
+      ____________________
+      
+</pre>
+What line of code should be placed in the blank to achieve this
+goal?
+<ol class="multiple-choice"><li><code>return squareArea(sideLength - 1)</code></li><li><code>return 2 * squareArea(sideLength - 1)</code></li><li><code>return 2 * sideLength + squareArea(sideLength -
+1)</code></li><li class="correct"><code>return 2 * (sideLength - 1) + squareArea(sideLength -
+1)</code></li></ol><dl><dt>Section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>Title</dt><dd>Which line of code completes this recursive function?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>id</dt><dd>testbank-py-1-ch11-20</dd></dl></li><li>Consider the following code segment:
+<pre>
+def triangleArea(sideLength) :
+   if sideLength == 1:
+      return 1
+   return triangleArea(sideLength - 1) + sideLength
+
+print(triangleArea(5))
+</pre>
+How many times is the <code>triangleArea</code> function called
+when this code segment executes?
+<ol class="multiple-choice"><li>1</li><li>4</li><li class="correct">5</li><li>6</li></ol><dl><dt>Section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>Title</dt><dd>How many times is a recursive function called?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>id</dt><dd>testbank-py-1-ch11-21</dd></dl></li><li>Consider the following recursive function:
+
+<pre>
+def myPrint(n) :
+  if n &lt; 10 :
+    print(n)
+  else :
+    m = n % 10
+    print(m)
+    myPrint(n // 10)
+</pre>
+
+What does this function do?
+
+<ol class="multiple-choice">
+  <li>It prints a positive value forward, digit by digit</li>
+  <li class="correct">It prints a positive value backward, digit by digit</li>
+  <li>It divides the number by 10 and prints out its last digit</li>
+  <li>It divides the number by 10 and prints out the result</li>
+</ol><dl><dt>Section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>Title</dt><dd>What does the recursive function do?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch11-12</dd><dt>section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>id</dt><dd>testbank-py-2-ch11-12</dd></dl></li><li>Consider the following recursive function:
+
+<pre>
+def myPrint(n) :
+  if n &lt; 10 :
+    print(n)
+  else :
+    m = n % 10
+    print(m, end=&quot;&quot;)
+    myPrint(n // 10)
+</pre>
+
+What is printed for the call <code>myPrint(821)</code>?
+
+<ol class="multiple-choice">
+  <li>10</li>
+  <li>12</li>
+  <li class="correct">128</li>
+  <li>821</li>
+</ol><dl><dt>Section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>Title</dt><dd>What is printed by a recursive function?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch11-14</dd><dt>section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>id</dt><dd>testbank-py-2-ch11-14</dd></dl></li><li>Consider the following code segment:
+
+<pre>
+def mysteryPrint(n) :
+  if n == 0 :
+    return 0
+  else :
+    return n + mysteryPrint(n - 1)
+</pre>
+
+What is returned for the call <code>mysteryPrint(-4)</code>?
+
+<ol class="multiple-choice">
+  <li>0</li>
+  <li>-10</li>
+  <li>-22</li>
+  <li class="correct">Nothing.  The program crashes with a runtime error.</li>
+</ol><dl><dt>Section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>Title</dt><dd>Compute the result of a recursive function</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch11-15</dd><dt>section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>id</dt><dd>testbank-py-2-ch11-15</dd></dl></li><li>Consider the following function for computing the
+  greatest common divisor of two integers greater than 0:
+
+<pre>
+def gcd(x, y):           # Line 1
+  if x % y == 0:         # Line 2
+    return y             # Line 3
+  else:
+    return gcd(y, x % y) # Line 4
+</pre>
+
+  Which line contains a recursive function call? 
+  
+  <ol class="multiple-choice">
+    <li>Line #1</li>
+    <li>Line #2</li>
+    <li>Line #3</li>
+    <li class="correct">Line #4</li>
+</ol><dl><dt>Section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>Title</dt><dd>Which line in the function contains the recursive function call?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch11-17</dd><dt>section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>id</dt><dd>testbank-py-2-ch11-17</dd></dl></li><li>This function is supposed to recursively compute x to
+  the power n, where x and n are both non-negative integers:
+
+<pre>
+1. def power(x, n) : 
+2.    if n == 0 :
+3.       ________________________________
+4.    else : 
+5.       return x * power(x, n - 1)
+</pre>
+
+What code should be placed in the blank to accomplish this goal?
+  
+<ol class="multiple-choice">
+  <li class="correct"><code>return 1</code></li>
+  <li><code>return x</code></li>
+  <li><code>return power(x, n - 1)</code></li>
+  <li><code>return x * power(x, n - 1)</code></li>
+</ol><dl><dt>Section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>Title</dt><dd>Complete this code to recursively compute x to the power n.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>id</dt><dd>testbank-py-1-ch11-18</dd></dl></li><li>What is required to make a recursive function successful?
+  <p>
+  I. One or more special cases that handle the simplest computations directly<br/>
+  II. A recursive call to a smaller or simpler version of the problem<br/>
+  III. Mutually recursive calls
+  </p>
+  
+  <ol class="multiple-choice">
+    <li>I only</li>
+    <li>II only</li>
+    <li class="correct">I and II only</li>
+    <li>I, II, and III</li>
+</ol><dl><dt>Section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>Title</dt><dd>What is required in a recursive function?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch11-01</dd><dt>section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>id</dt><dd>testbank-py-2-ch11-01</dd></dl></li><li>Consider the <code>triangleArea</code> function from the textbook shown below:
+
+<pre>
+1. def triangleArea(sideLength) :
+2.    if sideLength &lt;= 0 :
+3.       return 0
+4.    if sideLength == 1 :
+5.       return 1
+6.    smallerSideLength = sideLength - 1
+7.    smallerArea = triangleArea(smallerSideLength)
+8.    area = smallerArea + sideLength
+9.    return area
+</pre>
+
+What will happen if line #6 is changed to:
+
+<pre>smallerSideLength = sideLength</pre>
+
+<ol class="multiple-choice">
+  <li>Infinite recursion will occur when <code>sideLength</code> is equal to 0.</li>
+  <li>Infinite recursion will occur when <code>sideLength</code> is equal to 1.</li>
+  <li class="correct">Infinite recursion will occur when <code>sideLength</code> is greater than or equal to 2.</li>
+  <li>Infinite recursion will occur for any value of <code>sideLength</code>.</li>
+</ol><dl><dt>Section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>Title</dt><dd>When will infinite recursion occur?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch11-04</dd><dt>section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>id</dt><dd>testbank-py-2-ch11-04</dd></dl></li><li>Consider the <code>triangleArea</code> function from the textbook shown below:
+
+<pre>
+1. def triangleArea(sideLength) :
+2.    if sideLength &lt;= 0 :
+3.       return 0
+4.    if sideLength == 1 :  
+5.       return 1
+6.    smallerSideLength = sideLength - 1
+7.    smallerArea = triangleArea(smallerSideLength)
+8.    area = smallerArea + sideLength
+9.    return area
+</pre>
+
+What will happen if lines #2 and #3 are replaced with the following code segment?
+
+<pre>
+if sideLength &lt;= 0 : 
+   return sideLength
+</pre>
+
+<ol class="multiple-choice">
+  <li class="correct">The function will still return correct results for all triangles with non-negative side lengths.</li>
+  <li>The function will return incorrect results when the side length is equal to 0.</li>
+  <li>The function will return incorrect results when the side length is equal to 1.</li>
+  <li>The function will return an area value that is too large for all triangles with non-negative side lengths.</li>
+</ol><dl><dt>Section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>Title</dt><dd>Determine the impact of changes made to a recursive function</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch11-05</dd><dt>section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>id</dt><dd>testbank-py-2-ch11-05</dd></dl></li><li>A recursive computation solves a problem using the solution to the same problem with ____________________ inputs.
+
+<ol class="multiple-choice">
+  <li>floating point</li>
+  <li>integer</li>
+  <li>more complex</li>
+  <li class="correct">simpler</li>
+</ol><dl><dt>Section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>Title</dt><dd>How does a recursive solution solve a problem?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>id</dt><dd>testbank-py-2-ch11-79</dd></dl></li><li>Consider the following code segment:
+
+<pre>
+____________________
+  if x % y == 0:
+    return y
+  else:
+    return gcd(y, x % y)
+</pre>
+  
+Which statement should be placed in the blank to complete the recursive
+function definition?
+
+<ol class="multiple-choice">
+  <li class="correct"><code>def gcd(x, y) :</code></li>
+  <li><code>def gcd(x, y, z) :</code></li>
+  <li><code>def x(gcd, y)</code></li>
+  <li><code>def y(gcd, x)</code></li>
+</ol><dl><dt>Section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>Title</dt><dd>Which statement completes the recursive function definition?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>id</dt><dd>testbank-py-2-ch11-81</dd></dl></li><li>What term is used to describe a function that keeps on calling itself until the program crashes?
+
+<ol class="multiple-choice">
+  <li>Indefinite Recursion</li>
+  <li class="correct">Infinite Recursion</li>
+  <li>Interface Recursion</li>
+  <li>Mutual Recursion</li>
+</ol><dl><dt>Section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>Title</dt><dd>What term is used to describe a function that keeps on calling itself until the program crashes?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.1 Triangle Numbers Revisited</dd><dt>id</dt><dd>testbank-py-2-ch11-82</dd></dl></li><li>How many recursive calls to the <code>fib</code> function shown
+below would be made from an original call to <code>fib(4)</code>?
+(Do not count the original call)
+<pre>
+1. def fib(n) :
+2.    # assumes n &gt;= 0
+3.    if n &lt;= 1 : 
+4.       return n
+5.    else :
+6.       return fib(n - 1) + fib(n - 2)
+</pre><ol class="multiple-choice"><li>1</li><li>2</li><li>4</li><li class="correct">8</li></ol><dl><dt>Section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>Title</dt><dd>Count the recursive calls to fib.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>id</dt><dd>testbank-py-1-ch11-25</dd></dl></li><li>Which of the following options could be used as a terminating
+condition for a recursive function that finds the middle character
+of a String with any number of characters?<ol class="multiple-choice"><li>I. the length of the String is 1</li><li>II. first and last String characters match</li><li>III. the String is not empty</li></ol><ol class="multiple-choice"><li class="correct">I</li><li>II</li><li>I, II, and III</li><li>I and III</li></ol><dl><dt>Section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>Title</dt><dd>Identifying possible terminating conditions.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>id</dt><dd>testbank-py-1-ch11-27</dd></dl></li><li>Consider the function <code>powerOfTwo</code> shown below:
+<pre>
+1. def powerOfTwo(n) :
+2.    if n == 1 :
+3.       return True
+4.    elif n % 2 == 1 :
+5.       return False
+6.    else : 
+7.       return powerOfTwo(n / 2)
+</pre>
+How many recursive calls are made from the original call
+<code>powerOfTwo(63)</code> (not including the original
+call)?<ol class="multiple-choice"><li>6</li><li>4</li><li>1</li><li class="correct">0</li></ol><dl><dt>Section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>Title</dt><dd>How many recursive calls are made from the original call of powerOfTwo(63)?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>id</dt><dd>testbank-py-1-ch11-29</dd></dl></li><li>Consider the function <code>powerOfTwo</code> shown below:
+<pre>
+1. def powerOfTwo(n) :
+2.    if n == 1 :
+3.       return True
+4.    elif n % 2 == 1 :
+5.       return False
+6.    else :
+7.       return powerOfTwo(n / 2)
+</pre>
+How many recursive calls are made from the original call
+<code>powerOfTwo(64)</code> (not including the original
+call)?<ol class="multiple-choice"><li>8</li><li class="correct">6</li><li>4</li><li>2</li></ol><dl><dt>Section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>Title</dt><dd>How many recursive calls are made from the original call of powerOfTwo(64)?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>id</dt><dd>testbank-py-1-ch11-30</dd></dl></li><li>Complete the code for the <code>myFactorial</code> recursive
+function shown below, which is intended to compute the factorial of
+the value passed to the function:
+<pre>
+1. def myFactorial(n) :
+2.    if n == 1 :
+3.       return 1
+4.    else :
+5.       _______________________
+</pre><ol class="multiple-choice"><li><pre>
+return n * myFactorial(n) 
+</pre></li><li><pre>
+return (n - 1) * myFactorial(n)
+</pre></li><li class="correct"><pre>
+return n * myFactorial(n - 1)
+</pre></li><li><pre>
+return (n - 1) * myFactorial(n - 1)
+</pre></li></ol><dl><dt>Section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>Title</dt><dd>Complete the code for the myFactorial recursive function.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>id</dt><dd>testbank-py-1-ch11-31</dd></dl></li><li>Complete the code for the <code>myFactorial</code> recursive
+function shown below, which is intended to compute the factorial of
+the value passed to the function:
+<pre>
+1. def myFactorial(n) :
+2.    if _____________________________ :
+3.       return 1
+4.    else :
+5.       return n * myFactorial(n - 1)
+</pre><ol class="multiple-choice"><li class="correct"><pre>
+n == 1
+</pre></li><li><pre>
+(n - 1) == 1
+</pre></li><li><pre>
+n * (n - 1) == 1
+</pre></li><li><pre>
+myFactorial(n) == 1
+</pre></li></ol><dl><dt>Section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>Title</dt><dd>Complete the code for the myFactorial recursive function.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>id</dt><dd>testbank-py-1-ch11-32</dd></dl></li><li>Complete the code for the <code>myFactorial</code> recursive
+function shown below, which is intended to compute the factorial of
+the value passed to the function:
+<pre>
+1. def myFactorial(n) :
+2.    if n == 1 :
+3.       _____________________________
+4.    else :
+5.       return n * myFactorial(n - 1)
+</pre><ol class="multiple-choice"><li><pre>
+return 0
+</pre></li><li><pre>
+return -n
+</pre></li><li class="correct"><pre>
+return 1
+</pre></li><li><pre>
+return myFactorial(n)
+</pre></li></ol><dl><dt>Section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>Title</dt><dd>Complete the code for the myFactorial recursive function.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>id</dt><dd>testbank-py-1-ch11-33</dd></dl></li><li>Complete the code for the <code>calcPower</code> recursive
+function shown below, which is intended to raise the base number
+passed into the function to the exponent power passed into the
+function:
+<pre>
+1. def calcPower(base, exponent) :
+2.    answer = 0
+3.    if exponent == 0 : 
+4.       answer = 1
+5.    else :
+6.       _____________________________
+7.    return answer
+</pre><ol class="multiple-choice"><li><pre>
+answer = base * calcPower(base - 1, exponent)
+</pre></li><li class="correct"><pre>
+answer = base * calcPower(base, exponent - 1)
+</pre></li><li><pre>
+answer = base * calcPower(base, exponent)
+</pre></li><li><pre>
+answer = base * calcPower(base - 1, exponent - 1)
+</pre></li></ol><dl><dt>Section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>Title</dt><dd>Complete the code for the calcPower recursive function.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>id</dt><dd>testbank-py-1-ch11-34</dd></dl></li><li>Given the following code:
+<pre>
+def main() :
+   recurse(3)
+
+def recurse(n) :
+   total = 0
+   if n == 0 :
+      return 0
+   else : 
+      total = 3 + recurse(n - 1)
+      print(total)
+   return total
+     
+main()
+</pre>
+What values will be printed when this code is executed?<ol class="multiple-choice"><li>1, 3, and 6</li><li>1, 3, 6, and 9</li><li class="correct">3, 6, and 9</li><li>3, 6, 9, and 12</li></ol><dl><dt>Section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>Title</dt><dd>What values will this recursive code sample print?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>id</dt><dd>testbank-py-1-ch11-35</dd></dl></li><li>Given the following code:
+<pre>
+def main() :
+   recurse(4)
+ 
+def recurse(n) :
+   total = 0
+   if n == 0 :
+      return 0
+   else :
+      total = 4 + recurse(n - 2)
+      print(total)
+   return total  
+
+main()
+</pre>
+What values will be printed when this code is executed?<ol class="multiple-choice"><li>0, 4, and 8</li><li class="correct">4 and 8</li><li>4</li><li>8</li></ol><dl><dt>Section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>Title</dt><dd>What values will this recursive code sample print?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>id</dt><dd>testbank-py-1-ch11-36</dd></dl></li><li>The following code segment is supposed to sum the numbers from
+1 up to and including <code>n</code> using recursion.
+<pre>
+def sumOneToN(n) :
+   if n == 0 :
+      return 0
+   ____________________
+</pre>
+Which statement should be placed in the blank to achieve this goal?
+<ol class="multiple-choice"><li><code>return sumOneToN(n)</code></li><li><code>return n + sumOneToN(n)</code></li><li class="correct"><code>return n + sumOneToN(n - 1)</code></li><li><code>return n + sumOneToN(n) - 1</code></li></ol><dl><dt>Section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>Title</dt><dd>Which statement will complete a recursive function?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>id</dt><dd>testbank-py-1-ch11-37</dd></dl></li><li>What is displayed by the following code segment?
+<pre>
+def mystery(n) :
+   if n == 0 :
+      return 0
+   else :
+      return n % 10 + mystery(n // 10)
+
+print(mystery(0))
+</pre><ol class="multiple-choice"><li class="correct"><code>0</code></li><li><code>1</code></li><li><code>10</code></li><li><code>A runtime error is reported</code></li></ol><dl><dt>Section</dt><dd>11.2 Thinking Recursively</dd><dt>Title</dt><dd>Trace a call to a recursive function</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>id</dt><dd>testbank-py-1-ch11-38</dd></dl></li><li>What is displayed by the following code segment?
+<pre>
+def mystery(n) :
+   if n == 0 :
+      return 0
+   else :
+      return n % 10 + mystery(n // 10)
+
+print(mystery(-1))
+</pre><ol class="multiple-choice"><li><code>0</code></li><li><code>1</code></li><li><code>10</code></li><li class="correct"><code>A runtime error is reported</code></li></ol><dl><dt>Section</dt><dd>11.2 Thinking Recursively</dd><dt>Title</dt><dd>Trace a call to a recursive function</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>id</dt><dd>testbank-py-1-ch11-39</dd></dl></li><li>What is displayed by the following code segment?
+<pre>
+def mystery(n) :
+   if n == 0 :
+      return 0
+   else :
+      return n % 10 + mystery(n // 10)
+
+print(mystery(123))
+</pre><ol class="multiple-choice"><li><code>0</code></li><li><code>1</code></li><li class="correct"><code>6</code></li><li><code>123</code></li></ol><dl><dt>Section</dt><dd>11.2 Thinking Recursively</dd><dt>Title</dt><dd>Trace a call to a recursive function</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>id</dt><dd>testbank-py-1-ch11-40</dd></dl></li><li>Consider the following code segment:
+<pre>
+def mystery(s, c) :
+   if len(s) == 0 :
+      return False
+   elif s[i] == c :
+      return True
+   else :
+      return mystery(s[1 : ], c)
+</pre>
+What does the mystery function do?
+<ol class="multiple-choice"><li>It removes the first character from <code>s</code></li><li>It counts the number of times <code>c</code> is present in
+<code>s</code></li><li class="correct">It determines whether or not <code>c</code> occurs in
+<code>s</code></li><li>It removes all occurrences of <code>c</code> from
+<code>s</code></li></ol><dl><dt>Section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>Title</dt><dd>What does this recursive function do?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>id</dt><dd>testbank-py-1-ch11-41</dd></dl></li><li>What is displayed when the following program executes?
+<pre>
+def mystery(s) :
+   return s[len(s) - 1] + mystery(s[0 : len(s) - 1])
+
+mystery(&quot;123&quot;)
+</pre><ol class="multiple-choice"><li><code>0</code></li><li><code>6</code></li><li><code>123</code></li><li class="correct"><code>321</code></li></ol><dl><dt>Section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>Title</dt><dd>Trace this recursive function</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>id</dt><dd>testbank-py-1-ch11-42</dd></dl></li><li>When a recursive function is called, and it does not perform
+  recursion, what must be true?
+  <ol class="multiple-choice">
+    <li class="correct">The terminating condition was true.</li>
+    <li>One recursive case condition was true.</li>
+    <li>All recursive case conditions were true.</li>
+    <li>An exception occurred in the function.</li>
+</ol><dl><dt>Section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>Title</dt><dd>Why would a recursive function not perform recursion?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch11-22</dd><dt>section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>id</dt><dd>testbank-py-2-ch11-22</dd></dl></li><li>Consider the <code>triangleArea</code> function from the
+textbook shown below:
+<pre>
+1. def triangleArea(sideLength) : 
+2.    if sideLength &lt;= 0 : 
+3.       return 0
+4.    if sideLength == 1 :
+5.       return 1
+6.    smallerSideLength = sideLength - 1
+7.    smallerArea = triangleArea(smallerSideLength)
+8.    area = smallerArea + sideLength
+9.    return area
+</pre>
+
+What will happen if lines 4 and 5 are replaced with the following lines of code?
+
+<pre>
+if sideLength == 1 : 
+   return 2
+</pre>
+
+<ol class="multiple-choice">
+  <li class="correct">It would increase the result calculated by the function for all calls except those where <code>sideLength
+    &lt;= 0</code></li>
+  <li>It would not make any difference to any call</li>
+  <li>It would double the result calculated by the function for all calls</li>
+  <li>It would reduce the result calculated by the function by 1 for all calls</li></ol><dl><dt>Section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>Title</dt><dd>What impact will a change have on a recursive function?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch11-23</dd><dt>section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>id</dt><dd>testbank-py-2-ch11-23</dd></dl></li><li>Consider the <code>triangleArea</code> function from the
+textbook shown below:
+
+<pre>
+1. def triangleArea(sideLength) : 
+2.    if sideLength &lt;= 0 : 
+3.       return 0
+4.    if sideLength == 1 : 
+5.       return 1
+6.    smallerSideLength = sideLength - 1
+7.    smallerArea = triangleArea(smallerSideLength)
+8.    area = smallerArea + sideLength
+9.    return area
+</pre>
+
+Assume that line #5 is changed to this:
+
+<pre>
+smallerArea = triangleArea(sideLength)
+</pre>
+
+This would cause infinite recursion for
+__________________________________
+<ol class="multiple-choice"><li>triangles with <code>sideLength</code> equal to 0</li><li>triangles with <code>sideLength</code> equal to 1</li><li class="correct">triangles with <code>sideLength</code> greater than or equal to
+1</li><li>triangles of any <code>sideLength</code></li></ol><dl><dt>Section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>Title</dt><dd>When will infinite recursion occur?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>id</dt><dd>testbank-py-1-ch11-24</dd></dl></li><li>Consider the following function:
+
+<pre>
+1. def mystery(n, m) :
+2.    if n == 0 :       # special case 1
+3.       return 0
+4.    if n == 1 :       # special case 2
+5.       return m
+6.    return m + mystery(n - 1), m)
+</pre>
+
+What will happen if lines #2 and #3 were swapped with lines #4 and #5?
+
+<ol class="multiple-choice">
+  <li class="correct">The original function and the modified function will return the same result for all integer values of <code>n</code> and <code>m</code>.</li>
+  <li>The original function and the modified function will return different results for all integer value of <code>n</code> and <code>m</code>.</li>
+  <li>The original function and the modified function will return the same result when <code>n</code> is greater than <code>m</code>, and different results when <code>m</code> is greater than <code>n</code>.</li>
+  <li>The original function and the modified function will return the same result when <code>n</code> is less than <code>m</code>, and different results when <code>m</code> is less than <code>n</code>.</li>
+</ol><dl><dt>Section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>Title</dt><dd>Would switching the special case order affect the return value of function mystery?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch11-26</dd><dt>section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>id</dt><dd>testbank-py-2-ch11-26</dd></dl></li><li>Consider the function <code>powerOfTwo</code> shown below:
+<pre>
+1. def powerOfTwo(n) :
+2.    if n == 1 :
+3.       return True
+4.    elif n % 2 == 1 :
+5.       return False
+6.    else :
+7.       return powerOfTwo(n / 2)
+</pre>
+What is the best interpretation of lines 2 and 3?
+<ol class="multiple-choice">
+  <li class="correct">One is a power of two.</li>
+  <li>One is not a power of two.</li>
+  <li>Any multiple of one is a power of two.</li>
+  <li>The integer <code>1</code> is an invalid choice for n.</li>
+</ol><dl><dt>Section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>Title</dt><dd>Analyze the powerOfTwo function</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch11-28</dd><dt>section</dt><dd>11.2 Problem Solving: Thinking Recursively</dd><dt>id</dt><dd>testbank-py-2-ch11-28</dd></dl></li><li>A palindrome is a word or phrase spelled which reads the same
+forward or backward. Consider the following code snippet:
+<pre>
+def palindrome(s) :
+   return isPal(s, 0, len(s) - 1)
+ 
+def isPal(s, left, right) :
+   if left &gt;= right :
+      return True
+   elif s[left] == s[right] :
+      return isPal(s, left + 1, right - 1)
+   else : 
+      return False
+</pre>
+What does the function palindrome return?<ol class="multiple-choice"><li>True</li><li>False</li><li>a palindrome not found exception</li><li class="correct">the Boolean value returned from the
+<code>isPal</code>function</li></ol><dl><dt>Section</dt><dd>11.3 Recursive Helper Functions</dd><dt>Title</dt><dd>What does the function palindrome return?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.3 Recursive Helper Functions</dd><dt>id</dt><dd>testbank-py-1-ch11-44</dd></dl></li><li>What is the purpose of a recursive helper function?<ol class="multiple-choice"><li class="correct">Shield the user of the recursive function from the recursive
+details</li><li>Speed up the execution</li><li>Eliminate the recursion</li><li>Add another base case</li></ol><dl><dt>Section</dt><dd>11.3 Recursive Helper Functions</dd><dt>Title</dt><dd>What is the purpose of a recursive helper function?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.3 Recursive Helper Functions</dd><dt>id</dt><dd>testbank-py-1-ch11-45</dd></dl></li><li>Consider the following code segment:
+<pre>
+def sumList(data) :
+   return sumListIndex(data, 0)
+
+def sumListIndex(data, i) :
+   if i == len(data) :
+      return 0
+   else :
+      return data[i] + sumListIndex(data, i + 1)
+</pre>
+This code segment contains an example of
+<ol class="multiple-choice"><li class="correct">a recursive helper function</li><li>backtracking</li><li>iteration</li><li>mutual recursion</li></ol><dl><dt>Section</dt><dd>11.3 Recursive Helper Functions</dd><dt>Title</dt><dd>What feature does this code segment contain?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.3 Recursive Helper Functions</dd><dt>id</dt><dd>testbank-py-1-ch11-46</dd></dl></li><li>The <code>printList</code> function is supposed to print all of
+the elements in a list, one per line. What line of code should be
+placed in the blank to achieve this goal?
+<pre>
+def printList(data) :
+   ____________________
+
+def printHelper(data, i) :
+   if i == len(data) :
+      return
+   print(data[i])
+   printHelper(data, i + 1)
+</pre><ol class="multiple-choice"><li><code>print(data)</code></li><li><code>printHelper(data)</code></li><li class="correct"><code>printHelper(data, 0)</code></li><li><code>printHelper(data, len(data))</code></li></ol><dl><dt>Section</dt><dd>11.3 Recursive Helper Functions</dd><dt>Title</dt><dd>Complete the code segment involving a recursive helper function</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.3 Recursive Helper Functions</dd><dt>id</dt><dd>testbank-py-1-ch11-47</dd></dl></li><li>The following code segment is supposed to determine whether or
+not a string is a palindrome, meaning that it is the same forward
+and backward.
+<pre>
+def isPalindrome(s) :
+   return palindromeHelper(s, l, h)
+
+def palidromeHelper(s, l, h) :
+   if h &lt;= l :
+      return True
+   if s[l] != s[h] :
+      return False
+   ____________________
+</pre>
+What line of code should be placed in the blank to achieve this
+goal?
+<ol class="multiple-choice"><li><code>isPalindrome(s, l, h)</code></li><li><code>isPalindrome(s, l + 1, h - 1)</code></li><li><code>palindromeHelper(s, l, h)</code></li><li class="correct"><code>palindromeHelper(s, l + 1, h - 1)</code></li></ol><dl><dt>Section</dt><dd>11.3 Recursive Helper Functions</dd><dt>Title</dt><dd>Complete the function for determining if a string is a palindrome</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.3 Recursive Helper Functions</dd><dt>id</dt><dd>testbank-py-1-ch11-48</dd></dl></li><li>A palindrome is a word or phrase that reads the same forward and 
+backward. Consider the functions <code>palindrome</code> and
+<code>isPal</code> shown below:
+<pre>
+def palindrome(s) :
+   return isPal(s, 0, len(s) - 1)
+ 
+def isPal(s, left, right) :
+   if left &gt;= right :
+      return True
+   elif s[left] == s[right] :
+      return isPal(s, left + 1, right - 1)
+   else :
+      return False
+</pre>
+The function <code>isPal</code> as shown here would be
+considered to be a ____ function.<ol class="multiple-choice"><li>iterative</li><li>method</li><li class="correct">helper</li><li>static</li></ol><dl><dt>Section</dt><dd>11.3 Recursive Helper Functions</dd><dt>Title</dt><dd>The function shown is considered to be a ____ function.</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch11-43</dd><dt>section</dt><dd>11.3 Recursive Helper Functions</dd><dt>id</dt><dd>testbank-py-2-ch11-43</dd></dl></li><li>Why does the best recursive function usually run slightly
+slower than its iterative counterpart?<ol class="multiple-choice"><li>Testing the terminating condition takes longer.</li><li class="correct">Each recursive function call takes processor time.</li><li>Multiple recursive cases must be considered.</li><li>Checking multiple terminating conditions take more processor
+time.</li></ol><dl><dt>Section</dt><dd>11.4 The Efficiency of Recursion</dd><dt>Title</dt><dd>Why does the best recursive function usually run slightly slower than its iterative counterpart?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.4 The Efficiency of Recursion</dd><dt>id</dt><dd>testbank-py-1-ch11-49</dd></dl></li><li>Which statement(s) about recursion are true?<ul><li>I. Recursion is faster than iteration</li><li>II. Recursion is often easier to understand than iteration</li><li>III. Recursive design has an economy of thought
+</li></ul><ol class="multiple-choice"><li>I</li><li>II</li><li class="correct">II and III</li><li>I and III</li></ol><dl><dt>Section</dt><dd>11.4 The Efficiency of Recursion</dd><dt>Title</dt><dd>Identify the characteristics of recursion.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.4 The Efficiency of Recursion</dd><dt>id</dt><dd>testbank-py-1-ch11-50</dd></dl></li><li>In recursion, the terminating condition is analogous to a loop
+_________.<ol class="multiple-choice"><li>call</li><li>iteration</li><li class="correct">termination condition</li><li>initialization condition</li></ol><dl><dt>Section</dt><dd>11.4 The Efficiency of Recursion</dd><dt>Title</dt><dd>In recursion, the terminating condition is analogous to a loop __________.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.4 The Efficiency of Recursion</dd><dt>id</dt><dd>testbank-py-1-ch11-51</dd></dl></li><li>Consider the following code segment for computing Fibonacci
+numbers. How many times is <code>fib(3)</code> computed in order to
+compute <code>fib(7)</code>?
+<pre>
+def fib(n) :
+   if n &lt;= 2 :
+      return 1
+   else :
+      return fib(n - 1) + fib(n - 2)
+</pre><ol class="multiple-choice"><li>1</li><li>3</li><li class="correct">5</li><li>7</li></ol><dl><dt>Section</dt><dd>11.4 Efficiency of Recursion</dd><dt>Title</dt><dd>How many times is a smaller Fibonacci computed when computing a larger Fibonacci number?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.4 The Efficiency of Recursion</dd><dt>id</dt><dd>testbank-py-1-ch11-52</dd></dl></li><li>How many squares are drawn by the following code segment?
+<pre>
+def tSquare(width, x, y, canvas) :
+   canvas.drawRect(x, y, width, width)
+   if width &gt;= 4 :
+      tSquare(width / 2, x, y, canvas)
+      tSquare(width / 2, x + width / 2, canvas)
+      tSquare(width / 2, x, y + width / 2, canvas)
+      tSquare(width / 2, x + width / 2, y + width / 2, canvas)
+
+# Code to setup the canvas has been omitted
+tSquare(0, 0, 8, canvas)
+</pre><ol class="multiple-choice"><li>1</li><li>4</li><li class="correct">5</li><li>8</li></ol><dl><dt>Section</dt><dd>11.4 The Efficiency of Recursion</dd><dt>Title</dt><dd>Determine the number of squares drawn by a recursive function</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.4 The Efficiency of Recursion</dd><dt>id</dt><dd>testbank-py-1-ch11-53</dd></dl></li><li>How many squares are drawn by the following code segment?
+<pre>
+def tSquare(width, x, y, canvas) :
+   canvas.drawRect(x, y, width, width)
+   if width &gt;= 4 :
+      tSquare(width / 2, x, y, canvas)
+      tSquare(width / 2, x + width / 2, canvas)
+      tSquare(width / 2, x, y + width / 2, canvas)
+      tSquare(width / 2, x + width / 2, y + width / 2, canvas)
+
+# Code to setup the canvas has been omitted
+tSquare(0, 0, 16, canvas)
+</pre><ol class="multiple-choice"><li>16</li><li class="correct">21</li><li>64</li><li>85</li></ol><dl><dt>Section</dt><dd>11.4 The Efficiency of Recursion</dd><dt>Title</dt><dd>Determine the number of squares drawn by a recursive function</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.4 The Efficiency of Recursion</dd><dt>id</dt><dd>testbank-py-1-ch11-54</dd></dl></li><li>Which of the following strings is a palindrome?<ol class="multiple-choice"><li>&quot;Test&quot;</li><li class="correct">&quot;B&quot;</li><li>&quot;canal&quot;</li><li>&quot;salami&quot;</li></ol><dl><dt>Section</dt><dd>11.5 Permutations</dd><dt>Title</dt><dd>Which of the following strings is a palindrome?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.5 Permutations</dd><dt>id</dt><dd>testbank-py-1-ch11-55</dd></dl></li><li>The string &quot;eat&quot; has ____ permutations.<ol class="multiple-choice"><li>2</li><li>4</li><li class="correct">6</li><li>8</li></ol><dl><dt>Section</dt><dd>11.5 Permutations</dd><dt>Title</dt><dd>The string &quot;eat&quot; has ____ permutations.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.5 Permutations</dd><dt>id</dt><dd>testbank-py-1-ch11-56</dd></dl></li><li>A unique permutation is one that is different from any other
+generated permutation. How many unique permutations does the string
+&quot;bee&quot; have?<ol class="multiple-choice"><li>2</li><li class="correct">3</li><li>4</li><li>5</li></ol><dl><dt>Section</dt><dd>11.5 Permutations</dd><dt>Title</dt><dd>How many unique permutations does the string &quot;bee&quot; have?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.5 Permutations</dd><dt>id</dt><dd>testbank-py-1-ch11-57</dd></dl></li><li>How many permutations are in a 5 letter word?<ol class="multiple-choice"><li>5</li><li class="correct">120</li><li>12</li><li>1</li></ol><dl><dt>Section</dt><dd>11.5 Permutations</dd><dt>Title</dt><dd>How many permutations are in a 5 letter word?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.5 Permutations</dd><dt>id</dt><dd>testbank-py-1-ch11-58</dd></dl></li><li>Which of the following statements about recursion is
+correct?<ol class="multiple-choice"><li>It is not necessary to have a special terminating case in all
+recursions.</li><li>It is not necessary to simplify the argument in the recursive
+call.</li><li>A recursive solution will always run faster than an equivalent
+iterative solution.</li><li class="correct">In many cases, a recursive solution will be easier to
+understand and to implement than an iterative solution.</li></ol><dl><dt>Section</dt><dd>11.5 Permutations</dd><dt>Title</dt><dd>Which of the following statements about recursion is correct?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.5 Permutations</dd><dt>id</dt><dd>testbank-py-1-ch11-59</dd></dl></li><li>Which of the following statements about palindromes is
+correct?<ol class="multiple-choice"><li>The empty string is not a palindrome.</li><li>The string &quot;I&quot; is not a palindrome.</li><li>The string &quot;rascal&quot; is a palindrome.</li><li class="correct">All strings of length 0 or 1 are palindromes.</li></ol><dl><dt>Section</dt><dd>11.5 Permutations</dd><dt>Title</dt><dd>Which of these statements about palindromes is correct?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.5 Permutations</dd><dt>id</dt><dd>testbank-py-1-ch11-60</dd></dl></li><li>Recall the permutations function from Section 11.5 in the
+textbook.
+<pre>
+def permutations(word) :
+   result = []
+
+   ____________________
+      result.append(word)
+      return result
+   else:
+      for i in range(len(word)) :
+         shorter = word[ : i] + word[i + 1 : ]
+         shorterPermutations = permutations(shorter)
+
+         for string in shorterPermutations :
+            result.append(word[i] + string)
+
+      return result
+</pre>
+In the textbook, the line now represented by the blank was <code>if
+len(word) == 0 :</code>. What line of code could be used instead to
+achieve the same list of permutations?
+<ol class="multiple-choice"><li class="correct"><code>if len(word) == 1 :</code></li><li><code>if len(word) == []</code></li><li><code>if word == [] :</code></li><li><code>if word == letter :</code></li></ol><dl><dt>Section</dt><dd>11.5 Permutations</dd><dt>Title</dt><dd>Complete the code segment for computing all permutations of a word</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.5 Permutations</dd><dt>id</dt><dd>testbank-py-1-ch11-61</dd></dl></li><li>Recall the permutations function from Section 11.5 in the
+textbook.
+<pre>
+def permutations(word) :
+   result = []
+
+   if len(word) == 0 :
+      result.append(word)
+      return result
+   else:
+     ____________________
+         shorter = word[ : i] + word[i + 1 : ]
+         shorterPermutations = permutations(shorter)
+
+         for string in shorterPermutations :
+            result.append(word[i] + string)
+
+      return result
+</pre>
+In the textbook, the line now represented by the blank was
+<code>for i in range(len(word)) :</code>. What would happen if the
+blank was filled in with <code>for i in range(len(word) - 1, -1,
+-1) :</code><ol class="multiple-choice"><li>The same permutations of the word would be generated in the
+same order</li><li class="correct">The same permutations of the word would be generated in the
+reverse order</li><li>The same permutations of the word would be generated in another
+order that is not the same as the original code segment, or the
+reverse of the original order</li><li>The modified code segment will not generate the same set of
+permutations</li></ol><dl><dt>Section</dt><dd>11.5 Permutations</dd><dt>Title</dt><dd>What is the impact of replacing a line of code in the permutations function?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.5 Permutations</dd><dt>id</dt><dd>testbank-py-1-ch11-62</dd></dl></li><li>Recall the permutations function from Section 11.5 in the
+textbook.
+<pre>
+def permutations(word) :
+   result = []
+
+   if len(word) == 0 :
+      result.append(word)
+      return result
+   else:
+      for i in range(len(word)) :
+         shorter = word[ : i] + word[i + 1 : ]
+         shorterPermutations = permutations(shorter)
+
+         for string in shorterPermutations :
+            result.append(word[i] + string)
+
+      return result
+</pre>
+What is the base case for this function?
+<ol class="multiple-choice"><li>The empty list</li><li>Any list containing exactly one character</li><li class="correct">The empty string</li><li>Any string containing exactly one character</li></ol><dl><dt>Section</dt><dd>11.5 Permutations</dd><dt>Title</dt><dd>Identify the base case for the permutations function</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.5 Permutations</dd><dt>id</dt><dd>testbank-py-1-ch11-63</dd></dl></li><li>Recall the permutations function from Section 11.5 in the
+textbook.
+<pre>
+def permutations(word) :
+   result = []
+
+   if len(word) == 0 :
+      result.append(word)
+      return result
+   else:
+      for i in range(len(word)) :
+         shorter = word[ : i] + word[i + 1 : ]
+         shorterPermutations = permutations(shorter)
+
+         for string in shorterPermutations :
+            result.append(word[i] + string)
+
+      return result
+</pre>
+How permutations will be generated by calling
+<code>permutations(&quot;code&quot;)</code>?
+<ol class="multiple-choice"><li>1</li><li>4</li><li>10</li><li class="correct">24</li></ol><dl><dt>Section</dt><dd>11.5 Permutations</dd><dt>Title</dt><dd>How many permutations are generated when the permutations function is called?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.5 Permutations</dd><dt>id</dt><dd>testbank-py-1-ch11-64</dd></dl></li><li>_______________ is a problem-solving technique that examines
+partial solutions, abandons unsuitable ones, and returns to
+consider other candidate solutions.<ol class="multiple-choice"><li>Debugging</li><li>Traceback</li><li class="correct">Backtracking</li><li>Recursion</li></ol><dl><dt>Section</dt><dd>11.6 Backtracking</dd><dt>Title</dt><dd>____ is a problem-solving technique that examines partial solutions.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.6 Backtracking</dd><dt>id</dt><dd>testbank-py-1-ch11-66</dd></dl></li><li>Recall the backtracking strategy outlined in the textbook. A
+similar strategy can be used to solve Sudoku puzzles.
+<pre>
+def solve(gameBoard) :
+   status = examine(gameBoard)
+   if status == CONTINUE :
+      for nextBoard in extend(gameBoard) :
+         solve(nextBoard)
+   elif status == ACCEPT:
+      ____________________
+</pre>
+What code should be placed in the blank to complete the solution to
+this problem?
+<ol class="multiple-choice"><li><code>print(status)</code></li><li class="correct"><code>print(gameBoard)</code></li><li><code>solve(gameBoard)</code></li><li><code>gameBoard = extend(gameBoard)</code></li></ol><dl><dt>Section</dt><dd>11.6 Backtracking</dd><dt>Title</dt><dd>Complete the backtracking algorithm</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.6 Backtracking</dd><dt>id</dt><dd>testbank-py-1-ch11-67</dd></dl></li><li>Which statement about backtracking is correct?
+  
+  <ol class="multiple-choice">
+    <li>Backtracking starts from the end of the program and works backward to the beginning.</li>
+
+    <li class="correct">Backtracking builds up partial solutions that get increasingly closer to the goal.</li>
+    
+    <li>Backtracking never abandons a partial solution.</li>
+    <li>Backtracking explores only one path toward a solution.</li>
+</ol><dl><dt>Section</dt><dd>11.6 Backtracking</dd><dt>Title</dt><dd>How does backtracking work?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch11-65</dd><dt>section</dt><dd>11.6 Backtracking</dd><dt>id</dt><dd>testbank-py-2-ch11-65</dd></dl></li><li>Which problem is well suited to being solved with a backtracking algorithm?
+
+<ol class="multiple-choice">
+  <li>Computing Fibonacci numbers</li>
+  <li>Determining the factorial of a number</li>
+  <li>Evaluating an expression</li>
+  <li class="correct">Finding a solution to the eight queens problem</li>
+</ol><dl><dt>Section</dt><dd>11.6 Backtracking</dd><dt>Title</dt><dd>Which problem is well suited to being solved with a backtracking algorithm?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.6 Backtracking</dd><dt>id</dt><dd>testbank-py-2-ch11-83</dd></dl></li><li>Recursion will take place if any of the following happen:<ul><li>I. function A calls function B, which calls function C</li><li>II. function A calls function B, which calls function A</li><li>III. function A calls function A
+</li></ul><ol class="multiple-choice"><li>I</li><li>I and II</li><li>II</li><li class="correct">II and III</li></ol><dl><dt>Section</dt><dd>11.7 Mutual Recursion</dd><dt>Title</dt><dd>Describe conditions necessary for recursion.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.7 Mutual Recursion</dd><dt>id</dt><dd>testbank-py-1-ch11-68</dd></dl></li><li>Consider the following code snippet:
+<pre>
+def isEven(num) :
+   if num % 2 == 0 : 
+      return True
+   else : 
+      return isOdd(num)
+
+def isOdd(num) :
+   if num % 2 == 1 :
+      return True
+   else :
+      return isEven(num)
+</pre>
+For any given value of <code>num</code>, what is the maximum number
+of function calls that could occur?<ol class="multiple-choice"><li>0</li><li>1</li><li class="correct">2</li><li>cannot be determined</li></ol><dl><dt>Section</dt><dd>11.7 Mutual Recursion</dd><dt>Title</dt><dd>For any given value of n, what is the maximum number of function calls that could occur?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.7 Mutual Recursion</dd><dt>id</dt><dd>testbank-py-1-ch11-69</dd></dl></li><li>Complete the following code snippet, which is intended to
+determine if a value is even or odd using mutual recursion:
+<pre>
+def isEven(num) :
+   if num == 0 :
+      return True
+   else : 
+      return isOdd(abs(num) - 1)
+
+def isOdd(num) :
+   if num == 0 :
+      ________________________
+   else : 
+      return isEven(abs(num) - 1)
+</pre><ol class="multiple-choice"><li><code>return True</code></li><li class="correct"><code>return False</code></li><li><code>return isOdd(abs(num) - 1)</code></li><li><code>return isOdd(abs(num))</code></li></ol><dl><dt>Section</dt><dd>11.7 Mutual Recursion</dd><dt>Title</dt><dd>Complete this code for mutual recursion.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.7 Mutual Recursion</dd><dt>id</dt><dd>testbank-py-1-ch11-70</dd></dl></li><li>Consider the following code segment:
+<pre>
+def f1(n) :
+   if n &lt; 0 :
+      return 0
+   if n % 2 == 1 :
+      return n 
+   return f2(n + 1)
+
+def f2(n) :
+   if n &lt; 0 :
+      return 0
+   if n % 2 == 0 :
+      return n
+   return f1(n // 2)
+</pre>
+This code segment would be classified as:
+<ol class="multiple-choice"><li>backtracking</li><li class="correct">mutually recursive</li><li>non-recursive</li><li>object oriented</li></ol><dl><dt>Section</dt><dd>11.7 Mutual Recursion</dd><dt>Title</dt><dd>Identify the nature of a code segment</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.7 Mutual Recursion</dd><dt>id</dt><dd>testbank-py-1-ch11-72</dd></dl></li><li>Consider the following code segment:
+<pre>
+def f1(n) :
+   if n &lt; 0 :
+      return 0
+   if n % 2 == 1 :
+      return n 
+   return f2(n + 1)
+
+def f2(n) :
+   if n &lt; 0 :
+      return 0
+   if n % 2 == 0 :
+      return n
+   return f1(n // 2)
+
+print(f1(10))
+</pre>
+When this code is run, it will display:
+<ol class="multiple-choice"><li>0</li><li class="correct">5</li><li>10</li><li>11</li></ol><dl><dt>Section</dt><dd>11.7 Mutual Recursion</dd><dt>Title</dt><dd>Trace a pair of mutually recursive functions</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.7 Mutual Recursion</dd><dt>id</dt><dd>testbank-py-1-ch11-73</dd></dl></li><li>Consider the following code segment:
+<pre>
+def f1(n) :
+   if n &lt; 0 :
+      return 0
+   if n % 2 == 1 :
+      return n 
+   return f2(n + 1)
+
+def f2(n) :
+   if n &lt; 0 :
+      return 0
+   if n % 2 == 0 :
+      return n
+   return f1(n // 2)
+
+print(f2(7))
+</pre>
+When this code is run, it will display:
+<ol class="multiple-choice"><li>0</li><li>1</li><li class="correct">3</li><li>7</li></ol><dl><dt>Section</dt><dd>11.7 Mutual Recursion</dd><dt>Title</dt><dd>Trace a pair of mutually recursive functions</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.7 Mutual Recursion</dd><dt>id</dt><dd>testbank-py-1-ch11-74</dd></dl></li><li>Consider the following code segment:
+<pre>
+def f(n) :
+   if n == 1 :
+      return n
+   elif n == 2 :
+      ____________________
+   else :
+      return f(n // 2)
+
+def g(n) :
+   if n % 2 == 0 :
+      return n - 1
+   else :
+      return f(n - 1)
+</pre>
+What statement should be placed in the blank to make these
+functions mutually recursive?
+<ol class="multiple-choice"><li><code>return f()</code></li><li><code>return f(n - 1)</code></li><li><code>return g()</code></li><li class="correct"><code>return g(n - 1)</code></li></ol><dl><dt>Section</dt><dd>11.7 Mutual Recursion</dd><dt>Title</dt><dd>Which statement will make the functions mutually recursive?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.7 Mutual Recursion</dd><dt>id</dt><dd>testbank-py-1-ch11-75</dd></dl></li><li>The following code segment is supposed to determine if an
+integer, <code>n</code>, is even or odd using mutual recursion.
+<pre>
+def isEven(n) :
+   if n == 0 :
+      return True
+   else :
+      return isOdd(abs(n) - 1)
+
+def isOdd(n) :
+   ____________________
+      return False
+   else :
+      return isEven(abs(n) - 1)
+</pre>
+
+What code should be placed in the blank to achieve this goal?
+
+<ol class="multiple-choice">
+  <li class="correct"><code>if n == 0 :</code></li>
+  <li><code>if n == 1 :</code></li>
+  <li><code>if n % 2 == 1 :</code></li>
+  <li><code>if n // 2 == 0 :</code></li>
+</ol><dl><dt>Section</dt><dd>11.7 Mutual Recursion</dd><dt>Title</dt><dd>What line of code will complete these mutually recursive functions?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch11-71</dd><dt>section</dt><dd>11.7 Mutual Recursion</dd><dt>id</dt><dd>testbank-py-2-ch11-71</dd></dl></li><li>What library is used to load a webpage into a data structure that makes it easy to extract the page's tags and the information between the tags?
+
+<ol class="multiple-choice">
+  <li class="correct">Beautiful Soup</li>
+  <li>Carrot Cake</li>
+  <li>Pretty Pie</li>
+  <li>Roasted Potatoes</li>
+</ol><dl><dt>Section</dt><dd>11.7 Mutual Recursion</dd><dt>Title</dt><dd>What library is used to load a webpage into a data structure that makes it easy to extract the page's tags and the information between the tags?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.7 Mutual Recursion</dd><dt>id</dt><dd>testbank-py-2-ch11-76</dd></dl></li><li>Which statement finds all of the links in a webpage?
+
+<ol class="multiple-choice">
+  <li class="correct"><code>elements = doc.find_all(&quot;a&quot;)</code></li>
+  <li><code>elements = doc.find_all(&quot;li&quot;)</code></li>
+  <li><code>elements = doc.find_all(links)</code></li>
+  <li><code>elements = doc.find_links()</code></li>
+</ol><dl><dt>Section</dt><dd>11.7 Mutual Recursion</dd><dt>Title</dt><dd>Which statement finds all of the links in a webpage?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.7 Mutual Recursion</dd><dt>id</dt><dd>testbank-py-2-ch11-77</dd></dl></li><li>Assume that the <code>address</code> variable
+  currently holds the URL for webpage.  Which statement(s) store a structured
+  representation of that webpage in the <code>doc</code> variable?
+
+<ol class="multiple-choice">
+  <li class="correct"><pre>response = urllib.request.urlopen(address)
+doc = bs4.BeautifulSoup(response)
+</pre></li>
+
+  <li><pre>doc = bs4.BeautifulSoup(address)
+</pre></li>
+
+  <li><pre>response = bs4.BeautifulSoup(address)
+doc = urllib.request.urlopen(response)
+
+</pre></li>
+
+  <li><pre>doc = import BeautifulSoup(address)
+</pre></li>
+</ol><dl><dt>Section</dt><dd>11.7 Mutual Recursion</dd><dt>Title</dt><dd>Which statement returns a structured representation of a webpage?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.7 Mutual Recursion</dd><dt>id</dt><dd>testbank-py-2-ch11-78</dd></dl></li><li>Which problem is well suited to being solved with mutually recursive functions?
+
+<ol class="multiple-choice">
+  <li>Computing the factorial of a number</li>
+  <li>Determining if a string is a palindrome</li>
+  <li>Computing Fibonacci numbers</li>
+  <li class="correct">Evaluating a numeric expression</li>
+</ol><dl><dt>Section</dt><dd>11.7 Mutual Recursion</dd><dt>Title</dt><dd>Which problem is well suited to being solved with mutually recursive functions?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>11.7 Mutual Recursion</dd><dt>id</dt><dd>testbank-py-2-ch11-80</dd></dl></li></ol></body>
+    </html>

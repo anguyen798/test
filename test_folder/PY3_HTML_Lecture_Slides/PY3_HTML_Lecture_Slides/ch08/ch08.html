@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="generator" content="HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+    <title>Chapter 8, Python for Everyone, 2e</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="font-size-adjustment" content="-1" />
+    <meta name="copyright"
+          content="Copyright &#169; 2015 Wiley" />
+    <link rel="stylesheet" href="styles/slidy.css" type="text/css" />
+    <link rel="stylesheet" href="styles/horstmann.css" type="text/css" />
+</head>
+<body>
+    <div class="background">
+        <div class="slide ppLayoutCustom">
+    <div><p class="title" >Chapter 8</p><br />
+</div>
+<div><p class="subtitle" ><span class="fontColorClass1">SETS AND DICTIONARIES</span></p><br />
+</div>
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Chapter Goals</p><br />
+</div>
+<div><ul><li>To build and use a set container
+</li><li>To learn common set operations for processing data
+</li><li>To build and use a dictionary container
+</li><li>To work with a dictionary for table lookups
+</li><li>To work with complex data structures
+</li></ul></div>
+<div><p class="" >In this chapter, we will learn how to work with two more types of containers (sets and dictionaries) as well as how to combine containers to model complex structures.
+</p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Contents</p><br />
+</div>
+<div><ul><li>Sets
+</li><li>Dictionaries
+</li><li>Complex Structures
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass4">Sets</span></p><br />
+</div>
+<div><p class="body" ><span class="fontColorClass1">Section 8.1</span></p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Sets</p><br />
+</div>
+<div><ul><li>A set is a container that stores a collection of unique values
+</li><li>Unlike a list, the elements or members of the set are not stored in any particular order and cannot be accessed by position
+</li><li>Operations are the same as the operations performed on sets in mathematics
+</li><li>Because sets do not need to maintain a particular order, set operations are much faster than the equivalent list operations
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example Set</p><br />
+</div>
+<div><ul><li>This set contains three sets of colors––the colors of the British, Canadian, and Italian flags
+</li><li>In each set, the order does not matter, and the colors are not duplicated in any one of the sets
+</li></ul></div>
+<div><img src='images/slide6-Picture5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Creating and Using Sets</p><br />
+</div>
+<div><ul><li class="">To create a set with initial elements, you can specify the elements enclosed in braces, just like in mathematics:</li></ul></div>
+<div><pre>cast = { "Luigi", "Gumbys", "Spiny" }
+</pre></div>
+<div><img src='images/slide7-Picture7.png' /></div>
+<div><ul><li>Alternatively, you can use the <code>set()</code> function to convert any sequence into a set:
+</li></ul></div>
+<div><pre>names = ["Luigi", "Gumbys", "Spiny"]
+cast = set(names)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Creating an Empty Set</p><br />
+</div>
+<div><ul><li>For historical reasons, you cannot use <code>{}</code> to make an empty set in Python
+</li><li>Instead, use the <code>set()</code> function with no arguments:
+</li></ul></div>
+<div><pre>cast = set()
+</pre></div>
+<div><ul><li class="">As with any container, you can use the <code>len()</code> function to obtain the number of elements in a set:
+</li></ul></div>
+<div><img src='images/slide8-Picture6.png' /></div>
+<div><pre>numberOfCharacters = len(cast)   # In this case it's zero
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Set Membership: <code>in</code></p><br />
+</div>
+<div><ul><li>To determine whether an element is contained in the set, use the <code>in</code> operator or its inverse, the <code>not in</code> operator:</li></ul></div>
+<div><pre>if "Luigi" in cast :
+    print("Luigi is a character in Monty Python's Flying Circus.")
+else :
+    print("Luigi is not a character in the show.")
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Accessing Set Elements</p><br />
+</div>
+<div><ul><li class="">Because sets are unordered, you cannot access the elements of a set by position as you can with a list
+</li><li class="">We use a <code>for</code> loop to iterate over the individual elements:
+</li></ul></div>
+<div><pre>print("The cast of characters includes:")
+for character in cast :
+    print(character)
+</pre></div>
+<div><ul><li>Note that the order in which the elements of the set are visited depends on how they are stored internally
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Accessing Elements (2)</p><br />
+</div>
+<div><ul><li>For example, the previous loop above displays the following:
+</li></ul><pre>The cast of characters includes:
+Gumbys
+Spiny
+Luigi
+</pre><ul><li>Note that the order of the elements in the output is different from the order in which the set was created
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Displaying Sets In Sorted Order</p><br />
+</div>
+<div><ul><li>Use the <code>sorted()</code> function, which returns a list <em><strong><span class="fontColorClass7">(not a set)</span></strong></em> of the elements in sorted order
+</li><li>The following loop prints the cast in sorted order:
+</li></ul></div>
+<div><pre>for actor in sorted(cast) :
+    print(actor)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Adding Elements</p><br />
+</div>
+<div><ul><li>Sets are <em><strong>mutable</strong></em> collections, so you can add elements by using the <code>add()</code> method:
+</li></ul></div>
+<div><pre>cast = set(["Luigi", "Gumbys", "Spiny"])   #1
+cast.add("Arthur")                         #2
+cast.add("Spiny")                          #3
+</pre></div>
+<div style="float:left;width:45%;"><img src='images/slide13-Picture6.png' /></div>
+<div style="position:absolute;top:40%;left:45%;"><p class="" >Arthur is not in the set, so it is added to the set and the size of the set is increased by one
+</p><br /></div>
+<div style="position:absolute;top:50%;left:45%;"><p class="" >Spiny is already in the set, so there is no effect on the set
+</p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Removing Elements: <code>discard()</code></p><br />
+</div>
+<div><ul><li>The <code>discard()</code> method removes an element if the element exists:
+</li></ul></div>
+<div><pre>cast.discard("Arthur")  #4
+</pre></div>
+<div><img src='images/slide14-Picture6.png' /></div>
+<div><ul><li class="">It has no effect if the given element is not a member of the set:
+</li></ul></div>
+<div><pre>cast.discard("The Colonel")   # Has no effect
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Removing Elements: <code>remove()</code></p><br />
+</div>
+<div><ul><li class="">The <code>remove()</code> method, on the other hand, removes an element if it exists, but raises an exception if the given element is not a member of the set:
+</li></ul></div>
+<div><pre>cast.remove("The Colonel")   # Raises an exception
+</pre></div>
+<div><ul><li>For this class we will use the <code>discard()</code> method
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Removing Elements: <code>clear()</code></p><br />
+</div>
+<div><ul><li>Finally, the <code>clear()</code> method removes <em>all</em> elements of a set, leaving the empty set:
+</li></ul></div>
+<div><pre>cast.clear() # cast now has size 0
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Subsets</p><br />
+</div>
+<div><ul><li>A set is a <em>subset</em> of another set <em>if and only if</em> every element of the first set is also an element of the second set
+</li><li>In the image below, the Canadian flag colors are a subset of the British colors
+</li><li>The Italian flag colors are not
+</li></ul></div>
+<div><img src='images/slide17-Picture5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The <code>issubset()</code> Method</p><br />
+</div>
+<div><ul><li>The <code>issubset()</code> method returns <code>True</code> or <code>False</code> to report whether one set is a subset of another:</li></ul></div>
+<div><pre>canadian = { "Red", "White" }
+british = { "Red", "Blue", "White" }
+italian = { "Red", "White", "Green" }
+
+# True
+if canadian.issubset(british) :
+    print("All Canadian flag colors occur in the British flag.")
+
+# True
+if not italian.issubset(british) :
+    print("At least one of the colors in the Italian flag does 
+       not.")
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Set Equality / Inequality</p><br />
+</div>
+<div><ul><li>We test set equality with the "<code>==</code>" and "<code>!=</code>" operators
+</li></ul><ul><li>Two sets are equal <em><strong>if and only if</strong></em> they have exactly the same elements
+</li></ul></div>
+<div><pre>french = { "Red", "White", "Blue" }
+if british == french :
+    print("The British and French flags use the same colors.")
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Set Union: <code>union()</code></p><br />
+</div>
+<div><ul><li class="">The <code>union</code> of two sets contains all of the elements from both sets, with duplicates removed
+</li></ul></div>
+<div><pre># inEither: The set {"Blue", "Green", "White", "Red"}
+inEither = british.union(italian)
+</pre></div>
+<div><ul><li>Both the British and Italian sets contain the colors Red and White, but the union is a set and therefore contains only one instance of each color</li></ul></div>
+<div><img src='images/slide20-Picture7.png' /></div>
+<div><p class="" >Note that the <code>union()</code> method returns a new set. It does not modify either of the sets in the call
+</p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Set Intersection: <code>intersection()</code></p><br />
+</div>
+<div><ul><li>The <code>intersection</code> of two sets contains all of the elements that are in <em>both</em> sets
+</li></ul></div>
+<div><pre># inBoth: The set {"White", "Red"}
+inBoth = british.intersection(italian)
+</pre></div>
+<div><img src='images/slide21-Picture5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Difference of Two Sets: <code>difference()</code></p><br />
+</div>
+<div><ul><li>The <code>difference</code> of two sets results in a new set that contains those elements in the first set that are not in the second set</li></ul></div>
+<div><pre>print("Colors that are in the Italian flag but not the British:")
+print(italian.difference(british)) # Prints {'Green'}
+</pre></div>
+<div><img src='images/slide22-Picture7.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Common Set Operations</p><br />
+</div>
+<div><img src='images/slide23-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Common Set Operations (2)</p><br />
+</div>
+<div><img src='images/slide24-ContentPlaceholder5.png' /></div>
+<div><img src='images/slide24-ContentPlaceholder5-0.png' /></div>
+<div><p class="" >Remember: <code>union</code>, <code>intersection</code> and <code>difference</code> return new sets</br>They do not modify the set they are applied to
+</p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Simple Examples</p><br />
+</div>
+<div><ul><li>Open the file: set examples.py
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Set Example: Spell Checking</p><br />
+</div>
+<div><ul><li>The program spellcheck.py reads a file that contains correctly spelled words and places the words in a set
+</li><li>It then reads all words from a document––here, the book <em>Alice in Wonderland</em>––into a second set
+</li><li>Finally, it prints all words from the document that are not in the set of correctly spelled words
+</li><li>Open the file spellcheck.py
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example: <code>Spellcheck.py</code></p><br />
+</div>
+<div><pre>##
+#  This program checks which words in a file are not present in a list of
+#  correctly spelled words.
+#
+
+# Import the split function from the regular expression module.
+from re import split
+
+def main() :
+   # Read the word list and the document.
+   correctlySpelledWords = readWords("words")
+   documentWords = readWords("alice30.txt")
+
+   # Print all words that are in the document but not the word list.
+   misspellings = documentWords.difference(correctlySpelledWords)
+   for word in sorted(misspellings) :
+      print(word)
+   
+## Reads all words from a file.
+#  @param filename the name of the file
+#  @return a set with all lowercased words in the file. Here, a word is a 
+#  sequence of upper- and lowercase letters
+#   
+def readWords(filename) :
+   wordSet = set()
+   inputFile = open(filename, "r")
+   
+   for line in inputFile :
+      line = line.strip()
+      # Use any character other than a-z or A-Z as word delimiters.
+      parts = split("[^a-zA-Z]+", line)
+      for word in parts :
+         if len(word) > 0 :
+            wordSet.add(word.lower())
+            
+   inputFile.close()
+   return wordSet
+   
+# Start the program.
+main()
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Execution: <code>Spellcheck.py</code></p><br />
+</div>
+<div><img src='images/slide29-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Programming Tip</p><br />
+</div>
+<div><ul><li>When you write a program that manages a collection of unique items, sets are far more efficient than lists 
+</li><li>Some programmers prefer to use the familiar lists, replacing:
+</li></ul></div>
+<div><pre>itemSet.add(item)
+</pre></div>
+<div><p class="" >   with:</p><br />
+</div>
+<div><pre>if (item not in itemList)
+    itemList.append(item)
+</pre></div>
+<div><ul><li class="">However, the resulting program is much slower
+<ul><li class="">The speed factor difference is over 10 times
+</li></ul></li></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass4">Counting Unique Words </span></p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Problem Statement</p><br />
+</div>
+<div><ul><li>We want to be able to count the number of unique words in a text document
+<ul><li>"Mary had a little lamb" has 57 unique words
+</li></ul></li><li>Our task is to write a program that reads in a text document and determines the number of unique words in the document
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Step One: Understand the Task</p><br />
+</div>
+<div><ul><li>To count the number of unique words in a text document we need to be able to determine if a word has been encountered earlier in the document
+<ul><li>Only the first occurrence of a word should be counted
+</li></ul></li><li>The easiest way to do this is to read each word from the file and add it to the set
+<ul><li>Because a set cannot contain duplicates we can use the add method
+</li><li>The add method will prevent a word that was encountered earlier from being added to the set
+</li></ul></li><li>After we process every word in the document the size of the set will be the number of unique words contained in the document</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Step Two:  Decompose the Problem</p><br />
+</div>
+<div><p class="object" >The problem can be split into several simple steps:
+</p>
+<p class="object" >Create an empty set
+</p>
+<p class="object" >For each word in the text document
+</p>
+<p class="object" >Add the word to the set
+</p>
+<ul></ul><p class="object" >Number of unique words = the size of the set
+</p>
+<ul><li>Creating the empty set, adding an element to the set, and determining the size of the set are standard set operations
+</li><li>Reading the words in the file can be handled as a separate task
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Step Three:  Build the Set</p><br />
+</div>
+<div><ul><li>We need to read individual words from the file.  For simplicity in our example we will use a literal file name
+</li></ul><pre>inputFile = open(“nurseryrhyme.txt”, “r”)
+For line in inputFile :
+ theWords = line.split()
+ For words in theWords :
+  Process word
+</pre><ul><li>To count unique words we need to remove any nonletters and remove capitalization
+</li><li>We will design a function to "clean" the words before we add them to the set
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Step Four:  Clean the Words</p><br />
+</div>
+<div><ul><li>To strip out all the characters that are not letters we will iterate through the string, one character at a time, and build a new "clean" word
+</li></ul><pre>def clean(string) :
+ result = “”
+ for char in string :
+  if char.isalpha() :
+   result = result + char
+return result.lower()
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Step Five:  Some Assembly Required</p><br />
+</div>
+<div><ul><li>Implement the <code>main()</code> function and combine it with the other functions
+</li><li>Open the file:  countwords.py
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass4">Dictionaries</span></p><br />
+</div>
+<div><p class="body" ><span class="fontColorClass1">Section 8.2</span></p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Dictionaries</p><br />
+</div>
+<div><ul><li>A dictionary is a container that keeps associations between <em>keys</em> and <em>values</em>
+</li><li>Every key in the dictionary has an associated value
+</li><li>Keys are unique, but a value may be associated with several keys
+</li><li>Example (the mapping between the key and value is indicated by an arrow):
+</li></ul></div>
+<div><img src='images/slide39-Picture5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Syntax: Sets and Dictionaries</p><br />
+</div>
+<div><img src='images/slide40-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Creating Dictionaries</p><br />
+</div>
+<div><ul><li>Suppose you need to write a program that looks up the phone number for a person in your mobile phone's contact list
+</li><li>You can use a dictionary where the names are keys and the phone numbers are values
+</li></ul></div>
+<div><pre>contacts = { "Fred": 7235591, "Mary": 3841212, "Bob": 3841212, "Sarah": 2213278 }
+</pre></div>
+<div><img src='images/slide41-Picture6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Duplicating Dictionaries: <code>dict()</code></p><br />
+</div>
+<div><ul><li>You can create a duplicate copy of a dictionary using the <code>dict()</code> function:
+</li></ul></div>
+<div><pre>oldContacts = dict(contacts)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Accessing Dictionary Values <code>[]</code></p><br />
+</div>
+<div><ul><li>The subscript operator <code>[]</code> is used to return the value associated with a key
+</li><li>The statement:
+</li></ul></div>
+<div><pre># prints 7235591.
+print("Fred's number is", contacts["Fred"])
+</pre></div>
+<div><ul><li class="">Note that the dictionary is not a sequence-type container like a list
+<ul><li class="">You cannot access the items by index or position
+</li><li class="">A value can only be accessed using its associated key
+</li></ul></li></ul></div>
+<div><p class="" ><em>The key supplied to the subscript operator must be a valid key in the dictionary or a </em><code>KeyError</code><em> exception will be raised
+</em></p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Dictionaries: Checking Membership</p><br />
+</div>
+<div><ul><li>To find out whether a key is present in the dictionary, use the <code>in</code> (or <code>not in</code>) operator:
+</li></ul></div>
+<div><pre>if "John" in contacts :
+    print("John's number is", contacts["John"])
+else :
+    print("John is not in my contact list.")
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Default Keys</p><br />
+</div>
+<div><ul><li>Often, you want to use a default value if a key is not present
+</li><li>Instead of using the <code>in</code> operator, you can simply call the <code>get()</code> method and pass the key and a default value
+</li><li>The default value is returned if there is no matching key
+</li></ul></div>
+<div><pre>number = contacts.get("Fred", 411)
+print("Dial " + number)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Adding/Modifying Items</p><br />
+</div>
+<div><ul><li>A dictionary is a mutable container
+</li><li>You can add a new item using the subscript operator <code>[]</code> much as you would with a list
+</li></ul></div>
+<div><pre>contacts["John"] = 4578102  #1
+</pre></div>
+<div><ul><li class="">To change the value associated with a given key, set a new value using the <code>[]</code> operator on an existing key:
+</li></ul></div>
+<div><img src='images/slide46-Picture2.png' /></div>
+<div><pre>contacts["John"] = 2228102  #2
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Adding New Elements Dynamically</p><br />
+</div>
+<div><ul><li class="">Sometimes you may not know which items will be contained in the dictionary when it's created
+</li><li class="">You can create an empty dictionary like this:
+</li></ul></div>
+<div><pre>favoriteColors = {}
+</pre></div>
+<div><ul><li>and add new items as needed:
+</li></ul></div>
+<div><pre>favoriteColors["Juliet"] = "Blue"
+favoriteColors["Adam"] = "Red"
+favoriteColors["Eve"] = "Blue"
+favoriteColors["Romeo"] = "Green"
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Removing Elements</p><br />
+</div>
+<div><ul><li>To remove an item from a dictionary, call the <code>pop()</code> method with the key as the argument:
+</li></ul></div>
+<div><pre>contacts = { "Fred": 7235591, "Mary": 3841212, "Bob": 3841212, "Sarah": 2213278 } 
+</pre></div>
+<div><img src='images/slide48-Picture3.png' /></div>
+<div><ul><li class="">This removes the entire item, both the key and its associated value
+</li></ul></div>
+<div><pre>contacts.pop("Fred")
+</pre></div>
+<div><img src='images/slide48-Picture3-0.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Removing and Storing Elements</p><br />
+</div>
+<div><ul><li>The <code>pop()</code> method returns the value of the item being removed, so you can use it or store it in a variable:</li></ul></div>
+<div><pre>fredsNumber = contacts.pop("Fred")
+</pre></div>
+<div><ul><li class="">Note: If the key is not in the dictionary, the pop method raises a <code>KeyError</code> exception
+<ul><li class="">To prevent the exception from being raised, you should test for the key in the dictionary:
+</li></ul></li></ul></div>
+<div><pre>if "Fred" in contacts :
+    contacts.pop("Fred")
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Traversing a Dictionary</p><br />
+</div>
+<div><ul><li>You can iterate over the individual keys in a dictionary using a <code>for</code> loop:
+</li></ul></div>
+<div><pre>print("My Contacts:")
+for key in contacts :
+    print(key)
+</pre></div>
+<div><ul><li class="">The result of this code fragment is shown below:
+<pre>My Contacts:
+Sarah
+Bob
+John
+Mary
+Fred
+</pre><ul></ul></li></ul></div>
+<div><p class="" >Note that the dictionary stores its items in an order that is optimized for efficiency, which may not be the order in which they were added
+</p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Traversing a Dictionary: In Order</p><br />
+</div>
+<div><ul><li>To iterate through the keys in sorted order, you can use the <code>sorted()</code> function as part of the <code>for</code> loop:</li></ul></div>
+<div><pre>print("My Contacts:")
+for key in sorted(contacts) :
+    print("%-10s %d" % (key, contacts[key]))
+</pre></div>
+<div><ul><li class="">Now, the contact list will be printed in order by name:
+<pre> My Contacts:
+ Bob 3841212
+ Fred 7235591
+ John 4578102
+ Mary 3841212
+ Sarah 2213278
+</pre><ul></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Iterating Dictionaries More Efficiently</p><br />
+</div>
+<div><ul><li>Python allows you to iterate over the items in a dictionary using the <code>items()</code> method
+</li><li>This is a bit more efficient than iterating over the keys and then looking up the value of each key
+</li><li>The <code>items()</code> method returns a sequence of tuples that contain the keys and values of all items
+<ul><li>Here the loop variable <code>item</code> will be assigned a tuple that contains the key in the first slot and the value in the second slot</li></ul></li></ul></div>
+<div><pre>for item in contacts.items() :
+    print(item[0], item[1])
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Storing Data Records</p><br />
+</div>
+<div><ul><li>Data records, in which each record consists of multiple fields, are very common
+</li><li>In some instances, the individual fields of the record were stored in a list to simplify the storage
+</li><li>But this requires remembering in which element of the list each field is stored 
+<ul><li>This can introduce run-time errors into your program if you use the wrong list element when processing the record
+</li></ul></li><li>In Python, it is common to use a dictionary to store a data record
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Dictionaries: Data Records</p><br />
+</div>
+<div><ul><li>You create an item for each data record in which the key is the field name and the value is the data value for that field
+</li><li>For example, this dictionary named <code>record</code> stores a single student record with fields for ID, name, class, and GPA:</li></ul></div>
+<div><pre>record = { "id": 100, "name": "Sally Roberts", "class": 2, "gpa": 3.78 }
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Dictionaries: Data Records</p><br />
+</div>
+<div><ul><li>To extract records from a file, we can define a function that reads a single record and returns it as a dictionary
+</li><li>The file to be read contains records made up of country names and population data separated by a colon:
+</li></ul></div>
+<div><pre>def extractRecord(infile) :
+    record = {}
+    line = infile.readline()
+    if line != "" :
+        fields = line.split(":")
+        record["country"] = fields[0]
+        record["population"] = int(fields[1])
+    return record
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Dictionaries: Data Records</p><br />
+</div>
+<div><ul><li>The dictionary <code>record</code> that is returned has two items, one with the key "<code>country</code>" and the other with the key "<code>population</code>"
+</li><li>This function's result can be used to print all of the records to the terminal
+</li></ul></div>
+<div><pre>infile = open("populations.txt", "r")
+record = extractRecord(infile)
+while len(record) &gt; 0 :
+    print("%-20s %10d" % (record["country"],     
+       record["population"]))
+    record = extractRecord(infile)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Common Dictionary Operations (1)</p><br />
+</div>
+<div><img src='images/slide57-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Common Dictionary Operations (2)</p><br />
+</div>
+<div><img src='images/slide58-ContentPlaceholder5.png' /></div>
+<div><img src='images/slide58-ContentPlaceholder5-0.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass4">Complex Structures</span></p><br />
+</div>
+<div><p class="body" ><span class="fontColorClass1">Sections 8.3</span></p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Complex Structures</p><br />
+</div>
+<div><ul><li>Containers are very useful for storing collections of values
+<ul><li>In Python, the list and dictionary containers can contain any type of data, including other containers
+</li></ul></li><li>Some data collections, however, may require more complex structures
+<ul><li>In this section, we explore problems that require the use of a complex structure
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >A Dictionary of Sets</p><br />
+</div>
+<div><ul><li>The index of a book specifies on which pages each term occurs
+</li><li>Build a book index from page numbers and terms contained in a text file with the following format:
+<pre>6:type
+7:example
+7:index
+7:program
+8:type
+10:example
+11:program
+20:set
+</pre><ul></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >A Dictionary of Sets</p><br />
+</div>
+<div><ul><li>The file includes every occurrence of every term to be included in the index and the page on which the term occurs 
+</li><li>If a term occurs on the same page more than once, the index includes the page number only once
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >A Dictionary of Sets</p><br />
+</div>
+<div><ul><li>The output of the program should be a list of terms in alphabetical order followed by the page numbers on which the term occurs, separated by commas, like this:
+<pre>example: 7, 10
+index: 7
+program: 7, 11
+type: 6, 8
+set: 20
+</pre><ul></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >A Dictionary of Sets</p><br />
+</div>
+<div><ul><li>A dictionary of sets would be appropriate for this problem
+</li><li>Each key can be a term and its corresponding value a set of the page numbers where it occurs
+</li></ul></div>
+<div><img src='images/slide64-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Why Use a Dictionary?</p><br />
+</div>
+<div><ul><li>The terms in the index must be unique
+<ul><li>By making each term a dictionary key, there will be only one instance of each term
+</li></ul></li><li>The index listing must be provided in alphabetical order by term
+<ul><li>We can iterate over the keys of the dictionary in sorted order to produce the listing 
+</li></ul></li><li>Duplicate page numbers for a term should only be included once 
+<ul><li>By adding each page number to a set, we ensure that no duplicates will be added
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Dictionary Sets: <code>Buildindex.py</code></p><br />
+</div>
+<div><pre>## 
+#  This program builds the index of a book from terms and page numbers.
+#
+
+def main() :
+   # Create an empty dictionary.
+   indexEntries = {}
+   
+   # Extract the data from the text file.
+   infile = open("indexdata.txt", "r")
+   fields = extractRecord(infile)
+   while len(fields) > 0 :
+      addWord(indexEntries, fields[1], fields[0])
+      fields = extractRecord(infile)
+      
+   infile.close()
+   
+   # Print the index listing.
+   printIndex(indexEntries)
+ </pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Dictionary Sets: <code>Buildindex.py</code></p><br />
+</div>
+<div><pre>## Extract a single record from the input file.
+#  @param infile the input file object
+#  @return a list containing the page number and term or an empty list if
+#  the end of file was reached
+#
+def extractRecord(infile) :
+   line = infile.readline()
+   if line != "" :   
+      fields = line.split(":")      
+      page = int(fields[0])
+      term = fields[1].rstrip()
+      return [page, term]
+   else :
+      return []  
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Dictionary Sets: <code>Buildindex.py</code></p><br />
+</div>
+<div><pre>## Add a word and its page number to the index.
+#  @param entries the dictionary of index entries
+#  @param term the term to be added to the index
+#  @param page the page number for this occurrence of the term
+#
+def addWord(entries, term, page) :   
+   # If the term is already in the dictionary, add the page to the set.
+   if term in entries :
+      pageSet = entries[term]
+      pageSet.add(page)
+      
+   # Otherwise, create a new set that contains the page and add an entry.
+   else :
+      pageSet = set([page])
+      entries[term] = pageSet
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Dictionary Sets: <code>Buildindex.py</code></p><br />
+</div>
+<div><pre>## Print the index listing.
+#  @param entries a dictionary containing the entries of the index
+#
+def printIndex(entries) :
+   for key in sorted(entries) :
+      print(key, end=" ")
+      pageSet = entries[key]
+      first = True
+      for page in sorted(pageSet) :
+         if first :
+            print(page, end="")
+            first = False
+         else :
+            print(",", page, end="")
+         
+      print()
+      
+# Start the program.
+main()
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >A Dictionary of Lists</p><br />
+</div>
+<div><ul><li>A common use of dictionaries in Python is to store a collection of lists in which each list is associated with a unique name or key
+</li><li>For example, consider the problem of extracting data from a text file that represents the yearly sales of different ice cream flavors in multiple stores of a retail ice cream company:
+<ul><li><code>vanilla:8580.0:7201.25:8900.0
+</code><code>chocolate:10225.25:9025.0:9505.0
+</code><code>rocky road:6700.1:5012.45:6011.0
+</code><code>strawberry:9285.15:8276.1:8705.0
+</code><code>cookie dough:7901.25:4267.0:7056.5
+</code></li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >A Dictionary of Lists</p><br />
+</div>
+<div><ul><li>The data is to be processed to produce a report similar to the following:
+</li></ul></div>
+<div><img src='images/slide71-Picture5.png' /></div>
+<div><ul><li class="">A simple list is not the best choice:
+<ul><li class="">The entries consist of strings and floating-point values, and they have to be sorted by the flavor name
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >A Dictionary of Lists</p><br />
+</div>
+<div><ul><li>With this structure, each row of the table is an item in the dictionary 
+</li><li>The name of the ice cream flavor is the key used to identify a particular row in the table.
+</li><li>The value for each key is a list that contains the sales, by store, for that flavor of ice cream
+</li></ul></div>
+<div><img src='images/slide72-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example: <code>Icecreamsales.py</code></p><br />
+</div>
+<div><pre>## 
+#  This program processes a collection of sales data for flavors of ice cream
+#  and prints a report sorted by flavor.
+#
+
+def main() : 
+   salesData = readData("icecream.txt")
+   printReport(salesData)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example: <code>Icecreamsales.py</code></p><br />
+</div>
+<div><pre>## Reads the tabular data.
+#  @param filename name of the input file
+#  @return a dictionary whose keys are ice cream flavors and 
+#  whose values are sales data
+#
+def readData(filename) :
+   # Create an empty dictionary.
+   salesData = {}
+   
+   infile = open(filename, "r")
+   
+   # Read each record from the file.   
+   for line in infile :
+      fields = line.split(":")
+      flavor = fields[0]
+      salesData[flavor] = buildList(fields)
+
+   infile.close()   
+   return salesData
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example: <code>Icecreamsales.py</code></p><br />
+</div>
+<div><pre>## Builds a list of store sales contained in the fields split from a string.
+#  @param fields a list of strings comprising the record fields
+#  @return a list of floating-point values
+#
+def buildList(fields) :
+   storeSales = []
+   for i in range(1, len(fields)) :
+      sales = float(fields[i])
+      storeSales.append(sales)
+      
+   return storeSales
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example: <code>Icecreamsales.py</code></p><br />
+</div>
+<div><pre>## Prints a sales report.
+#  @param salesData a table composed of a dictionary of lists
+#
+def printReport(salesData) :
+   # Find the number of stores as the length of the longest store sales list.
+   numStores = 0
+   for storeSales in salesData.values() :
+      if len(storeSales) > numStores :
+         numStores = len(storeSales)
+
+   # Create a list of store totals.
+   storeTotals = [0.0] * numStores
+   
+   # Print the flavor sales.
+   for flavor in sorted(salesData) :
+      print("%-15s" % flavor, end="")
+      
+      flavorTotal = 0.0
+      storeSales = salesData[flavor]
+      for i in range(len(storeSales)) :
+         sales = storeSales[i]
+         flavorTotal = flavorTotal + sales
+         storeTotals[i] = storeTotals[i] + sales
+         print("%10.2f" % sales, end="")
+         
+      print("%15.2f" % flavorTotal)
+         
+   # Print the store totals.
+   print("%15s" % " ", end="")
+   for i in range(numStores) :
+      print("%10.2f" % storeTotals[i], end="")
+   print()
+
+# Start the program.   
+main()
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass4">Modules</span></p><br />
+</div>
+<div><p class="body" ><span class="fontColorClass1">Splitting our programs into pieces</span></p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Modules</p><br />
+</div>
+<div><ul><li>When you write small programs, you can place all of your code into a single source file
+</li><li>When your programs get larger or you work in a team, that situation changes 
+</li><li>You will want to structure your code by splitting it into separate source files (a "module")
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Reasons for Employing Modules</p><br />
+</div>
+<div><ul><li>Large programs can consist of hundreds of functions that become difficult to manage and debug if they are all in one source file
+<ul><li>By distributing the functions over several source files and grouping related functions together, it becomes easier to test and debug the various functions
+</li></ul></li><li>The second reason becomes apparent when you work with other programmers in a team
+<ul><li>It would be very difficult for multiple programmers to edit a single source file simultaneously
+</li><li>The program code is broken up so that each programmer is solely responsible for a unique set of files
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Typical Division Into Modules</p><br />
+</div>
+<div><ul><li>Large Python programs typically consist of a <strong>driver module</strong> and one or more supplemental modules 
+</li><li>The driver module contains the <code>main()</code> function or the first executable statement if no main function is used
+</li><li>The supplemental modules contain supporting functions and constant variables
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Modules Example</p><br />
+</div>
+<div><ul><li>Splitting the dictionary of lists into modules
+</li><li>The <code>tabulardata.py</code> module contains functions for reading the data from a file and printing a dictionary of lists with row and column totals 
+</li><li>The <code>salesreport.py</code> module is the driver (or main) module that contains the <code>main</code> function
+</li><li>By splitting the program into two modules, the functions in the <code>tabulardata.py</code> module can be reused in another program that needs to process named lists of numbers
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Using Code That are in Modules</p><br />
+</div>
+<div><ul><li>To call a function or use a constant variable that is defined in a user module, you can first import the module in the same way that you imported a standard library module:
+</li></ul></div>
+<div><pre>from tabulardata import readData, printReport
+</pre></div>
+<div><ul><li class="">However, if a module defines many functions, it is easier to use the form:
+</li></ul></div>
+<div><pre>import tabulardata
+</pre></div>
+<div><ul><li class="">With this form, you must prepend the name of the module to the function name:
+</li></ul></div>
+<div><pre>tabulardata.printReport(salesData)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass4">Summary</span></p><br />
+</div>
+<div><img src='images/slide84-TextPlaceholder2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Python Sets</p><br />
+</div>
+<div><ul><li>A set stores a collection of unique values
+</li><li>A set is created using a set literal or the set function
+</li><li>The <code>in</code> operator is used to test whether an element is a member of a set
+</li><li>New elements can be added using the <code>add()</code> method
+</li><li>Use the <code>discard()</code> method to remove elements from a set
+</li><li>The <code>issubset()</code> method tests whether one set is a subset of another set
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Python Sets</p><br />
+</div>
+<div><ul><li>The <code>union()</code> method produces a new set that contains the elements in both sets
+</li><li>The <code>intersection()</code> method produces a new set with the elements that are contained in both sets
+</li><li>The <code>difference()</code> method produces a new set with the elements that belong to the first set but not the second
+</li><li>The implementation of sets arrange the elements in the set so that they can be located quickly
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Python Dictionaries</p><br />
+</div>
+<div><ul><li>A dictionary keeps associations between keys and values
+</li><li>Use the <code>[]</code> operator to access the value associated with a key
+</li><li>The <code>in</code> operator is used to test whether a key is in a dictionary
+</li><li>New entries can be added or modified using the <code>[]</code> operator
+</li><li>Use the <code>pop()</code> method to remove a dictionary entry
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Complex Structures</p><br />
+</div>
+<div><ul><li>Complex structures can help to better organize data for processing
+</li><li>The code of complex programs is distributed over multiple files
+</li></ul></div>
+
+
+
+
+</div>
+
+    </div>
+    <script src="scripts/jquery-2.1.4.min.js" charset="utf-8" type="text/javascript"></script>
+    <script src="scripts/slidy.js" charset="utf-8" type="text/javascript"></script>
+    
+</body>
+</html>

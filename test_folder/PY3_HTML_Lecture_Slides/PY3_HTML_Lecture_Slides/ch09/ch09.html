@@ -1,0 +1,2011 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="generator" content="HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+    <title>Chapter 9, Python for Everyone, 2e</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="font-size-adjustment" content="-1" />
+    <meta name="copyright"
+          content="Copyright &#169; 2015 Wiley" />
+    <link rel="stylesheet" href="styles/slidy.css" type="text/css" />
+    <link rel="stylesheet" href="styles/horstmann.css" type="text/css" />
+</head>
+<body>
+    <div class="background">
+        <div class="slide ppLayoutCustom">
+    <div><p class="title" >Chapter Nine</p><br />
+</div>
+<div><p class="subtitle" ><span class="fontColorClass1">OBJECTS AND CLASSES</span></p><br />
+</div>
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Chapter Goals</p><br />
+</div>
+<div><ul><li>To understand the concepts of classes, objects and encapsulation
+</li><li>To implement instance variables, methods and constructors
+</li><li>To be able to design, implement, and test your own classes
+</li><li>To understand the behavior of object references
+</li></ul></div></br>
+<div><p class="" >In this chapter, you will learn how to discover, specify, and implement your own classes, and how to use them in your programs.</</p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Contents</p><br />
+</div>
+<div><ul><li>Object-Oriented Programming
+</li><li>Implementing a Simple Class
+</li><li>Specifying the Public Interface of a Class
+</li><li>Designing the Data Representation
+</li><li>Constructors
+</li><li>Implementing Methods
+</li><li>Testing a Class
+</li><li>Problem Solving: Tracing Objects
+</li><li>Problem Solving: Patterns for Object Data
+</li><li>Object References
+</li><li>Application: Writing a Fraction Class
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Object-Oriented Programming</p><br />
+</div>
+<div><ul><li>You have learned structured programming
+<ul><li>Breaking tasks into subtasks
+</li><li>Writing re-usable methods to handle tasks
+</li></ul></li><li>We will now study Objects and Classes
+<ul><li>To build larger and more complex programs
+</li><li>To model objects we use in the world 
+</li></ul></div></br>
+<div><p class="" >A class describes objects with the same behavior. For example, a Car class describes all passenger vehicles that have a certain capacity and shape.
+</p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Objects and Programs</p><br />
+</div>
+<div><ul><li>You have learned how to structure your programs by decomposing tasks into functions
+<ul><li>Experience shows that it does not go far enough
+</li><li>It is difficult to understand and update a program that consists of a large collection of functions
+</li></ul></li><li>To overcome this problem, computer scientists invented <strong>object-oriented programming</strong>, a programming style in which tasks are solved by collaborating objects
+</li><li>Each object has its own set of data, together with a set of methods that act upon the data
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Objects and Programs</p><br />
+</div>
+<div><ul><li>You have already experienced this programming style when you used strings, lists, and file objects; each of these objects has a set of methods
+</li><li>For example, you can use the <code>insert()</code> or <code>remove()</code> methods to operate on list objects
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Python Classes</p><br />
+</div>
+<div><ul><li>A class describes a set of objects with the same behavior.
+<ul><li>For example, the <code>str</code> class describes the behavior of all strings
+</li><li>This class specifies how a string stores its characters, which methods can be used with strings, and how the methods are implemented
+</li><li>For example, when you have a <code>str</code> object, you can invoke the <code>upper method</code>: 
+</li></ul></li></ul></div>
+<div><img src='images/slide7-Group2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Python Classes</p><br />
+</div>
+<div><ul><li>In contrast, the <code>list</code> class describes the behavior of objects that can be used to store a collection of values
+</li><li>This class has a different set of methods
+</li><li>For example, the following call would be illegal—the <code>list</code> class has no <code>upper()</code> method:
+</li></ul><ul></ul></div>
+<div><pre>["Hello", "World"].upper()
+</pre></div>
+<div><ul><li class="">However, <code>list</code> has a <code>pop()</code> method, and the following call is legal:
+</li></ul><ul></ul></div>
+<div><pre>["Hello", "World"].pop()</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Public Interfaces</p><br />
+</div>
+<div><ul><li>The set of all methods provided by a class, together with a description of their behavior, is called the <strong>public interface</strong> of the class
+</li><li>When you work with an object of a class, you do not know how the object stores its data, or how the methods are implemented
+<ul><li>You need not know how a <code>str</code> object organizes a character sequence, or how a list stores its elements
+</li></ul></li><li>All you need to know is the public interface––which methods you can apply, and what these methods do
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Public Interfaces</p><br />
+</div>
+<div><ul><li>The process of providing a public interface, while hiding the implementation details, is called <strong>encapsulation
+</strong></li><li>If you work on a program that is being developed over a long period of time, it is common for implementation details to change, usually to make objects more efficient or more capable
+<ul><li>When the implementation is hidden, the improvements do not affect the programmers who use the objects
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Implementing a Simple Class</p><br />
+</div>
+<div><ul><li>Example:  
+</li><li>Tally Counter:  A class that models a mechanical device that is used to count people
+<ul><li>For example, to find out how many people attend a concert or board a bus
+</li></ul></li><li>What should it do?
+<ul><li>Increment the tally
+</li><li>Get the current total
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Using the <code>Counter</code> Class</p><br />
+</div>
+<div><ul><li>First, we construct an object of the class (object construction will be covered shortly):
+</li><li>In Python, you don't explicitly declare instance variables
+<ul><li>Instead, when one first assigns a value to an instance variable, the instance variable is created
+</li></ul></li></ul></div>
+<div><pre>tally = Counter()   # Creates an instance
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Using the <code>Counter</code> Class</p><br />
+</div>
+<div><ul><li>Next, we invoke methods on our object
+</li></ul></div>
+<div><pre>tally.reset()
+tally.click()
+tally.click()
+result = tally.getValue()  # Result is 2
+tally.click()
+result = tally.getValue()  # Result is 3
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Instance Variables</p><br />
+</div>
+<div><ul><li>An object stores its data in <strong>instance variables</strong>
+</li><li>An <em>instance</em> of a class is an object of the class
+</li><li>In our example, each <code>Counter</code> object has a single instance variable named <code>_value</code>
+<ul><li>For example, if <code>concertCounter</code> and <code>boardingCounter</code> are two objects of the <code>Counter</code> class, then each object has its own <code>_value </code>variable
+</li></ul></li></ul></div>
+<div><img src='images/slide14-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Instance Variables</p><br />
+</div>
+<div><ul><li>Instance variables are part of the implementation details that should be hidden from the user of the class
+<ul><li>With some programming languages an instance variable can only be accessed by the methods of its own class
+</li><li>The Python language does not enforce this restriction
+</li><li>However, the underscore indicates to class users that they should not directly access the instance variables
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Class Methods</p><br />
+</div>
+<div><ul><li>The methods provided by the class are defined in the class body
+</li><li>The <code>click()</code> method advances the <code>_value</code> instance variable by 1
+</li></ul></div>
+<div><pre>def click(self) :
+    self._value = self._value + 1
+</pre></div>
+<div><ul><li class="">A method definition is very similar to a function with these exceptions:
+<ul><li class="">A method is defined as part of a class definition
+</li><li class="">The first parameter variable of a method is called <code>self
+</code></li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Class Methods and Attributes</p><br />
+</div>
+<div><ul><li>Note how the <code>click()</code> method increments the instance variable <code>_value 
+</code></li><li><em>Which</em> instance variable? The one belonging to the object on which the method is invoked
+<ul><li>In the example below the call to <code>click()</code> advances the <code>_value variable</code> of the <code>concertCounter</code> object 
+</li><li>No argument was provided when the <code>click()</code> method was called <em>even though the definition includes the </em><code>self</code><em> parameter variable
+</em></li></ul></br>
+<ul><li>The <code>self</code> parameter variable refers to the object on which the method was invoked <code>concertCounter</code> in this example</li></ul></li></ul></div>
+<div><pre>concertCounter.click()
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example of Encapsulation</p><br />
+</div>
+<div><ul><li>The <code>getValue()</code> method returns the current <code>_value</code>:
+</li></ul></div>
+<div><pre>def getValue(self) :
+    return self._value
+</pre></div>
+<div><ul><li class="">This method is provided so that users of the <code>Counter</code> class can find out how many times a particular counter has been clicked
+</li><li class="">A class user should not directly access any instance variables
+</li><li class="">Restricting access to instance variables is an essential part of encapsulation
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Complete Simple Class Example</p><br />
+</div>
+<div><pre>#  This program demonstrates the Counter class.
+
+# Import the Counter class from the counter module. 
+from counter import Counter
+
+tally = Counter()
+tally.reset()
+tally.click()
+tally.click()
+
+result = tally.getValue()
+print("Value:", result)
+
+tally.click()
+result = tally.getValue()
+print("Value:", result)
+</pre></div>
+<div><pre>#  This module defines the Counter class.
+
+## Models a tally counter whose value can be incremented, viewed, or reset.
+
+class Counter :   
+   ## Gets the current value of this counter.
+   #  @return the current value   
+   def getValue(self) :
+      return self._value
+
+   ## Advances the value of this counter by 1.
+   def click(self) :
+      self._value = self._value + 1
+
+   ## Resets the value of this counter to 0.
+   def reset(self) :
+      self._value = 0
+</pre></div>
+<div><p>Program Run</p></div>
+<div><pre>Value: 2
+Value:3
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Public Interface of a Class</p><br />
+</div>
+<div><ul><li>When you design a class, start by specifying the public interface of the new class
+<ul><li>What tasks will this class perform?
+</li><li>What methods will you need?
+</li><li>What parameters will the methods need to receive?
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example of a Public Interface</p><br />
+</div>
+<div><ul><li class="">A Cash Register Class
+</li></ul></div>
+<div><img src='images/slide21-Table10.png' /></div>
+<div><ul><li>Since the <code>self</code> parameter is required for all methods it was excluded for simplicity
+</li></ul><ul></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Writing the Public Interface</p><br />
+</div>
+<div><pre>## A simulated cash register that tracks the item count and the total amount due.
+#
+
+class CashRegister :
+  ## Adds an item to this cash register.
+  # @param price: the price of this item
+  #  
+  def addItem(self, price) :  
+    # Method body
+    . . .
+  
+  ##  Gets the price of all items in the current sale.
+  #  @return the total price
+  #
+  def getTotal(self):  
+    # Method body
+    . . .
+</pre></div>
+<div style="position:absolute;top:17%;left:55%;width:450px;"><p class="" >Class comments document the class and the behavior of each method
+</p></div>
+<div style="position:absolute;top:26%;left:55%;width:450px;"><p class="" >The method declarations make up the <em>public interface</em> of the class
+</p></div>
+<div style="position:absolute;top:45%;left:55%;width:450px;"><p class="" >The data and method bodies make up the <em>private implementation</em> of the class
+</p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Using the Class</p><br />
+</div>
+<div><ul><li>After defining the class we can now construct an object:
+</li></ul></div>
+<div><pre>register1 = CashRegister()
+   # Constructs a CashRegister object
+</pre></div>
+<div><ul><li class="">This statement defines the <code>register1</code> variable and initializes it with a reference to a new <code>CashRegister</code> object
+</li></ul></div>
+<div><img src='images/slide23-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Using Methods</p><br />
+</div>
+<div><ul><li>Now that an object has been constructed, we are ready to invoke a method:
+</li></ul></div>
+<div><pre>register1.addItem(1.95) # Invokes a method.
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Accessor and Mutator Methods</p><br />
+</div>
+<div><ul><li>Many methods fall into two categories:
+<p class="object" >1) <em>Accessor Methods</em>:    '<strong>get</strong>' methods
+</p>
+<ul><li>Asks the object for information without changing it
+</li><li>Normally returns the current value of an attribute
+</li>
+<div><pre>def getTotal(self):
+def getCount(self):
+</pre></li></ul><p class="" >2) <em>Mutator Methods</em>:  '<strong>set</strong>' methods
+</p><ul>
+<li class="">Changes values in the object
+</li><li class="">Usually take a parameter that will change an instance variable
+</li>
+<div><pre>def addItem(self, price):
+def clear(self):
+</pre></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Instance Variables of Objects</p><br />
+</div>
+<div><ul><li>Each object of a class has a separate set of instance variables
+</li></ul></div>
+<div><img src='images/slide26-Picture8.png' /></div>
+<div><p class="" >The values stored in instance variables make up the <strong>state</strong> of the object
+</p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Designing the Data Representation</p><br />
+</div>
+<div><ul><li>An object stores data in instance variables
+<ul><li>Variables declared inside the class
+</li><li>All methods inside the class have access to them
+<ul><li>Can change or access them
+</li></ul></li><li>What data will our <code>CashRegister</code> methods need?
+</li></ul></li></ul><ul></ul></div>
+<div><img src='images/slide27-Table12.png' /></div>
+<div><p class="" >An object holds instance variables that are accessed by methods
+</p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Programming Tip 9.1</p><br />
+</div>
+<div><ul><li>All instance variables should be private and most methods should be public
+<ul><li>Although most object-oriented languages provide a mechanism to explicitly hide or protect private members from outside access, Python does not
+</li></ul></li><li>It is common practice among Python programmers to use names that begin with a single underscore for private instance variables and methods
+<ul><li>The single underscore serves as a flag to the class user that those members are private
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Programming Tip 9.1</p><br />
+</div>
+<div><ul><li>You should always use encapsulation, in which all instance variables are private and are only manipulated with methods
+</li><li>Typically, methods are public
+<ul><li>However, sometimes you have a method that is used only as a helper method by other methods 
+</li><li>In that case, you should identify the helper method as private by using a name that begins with a single underscore</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Constructors</p><br />
+</div>
+<div><ul><li>A <em>constructor</em> is a method that initializes instance variables of an object
+<ul><li>It is automatically called when an object is created
+</li></ul></li></ul></div>
+<div><pre># Calling a method that matches the name of the class 
+# invokes the constructor
+register = CashRegister()  
+</pre></div>
+<div><ul><li class="">Python uses the special name <code>_ _init_ _</code> for the constructor because its purpose is to initialize an instance of the class
+</li></ul></div>
+<div><pre>def _ _init_ _(self) :
+    self._itemCount = 0
+    self._totalPrice = 0
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Default and Named Arguments</p><br />
+</div>
+<div><ul><li>Only one constructor can be defined per class
+</li><li>But you can define a constructor with <em>default argument values</em> that simulate multiple definitions
+</li></ul></div>
+<div><pre>class BankAccount :
+    def __init__(self, initialBalance = 0.0) :
+        self._balance = initialBalance
+</pre></div>
+<div><ul><li class="">If no value is passed to the constructor when a <code>BankAccount</code> object is created the default value will be used</li></ul></div>
+<div><pre>joesAccount = BankAccount()   # Balance is set to 0
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Default and Named Arguments</p><br />
+</div>
+<div><ul><li>If a value is passed to the constructor that value will be used instead of the default one
+</li></ul></div>
+<div><pre>joesAccount = BankAccount(499.95) 
+   # Balance is set to 499.95
+</pre></div>
+<div><ul><li class="">Default arguments can be used in any method and not just constructors
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Syntax: Constructors</p><br />
+</div>
+<div><img src='images/slide33-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Constructors: <code>self</code></p><br />
+</div>
+<div><ul><li>The first parameter variable of every constructor must be <code>self</code>
+</li><li>When the constructor is invoked to construct a new object, the <code>self</code> parameter variable is set to the object that is being initialized</li></ul></div></br></br>
+<div style="position:absolute;top:22.5%;left:40%;"><p>Refers to the object being initialized
+</p></div>
+<div style="position:absolute;top:26%;left:24%;"><img src='images/slide34-StraightArrowConnector7.png' /></div>
+<div><pre>def _ _init_ _(self) :
+    self._itemCount = 0
+    self._totalPrice = 0
+</pre></div>
+<div><pre>register = CashRegister()  
+</pre></div>
+<div style="position:absolute;top:42%;left:5%;"><img src='images/slide34-StraightArrowConnector11.png' /></div>
+<div style="position:absolute;top:48%;left:1%;"><p>After the constructor ends this is a reference to the newly created object
+</p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Object References</p><br />
+</div>
+<div><pre>register = CashRegister()  
+</pre></div></br></br></br>
+<div style="position:absolute;top:11%;left:10%;"><img src='images/slide35-StraightArrowConnector6.png' /></div>
+<div style="position:absolute;top:15%;left:28%;"><p class="" >After the constructor ends this is a reference to the newly created object
+</p><br /></div>
+<div><ul><li>This reference then allows methods of the object to be invoked
+</li></ul></div>
+<div><pre>print("Your total $", register.getTotal())
+</pre></div>
+<div style="position:absolute;top:32.5%;left:28.5%;"><img src='images/slide35-StraightArrowConnector9.png' /></div>
+<div style="position:absolute;top:40%;left:10%;"><p class="" >Call the method through the reference</p>
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Common Error 9.1 (1)</p><br />
+</div>
+<div><ul><li>After an object has been constructed, you should not directly call the constructor on that object again:
+</li></ul></div>
+<div><pre>register1 = CashRegister()
+register1._ _init_ _()   # Bad style
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Common Error 9.1 (2)</p><br />
+</div>
+<div><ul><li>The constructor can set a new <code>CashRegister</code> object to the cleared state, but you should not call the constructor on an existing object. Instead, replace the object with a new one:
+</li></ul></div>
+<div><pre>register1 = CashRegister()
+register1 = CashRegister()   # OK
+</pre></div>
+<div><p class="" >In general, you should never call a Python method that starts with a double underscore. The are intended for specific internal purposes (in this case, to initialize a newly created object).
+</p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Implementing Methods</p><br />
+</div>
+<div><ul><li>Implementing a method is very similar to implementing a function except that you access the <em>instance variables </em>of the object in the method body
+</li></ul></div>
+<div><pre>def addItem(self, price):
+   self._itemCount = self._itemCount + 1      
+   self._totalPrice = self._totalPrice + price
+</pre></div>
+<div><img src='images/slide38-Table7.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Syntax: Instance Methods</p><br />
+</div>
+<div><ul><li>Use instance variables inside methods of the class
+<ul><li>Similar to the constructor, all other instance methods must include the <code>self</code> parameter as the first parameter
+</li><li>You must specify the <code>self</code> implicit parameter when using instance variables inside the class
+</li></ul></li></ul></div>
+<div><img src='images/slide39-Picture6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Invoking Instance Methods</p><br />
+</div>
+<div><ul><li>As with the constructor, every method must include the special <code>self</code> parameter variable, and it must be listed first 
+</li><li>When a method is called, a reference to the object on which the method was invoked (<code>register1</code>) is automatically passed to the <code>self</code> parameter variable:
+</li></ul></div>
+<div><img src='images/slide40-Group2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Tracing The Method Call</p><br />
+</div>
+<div><pre>register1 = CashRegister()   #1 New object
+register1.addItem(2.95)      #2  Calling method
+…                            #3 After method
+</pre></div>
+<div><pre>def addItem(self, price):
+   self._itemCount = 
+      self._itemCount + 1      
+   self._totalPrice = 
+      self._totalPrice + price
+</pre></div>
+<div class="incremental"><img src='images/slide41-Picture3.png' /></div>
+<div class="incremental"><img src='images/slide41-Picture4.png' /></div>
+<div class="incremental"><img src='images/slide41-Picture5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Accessing Instance Variables</p><br />
+</div>
+<div><ul><li>To access an instance variable, such as <code>_itemCount</code> or <code>_totalPrice</code>, in a method, you must access the variable name through the <code>self</code> reference
+<ul><li>This indicates that you want to access the instance variables of the object on which the method is invoked, and not those of some other <code>CashRegister</code> object
+</li></ul></li><li>The first statement in the <code>addItem()</code> method is
+<pre>self._itemCount = self._itemCount + 1
+</pre><ul></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Accessing Instance Variables</p><br />
+</div>
+<div><ul><li>Which <code>_itemCount</code> is incremented? 
+<ul><li>In this call, it is the <code>_itemCount</code> of the <code>register1</code> object.
+</li></ul></li></ul></div>
+<div><img src='images/slide43-Picture4.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Calling One Method Within Another</p><br />
+</div>
+<div><ul><li>When one method needs to call another method on the same object, you invoke the method on the <code>self</code> parameter</li></ul></div>
+<div><pre>def addItems(self, quantity, price) :
+    for i in range(quantity) :
+        self.addItem(price)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example: <code>CashRegister.py</code> (1)</p><br />
+</div>
+<div><pre>## 
+#  This module defines the CashRegister class.
+#
+
+## A simulated cash register that tracks the item count and the total amount due.
+#
+class CashRegister :
+   ## Constructs a cash register with cleared item count and total.
+   #
+   def __init__(self) :
+      self._itemCount = 0
+      self._totalPrice = 0.0
+      
+   ## Adds an item to this cash register.
+   #  @param price the price of this item
+   #
+   def addItem(self, price) :
+      self._itemCount = self._itemCount + 1
+      self._totalPrice = self._totalPrice + price 
+      
+   ## Gets the price of all items in the current sale.
+   #  @return the total price
+   #
+   def getTotal(self) :
+      return self._totalPrice
+      
+   ## Gets the number of items in the current sale.
+   #  @return the item count
+   #
+   def getCount(self) :
+      return self._itemCount
+
+   ## Clears the item count and the total.
+   #  
+   def clear(self) :
+      self._itemCount = 0
+      self._totalPrice = 0.0
+</pre></div>
+
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+<div><p class="title" >Programming Tip 9.2</p><br />
+</div>
+<div><ul><li>Instance variables should only be defined in the constructor
+</li><li>All variables, including instance variables, are created at run time
+<ul><li>There is nothing to prevent you from creating instance variables in any method of a class
+</li></ul></li><li>The constructor is invoked before any method can be called, so any instance variables that were created in the constructor are sure to be available in all methods
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Class Variables</p><br />
+</div>
+<div><ul><li>They are a value properly belongs to a class, not to any object of the class
+</li><li>Class variables are often called "static variables"
+</li><li>Class variables are declared at the same level as methods 
+<ul><li>In contrast, instance variables are created in the constructor
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Class Variables: Example (1)</p><br />
+</div>
+<div><ul><li>We want to assign bank account numbers sequentially: the first account is assigned number 1001, the next with number 1002, and so on
+</li><li>To solve this problem, we need to have a single value of <code>_lastAssignedNumber</code> that is a property of the <em>class</em>, not any object of the class
+</li></ul></div>
+<div><pre>class BankAccount :
+    _lastAssignedNumber = 1000 # A class variable
+    def _ _init_ _(self) :
+        self._balance = 0
+        BankAccount._lastAssignedNumber =     
+           BankAccount._lastAssignedNumber + 1
+        self._accountNumber = 
+           BankAccount._lastAssignedNumber
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Class Variables: Example (2)</p><br />
+</div>
+<div><ul><li>Every <code>BankAccount</code> object has its own <code>_balance</code> and <code>_account-Number</code> instance variables, but there is only a single copy of the <code>_lastAssignedNumber</code> variable
+</li><li>That variable is stored in a separate location, outside any <code>BankAccount</code> object
+</li><li>Like instance variables, class variables should always be private to ensure that methods of other classes do not change their values. However, class <em>constants</em> can be public
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Class Variables: Example (3)</p><br />
+</div>
+<div><ul><li>For example, the <code>BankAccount</code> class can define a public constant value, such as
+</li></ul></div>
+<div><pre>class BankAccount :
+    OVERDRAFT_FEE = 29.95
+    . . .
+</pre></div>
+<div><ul><li class="">Methods from any class can refer to such a constant as <code>BankAccount.OVERDRAFT_FEE
+</code></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Testing a Class</p><br />
+</div>
+<div><ul><li>In the long run, your class may become a part of a larger program that interacts with users, stores data in files, and so on
+</li><li>You should always test your class in isolation integrating a class into a program
+</li><li>Testing in isolation, outside a complete program, is called <strong>unit testing
+</strong></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Choices for Testing: The Python Shell</p><br />
+</div>
+<div><ul><li>Some interactive development environments provide access to the Python shell in which individual statements can be executed
+</li><li>You can test a class simply by constructing an object, calling methods, and verifying that you get the expected return values</li></ul></div>
+<div><pre>&gt;&gt;&gt; from cashregister import CashRegister
+&gt;&gt;&gt; reg = CashRegister()
+&gt;&gt;&gt; reg.addItem(1.95)
+&gt;&gt;&gt; reg.addItem(0.95)
+&gt;&gt;&gt; reg.addItem(2.50)
+&gt;&gt;&gt; print(reg.getCount())
+3
+&gt;&gt;&gt; print(reg.getTotal())
+5.4
+&gt;&gt;&gt;
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Choices for Testing: Test Drivers</p><br />
+</div>
+<div><ul><li>Interactive testing is quick and convenient but it has a drawback
+<ul><li>When you find and fix a mistake, you need to type in the tests again
+</li></ul></li><li>As your classes get more complex, you should write tester programs
+<ul><li>A tester program is a driver module that imports the class and contains statements to run methods of your class
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Steps Performed by a Tester Program</p><br />
+</div>
+<div><ul><li class="decimal">Construct one or more objects of the class that is being tested
+</li><li class="decimal">Invoke one or more methods
+</li><li class="decimal">Print out one or more results
+</li><li class="decimal">Print the expected results
+</li><li class="decimal">Compare the computed results with the expected
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example Test Program</p><br />
+</div>
+<div><ul><li>It runs and tests the methods of the <code>CashRegister</code> class
+</li></ul></div>
+<div><Pre>## 
+#  This program tests the CashRegister class.
+#
+
+from cashregister import CashRegister
+
+register1 = CashRegister()
+register1.addItem(1.95)
+register1.addItem(0.95)
+register1.addItem(2.50)
+print(register1.getCount())
+print("Expected: 3")
+print("%.2f" % register1.getTotal())
+print("Expected: 5.40")
+</pre></div></br>
+<div><p class="" >Program Run</p><br />
+</div>
+<div><pre>3
+Expected: 3
+5.40
+Expected: 5.40
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Test Drivers: Plan Beforehand</p><br />
+</div>
+<div><ul><li>Thinking about the sample program:
+<ul><li>We add three items totaling $5.40
+</li><li>When displaying the method results, we also display messages that describe the values we expect to see
+</li></ul></li><li>This is a very important step. You want to spend some time thinking about what the expected result is before you run a test program
+</li><li>This thought process will help you understand how your program should behave, and it can help you track down errors at an early stage</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Test Drivers: Using Modules</p><br />
+</div>
+<div><ul><li class="">You need to import the class you are testing (here, the <code>CashRegister</code> class) into the driver module:</li></ul></div>
+<div><pre>from cashregister import CashRegister
+</pre></div>
+<div><ul><li>The specific details for running the program depend on your development environment
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Steps to Implementing a Class</p><br />
+</div>
+<div><p class="object" >1) Get an informal list of responsibilities for your objects
+</p>
+<pre class="pseudo">Deposit funds
+Withdraw funds
+Add interest
+</pre></div>
+<div><ul><li class="">There is a hidden responsibility as well. We need to be able to find out how much money is in the account
+</li></ul></div>
+<div><pre class="pseudo">Get balance
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Steps to Implementing a Class</p><br />
+</div>
+<div><p>2) Specify the public interface
+</p></div>
+<div><ul><ul><li>Constructors
+<pre>def __init__(self, initialBalance = 0.0) :
+</pre></li><li>Mutators
+<pre>def deposit(self, amount) :
+def withdraw(self, amount) :
+def addInterest(self, rate) :
+</pre></li><li>Accessors
+<pre>def getBalance(self) :
+</pre></li></div>
+<div><p>3) Document the public interface
+</p></div>
+<div><pre>## Constructs a bank account with a given balance.
+#  @param initialBalance the initial account balance (default = 0.0)
+#
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Steps to Implementing a Class</p><br />
+</div>
+<div><p class="object" >4) Determine the instance variables
+</p><pre>self._balance = initialBalance
+</pre></div>
+<div><p class="" >5) Implement constructors and methods
+</p><pre>def getBalance(self) :
+   return self._balance
+</pre></div>
+<div><p class="" >6) Test your class
+</p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Problem Solving: Tracing Objects</p><br />
+</div>
+<div><ul><li>Use an index card for each object:
+</li></ul></div>
+<div><img src='images/slide61-Picture2.png' /></div>
+<div><ul><li class="">An object is manipulated through the public interface (front of the card)
+</li><li class="">The encapsulated data is on the back of the card
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Mutator Methods and Cards</p><br />
+</div>
+<div><ul><li>As mutator methods are called, keep track of the value of instance variables
+</li></ul></div>
+<div><pre>register2 = CashRegister(7.5)   # 7.5 percent sales tax
+register2.addItem(3.95, False)  # Not taxable
+register2.addItem(19.95, True)  # Taxable
+</pre></div>
+<div><img src='images/slide62-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Problem Solving: Patterns for Object Data</p><br />
+</div>
+<div><ul><li>Common patterns when designing instance variables
+<ul><li>Keeping a Total
+</li><li>Counting Events
+</li><li>Collecting Values
+</li><li>Managing Object Properties
+</li><li>Modeling Objects with Distinct States
+</li><li>Describing the Position of an Object
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Patterns:  Keeping a Total</p><br />
+</div>
+<div><ul><li>Examples:
+<ul><li>Bank account balance
+</li><li>Cash register total
+</li><li>Car gas tank fuel level
+</li></ul></li><li>Variables needed:
+<ul><li><code>totalPrice</code>
+</li></ul></li><li>Methods Required:
+<ul><li><code>add (addItem)
+</code></li><li><code>clear
+</code></li><li><code>getTotal
+</code></li></li></ul></li></ul></div>
+<div><pre>class CashRegister :
+    def addItem(self, price):
+        self._itemCount =   
+           self._itemCount + 1  
+        self._totalPrice = 
+           self._totalPrice + price
+
+    def clear(self):
+        self._itemCount = 0
+        self._totalPrice = 0.0
+
+    def getTotal(self):
+        return self._totalPrice
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Patterns:  Counting Events</p><br />
+</div>
+<div><ul><li>Examples:
+<ul><li>Cash register items
+</li><li>Bank transaction fee
+</li></ul></li><li>Variables needed:
+<ul><li><code>itemCount
+</code></li></ul></li><li>Methods Required:
+<ul><li>Add
+</li><li>Clear
+</li><li>Optional: <code>getCount
+</code></li></ul></li></ul><ul></ul></div>
+<div><pre>class CashRegister:
+    def addItem(self, price):
+        self._itemCount =   
+           self._itemCount + 1  
+        self._totalPrice = 
+           self._totalPrice + price
+  
+    def clear(self):
+        self._itemCount = 0
+        self._totalPrice = 0.0
+  
+    def getCount(self):
+        return self._itemCount
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Patterns:  Collecting Values</p><br />
+</div>
+<div><ul><li>Examples:
+<ul><li>Multiple choice question
+</li><li>Shopping cart
+</li></ul></li><li>Storing values:
+<ul><li>List
+</li></ul></li><li>Constructor:
+<ul><li>Initialize to empty collection
+</li></ul></li><li>Methods Required:
+<ul><li>Add
+</li></ul></li></ul></div>
+<div><pre>class Cart:
+    def _ _init_ _(self) :
+        self._choices = []
+
+    def addItem(self, name) :
+       self._choices.append
+          (choice)   
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Patterns:  Managing Properties</p><br />
+</div>
+<div><p class="object" >A property of an object can be set and retrieved
+</p>
+<ul><li>Examples:
+<ul><li>Student: <code>name</code>, <code>ID
+</code></li></ul></li><li>Constructor:
+<ul><li>Set a unique value
+</li></ul></li><li>Methods Required:
+<ul><li><code>set
+</code></li><li><code>get
+</code></li></ul></li></ul></div>
+<div><pre>class Student :
+    def _ _init_ _
+       (self, aName, anId) :
+        self._name = aName
+        self._id = anId
+
+    def getName(self) :
+        return self._name
+
+    def setName(self, newName) :
+        self._name = newName
+
+    def getId(self) :
+        return self._id
+
+    # No setId method   
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Patterns:  Modeling Object States</p><br />
+</div>
+<div><p class="object" >Some objects can be in one of a set of distinct states
+</p>
+<ul><li>Example:  A fish
+<ul><li>Hunger states:
+<ul><li>Not Hungry
+</li><li>Somewhat Hungry
+</li><li>Very Hungry
+</li></ul></li><li>Methods will change the state:
+<ul><li><code>eat
+</code></li><li><code>move
+</code></li></ul></li></ul></li></ul></div>
+<div><pre>class Fish:
+   NOT_HUNGRY = 0
+   SOMEWHAT_HUNGRY = 1
+   VERY_HUNGRY = 2
+  
+   def eat(self) :        
+      self._hungry =    
+      Fish.NOT_HUNGRY
+
+   def move(self) :
+      if self._hungry &lt;    
+        Fish.VERY_HUNGRY :
+         self._hungry =  
+         self._hungry + 1
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Patterns:  Object Position</p><br />
+</div>
+<div><ul><li>Examples:
+<ul><li>Game object
+</li><li>Bug (on a grid)
+</li><li>Cannonball
+</li></ul></li><li>Storing values:
+<ul><li><code>row</code>, <code>column</code>, <code>direction</code>, <code>speed</code>. . .
+<div style="float:right;"><img src='images/slide69-Picture2.png' /></div>
+</li></ul></li><li>Methods Required:
+<ul><li><code>move
+</code></li><li><code>turn
+</code></li></ul></li></ul></div></br>
+<div><pre>class Bug:
+    def _ _init_ _
+       (self, aRow, aColumn,
+        aDirection, speed) :
+        self._row = aRow
+        self._column = aColumn
+        self._direction = 
+           direction
+# 0 = N, 1 = E, 2 = S, 3 = W 
+        . . .
+
+  def moveOneUnit(self):
+      if (self._direction == 0):
+          self._row = 
+             self._row - 1
+      . . .
+</pre></div>
+
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Object References</p><br />
+</div>
+<div><ul><li>In Python, a variable does not actually hold an object
+</li><li>It merely holds the <em>memory location</em> of an object
+</li><li>The object itself is stored in another location:
+</li></ul></div>
+<div style="float:left;width:33%;"><pre>reg1 = CashRegister
+</pre></div>
+<div style="float:left;width:60%;padding:2px;">The constructor returns a reference to the new object, and that reference is stored in the <code>reg1</code> variable
+</div>
+<div style="position:absolute;top:35%;left:5%;"><p class="" >Reference
+</p></div>
+<div style="position:absolute;top:37%;left:20%;"><img src='images/slide70-Picture11.png' /></div>
+<div style="position:absolute;top:50%;left:40%;"><p class="" >Object
+</p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Shared References</p><br />
+</div>
+<div style="width:45%;"><ul><li>Multiple object variables may contain references to the same object ('aliases')
+<ul><li>Single Reference
+</li></ul></li></ul></div>
+<div style="float:right;width:49%;"><img src='images/slide71-Picture11.png' /></div>
+<div style="width:45%;"><pre>reg1 = CashRegister
+</pre></div></br></br></br>
+<div style="width:45%;"><ul><li class="">Shared References
+</li></ul></div>
+<div style="float:right;width:49%;"><img src='images/slide71-Picture11-0.png' /></div>
+<div style="width:45%;"><pre>reg2 = reg1
+</pre></div>
+<div><p class="" >The internal values can be changed through either reference
+</p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Testing If References are Aliases</p><br />
+</div>
+<div><ul><li>Checking if references are aliases, use the <code>is</code>, or the <code>not is</code> operator:
+</li></ul></div>
+<div><pre>if reg1 is reg2 :
+    print("The variables are aliases.")
+if reg1 is not reg2 :
+    print("The variables refer to different objects.")
+</pre></div>
+<div><ul><li class="">Checking if the data contained within objects are equal use the <code>==</code> operator:
+</li></ul></div>
+<div><pre>if reg1 == reg2 :
+    print("The objects contain the same data.")
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The <code>None</code> reference</p><br />
+</div>
+<div><ul><li>A reference may point to 'no' object
+<ul><li>You cannot invoke methods of an object via a <code>None</code> reference – causes a run-time error:
+</li></ul></li></ul></div>
+<div><pre>reg = None
+print(reg.getTotal())   # Runtime Error!
+</pre></div>
+<div><ul><li class="">To test if a reference is <code>None</code> before using it:
+</li></ul></div>
+<div><pre>middleInitial = None   # No middle initial
+
+if middleInitial is None :
+  print(firstName, lastName)
+else :
+  print(firstName, middleInitial + ".", + lastName)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The <code>self</code> reference</p><br />
+</div>
+<div><ul><li>Every method has a reference to the object on which the method was invoked, stored in the <code>self</code> parameter variable
+<ul><li>It is a reference to the object the method was invoked on:
+</li></ul></li></ul></div>
+<div><img src='images/slide74-Picture7.png' /></div>
+<div><ul><li class="">It can clarify when instance variables are used:
+</li></ul></div>
+<div><pre>def addItem(self, price):
+  self.itemCount = self.itemCount + 1
+  self.totalPrice = self.totalPrice + price
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Using <code>self</code> to Invoke Other Methods</p><br />
+</div>
+<div><ul><li>You can also invoke a method on <code>self</code>:
+</li></ul></div>
+<div><pre>def _ _init_ _(self) :
+    self.clear()
+</pre></div>
+<div><ul><li class="">In a constructor, <code>self</code> is a reference to the object that is being constructed
+</li><li class="">The <code>clear()</code> method is invoked on that object
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Passing <code>self</code> as a Parameter </p><br />
+</div>
+<div><ul><li>Suppose, for example, you have a <code>Person</code> class with a method <code>likes(self, other)</code> that checks, perhaps from a social network, whether a person likes another
+</li></ul></div>
+<div><pre>def isFriend(self, other) :
+    return self.likes(other) and other.likes(self)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Object Lifetimes: Creation</p><br />
+</div>
+<div><ul><li>When you construct an object with a constructor, the object is created, and the <code>self</code> variable of the constructor is set to the memory location of the object 
+<ul><li>Initially, the object contains no instance variables.
+</li><li>As the constructor executes statements such as instance variables are added to the object
+</li></ul></li></ul></div>
+<div><pre>self._itemCount = 0
+</pre></div>
+<div><ul><li class="">Finally, when the constructor exits, it returns a reference to the object, which is usually captured in a variable:
+</li></ul></div>
+<div><pre>reg1 = CashRegister()
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Object Lifetimes: Cleaning Up</p><br />
+</div>
+<div><ul><li>The object, and all of its instance variables, stays alive as long as there is at least one reference to it
+</li><li>When an object is no longer referenced at all, it is eventually removed by a part of the virtual machine called the "garbage collector"
+</li></ul></div>
+<div><pre>reg1 = CashRegister()   # New object referenced by reg1
+reg1 = CashRegister()   
+   # Another object referenced by reg1
+   # First object will be garbage collected
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Writing a Fraction Class</p><br />
+</div>
+<div><ul><li>So far we have worked with floating-point numbers but computers store binary values, so not all real numbers can be represented precisely
+</li><li>In applications where the precision of real numbers is important, we can use <em>rational numbers</em> to store exact values 
+<ul><li>This helps to reduce or eliminate round-off errors that can occur when performing arithmetic operations
+</li><li>A rational number is a number that can be expressed as a ratio of two integers: 7/8
+</li><li>The top value is called the <em>numerator</em> and the bottom value, which cannot be zero, is called the <em>denominator</em></li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Designing the Fraction Class</p><br />
+</div>
+<div><ul><li>We want to use our rational numbers as we would use integers and floating point values
+</li><li>Thus, our Fraction class must perform the following operations:
+<ul><li class="decimal">Create a rational number
+</li><li class="decimal">Access the numerator and denominator values, individually
+</li><li class="decimal">Determine if the rational number is negative or zero
+</li><li class="decimal">Perform normal mathematical operations on two rational numbers (addition, subtraction, multiplication, division, exponentiation)
+</li><li class="decimal">Logically compare two rational numbers
+</li><li class="decimal">Produce a string representation of the rational number
+</li></ul></li><li>The objects of the Fraction class will be <strong>immutable</strong> because none of the operations modify the objects' instance variables
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Required Data Attributes</p><br />
+</div>
+<div><ul><li>Because a rational number consists of two integers, we need two instance variables to store those values:
+</li></ul></div>
+<div><pre>self._numerator = 0
+self._denominator = 1
+</pre></div>
+<div><ul><li class="">At no time should the rational number be converted to a floating-point value or we will lose the precision gained from working with rational numbers
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Representing Values Equivalently </p><br />
+</div>
+<div><ul><li>Signed values
+<ul><li>Negative and positive rational numbers each have two forms that can be used to specify the corresponding value
+</li><li>Positive values can be indicated as 1/2 or –1/–2, and negative values as –2/5 or 2/–5
+</li><li>When performing an arithmetic operation or logically comparing two rational numbers, it will be much easier if we have a single way to represent a negative value
+</li><li>For simplicity, we choose to set only the numerator to a negative value when the rational number is negative, and both the numerator and denominator will be positive integers when the rational number is positive 
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Representing Values Equivalently </p><br />
+</div>
+<div><ul><li>Equivalent fractions
+<ul><li>For example, 1/4 can be written as 1/4, 2/8, 16/64, or 123/492
+</li><li>It will be much easier to perform the operation if the number is stored in reduced form
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The Constructor (1)</p><br />
+</div>
+<div><ul><li>Because Fraction objects are immutable, their values must be set when they are created. This requires parameter variables for both the numerator and denominator
+</li></ul></div>
+<div><pre>def _ _init_ _(self, numerator, denominator) :
+</pre></div>
+<div><ul><li class="">The method must check for special cases: 
+<ul><li class="">Zero denominators
+</li><li class="">The number represents zero or a negative number
+</span></li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The Constructor (2)</p><br />
+</div>
+<div><pre>def _ _init_ _(self, numerator = 0, denominator = 1) :
+    if denominator == 0 :
+        raise ZeroDivisionError("Denominator cannot be zero.")
+    if numerator == 0 :
+        self._numerator = 0
+        self._denominator = 1
+    else :
+        if (numerator < 0 and denominator >= 0 or
+            numerator >= 0 and denominator < 0) :
+           sign = -1
+        else :
+           sign = 1
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The Constructor (3)</p><br />
+</div>
+<div><pre>    a = abs(numerator)
+    b = abs(denominator)
+    while a % b != 0 :
+        tempA = a
+        tempB = b
+        a = tempB
+        b = tempA % tempB
+    self._numerator = abs(numerator)       # b * sign
+    self._denominator = abs(denominator)   #b
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Testing the Constructor</p><br />
+</div>
+<div><pre>frac1 = Fraction(1, 8) # Stored as 1/8
+frac2 = Fraction(-2, -4) # Stored as 1/2
+frac3 = Fraction(-2, 4) # Stored as -1/2
+frac4 = Fraction(3, -7) # Stored as -3/7
+frac5 = Fraction(0, 15) # Stored as 0/1
+frac6 = Fraction(8, 0) # Error! exception is raised
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Comparing Fractions (1)</p><br />
+</div>
+<div><ul><li>In Python, we can define and implement methods that will be called automatically when a standard Python operator (<code>+</code>, <code>*</code>, <code>==</code>, <code>&lt;</code>) is applied to an instance of the class
+</li><li>For example, to test whether two fractions are equal, we could implement a method:
+<ul><li><code>isequal()</code> and use it as follows:
+</li></ul></li></ul></div>
+<div><pre>if frac1.isequal(frac2) :
+    print("The fractions are equal.")
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Comparing Fractions (2)</p><br />
+</div>
+<div><ul><li class="">Of course, we would prefer to use the operator: <code>==</code>
+</li><li class="">This is achieved by defining the special method: <code>_ _eq_ _():
+</code></div>
+<div><pre>def _ _eq_ _(self, rhsValue) :
+    return (self._numerator == rhsValue.numerator and
+            self._denominator == rhsValue.denominator)
+</pre></div>
+<div><ul><li>Automatically calls this method when we compare two Fraction objects using the <code>==</code> operator:</li></ul></div>
+<div><pre>if frac1 == frac2 : # Calls frac1._ _eq_ _(frac2)
+    print("The fractions are equal.")
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Special Methods</p><br />
+</div>
+<div><ul><li class="">Some special methods are called when an instance of the class is passed to a built-in function. For example, suppose you attempt to convert a Fraction object to a floating point number using the <code>float()</code> function:
+</li></ul></div>
+<div><pre>x = float(frac1)
+</pre></div>
+<div><ul><li>Then the <code>_ _float_ _()</code> special method is called
+</li><li>Here is a definition of that method:
+</li></ul></div>
+<div><pre>def _ _float_ _(self) :
+    return self._numerator / self._denominator
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Common Special Methods</p><br />
+</div>
+<div><img src='images/slide91-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Common Special Methods</p><br />
+</div>
+<div><img src='images/slide92-ContentPlaceholder5.png' /></div>
+<div><img src='images/slide92-ContentPlaceholder5-0.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Addition of Fractions</p><br />
+</div>
+<div><ul><li>All of the arithmetic operations that can be performed on a Fraction object should return the result in a new Fraction object
+</li><li>For example, when the statement below is executed, <code>frac1</code> should be added to <code>frac2</code> and the result returned as a new Fraction object that is assigned to the <code>newFrac</code> variable
+</li></ul></div>
+<div><pre>newFrac = frac1 + frac2
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Fractional Addition</p><br />
+</div>
+<div><ul><li>From elementary arithmetic, you know that two fractions must have a common denominator in order to add them. If they do not have a common denominator, we can still add them using the formula:
+</li></ul></div>
+<div><img src='images/slide94-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Defining the Method For Addition</p><br />
+</div>
+<div><pre>def _ _add_ _(self, rhsValue) :
+    num = (self._numerator * rhsValue._denominator +
+       self._denominator * rhsValue._numerator)
+    den = self._denominator * rhsValue._denominator
+    return Fraction(num, den)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Logic: Less Than</p><br />
+</div>
+<div><ul><li>Note that <em>a / b</em> &lt; <em>c / d</em> when <em>d · a</em> &lt; <em>b · c</em> (Multiply both sides with <em>b · d</em>)
+</li><li>Based on this observation, the less than operation is implemented by the <br/> <code>_ _lt_ _()</code> method as follows:
+</li></ul></div>
+<div><pre>def _ _lt_ _(self, rhsValue) :
+    return (self._numerator * rhsValue._denominator               
+            self._denominator * rhsValue._numerator)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p>fraction.py
+</p></div>
+<div><pre>##
+#  This module defines the Fraction class.
+#
+
+## Defines an immutable rational number with common arithmetic operations.
+#
+class Fraction :   
+   ## Constructs a rational number initialized to zero or a user specified value.
+   #  @param numerator the numerator of the fraction (default is 0)
+   #  @param denominator the denominator of the fraction (cannot be 0)
+   #
+   def __init__(self, numerator = 0, denominator = 1) :
+      # The denominator cannot be zero. 
+      if denominator == 0 :
+         raise ZeroDivisionError("Denominator cannot be zero.")
+         
+      # If the rational number is zero, set the denominator to 1.
+      if numerator == 0 :
+         self._numerator = 0
+         self._denominator = 1
+      
+      # Otherwise, store the rational number in reduced form. 
+      else :
+         # Determine the sign.
+         if (numerator < 0 and denominator >= 0 or 
+            numerator >= 0 and denominator < 0) :
+            sign = -1
+         else :
+            sign = 1
+            
+         # Reduce to smallest form. 
+         a = abs(numerator)
+         b = abs(denominator)
+         while a % b != 0 :
+            tempA = a
+            tempB = b
+            a = tempB
+            b = tempA % tempB
+   
+         self._numerator = abs(numerator) // b * sign
+         self._denominator = abs(denominator) // b
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p>fraction.py
+</p></div>
+<div><pre>   ## Adds a fraction to this fraction.
+   #  @param rhsValue the right-hand side fraction
+   #  @return a new Fraction object resulting from the addition
+   #
+   def __add__(self, rhsValue) :
+      num = (self._numerator * rhsValue._denominator + 
+             self._denominator * rhsValue._numerator)
+      den = self._denominator * rhsValue._denominator
+      return Fraction(num, den)
+      
+   ## Subtracts a fraction from this fraction.
+   #  @param rhsValue the right-hand side fraction 
+   #  @return a new Fraction object resulting from the subtraction
+   #      
+   def __sub__(self, rhsValue) :
+      num = (self._numerator * rhsValue._denominator - 
+             self._denominator * rhsValue._numerator)
+      den = self._denominator * rhsValue._denominator
+      return Fraction(num, den)      
+      
+   ## Determines if this fraction is equal to another fraction.
+   #  @param rhsValue the right-hand side fraction 
+   #  @return True if the fractions are equal
+   #            
+   def __eq__(self, rhsValue) :
+     return (self._numerator == rhsValue._numerator and 
+            self._denominator == rhsValue._denominator)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p>fraction.py
+</p></div>
+<div><pre>   ## Determines if this fraction is less than another fraction.
+   #  @param rhsValue the right-hand side fraction 
+   #  @return True if if this fraction is less than the other
+   #            
+   def __lt__(self, rhsValue) :
+     return (self._numerator * rhsValue._denominator < 
+            self._denominator * rhsValue._numerator)
+     
+   ## Determines if this fraction is not equal to another fraction.
+   #  @param rhsValue the right-hand side fraction 
+   #  @return True if the fractions are not equal
+   #            
+   def __ne__(self, rhsValue) :
+     return not self == rhsValue
+
+   ## Determines if this fraction is less than or equal to another fraction.
+   #  @param rhsValue the right-hand side fraction 
+   #  @return True if if this fraction is less than or equal to the other
+   #            
+   def __le__(self, rhsValue) :
+     return not rhsValue < self
+
+   ## Determines if this fraction is greater than another fraction.
+   #  @param rhsValue the right-hand side fraction 
+   #  @return True if if this fraction is greater than the other
+   #            
+   def __gt__(self, rhsValue) :
+     return rhsValue < self 
+     
+   ## Determines if this fraction is greater than or equal to another fraction.
+   #  @param rhsValue the right-hand side fraction 
+   #  @return True if if this fraction is greater than or equal to the other
+   #            
+   def __ge__(self, rhsValue) :
+     return not self < rhsValue
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p>fraction.py
+</p></div>
+<div><pre>   ## Converts a fraction to a floating-point number.
+   #  @return the floating-point value of this fraction
+   #
+   def __float__(self) :
+      return self._numerator / self._denominator
+
+   ## Gets a string representation of the fraction.
+   #  @return a string in the format #/#
+   #
+   def __repr__(self) :
+      return str(self._numerator) + "/" + str(self._denominator)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Checking Type</p><br />
+</div>
+<div><ul><li>To ensure that, Python provides the built-in <code>isinstance()</code> function that can be used to check the type of object referenced by a variable
+</li><li>For example, the constructor for the Fraction class requires two integers
+</li></ul></div>
+<div><pre>class Fraction :
+    def _ _init_ _(self, numerator, denominator) :
+        if (not isinstance(numerator, int) or
+            not isinstance(denominator, int)) :
+           raise TypeError
+              ("The numerator and denominator must be integers.")
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Classes and Objects</p><br />
+</div>
+<div><ul><li>A class describes a set of objects with the same behavior
+<ul><li>Every class has a public interface: a collection of methods through which the objects of the class can be manipulated
+</li><li>Encapsulation is the act of providing a public interface and hiding the implementation details
+</li><li>Encapsulation enables changes in the implementation without affecting users of a class
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary:  Variables and Methods</p><br />
+</div>
+<div><ul><li>An object's instance variables store the data required for executing its methods
+</li><li>Each object of a class has its own set of instance variables
+</li><li>An instance method can access the instance variables of the object on which it acts
+</li><li>A private instance variable should only be accessed by the methods of its own class
+</li><li>Class variables have a single copy of the variable shared among all of the instances of the class
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Method Headers, Data</p><br />
+</div>
+<div><ul><li>Method Headers
+<ul><li>You can use method headers and method comments to specify the public interface of a class
+</li><li>A mutator method changes the object on which it operates
+</li><li>An accessor method does not change the object on which it operates
+</li></ul></li><li>Data Representation
+<ul><li>For each accessor method, an object must either store or compute the result
+</li><li>Commonly, there is more than one way of representing the data of an object, and you must make a choice
+</li><li>Be sure that your data representation supports method calls in any order
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Constructors</p><br />
+</div>
+<div><ul><li>A constructor initializes the object's instance variables 
+</li><li>A constructor is invoked when an object is created
+</li><li>The constructor is defined using the special method name: <code>_ _init_ _()
+</code></li><li>Default arguments can be used with a constructor to provide different ways of creating an object
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Method Implementation</p><br />
+</div>
+<div><ul><li>The object on which a method is applied is automatically passed to the <code>self</code> parameter variable of the method
+</li><li>In a method, you access instance variables through the <code>self</code> parameter variable
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Testing Classes</p><br />
+</div>
+<div><ul><li>A unit test verifies that a class works correctly in isolation, outside a complete program
+</li><li>To test a class, use an environment for interactive testing, or write a tester class to execute test instructions
+</li><li>Determining the expected result in advance is an important part of testing
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Object Tracing</p><br />
+</div>
+<div><ul><li>Object tracing is used to visualize object behavior
+</li><li>Write the methods on the front of a card, and the instance variables on the back
+</li><li>Update the values of the instance variables when a mutator method is called
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Patterns for Classes</p><br />
+</div>
+<div><ul><li>An instance variable for the total is updated in methods that increase or decrease the total amount
+</li><li>A counter that counts events is incremented in methods that correspond to the events
+</li><li>An object can collect other objects in a list
+</li><li>An object property can be accessed with a getter method and changed with a setter method
+</li><li>If your object can have one of several states that affect the behavior, supply an instance variable for the current state
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Patterns for Classes</p><br />
+</div>
+<div><ul><li>To model a moving object, you need to store and update its position
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Object References</p><br />
+</div>
+<div><ul><li>An object reference specifies the location of an object
+</li><li>Multiple object variables can contain references to the same object
+</li><li>Use the <code>is</code> and <code>is not</code> operators to test whether two variables are aliases
+</li><li>The <code>None</code> reference refers to no object
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Defining Special Methods</p><br />
+</div>
+<div><ul><li>To use a standard operator with objects, define the corresponding special method
+</li><li>Define the special <code>_ _repr_ _()</code> method to create a string representation of an object
+</li></ul></div>
+
+
+
+
+</div>
+
+    </div>
+    <script src="scripts/jquery-2.1.4.min.js" charset="utf-8" type="text/javascript"></script>
+    <script src="scripts/slidy.js" charset="utf-8" type="text/javascript"></script>
+    
+</body>
+</html>

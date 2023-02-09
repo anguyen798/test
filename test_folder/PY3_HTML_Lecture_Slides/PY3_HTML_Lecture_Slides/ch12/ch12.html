@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="generator" content="HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+    <title>Chapter 12, Python for Everyone, 2e</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="font-size-adjustment" content="-1" />
+    <meta name="copyright"
+          content="Copyright &#169; 2015 Wiley" />
+    <link rel="stylesheet" href="styles/slidy.css" type="text/css" />
+    <link rel="stylesheet" href="styles/horstmann.css" type="text/css" />
+</head>
+<body>
+    <div class="background">
+        <div class="slide ppLayoutCustom">
+    <div><p class="title" >Chapter 12</p><br />
+</div>
+<div><p class="subtitle" ><strong><span class="fontColorClass1">SORTING AND SEARCHING</span></strong></p><br />
+</div>
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Chapter Goals</p><br />
+</div>
+<div><ul><li>To study several sorting and  searching algorithms
+</li><li>To appreciate that algorithms for the same  task can differ widely in performance
+</li><li>To understand the big-Oh notation
+</li><li>To estimate and compare the performance of algorithms 
+</li><li>To write code to measure the running time of a program
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Contents</p><br />
+</div>
+<div><ul><li>Selection Sort
+</li><li>Profiling the Selection Sort Algorithm
+</li><li>Analyzing the Performance of the Selection Sort Algorithm
+</li><li>Merge Sort
+</li><li>Analyzing the Merge Sort Algorithm
+</li><li>Searching
+</li><li>Problem Solving: Estimating the Running Time of an Algorithm
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >12.1 Selection Sort</p><br />
+</div>
+<div><ul><li>Sorts a list by repeatedly finding the smallest element of the unsorted tail region and moving it to the front 
+</li><li> Example: sorting a list of integers
+</li></ul></div>
+<div class="incremental"><img src='images/slide4-Group33.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Sorting a List of Integers</p><br />
+</div>
+<div><ul><li>Find the smallest and swap it with the first element
+</li></ul></div>
+<div class="incremental"><img src='images/slide5-Group157.png' /></div>
+<div><ul><li>Find the next smallest. It is already in the correct place
+</li></ul></div>
+<div class="incremental"><img src='images/slide5-Group159.png' /></div>
+<div><ul><li>Find the next smallest and swap it with first element of unsorted portion
+</li></ul></div>
+<div class="incremental"><img src='images/slide5-Group162.png' /></div>
+<div><ul><li>Repeat
+</li></ul></div>
+<div class="incremental"><img src='images/slide5-Group166.png' /></div>
+<div><ul><li>When the unsorted portion is of length 1, we are done
+</li></ul></div>
+<div class="incremental"><img src='images/slide5-Group171.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >selectionsort.py</p><br />
+</div>
+<div><pre>##
+#  The selectionSort function sorts a list using the selection sort algorithm.
+#
+
+## Sorts a list, using selection sort.
+#  @param values the list to sort
+#
+def selectionSort(values) :
+   for i in range(len(values)) :
+      minPos = minimumPosition(values, i)
+      temp = values[minPos]  # swap the two elements
+      values[minPos] = values[i]
+      values[i] = temp
+
+## Finds the smallest element in a tail range of the list.
+#  @param values the list to sort
+#  @param start the first position in values to compare
+#  @return the position of the smallest element in the
+#  range values[start] . . . values[len(values) - 1]
+#
+def minimumPosition(values, start) :
+   minPos = start
+   for i in range(start + 1, len(values)) :
+      if values[i] < values[minPos] :
+         minPos = i
+         
+   return minPos
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >selectiondemo.py</p><br />
+</div>
+<div><pre>##
+#  This program demonstrates the selection sort algorithm by sorting a
+#  list that is filled with random numbers.
+
+from random import randint
+from selectionsort import selectionSort 
+
+n = 20
+values = []
+for i in range(n) :
+   values.append(randint(1, 100))   
+print(values)
+selectionSort(values)
+print(values)
+</pre></div>
+<div><img src='images/slide7-Picture6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Profiling the Selection Sort Algorithm</p><br />
+</div>
+<div><ul><li>Want to measure the time the algorithm takes to execute 
+<ul><li>Exclude the time the program takes to load 
+</li><li>Exclude output time 
+</li></ul></li><li>To measure time elapsed:
+<ul><li>Use the <code>time()</code> library function from the time module
+</li><li>It returns the seconds that have elapsed since midnight at the start of January 1, 1970
+</li><li>The difference of two such counts gives us the number of seconds in a given time interval
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >selectiontimer.py</p><br />
+</div>
+<div><pre>##
+#  This program measures how long it takes to sort a list of a 
+#  user-specified size with the selection sort algorithm.
+#
+
+from random import randint
+from selectionsort import selectionSort
+from time import time
+
+# Prompt the user for the list size.
+n = int(input("Enter list size: "))
+
+# Construct random list.
+values = []
+for i in range(n) :
+   values.append(randint(1, 100))   
+
+startTime = time()
+selectionSort(values)
+endTime = time()
+      
+print("Elapsed time: %.3f seconds" % (endTime - startTime))
+</pre></div>
+<div class="incremental"><p>Program Run
+</p><pre>Enter list size: 10000
+Elapsed time: 9.380 seconds
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Time Taken by Selection Sort</p><br />
+</div>
+<div style="float:left;width:50%;"><img src='images/slide10-Picture2.png' /></div>
+<div style="float:right;width:50%;"><img src='images/slide10-Table5.png' /></div>
+<div style="float:left;"><ul><li>These measurements were obtained with an Intel dual core processor with a clock speed of 3.2 GHz running Python 3.2 on the Linux operating system
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Analyzing the Performance</p><br />
+</div>
+<div><ul><li>In a list of size n, count how many times a list element is visited 
+<ul><li>To find the smallest, visit n elements + 2 visits for the swap 
+</li><li>To find the next smallest, visit (n - 1) elements + 2 visits for the swap 
+</li><li>The last term is 2 elements visited to find the smallest + 2 visits for the swap 
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Analyzing the Performance</p><br />
+</div>
+<div><ul><li>The number of visits: 
+<ul><li>n + 2 + (n - 1) + 2 + (n - 2) + 2 + ... + 2 + 2 
+</li><li>This can be simplified to n2 / 2  +  5n / 2 - 3 
+</li><li>5n / 2 - 3 is small compared to n2 / 2 — so ignore it 
+</li><li>Also ignore the 1/2 — it cancels out when comparing ratios
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Analyzing the Performance</p><br />
+</div>
+<div><ul><li> The number of visits is of the order n2 
+</li><li> Using big-Oh notation: The number of visits is O(n2) 
+</li><li> Multiplying the number of elements in a list by 2 multiplies the processing time by 4 
+</li><li> Big-Oh notation "f(n) = O(g(n))" expresses that f grows no faster than g 
+</li><li> To convert to big-Oh notation: Locate fastest-growing term, and ignore constant coefficient
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Merge Sort</p><br />
+</div>
+<div><ul><li> Sorts a list by 
+<ul><li>Cutting the list in half 
+</li><li>Recursively sorting each half 
+</li><li>Merging the sorted halves
+</li></ul></li><li>Much more efficient than selection sort 
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Merge Sort Example</p><br />
+</div>
+<div><ul><li>Divide a list in half and sort each half
+</li></ul></div>
+<div class="incremental"><img src='images/slide15-Picture6.png' /></div>
+<div><ul><li>Merge the two sorted lists into a single sorted list
+</li></ul></div>
+<div class="incremental"><img src='images/slide15-Picture7.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" ><code>mergeSort()</code> Function</p><br />
+</div>
+<div><ul><li>When the <code>mergeSort()</code> function sorts a list, it makes two lists, each half the size of the original, and sorts them recursively
+</li><li> Then it merges the two sorted lists together:
+</li></ul></div>
+<div><pre>def mergeSort(values) :
+    if len(values) &lt;= 1 : return
+    mid = len(values) // 2
+    first = values[ : mid]
+    second = values[mid : ]
+    mergeSort(first)
+    mergeSort(second)
+    mergeLists(first, second, values)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >mergesort.py (1)</p><br />
+</div>
+<div><pre>##
+#  The mergeSort function sorts a list, using the merge sort algorithm.
+#
+
+## Sorts a list, using merge sort.
+#  @param values the list to sort
+#
+def mergeSort(values) :
+   if len(values) <= 1 : return
+   mid = len(values) // 2
+   first = values[ : mid]
+   second = values[mid : ]
+   mergeSort(first)
+   mergeSort(second)
+   mergeLists(first, second, values)
+
+## Merges two sorted lists into a third list.
+#  @param first the first sorted list
+#  @param second the second sorted list
+#  @param values the list into which to merge first and second
+#
+def mergeLists(first, second, values) :
+   iFirst = 0   # Next element to consider in the first list.
+   iSecond = 0  # Next element to consider in the second list
+   j = 0        # Next open position in values.
+
+   # As long as neither iFirst nor iSecond is past the end, move
+   # the smaller element into values
+   while iFirst < len(first) and iSecond < len(second) :
+      if first[iFirst] < second[iSecond] :
+         values[j] = first[iFirst]
+         iFirst = iFirst + 1
+      else :
+         values[j] = second[iSecond]
+         iSecond = iSecond + 1
+         
+      j = j + 1
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >mergesort.py (2)</p><br />
+</div>
+<div><pre>   # Note that only one of the two loops below copies entries.
+   # Copy any remaining entries of the first list.
+   while iFirst < len(first) : 
+      values[j] = first[iFirst] 
+      iFirst = iFirst + 1
+      j = j + 1
+         
+   # Copy any remaining entries of the second list.
+   while iSecond < len(second) :
+      values[j] = second[iSecond] 
+      iSecond = iSecond + 1
+      j = j + 1
+</pre></div>
+
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >mergedemo.py</p><br />
+</div>
+<div><pre>##
+#  This program demonstrates the merge sort algorithm by
+#  sorting a list that is filled with random numbers.
+#
+
+from random import randint
+from mergesort import mergeSort
+
+n = 20
+values = []
+for i in range(n) :
+   values.append(randint(1, 100))   
+print(values)
+mergeSort(values)
+print(values)
+</pre></div>
+<div><img src='images/slide19-Picture6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutTitleOnly">
+    <div><p class="title" >Analyzing the Merge Sort Algorithm</p><br />
+</div>
+<div><img src='images/slide20-Table7.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutTitleOnly">
+    <div><p class="title" >Analyzing the Merge Sort Algorithm</p><br />
+</div>
+<div><img src='images/slide21-Picture6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Analyzing the Merge Sort Algorithm</p><br />
+</div>
+<div><ul><li> In a list of size <em>n</em>, count how many times a list element is visited 
+</li><li> Assume <em>n</em> is a power of 2: <em>n</em> = 2<sup><em>m</em></sup> 
+</li><li> Calculate the number of visits to create the two sub-lists and then merge the two sorted lists 
+<ul><li>3 visits to merge each element or 3<em>n</em> visits 
+</li><li>2<em>n</em> visits to create the two sub-lists 
+</li><li>total of 5<em>n</em> visits
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Analyzing the Merge Sort Algorithm</p><br />
+</div>
+<div><ul><li> Let <em>T</em>(<em>n</em>) denote the number of visits to sort a list of <em>n</em> elements then 
+<ul><li><em>T</em>(<em>n</em>) = <em>T</em>(<em>n</em>/2) + <em>T</em>(<em>n</em>/2) + 5<em>n</em> or 
+</li><li><em>T</em>(<em>n</em>) = 2<em>T</em>(<em>n</em>/2) + 5<em>n</em> 
+</li></ul></li><li> The visits for a list of size <em>n</em>/2 is:  
+<ul><li><em>T</em>(<em>n</em>/2) = 2<em>T</em>(<em>n</em>/4) + 5<em>n</em>/2 
+</li><li>So <em>T</em>(<em>n</em>) = 2 × 2<em>T</em>(<em>n</em>/4) +5<em>n</em> + 5<em>n</em> 
+</li></ul></li><li> The visits for a list of size <em>n</em>/4 is: 
+<ul><li><em>T</em>(<em>n</em>/4) = 2<em>T</em>(<em>n</em>/8) + 5<em>n</em>/4 
+</li><li>So <em>T</em>(<em>n</em>) = 2 × 2 × 2<em>T</em>(<em>n</em>/8) + 5<em>n</em> + 5<em>n</em> + 5<em>n</em>
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Analyzing the Merge Sort Algorithm</p><br />
+</div>
+<div><ul><li>Repeating the process <em>k</em> times: 
+<ul><li><em>T</em>(<em>n</em>) = 2<sup><em>k</em></sup><em>T</em>(<em>n</em>/2<sup><em>k</em></sup>) +5<em>nk
+</em></li><li>Since <em>n</em> = 2<sup><em>m</em></sup>, when <em>k</em>=<em>m</em>: <em>T</em>(<em>n</em>) = 2<sup><em>m</em></sup><em>T</em>(<em>n</em>/2<sup><em>m</em></sup>) +5<em>nm
+</em></li><li><em>T</em>(<em>n</em>) = <em>nT</em>(1) +5<em>nm
+</em></li><li><em>T</em>(<em>n</em>) = <em>n </em>+ 5<em>n</em>log<sub>2</sub>(<em>n</em>)
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title">Analyzing the Merge Sort Algorithm</p><br />
+</div>
+<div><ul><li> To establish growth order for <em>n </em>+ 5<em>n</em>log<sub>2</sub>(<em>n</em>)
+</li><li>Drop the lower-order term <em>n</em> 
+</li><li>Drop the constant factor 5 
+</li><li>Drop the base of the logarithm since all logarithms are related by a constant factor 
+</li><li>We are left with <em>n</em> log(<em>n</em>) 
+</li></ul><ul><li> Using big-Oh notation: Number of visits is O(<em>n</em>log(<em>n</em>))
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Merge Sort vs. Selection Sort</p><br />
+</div>
+<div><ul><li> Selection sort is an O(<em>n</em><sup>2</sup>) algorithm 
+</li><li> Merge sort is an O(<em>n</em>log(<em>n</em>)) algorithm 
+</li><li> The <em>n</em>log(<em>n</em>) function grows much more slowly than <em>n</em><sup>2</sup>
+</li><li>(Recall the running times):
+</li></ul></div>
+<div><img src='images/slide26-Picture6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Searching</p><br />
+</div>
+<div><ul><li><strong>Linear search:</strong> Examines all values in a list until it finds a match or reaches the end 
+</li><li>Also called <strong>sequential search 
+</strong></li><li>Number of visits for a linear search of a list of <em>n</em> elements: 
+<ul><li>The average search visits <em>n</em>/2 elements 
+</li><li>The maximum visits is <em>n</em> 
+</li></ul></li><li> A linear search locates a value in a list in O(<em>n</em>) steps
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Linearsearch.py</p><br />
+</div>
+<div><pre>##
+#  This module implements a function for executing linear searches in a list.
+#
+
+## Finds a value in a list, using the linear search algorithm.
+#  @param values the list to search
+#  @param target the value to find
+#  @return the index at which the target occurs, or -1 if it does not 
+#    occur in the list
+#
+def linearSearch(values, target) :
+   for i in range(len(values)) :
+      if values[i] == target :
+         return i
+         
+   return -1
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Lineardemo.py</p><br />
+</div>
+<div><pre>##
+#  This program demonstrates the linear search algorithm.
+#
+
+from random import randint
+from linearsearch import linearSearch
+
+# Construct random list.
+n = 20
+values = []
+for i in range(n) :
+   values.append(randint(1, 100))   
+print(values)
+
+done = False
+while not done :
+   target = int(input("Enter number to search for, -1 to quit: "))
+   if target == -1 :
+      done = True
+   else :
+      pos = linearSearch(values, target)
+      if pos == -1 :
+         print("Not found")
+      else :
+         print("Found in position", pos) 
+</pre></div>
+
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Linear Search: Results</p><br />
+</div>
+<div><img src='images/slide30-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Binary Search (1)</p><br />
+</div>
+<div><ul><li> Locates a value in a sorted list by 
+<ul><li>Determining whether the value occurs in the first or second half 
+</li><li>Then repeating the search in one of the halves 
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Binary Search (2)</p><br />
+</div>
+<div><ul><li>To search 15: 
+<div><img src='images/slide32-Picture7.png' /></div>
+</li></ul><ul><li>The search can be narrowed by finding whether the target is in the first or second half of the list
+</li><li>The last value in the first half of the data set, <code>values[4]</code>, is 9 is smaller than the target of 15
+</li><li>Discard the lower half of the list
+<div><img src='images/slide32-Picture8.png' /></div>
+</li></ul></div>
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Binary Search (3)</p><br />
+</div>
+<div><img src='images/slide33-Picture8.png' /></div>
+<div><ul><li>The middle element of this sequence is 20; hence, the target must be located in the sequence:
+</li></ul></div>
+<div><img src='images/slide33-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Binary Search (4)</p><br />
+</div>
+<div><ul><li>The last value of the first half of this very short sequence is 12, which is smaller than the target, so we must look in the second half:
+<div><img src='images/slide34-Picture2.png' /></div>
+<ul><li>We don’t have a match, because 15 ≠ 17
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Binarysearch.py</p><br />
+</div>
+<div><pre>## 
+#  This module implements a function for executing binary searches in a list.
+#
+
+## Finds a value in a range of a sorted list, using the binary search algorithm.
+#  @param values the list in which to search
+#  @param low the low index of the range
+#  @param high the high index of the range
+#  @param target the value to find
+#  @return the index at which the target occurs, or -1 if it does not 
+#    occur in the list
+#
+def binarySearch(values, low, high, target) :
+   if low <= high :
+      mid = (low + high) // 2
+      
+      if values[mid] == target :
+         return mid
+      elif values[mid] < target :
+         return binarySearch(values, mid + 1, high, target)
+      else :
+         return binarySearch(values, low, mid - 1, target)
+         
+   else :
+      return -1
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Analyzing Binary Search</p><br />
+</div>
+<div><ul><li>Count the number of visits to search a sorted list of size <em>n</em> 
+<ul><li>We visit one element (the middle element) then search either the left or right sub-list 
+</li><li>Thus: <em>T</em>(<em>n</em>) = <em>T</em>(<em>n</em>/2) + 1 
+</li></ul></li><li> Using the same equation, <em>T</em>(<em>n</em>/2) = <em>T</em>(<em>n</em>/4) + 1 
+</li><li> Substituting into the original equation: <em>T</em>(<em>n</em>) = <em>T</em>(<em>n</em>/4) + 2 
+</li><li> This generalizes to: <em>T</em>(<em>n</em>) = <em>T</em>(<em>n</em>/2<sup><em>k</em></sup>) + <em>k</em> 
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Analyzing Binary Search</p><br />
+</div>
+<div><ul><li> Assume <em>n</em> is a power of 2, <em>n</em> = 2<em>m</em>, where <em>m</em> = log<sub>2</sub>(<em>n</em>) 
+</li><li> Then: <em>T</em>(<em>n</em>) = 1 + log<sub>2</sub>(<em>n</em>) 
+</li><li> Binary search is an <em>O</em>(log(<em>n</em>)) algorithm 
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Problem Solving</p><br />
+</div>
+<div><ul><li>Estimating the Running Time of an Algorithm 
+<ul><li>Differentiating between <em>O</em>(<em>n</em>log(<em>n</em>)) and <em>O</em>(<em>n</em><sup>2</sup>) has great practical implications
+</li><li>Being able to estimate running times of other algorithms is an important skill
+</li><li>Will practice estimating the running times of list algorithms
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Linear Time</p><br />
+</div>
+<div><ul><li>An algorithm to count how many elements of a list have a particular value:
+</li></ul><ul></ul></div>
+<div><pre>count = 0
+for i in range(len(values)) :
+    if values[i] == searchedValue :
+        count = count + 1
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Linear Time</p><br />
+</div>
+<div><ul><li>To visualize the pattern of list element visits:
+<ul><li>Imagine the list as a sequence of light bulbs
+</li><li>As the <em>i</em> th element gets visited, imagine the <em>i</em> th light bulb lighting up
+<div><img src='images/slide40-Picture5.png' /></div>
+</li></ul></li></ul><ul></ul></div>
+<div><ul><li>When each visit involves a fixed number of actions, the running time is <em>n</em> times a constant, or O(<em>n</em>)
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Linear Time</p><br />
+</div>
+<div><ul><li>When you don't always run to the end of the list; e.g.:
+<div><pre>found = False
+i = 0
+while not found and i &lt; len(values) :
+    if values[i] == searchedValue :
+        found = True
+    else :
+        i = i + 1
+</pre></div>
+<p>Loop can stop in the middle:
+</p>
+<div><img src='images/slide41-Picture6.png' /></div>
+</li></ul></div>
+<div><ul><li>Still O(<em>n</em>), because in some cases the match may be at the very end of the list
+</li></ul></div>
+
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Quadratic Time</p><br />
+</div>
+<div><ul><li> What if we do a lot of work with each visit?
+</li><li><strong> Example: </strong>find the most frequent element in a list
+<ul><li>Obvious for small list
+</li></ul>
+<div><img src='images/slide42-Picture5.png' /></div>
+<ul><li>For a larger list?
+</li></ul>
+<div><img src='images/slide42-Picture6.png' /></div>
+<ul><li>Put counts in a second list of same length
+</li></ul>
+<div><img src='images/slide42-Picture10.png' /></div>
+<ul><li>Take the maximum of the counts, 3, look up where the 3 occurs in the counts, and find the corresponding value, 7
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Quadratic Time</p><br />
+</div>
+<div><ul><li>First estimate how long it takes to compute the counts
+</li></ul></div>
+<div><p><code>for i in range(len(values)) :<br />&nbsp;&nbsp;&nbsp; counts[i] = </code><strong>Count how often</strong> <code>values[i]</code> <strong>occurs in</strong> <code>values
+</code></></div>
+<div><ul><li>Still visit each element once, but work per visit is much larger
+</li></ul><ul><li>Each counting action is O(<em>n</em>)
+</li></ul><ul><li>When we do O(<em>n</em>) work in each step, total running time is O(<em>n</em><sup>2</sup>)
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Quadratic Time</p><br />
+</div>
+<div><ul><li> Algorithm has three phases:
+<ul><li class="decimal">Compute all counts
+</li><li class="decimal">Compute the maximum
+</li><li class="decimal">Find the maximum in the counts
+</li></ul></li><li> First phase is <em>O</em>(<em>n</em><sup>2</sup>), second and third are each <em>O</em>(<em>n</em>)
+</li><li> The big-Oh running time for doing several steps in a row is the largest of the big-Oh times for each step
+</li><li> Thus algorithm for finding the most frequent element is <em>O</em>(<em>n</em><sup>2</sup>)
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Logarithmic Time</p><br />
+</div>
+<div><ul><li>An algorithm that cuts the size of work in half in each step runs in <em>O</em>(log(<em>n</em>)) time
+<ul><li>E.g. binary search, merge sort
+</li></ul></li><li> To improve our algorithm for finding the most frequent element, first <em>sort</em> the list:
+</li></ul></div>
+<div><img src='images/slide45-Picture8.png' /></div>
+<div><ul><li>Sorting costs <em>O</em>(<em>n</em> log(<em>n</em>)) time
+</li></ul><ul><li>If we can complete the algorithm in <em>O</em>(<em>n</em>) time, have a better algorithm that the previous <em>O</em>(<em>n</em><sup>2</sup>) algorithm  
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Logarithmic Time</p><br />
+</div>
+<div><ul><li> While traversing the sorted list:
+<ul><li>As long as you find a value that is equal to its predecessor, increment a counter
+</li><li>When you find a different value, save the counter and start counting anew
+</li></ul></li></ul></div>
+<div><img src='images/slide46-Picture7.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Logarithmic Time</p><br />
+</div>
+<div><pre>count = 0
+for i in range(len(values)) :
+    count = count + 1
+    if i == len(values) - 1 or values[i] != values[i + 1] :
+        counts[i] = count
+        count = 0
+</pre></div>
+<div><ul><li>Constant amount of work per iteration, even though it visits two elements:
+</li></ul></div>
+<div><img src='images/slide47-Picture7.png' /></div>
+<div><ul><li>2<em>n</em> is still <em>O</em>(<em>n</em>)
+</li></ul><ul><li>Entire algorithm is now <em>O</em>(log(<em>n</em>))
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass5">Summary</span></p><br />
+</div>
+<div><img src='images/slide48-TextPlaceholder2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Selection Sort Algorithm</p><br />
+</div>
+<div><ul><li>The selection sort algorithm sorts a list by repeatedly finding the smallest element of the unsorted tail region and moving it to the front
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Measuring the Running Time</p><br />
+</div>
+<div><ul><li>To measure the running time of a function or method, get the current time immediately before and after the function/method call</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Big-Oh Notation</p><br />
+</div>
+<div><ul><li> Computer scientists use the big-Oh notation to describe the growth rate of a function
+</li><li> Selection sort is an <em>O</em>(<em>n</em><sup>2</sup>) algorithm. Doubling the data set means a fourfold increase in processing time
+</li><li> Insertion sort is an <em>O</em>(<em>n</em><sup>2</sup>) algorithm
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Merge and Selection Sort</p><br />
+</div>
+<div><ul><li>The merge sort algorithm sorts a list by cutting the list in half, recursively sorting each half, and then merging the sorted halves
+</li><li>Merge sort is an <em>O</em>(<em>n</em> log(<em>n</em>)) algorithm. The <em>n</em> log(<em>n</em>) function grows much more slowly than <em>n</em><sup>2
+</sup></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Linear and Binary Search</p><br />
+</div>
+<div><ul><li>A linear search examines all values in a list until it finds a match or reaches the end
+</li><li>A linear search locates a value in a list in <em>O</em>(<em>n</em>) steps
+</li><li>A binary search locates a value in a sorted list by determining whether the value occurs in the first or second half, then repeating the search in one of the halves
+</li><li>A binary search locates a value in a sorted list in <em>O</em>(log(<em>n</em>)) steps
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Estimating Big-Oh of Algorithms</p><br />
+</div>
+<div><ul><li>A loop with n iterations has <em>O</em>(<em>n</em>) running time if each step consists of a fixed number of actions
+</li><li>A loop with <em>n</em> iterations has <em>O</em>(<em>n</em><sup>2</sup>) running time if each step takes <em>O</em>(<em>n</em>) time
+</li><li>The big-Oh running time for doing several steps in a row is the largest of the big-Oh times for each step
+</li><li>A loop with <em>n</em> iterations has <em>O</em>(<em>n</em><sup>2</sup>) running time if the <em>i</em> <sup>th</sup> step takes <em>O</em>(<em>i</em>) time
+</li><li>An algorithm that cuts the size of work in half in each step runs in <em>O</em>(log(<em>n</em>)) time
+</li></ul></div>
+
+
+
+
+</div>
+
+    </div>
+    <script src="scripts/jquery-2.1.4.min.js" charset="utf-8" type="text/javascript"></script>
+    <script src="scripts/slidy.js" charset="utf-8" type="text/javascript"></script>
+    
+</body>
+</html>

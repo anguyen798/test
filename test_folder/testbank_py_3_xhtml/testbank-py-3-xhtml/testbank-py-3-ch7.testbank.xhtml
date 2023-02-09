@@ -1,0 +1,834 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/><title></title>
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body><dl></dl><ol><li>When reading a file in Python, you must specify two items:
+<ol class="multiple-choice"><li>a file name and file properties</li><li class="correct">a file name and mode</li><li>a file name and size</li><li>a file name and data type</li></ol><dl><dt>Section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>Title</dt><dd>When reading a file in Python, what information must be provided?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>id</dt><dd>testbank-py-1-ch07-01</dd></dl></li><li>Before accessing a file, the program must:
+<ol class="multiple-choice"><li>name the file</li><li>read the file</li><li class="correct">open the file</li><li>close the file</li></ol><dl><dt>Section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>Title</dt><dd>Before accessing a file, what must be done to allow access to the file?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>id</dt><dd>testbank-py-1-ch07-02</dd></dl></li><li>After executing the following code snippet, what part is the
+file object?<pre>
+infile = open(&quot;input.txt&quot;, &quot;r&quot;)
+</pre><ol class="multiple-choice"><li class="correct"><code>infile</code></li><li><code>&quot;input.txt&quot;</code></li><li><code>&quot;r&quot;</code></li><li><code>input</code></li></ol><dl><dt>Section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>Title</dt><dd>After executing the following code snippet, what part is the file object?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>id</dt><dd>testbank-py-1-ch07-03</dd></dl></li><li>In the following code snippet, what does the <code>&quot;r&quot;</code>
+represent?<pre>
+infile = open(&quot;input.txt&quot;, &quot;r&quot;)
+</pre><ol class="multiple-choice"><li>replace</li><li>recursive</li><li>random</li><li class="correct">read</li></ol><dl><dt>Section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>Title</dt><dd>In the following code snippet, what does the &quot;r&quot; represent?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>id</dt><dd>testbank-py-1-ch07-04</dd></dl></li><li>In the following code snippet, what does the <code>&quot;w&quot;</code>
+represent?<pre>
+outfile = open(&quot;output.txt&quot;, &quot;w&quot;)
+</pre><ol class="multiple-choice"><li>wrapper</li><li class="correct">write</li><li>width</li><li>web</li></ol><dl><dt>Section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>Title</dt><dd>In the following code snippet, what does the &quot;w&quot; represent?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>id</dt><dd>testbank-py-1-ch07-05</dd></dl></li><li>In the following code snippet, what happens if the
+<code>&quot;output.txt&quot;</code> file does not exist?<pre>
+outfile = open(&quot;output.txt&quot;, &quot;w&quot;)
+</pre><ol class="multiple-choice"><li>An error message is displayed</li><li class="correct">An empty file is created</li><li>Nothing, this statement is ignored</li><li>A new file is created with at least one record</li></ol><dl><dt>Section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>Title</dt><dd>In the following code snippet, what happens if the &quot;output.txt&quot; file does not exist?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>id</dt><dd>testbank-py-1-ch07-06</dd></dl></li><li>In the following code snippet, what happens if the
+<code>&quot;output.txt&quot;</code> file already exists?<pre>
+outfile = open(&quot;output.txt&quot;, &quot;w&quot;)
+</pre><ol class="multiple-choice"><li>Any new data is appended to the end</li><li class="correct">The existing file is emptied</li><li>Nothing, this statement is ignored</li><li>An error message is displayed</li></ol><dl><dt>Section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>Title</dt><dd>In the following code snippet, what happens if the &quot;output.txt&quot; file already exists?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>id</dt><dd>testbank-py-1-ch07-07</dd></dl></li><li>What method ensures that the output has been written to the
+disk file?<ol class="multiple-choice"><li><pre>
+commit()
+</pre></li><li><pre>
+write()
+</pre></li><li class="correct"><pre>
+close()
+</pre></li><li><pre>
+complete()
+</pre></li></ol><dl><dt>Section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>Title</dt><dd>What method ensures that the output has been written to the disk file?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>id</dt><dd>testbank-py-1-ch07-08</dd></dl></li><li>The <code>readline</code> method reads text until an end of
+line symbol is encountered, how is an end of line character
+represented?<ol class="multiple-choice"><li><pre>
+\r
+</pre></li><li><pre>
+\t
+</pre></li><li><pre>
+&quot;&quot;
+</pre></li><li class="correct"><pre>
+\n
+</pre></li></ol><dl><dt>Section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>Title</dt><dd>The readline method reads text until an end of line symbol is encountered, how is an end of line character represented?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>id</dt><dd>testbank-py-1-ch07-10</dd></dl></li><li>What is returned when the <code>readline</code> method reaches
+the end of the file?<ol class="multiple-choice"><li><pre>
+\r
+</pre></li><li><pre>
+\t
+</pre></li><li class="correct"><pre>
+&quot;&quot;
+</pre></li><li><pre>
+\n
+</pre></li></ol><dl><dt>Section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>Title</dt><dd>What is returned when the readline method reaches the end of the file?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>id</dt><dd>testbank-py-1-ch07-11</dd></dl></li><li>When using the <code>readline</code> method, what data type is
+returned?<ol class="multiple-choice"><li>integer</li><li>float</li><li>character</li><li class="correct">string</li></ol><dl><dt>Section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>Title</dt><dd>When using the readline method, what data type is returned?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>id</dt><dd>testbank-py-1-ch07-12</dd></dl></li><li>What method(s) can be used to write to a file?<ol class="multiple-choice"><li class="correct"><pre>
+write, print
+</pre></li><li><pre>
+out, print
+</pre></li><li><pre>
+write, out
+</pre></li><li><pre>
+post, write
+</pre></li></ol><dl><dt>Section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>Title</dt><dd>What method(s) can be used to write to a file?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>id</dt><dd>testbank-py-1-ch07-13</dd></dl></li><li>What happens in the following code snippet?<pre>
+infile = open(&quot;&quot;, &quot;r&quot;)
+</pre><ol class="multiple-choice"><li>a new file object is created</li><li class="correct">a run-time error occurs because the file does not exist</li><li>nothing, the statement is ignored</li><li>a default file name is used <code>&quot;inputfile&quot;</code></li></ol><dl><dt>Section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>Title</dt><dd>What happens in the following code snippet?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>id</dt><dd>testbank-py-1-ch07-14</dd></dl></li><li>Which of the following statements opens a text file for
+reading?
+<ol class="multiple-choice"><li class="correct"><code>infile = open(&quot;myfile.txt&quot;, &quot;r&quot;)</code></li><li><code>infile = open(&quot;myfile.txt&quot;, &quot;rw&quot;)</code></li><li><code>infile = open(&quot;myfile.txt&quot;, &quot;read&quot;)</code></li><li><code>infile = open(&quot;myfile.txt&quot;, &quot;reading&quot;)</code></li></ol><dl><dt>Section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>Title</dt><dd>Which statement opens a text file for reading?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>id</dt><dd>testbank-py-1-ch07-15</dd></dl></li><li>What is the name of the file object variable in the following
+code segment?
+<pre>
+a = open(&quot;b.txt&quot;, &quot;r&quot;)
+</pre><ol class="multiple-choice"><li class="correct"><code>a</code></li><li><code>b</code></li><li><code>b.txt</code></li><li><code>r</code></li></ol><dl><dt>Section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>Title</dt><dd>Identify the file object variable in a code segment</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>id</dt><dd>testbank-py-1-ch07-16</dd></dl></li><li>What happens when the following code segment executes if
+<code>test.txt</code> does not exist?
+<pre>
+infile = open(&quot;test.txt&quot;, &quot;r&quot;)
+</pre><ol class="multiple-choice"><li>The file <code>test.txt</code> is created as a new empty
+file</li><li class="correct">The program raises an exception</li><li>All attempts to read from the file return an empty string</li><li>All attempts to read from the file return random values</li></ol><dl><dt>Section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>Title</dt><dd>What happens when opening a file that doesn't exist for reading?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>id</dt><dd>testbank-py-1-ch07-17</dd></dl></li><li>What happens when the following code segment executes if
+<code>test.txt</code> does not exist?
+<pre>
+outfile = open(&quot;test.txt&quot;, &quot;w&quot;)
+</pre><ol class="multiple-choice"><li class="correct">The file <code>test.txt</code> is created as a new empty
+file</li><li>The program ends with an exception</li><li>All attempts to write to the file succeed but do not save any
+data</li><li>The program continues executing until the first write
+statement</li></ol><dl><dt>Section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>Title</dt><dd>What happens when opening a file that doesn't exist for writing?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>id</dt><dd>testbank-py-1-ch07-18</dd></dl></li><li>Which statement is used to close the file object opened with
+the following statement?
+<pre>
+infile = open(&quot;test.txt&quot;, &quot;r&quot;)
+</pre><ol class="multiple-choice"><li><code>close(infile)</code></li><li><code>close(&quot;test.txt&quot;)</code></li><li class="correct"><code>infile.close()</code></li><li><code>infile.close(&quot;test.txt&quot;)</code></li></ol><dl><dt>Section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>Title</dt><dd>Which statement correctly closes a file?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>id</dt><dd>testbank-py-1-ch07-19</dd></dl></li><li>Which statement(s) writes the sentence <code>&quot;Today is the
+first day of the rest of your life&quot;</code> to a file with one word
+on each line?<ol class="multiple-choice"><li><pre>
+outfile.write(&quot;Today is the first day of the rest of your life&quot;)  
+</pre></li><li class="correct"><pre>
+outfile.write(&quot;Today \nis \nthe \nfirst \nday \nof \nthe \nrest \nof \nyour \nlife&quot;)
+</pre></li><li><pre>
+outfile.write(Today is the first day of the rest of your life)
+</pre></li><li><pre>
+outfile.writeline(&quot;Today \nis \nthe \nfirst \nday \nof \nthe \nrest \nof \nyour \nlife&quot;)
+</pre></li></ol><dl><dt>Section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>Title</dt><dd>Which statement(s) writes the sentence &quot;Today is the first day of the rest of your life&quot; to a file with one word on each line?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>id</dt><dd>testbank-py-1-ch07-71</dd></dl></li><li>Consider a program that wants to read a file from the
+  absolute path <code>c:\users\user1\states.dat</code>.  What
+statement allows you to read this file?<ol class="multiple-choice"><li><pre>
+file = open(&quot;c:\\\users\\\user1\\\states.dat&quot;, &quot;r&quot;)
+</pre></li><li><pre>
+file = open(&quot;c:\users\user1\states.dat&quot;, &quot;r&quot;)
+</pre></li><li><pre>
+file = open(&quot;..\\states.dat&quot;, &quot;r&quot;)
+</pre></li><li class="correct"><pre>
+file = open(&quot;c:\\users\\user1\\states.dat&quot;, &quot;r&quot;)
+</pre></li></ol><dl><dt>Section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>Title</dt><dd>What statement allows you to ready a file from its absolute path?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch07-70</dd><dt>section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>id</dt><dd>testbank-py-2-ch07-70</dd></dl></li><li>What happens if you try to open a file for reading that
+doesn't exist?
+<ol class="multiple-choice"><li>A new file is created and opened.</li><li class="correct">A run-time error occurs because the file does not exist.</li><li>The statement is ignored.</li><li>An environment error occurs.</li></ol><dl><dt>Section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>Title</dt><dd>What happens if you try to open a file for reading that doesn't exist?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch07-75</dd><dt>section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>id</dt><dd>testbank-py-2-ch07-75</dd></dl></li><li>Once a file has been opened, what method is used to read data
+from a file?<ol class="multiple-choice"><li class="correct"><code>
+readline()
+</code></li><li><code>
+readfile()
+</code></li><li><code>
+readln()
+</code></li><li><code>
+open()
+</code></li></ol><dl><dt>Section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>Title</dt><dd>Once a file has been opened, what method is used to read data from a file?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch07-09</dd><dt>section</dt><dd>7.1 Reading and Writing Text Files</dd><dt>id</dt><dd>testbank-py-2-ch07-09</dd></dl></li><li>In the code snippet below, if the file contains the following
+words: <code>apple, pear,</code> and <code>banana</code> stored one
+per line, what would be the output?<pre>
+infile = open(&quot;input.txt&quot;, &quot;r&quot;)
+for word in infile :
+   word = word.rstrip()
+   print(word)
+</pre><ol class="multiple-choice"><li><pre>apple pear banana</pre></li><li class="correct"><pre>apple
+pear
+banana</pre></li><li><pre>apple
+
+pear
+
+banana</pre></li><li>
+<pre>apple, pear, banana</pre></li></ol><dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>In the code snippet below, if the file contains the following words: apple, pear, and banana stored one per line, what would be the output?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-1-ch07-22</dd></dl></li><li>In the code snippet below, if the file contains the following
+words: <code>Monday! Tuesday. Wednesday?</code> stored one per
+line, what would be the output?<pre>
+infile = open(&quot;input.txt&quot;, &quot;r&quot;)
+for word in infile :
+   word = word.rstrip(&quot;.!\n&quot;) 
+   print(word)
+</pre><ol class="multiple-choice"><li><pre>Monday
+Tuesday
+Wednesday</pre></li><li><pre>Monday
+
+Tuesday
+
+Wednesday</pre></li><li><pre>Monday!
+Tuesday.
+Wednesday</pre></li><li class="correct"><pre>Monday
+Tuesday
+Wednesday?</pre></li></ol><dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>In the code snippet below, if the file contains the following words: Monday! Tuesday. Wednesday? stored one per line, what would be the output?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-1-ch07-23</dd></dl></li><li>Which of the following methods strips specified punctuation
+from the front or end of each string (<code>s</code>)?<ol class="multiple-choice"><li><pre>
+s.lstrip(&quot;.!?;:&quot;)
+</pre></li><li><pre>
+s.rstrip(&quot;.!?;:&quot;)
+</pre></li><li class="correct"><pre>
+s.strip(&quot;.!?;:&quot;)
+</pre></li><li><pre>
+s.strip()
+</pre></li></ol><dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>Which of the following methods strips specified punctuation from the front or end of each string (s)?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-1-ch07-25</dd></dl></li><li>Which statement below can be used to read data from a file one
+character at a time?<ol class="multiple-choice"><li><pre>
+inputFile.get(1)
+</pre></li><li class="correct"><pre>
+inputFile.read(1)
+</pre></li><li><pre>
+inputFile.split(1)
+</pre></li><li><pre>
+inputFile.open(1)
+</pre></li></ol><dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>Which statement below can be used to read data from a file one character at a time?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-1-ch07-29</dd></dl></li><li>Given a text file <code>quote.txt</code> that contains this
+sentence:<pre>Home computers are being called upon to perform many new
+functions, including the consumption of homework formerly eaten by
+the dog. ~Doug Larson</pre>
+What is the result of this code snippet:<pre>
+  inputFile = open(&quot;quote.txt&quot;, &quot;r&quot;)
+  char = inputFile.read(1)
+  while char != &quot;&quot; :
+     print(char)
+     char = inputFile.read(1)
+  inputFile.close()   
+</pre><ol class="multiple-choice"><li><pre>Home computers are being called upon to perform many new
+functions, including the consumption of homework formerly eaten by
+the dog. ~Doug Larson</pre></li><li class="correct">each character of the quote is printed on a separate line</li><li><pre>H</pre></li><li><pre>o
+</pre></li></ol><dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>What is the result of the code snippet that reads a text file using the read method?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-1-ch07-31</dd></dl></li><li>Assume that outfile is a file object that has been opened for
+writing. Which of the following code segments stores
+<pre>
+Hello
+World
+</pre>
+in the file?
+<ol class="multiple-choice"><li><code>outfile.print(&quot;Hello\n&quot;, &quot;World\n&quot;)</code></li><li><code>outfile.write(&quot;Hello\n&quot;, &quot;World\n&quot;)</code></li><li><code>outfile.print(&quot;Hello\nWorld\n&quot;)</code></li><li class="correct"><code>outfile.write(&quot;Hello\nWorld\n&quot;)</code></li></ol><dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>Which statement saves &quot;Hello World&quot; in a file?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-1-ch07-33</dd></dl></li><li>The following code segment is supposed to read all of the lines
+from <code>test.txt</code> and save them in <code>copy.txt</code>.
+<pre>
+infile = open(&quot;test.txt&quot;, &quot;r&quot;)
+outfile = open(&quot;copy.txt&quot;, &quot;w&quot;)
+
+line = infile.readline()
+____________________
+   outfile.write(line)
+   line = infile.readline()
+
+infile.close()
+outfile.close()
+</pre>
+Which line of code should be placed in the blank to achieve this
+goal?
+<ol class="multiple-choice"><li><code>while line == &quot;&quot; :</code></li><li class="correct"><code>while line != &quot;&quot; :</code></li><li><code>while line == &quot;\n&quot; :</code></li><li><code>while line != &quot;\n&quot; :</code></li></ol><dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>Complete the code for copying a file</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-1-ch07-34</dd></dl></li><li>The following code segment is supposed to read and display the
+contents of a file. What problem does it have in its current form?
+<pre>
+infile = open(&quot;test.txt&quot;, &quot;r&quot;)
+
+line = infile.readline()
+while line != &quot;&quot; :
+   print(line)
+   line = infile.readline()
+
+infile.close()
+</pre><ol class="multiple-choice"><li>The program displays all of the lines, except for the first
+one</li><li>The program displays all of the lines, except for the last
+one</li><li class="correct">The program displays the contents of the file, but it is double
+spaced</li><li>There is no problem -- the program works as desired</li></ol><dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>What is wrong with the program for displaying a text file?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-1-ch07-35</dd></dl></li><li>The following program opens <code>test.txt</code> and displays
+its contents. If nothing is placed in the blank, then the contents
+of the file is displayed double spaced. What should be placed on
+the blank so that the contents of the file is displayed without the
+extra blank lines?
+<pre>
+infile = open(&quot;test.txt&quot;, &quot;r&quot;)
+
+line = infile.readline()
+while line != &quot;&quot; :
+   ____________________
+   print(line)
+   line = infile.readline()
+
+infile.close()
+</pre><ol class="multiple-choice"><li><code>infile = infile.lstrip()</code></li><li><code>infile = infile.rstrip()</code></li><li><code>line = line.lstrip()</code></li><li class="correct"><code>line = line.rstrip()</code></li></ol><dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>What code should be added so that extra blank lines are removed?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-1-ch07-36</dd></dl></li><li>Consider the following code segment:
+<pre>
+line = &quot;hello world!&quot;
+parts = line.split()
+print(parts)
+</pre>
+What is displayed when this code segment runs?
+<ol class="multiple-choice"><li><code>hello,world!</code></li><li><code>hello world!</code></li><li><code>&quot;hello&quot;, &quot;world!&quot;</code></li><li class="correct"><code>[&quot;hello&quot;, &quot;world!&quot;]</code></li></ol><dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>Trace code involving the split method</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-1-ch07-38</dd></dl></li><li>Assume that a line has just been read from a file and stored in
+a variable named <code>line</code>. The line contains several
+words, each of which is separated by one or more spaces. Which of
+the following statements will store a list of all the words in
+<code>wordList</code>?
+<ol class="multiple-choice"><li class="correct"><code>wordList = line.split()</code></li><li><code>wordList = line.splitlines()</code></li><li><code>wordList = line.strip()</code></li><li><code>wordList = line.words()</code></li></ol><dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>Which statement produces a list of words from a line in a file?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-1-ch07-39</dd></dl></li><li>What type of value is returned by the expression
+<code>ord(&quot;A&quot;)</code>?
+<ol class="multiple-choice"><li class="correct">Integer</li><li>Floating Point Number</li><li>String</li><li>List</li></ol><dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>What type of value is returned by the ord function?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-1-ch07-40</dd></dl></li><li>Which of the following statements is NOT valid for reading from
+a file:<ol class="multiple-choice"><li><pre>
+inputFile.readline()
+</pre></li><li><pre>
+inputFile.read()
+</pre></li><li class="correct"><pre>
+inputFile.readline(5)
+</pre></li><li><pre>
+inputFile.read(5)
+</pre></li></ol><dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>Which of the following statements is NOT valid for reading from a file:</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-1-ch07-67</dd></dl></li><li>Which of the following file operations is NOT valid for reading a binary file?<ol class="multiple-choice"><li><pre>
+fileName = open(&quot;input.dat&quot;, &quot;r&quot;)
+</pre></li><li><pre>
+fileName.close()      
+</pre></li><li><pre>
+fileName.write(&quot;Good Bye&quot;)
+</pre></li><li class="correct"><pre>
+fileName = open(&quot;input.dat&quot;, &quot;rw&quot;)
+</pre></li></ol><dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>Which of the following file operations is NOT valid?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-1-ch07-73</dd></dl></li><li>What is wrong with the following code snippet that is supposed
+to print the contents of the file twice?<pre>
+infile = open(&quot;input.txt&quot;, &quot;r&quot;)
+for sentence in infile :
+   print(sentence)
+      for sentence in infile :
+         print(sentence)
+</pre><ol class="multiple-choice"><li class="correct">Python cannot iterate over the file twice without closing and
+reopening the file</li><li>A run-time error occurs because the file does not exist</li><li>Nothing, the code prints the contents two times</li><li>The program cannot use the variable <code>sentence</code>
+twice</li></ol><dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>What is wrong with a code snippet that is supposed to print the contents of the file twice?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-1-ch07-20</dd></dl></li><li>What is output by the following code segment when <code>input.txt</code> contains the following
+words: <code>apple</code>, <code>pear,</code> and <code>banana</code> stored one
+per line?<pre>
+infile = open(&quot;input.txt&quot;, &quot;r&quot;)
+for word in infile :
+   print(word) 
+</pre><ol class="multiple-choice"><li><pre>apple pear banana</pre></li><li class="correct"><pre>apple
+
+pear
+
+banana
+
+</pre></li><li><pre>apple
+pear
+banana</pre></li><li><pre>apple, pear, banana</pre></li></ol><dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>What is output by a code segment that reads data from a file?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch07-21</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-2-ch07-21</dd></dl></li><li>In the code snippet below, if the file contains the following
+words: <code>Monday! Tuesday. Wednesday?</code> stored one per
+line, what would be the output?<pre>
+infile = open(&quot;input.txt&quot;, &quot;r&quot;)
+for word in infile :
+   word = word.lstrip(&quot;.!&quot;)
+   print(word)
+</pre><ol class="multiple-choice"><li><pre>Monday
+Tuesday
+Wednesday</pre></li><li><pre>Monday
+
+Tuesday
+
+Wednesday</pre></li><li class="correct"><pre>Monday!
+
+Tuesday.
+
+Wednesday?
+</pre></li><li><pre>Monday
+Tuesday
+Wednesday?</pre></li></ol><dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>What is output by a code segment that reads data from a file?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch07-24</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-2-ch07-24</dd></dl></li><li>Which of the following methods provides a way to split the
+contents of the string <code>sentence</code> into a list of
+individual words?<ol class="multiple-choice"><li class="correct"><code>
+sentence.split()
+</code></li><li><code>
+sentence.strip()
+</code></li><li><code>
+sentence.splice()
+</code></li><li><code>
+sentence.separate()
+</code></li></ol><dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>Which statement splits a string into a list of individual words?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch07-26</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-2-ch07-26</dd></dl></li><li>What will be stored in <code>substrings</code> after the
+following code snippet has run?<pre>
+states = &quot;Michigan,Maine,Minnesota,Montana,Mississippi&quot;
+substrings = states.split(&quot;,&quot;)
+</pre><ol class="multiple-choice"><li>
+<code>
+&quot;Michigan,Maine,Minnesota,Montana,Mississippi&quot;
+</code></li><li class="correct"><code>
+[&quot;Michigan&quot;, &quot;Maine&quot;, &quot;Minnesota&quot;, &quot;Montana&quot;, &quot;Mississippi&quot;]
+</code></li><li><code>
+[&quot;Michigan,Maine,Minnesota,Montana,Mississippi&quot;]
+</code></li><li><code>
+&quot;Michigan&quot;
+</code></li></ol><dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>What is returned when the split method is called?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch07-27</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-2-ch07-27</dd></dl></li><li>What is stored in <code>substrings</code> after the
+following code snippet has run?<pre>
+states = &quot;Michigan,Maine,Minnesota,,Montana,Mississippi&quot;
+substrings = states.split(&quot;,&quot;)
+</pre><ol class="multiple-choice"><li>
+<code>
+&quot;Michigan,Maine,Minnesota,Montana,Mississippi&quot;
+</code></li><li><code>
+[&quot;Michigan&quot;]
+</code></li><li><code>
+[&quot;Michigan,Maine,Minnesota,Montana,Mississippi&quot;]
+</code></li><li class="correct"><code>
+[&quot;Michigan&quot;,&quot;Maine&quot;,&quot;Minnesota&quot;,&quot;&quot;,&quot;Montana&quot;,&quot;Mississippi&quot;]
+</code></li></ol><dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>What is returned when the split method is called?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch07-28</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-2-ch07-28</dd></dl></li><li>Given a text file <code>quote.txt</code> that contains this
+sentence:<pre>Home computers are being called upon to perform many new
+functions, including the consumption of homework formerly eaten by
+the dog. ~Doug Larson</pre>
+What will be printed by this code snippet?<pre>
+letterCounts = [0] * 26
+inputFile = open(&quot;quote.txt&quot;, &quot;r&quot;)
+char = inputFile.read(1)
+while char != &quot;&quot; :
+   char = char.upper() 
+   if char &gt;= &quot;A&quot; and char &lt;= &quot;Z&quot; :
+      code = ord(char) - ord(&quot;A&quot;)
+      letterCounts[code] = letterCounts[code] + 1
+   char = inputFile.read(1)
+inputFile.close()
+print(letterCounts[1])   
+</pre><ol class="multiple-choice">
+<li><code>
+0
+</code></li><li class="correct"><code>
+2
+</code></li><li><code>
+1
+</code></li>
+<li><code>
+5
+</code></li>
+</ol><dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>What is printed by a code snippet that reads a text file using the read method?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch07-30</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-2-ch07-30</dd></dl></li><li>Suppose the input file contains a person's last name and age on the same line separated by a space.  Which statements
+extract this information correctly? <ol class="multiple-choice"><li class="correct"><pre>
+record = inputFile.readline() 
+data = record.split()
+name = data[0].rstrip()
+age = int(data[1])
+</pre></li><li><pre>
+record = inputFile.readline() 
+data = record.split()
+age = int(data[0])
+name = data[1].rstrip()      
+</pre></li><li><pre>
+record = inputFile.read(1) 
+data = record.split()
+name = data[0].rstrip()
+age = int(data[1])
+</pre></li><li><pre>
+record = inputFile.readline()
+name = record[0].rstrip()
+age = int(record[1])
+</pre></li></ol><dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>Which statement reads data from a file correctly?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch07-32</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-2-ch07-32</dd></dl></li><li>Which of the following code segments will display all of the
+lines in the file object named <code>infile</code>, assuming that it
+has successfully been opened for reading?
+<ol class="multiple-choice"><li><pre>
+for infile in line :
+   print(line)
+</pre></li><li class="correct"><pre>
+for line in infile :
+   print(line)
+</pre></li><li><pre>
+while infile in line :
+   print(line)
+</pre></li><li><pre>
+while line in infile :
+   print(line)
+</pre></li></ol><dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>Which code segment displays all of the lines in a file?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch07-37</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-2-ch07-37</dd></dl></li><li>What is wrong with the following code snippet:<pre>
+file = open(&quot;lyrics.txt&quot;, &quot;w&quot;)
+line = file.readline()
+words = line.split()
+print(words) 
+file.close()
+</pre><ol class="multiple-choice">
+<li class="correct">The file has only been opened for writing, not reading.</li><li>The file name is invalid.</li><li>The program cannot run without a try/catch statement.</li><li>The split method has not been used correctly.</li></ol><dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>What is wrong with a code segment that reads from a file?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch07-68</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-2-ch07-68</dd></dl></li><li>Suppose an input file contains a grocery list.  Each 
+  line contains the item name followed by its cost.  The item name and cost
+ are separated by a comma.  Which
+statements extract this information correctly?
+<ol class="multiple-choice"><li><pre>
+record = inputFile.read(1) 
+data = record.split(,)
+groceryItem = data[0].rstrip()
+cost = int(data[1])
+</pre></li><li><pre>
+record = inputFile.readline() 
+data = record.split()
+groceryItem = int(data[0])
+cost = data[1].rstrip()      
+</pre></li><li class="correct"><pre>
+record = inputFile.readline() 
+data = record.split(&quot;,&quot;)
+groceryItem = data[0].rstrip()
+cost = float(data[1])
+</pre></li><li><pre>
+record = inputFile.readline() 
+groceryItem = record[0].rstrip()
+cost = int(record[1])
+</pre></li></ol><dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>Which statements extract information from a file correctly?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch07-72</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-2-ch07-72</dd></dl></li><li>
+What portable file format is commonly used to export data from a spreadsheet so that it can be read and processed by a Python program?
+
+  <ol class="multiple-choice">
+    <li class="correct">Comma-Separated Values (CSV)</li>
+    <li>Graphics Interchange Format (GIF)</li>
+    <li>Hypertext Markup Language (HTML)</li>
+    <li>Portable Spreadsheet Format (PSF)</li>
+  </ol>
+<dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>What portable file format is commonly used to export data from a spreadsheet so that it can be read and processed by a Python program?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-2-ch07-76</dd></dl></li><li>
+Consider the following code segment:
+
+<pre>
+from csv import writer
+
+outfile = open(&quot;newdata.csv&quot;, &quot;w&quot;)  
+csvWriter = writer(outfile)
+</pre>
+
+What statement should be added to the end of this code segment so that it
+will write a row of values to the file?
+
+  <ol class="multiple-choice">
+    <li><code>csvWriter.writerow(1, 2, 3, 4)</code></li>
+    <li class="correct"><code>csvWriter.writerow([1, 2, 3, 4])</code></li>
+    <li><code>outf.write(1, 2, 3, 4)</code></li>
+    <li><code>outf.write([1, 2, 3, 4])</code></li>
+  </ol>
+<dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>Which statement is used to write a row of data to a CSV file?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-2-ch07-77</dd></dl></li><li>
+Which statement imports all of the functions in Python's regular expression library?
+
+  <ol class="multiple-choice">
+    <li class="correct"><code>from re import *</code></li>
+    <li><code>from regex import *</code></li>
+    <li><code>from reg_exp import *</code></li>
+    <li><code>from regular_expression import *</code></li>
+  </ol>
+<dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>Which statement imports Python's regular expression library?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-2-ch07-78</dd></dl></li><li>
+Which character encoding standard uses sequences of between 1 and 4 bytes to represent a huge number of different characters?
+
+  <ol class="multiple-choice">
+    <li>ASCII</li>
+    <li>CSV</li>
+    <li>Extended ASCII</li>
+    <li class="correct">UTF-8</li>
+  </ol>
+<dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>Which character encoding standard uses sequences of between 1 and 4 bytes to represent a huge number of different characters?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-2-ch07-79</dd></dl></li><li>
+Which of the following statements should be used to open a file that might
+contain special characters (such as accents, Greek letters or musical symbols)
+for reading?
+
+  <ol class="multiple-choice">
+    <li><code>inf = open(&quot;input.txt&quot;)</code></li>
+    <li><code>inf = open(&quot;input.txt&quot;, &quot;r&quot;)</code></li>
+    <li><code>inf = open(&quot;input.txt&quot;, &quot;r&quot;, &quot;utf-8&quot;)</code></li>
+    <li class="correct"><code>inf = open(&quot;input.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;)</code></li>
+  </ol>
+<dl><dt>Section</dt><dd>7.2 Text Input and Output</dd><dt>Title</dt><dd>Which statement will open a file containing special characters for reading?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.2 Text Input and Output</dd><dt>id</dt><dd>testbank-py-2-ch07-80</dd></dl></li><li>Given the following command line, where are the arguments
+stored?<pre>
+python program.py -v input.dat
+</pre><ol class="multiple-choice"><li>user defined list</li><li class="correct"><code>argv</code> list</li><li><code>input.dat</code></li><li><code>program.py</code></li></ol><dl><dt>Section</dt><dd>7.3 Command Line Arguments</dd><dt>Title</dt><dd>Given the following command line, where are the arguments stored?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.3 Command Line Arguments</dd><dt>id</dt><dd>testbank-py-1-ch07-42</dd></dl></li><li>Assume that your program is started with the following command:
+<pre>
+python myProgram.py -z 100
+</pre>
+What will be displayed by the following statement?
+<pre>
+print(sys.argv[0])
+</pre><ol class="multiple-choice"><li><code>python</code></li><li class="correct"><code>myProgram.py</code></li><li><code>-z</code></li><li><code>100</code></li></ol><dl><dt>Section</dt><dd>7.3 Command Line Arguments</dd><dt>Title</dt><dd>Trace the code involving command line arguments</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.3 Command Line Arguments</dd><dt>id</dt><dd>testbank-py-1-ch07-44</dd></dl></li><li>Assume that your program is started with the following command:
+<pre>
+python myProgram.py the quick brown fox
+</pre>
+What will be displayed by the following statement?
+<pre>
+print(sys.argv[5])
+</pre><ol class="multiple-choice"><li><code>brown</code></li><li><code>fox</code></li><li>A blank line</li><li class="correct">The program will raise an exception</li></ol><dl><dt>Section</dt><dd>7.3 Command Line Arguments</dd><dt>Title</dt><dd>Trace the code involving several command line arguments</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.3 Command Line Arguments</dd><dt>id</dt><dd>testbank-py-1-ch07-45</dd></dl></li><li>Which statement must appear in a program before the command
+line arguments can be accessed?
+<ol class="multiple-choice"><li><code>from commandline import argv</code></li><li><code>from argv import commandline</code></li><li class="correct"><code>from sys import argv</code></li><li><code>from argv import sys</code></li></ol><dl><dt>Section</dt><dd>7.3 Command Line Arguments</dd><dt>Title</dt><dd>Which statement must appear in a program before the command line arguments can be accessed?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.3 Command Line Arguments</dd><dt>id</dt><dd>testbank-py-1-ch07-46</dd></dl></li><li>How is a program executed or started from the command
+line?<ol class="multiple-choice"><li>Selecting &quot;Run&quot; in the development environment</li><li>Clicking an icon</li><li class="correct">Typing the name of the program at the prompt in a terminal
+window</li><li>Python programs cannot be started from the command line</li></ol><dl><dt>Section</dt><dd>7.3 Command Line Arguments</dd><dt>Title</dt><dd>How is a program executed or started from the command line?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch07-41</dd><dt>section</dt><dd>7.3 Command Line Arguments</dd><dt>id</dt><dd>testbank-py-2-ch07-41</dd></dl></li><li>If a program is invoked with <code>python program.py -r
+input.dat output.dat</code>, what are the elements of
+<code>argv</code>?<ol class="multiple-choice"><li><pre>
+argv[0]: &quot;-r input.dat output.dat&quot;
+</pre></li><li><pre>
+argv[1]: &quot;-r&quot;
+argv[2]: &quot;input.dat&quot;
+argv[3]: &quot;output.dat&quot;
+</pre></li><li class="correct"><pre>
+argv[0]: &quot;program.py&quot;
+argv[1]: &quot;-r&quot;
+argv[2]: &quot;input.dat&quot;
+argv[3]: &quot;output.dat&quot;
+</pre></li><li><pre>
+argv[0]: &quot;-r&quot;
+argv[1]: &quot;input.dat&quot;
+argv[2]: &quot;output.dat&quot;  
+</pre></li></ol><dl><dt>Section</dt><dd>7.3 Command Line Arguments</dd><dt>Title</dt><dd>What elements will be stored in argv for a given program invocation?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch07-43</dd><dt>section</dt><dd>7.3 Command Line Arguments</dd><dt>id</dt><dd>testbank-py-2-ch07-43</dd></dl></li><li>
+  Which of the following is <strong>not</strong> a function that resides in Python's <code>os</code> module?
+
+  <ol class="multiple-choice">
+    <li><code>chdir</code></li>
+    <li class="correct"><code>open</code></li>
+    <li><code>remove</code></li>
+    <li><code>rename</code></li>
+  </ol>
+<dl><dt>Section</dt><dd>7.3 Command Line Arguments</dd><dt>Title</dt><dd>Which of the following is not a function that resides in Python's os module?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.3 Command Line Arguments</dd><dt>id</dt><dd>testbank-py-2-ch07-81</dd></dl></li><li>
+  Consider the following code segment:
+
+<pre>
+import os
+
+filename = input(&quot;Enter the name of a file: &quot;)
+if ____________________ :
+  print(&quot;That file exists!&quot;)
+else:
+  print(&quot;That file does not exist.&quot;)
+</pre>
+
+  This code segment is supposed to print an appropriate message indicating
+  whether or not the file specified by the user exists.  What code should be
+  placed in the blank so that the code segment performs its intended task?
+
+  <ol class="multiple-choice">
+    <li><code>filename != &quot;&quot;</code></li>
+    <li><code>os.path.exists()</code></li>
+    <li><code>os.path.exists() == filename</code></li>
+    <li class="correct"><code>os.path.exists(filename)</code></li>
+  </ol>
+<dl><dt>Section</dt><dd>7.3 Command Line Arguments</dd><dt>Title</dt><dd>Which statement will check if a file exists?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.3 Command Line Arguments</dd><dt>id</dt><dd>testbank-py-2-ch07-82</dd></dl></li><li>What modes are used to read and write a binary file?<ol class="multiple-choice"><li><pre>
+&quot;r&quot;, &quot;w&quot;
+</pre></li><li><pre>
+&quot;-r&quot;, &quot;-w&quot;
+</pre></li><li class="correct"><pre>
+&quot;rb&quot;, &quot;wb&quot;
+</pre></li><li><pre>
+&quot;-rb&quot;, &quot;-wb&quot;
+</pre></li></ol><dl><dt>Section</dt><dd>7.4 Binary Files and Random Access (Optional)</dd><dt>Title</dt><dd>What modes are used to read and write a binary file?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.4 Binary Files and Random Access (Optional)</dd><dt>id</dt><dd>testbank-py-1-ch07-47</dd></dl></li><li>If a Byte consists of 8 Bits, what is the min and max values of
+one Byte?<ol class="multiple-choice"><li class="correct"><pre>
+0 - 255
+</pre></li><li><pre>
+1 - 256
+</pre></li><li><pre>
+0 - 256
+</pre></li><li><pre>
+1 - 255
+</pre></li></ol><dl><dt>Section</dt><dd>7.4 Binary Files and Random Access (Optional)</dd><dt>Title</dt><dd>If a Byte consists of 8 Bits, what is the min and max values of one Byte?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.4 Binary Files and Random Access (Optional)</dd><dt>id</dt><dd>testbank-py-1-ch07-48</dd></dl></li><li>What is the result of the variable <code>position</code> after
+the following code snippet is executed?<pre>
+inFile.seek(0)
+inFile.seek(8, SEEK_CUR)
+inFile.seek(-3, SEEK_CUR)
+position = inFile.tell()  
+</pre><ol class="multiple-choice"><li><pre>
+0
+</pre></li><li><pre>
+8
+</pre></li><li class="correct"><pre>
+5
+</pre></li><li><pre>
+-3
+</pre></li></ol><dl><dt>Section</dt><dd>7.4 Binary Files and Random Access (Optional)</dd><dt>Title</dt><dd>What is the result of the variable position after the following code snippet is executed?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.4 Binary Files and Random Access (Optional)</dd><dt>id</dt><dd>testbank-py-1-ch07-49</dd></dl></li><li>Which of the following statements opens a binary file for
+reading?
+<ol class="multiple-choice"><li><code>inFile = open(&quot;test.dat&quot;, &quot;r&quot;)</code></li><li class="correct"><code>inFile = open(&quot;test.dat&quot;, &quot;rb&quot;)</code></li><li><code>inFile = open(&quot;test.dat&quot;, &quot;binary&quot;)</code></li><li><code>inFile = open(&quot;test.dat&quot;, &quot;readbinary&quot;)</code></li></ol><dl><dt>Section</dt><dd>7.4 Binary Files and Random Access (Optional)</dd><dt>Title</dt><dd>Which statement opens a binary file for reading?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.4 Binary Files and Random Access (Optional)</dd><dt>id</dt><dd>testbank-py-1-ch07-52</dd></dl></li><li>Which of the following statements moves the file marker 4 bytes
+earlier in a binary file with its file object stored in
+<code>inFile</code>?
+<ol class="multiple-choice"><li class="correct"><code>inFile.seek(-4, SEEK_CUR)</code></li><li><code>inFile.seek(4, SEEK_CUR)</code></li><li><code>inFile.reverse(-4, SEEK_CUR)</code></li><li><code>inFile.reverse(4, SEEK_CUR)</code></li></ol><dl><dt>Section</dt><dd>7.4 Binary Files and Random Access (Optional)</dd><dt>Title</dt><dd>Which statement moves the file marker 4 bytes earlier in a file?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.4 Binary Files and Random Access (Optional)</dd><dt>id</dt><dd>testbank-py-1-ch07-53</dd></dl></li><li>Which of the following statements stores the current position
+of the file marker for <code>inFile</code> into <code>x</code>?
+<ol class="multiple-choice"><li><code>x = inFile.currentPos()</code></li><li><code>x = inFile.position()</code></li><li><code>x = inFile.read()</code></li><li class="correct"><code>x = inFile.tell()</code></li></ol><dl><dt>Section</dt><dd>7.4 Binary Files and Random Access (Optional)</dd><dt>Title</dt><dd>Which statement stores the current position of the file marker in a variable?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.4 Binary Files and Random Access (Optional)</dd><dt>id</dt><dd>testbank-py-1-ch07-54</dd></dl></li><li>How can you read from a file starting at a designated position in it?
+  <ol class="multiple-choice">
+    <li>Open the file for sequential access.</li>
+    <li class="correct">Move the <em>file marker</em> prior to a read or write
+    operation.</li>
+    <li>You can't.  Python only allows you to start reading at the beginning of a file.</li>
+    <li>Use the <code>readline(position)</code> method.</li></ol><dl><dt>Section</dt><dd>7.4 Binary Files and Random Access (Optional)</dd><dt>Title</dt><dd>How can you read a file starting at a designated position in the file?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch07-69</dd><dt>section</dt><dd>7.4 Binary Files and Random Access (Optional)</dd><dt>id</dt><dd>testbank-py-2-ch07-69</dd></dl></li><li>Consider the following code segment:
+<pre>
+print(&quot;W&quot;, end=&quot;&quot;)
+try :
+   inFile = open(&quot;test.txt&quot;, &quot;r&quot;)
+   line = inFile.readline()
+   value = int(line)
+   print(&quot;X&quot;, end=&quot;&quot;)
+
+except IOError :
+   print(&quot;Y&quot;, end=&quot;&quot;)
+
+except ValueError :
+   print(&quot;Z&quot;, end=&quot;&quot;)
+</pre>
+What output is generated when this program runs if
+<code>test.txt</code> is opened successfully and its first line
+contains the number 5?
+<ol class="multiple-choice"><li><code>W</code></li><li class="correct"><code>WX</code></li><li><code>WXY</code></li><li><code>WXYZ</code></li></ol><dl><dt>Section</dt><dd>7.5 Exception Handling</dd><dt>Title</dt><dd>Trace code involving files and exceptions</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.5 Exception Handling</dd><dt>id</dt><dd>testbank-py-1-ch07-59</dd></dl></li><li>Consider the following code segment:
+<pre>
+print(&quot;W&quot;, end=&quot;&quot;)
+try :
+   inFile = open(&quot;test.txt&quot;, &quot;r&quot;)
+   line = inFile.readline()
+   value = int(line)
+   print(&quot;X&quot;, end=&quot;&quot;)
+
+except IOError :
+   print(&quot;Y&quot;, end=&quot;&quot;)
+
+except ValueError :
+   print(&quot;Z&quot;, end=&quot;&quot;)
+</pre>
+What output is generated when this program runs if
+<code>test.txt</code> is not opened successfully?
+<ol class="multiple-choice"><li><code>WX</code></li><li class="correct"><code>WY</code></li><li><code>WZ</code></li><li><code>WXY</code></li></ol><dl><dt>Section</dt><dd>7.5 Exception Handling</dd><dt>Title</dt><dd>Trace code involving files and exceptions</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.5 Exception Handling</dd><dt>id</dt><dd>testbank-py-1-ch07-60</dd></dl></li><li>Consider the following code segment:
+<pre>
+print(&quot;W&quot;, end=&quot;&quot;)
+try :
+   inFile = open(&quot;test.txt&quot;, &quot;r&quot;)
+   line = inFile.readline()
+   value = int(line)
+   print(&quot;X&quot;, end=&quot;&quot;)
+
+except IOError :
+   print(&quot;Y&quot;, end=&quot;&quot;)
+
+except ValueError :
+   print(&quot;Z&quot;, end=&quot;&quot;)
+</pre>
+What output is generated when this program runs if
+<code>test.txt</code> is opened successfully and its first line
+contains the <code>hello world</code>?
+<ol class="multiple-choice"><li><code>WX</code></li><li><code>WY</code></li><li class="correct"><code>WZ</code></li><li><code>WXZ</code></li></ol><dl><dt>Section</dt><dd>7.5 Exception Handling</dd><dt>Title</dt><dd>Trace code involving files and exceptions</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.5 Exception Handling</dd><dt>id</dt><dd>testbank-py-1-ch07-61</dd></dl></li><li>What exception is raised by the following code segment?
+<pre>
+data = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;]
+print(data[4])
+</pre><ol class="multiple-choice"><li class="correct"><code>IndexError</code></li><li><code>IOError</code></li><li><code>ValueError</code></li><li>No exception is raised by the code segment</li></ol><dl><dt>Section</dt><dd>7.5 Exception Handling</dd><dt>Title</dt><dd>What exception is raised by this code segment?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.5 Exception Handling</dd><dt>id</dt><dd>testbank-py-1-ch07-62</dd></dl></li><li>What code should be added to the end of the following code
+segment to ensure that <code>inFile</code> is always closed, even
+if an exception is thrown in the code represented by <code>. .
+.</code> ?
+<pre>
+inFile = open(&quot;test.txt&quot;, &quot;r&quot;)
+try :
+   line = inFile.readline()
+   . . .
+</pre><ol class="multiple-choice"><li><pre>
+inFile.close()
+</pre></li><li><pre>
+always :
+   inFile.close()
+</pre></li><li><pre>
+ensure :
+   inFile.close()
+</pre></li><li class="correct"><pre>
+finally :
+   inFile.close()
+</pre></li></ol><dl><dt>Section</dt><dd>7.5 Exception Handling</dd><dt>Title</dt><dd>What code ensures that a file is always closed, even if an exception occurs?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.5 Exception Handling</dd><dt>id</dt><dd>testbank-py-1-ch07-63</dd></dl></li><li>It is good programming practice to plan for possible exceptions
+and provide code to handle the exception. Which exception must be
+handled to prevent a divide by zero logic error?<ol class="multiple-choice">
+  <li><code>
+ValueError
+</code></li><li><code>
+TypeError
+</code></li><li><code>
+ArithmeticError
+</code></li><li class="correct"><code>
+ZeroDivisionError
+</code></li></ol><dl><dt>Section</dt><dd>7.5 Exception Handling</dd><dt>Title</dt><dd>Which exception must be handled to prevent a divide by zero logic error?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch07-55</dd><dt>section</dt><dd>7.5 Exception Handling</dd><dt>id</dt><dd>testbank-py-2-ch07-55</dd></dl></li><li>Consider the following code segment:
+<pre>
+try :
+   inputFile = open(&quot;lyrics.txt&quot;, &quot;r&quot;)
+   line = inputFile.readline()
+   print(line)
+_____________________
+   print(&quot;Error&quot;)
+        
+</pre>
+What should be placed in the blank so that the program will print <code>Error</code> instead of crashing if an exception occurs while opening or reading from the file?
+<ol class="multiple-choice"><li><pre>
+except RuntimeError :
+</pre></li><li><pre>
+except EnvironmentError :
+</pre></li><li class="correct"><pre>
+except IOError :
+</pre></li><li><pre>
+except IndexError :
+</pre></li></ol><dl><dt>Section</dt><dd>7.5 Exception Handling</dd><dt>Title</dt><dd>What should be added to a code segment to prevent it from crashing when an exception occurs?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch07-56</dd><dt>section</dt><dd>7.5 Exception Handling</dd><dt>id</dt><dd>testbank-py-2-ch07-56</dd></dl></li><li>Consider the following code segment:
+
+<pre>
+try :
+   inputFile = open(&quot;lyrics.txt&quot;, &quot;r&quot;)
+   line = inputFile.readline()
+   words = line.split()
+   print(words[len(words)])
+_____________________
+   print(&quot;Error.&quot;)
+        
+</pre>
+The statement <code>print(words[len(words)])</code> will raise an exception.
+What should be placed in the blank so that this exception will be caught
+and the error message will be displayed?
+
+<ol class="multiple-choice"><li><pre>
+except RuntimeError :
+</pre></li><li><pre>
+except EnvironmentError :
+</pre></li><li><pre>
+except IOError :
+</pre></li><li class="correct"><pre>
+except IndexError :
+</pre></li></ol><dl><dt>Section</dt><dd>7.5 Exception Handling</dd><dt>Title</dt><dd>What should be added to a code segment to prevent it from crashing when an exception occurs?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch07-57</dd><dt>section</dt><dd>7.5 Exception Handling</dd><dt>id</dt><dd>testbank-py-2-ch07-57</dd></dl></li><li>Python's error handling process includes the
+<code>finally</code> clause. In the following code snippet, when is
+the <code>finally</code> clause executed?<pre>
+inputFile = open(&quot;lyrics.txt&quot;, &quot;r&quot;)
+try :
+   line = inputFile.readline()
+   words = line.split()
+   print(words)
+finally :
+   inputfile.close()
+</pre><ol class="multiple-choice">
+<li>Only when there is an error opening the file.</li>
+<li>Only when there is an error reading the file.</li>
+<li class="correct">The finally clause is always executed in this example.</li>
+<li>The finally clause is never executed in this example.</li></ol><dl><dt>Section</dt><dd>7.5 Exception Handling</dd><dt>Title</dt><dd>When is the finally clause executed?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch07-58</dd><dt>section</dt><dd>7.5 Exception Handling</dd><dt>id</dt><dd>testbank-py-2-ch07-58</dd></dl></li><li>Which of the following is NOT a valid exception in Python?
+<ol class="multiple-choice"><li><code>
+OverflowError
+</code></li><li class="correct"><code>
+TryError      
+</code></li><li><code>
+IOError
+</code></li><li><code>
+IndexError
+</code></li></ol><dl><dt>Section</dt><dd>7.5 Handling Exceptions</dd><dt>Title</dt><dd>Which of the following is NOT a valid exception in Python?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch07-74</dd><dt>section</dt><dd>7.5 Exception Handling</dd><dt>id</dt><dd>testbank-py-2-ch07-74</dd></dl></li><li>When your program contains logic to read one or more files,
+which of the following statements is NOT true about the error
+handling logic needed:<ol class="multiple-choice"><li>The file might not exist</li><li class="correct">The file name might be too long</li><li>The file might contain invalid data</li><li>All files must be opened and closed prior to program
+termination</li></ol><dl><dt>Section</dt><dd>7.6 Application: Handling Input Errors</dd><dt>Title</dt><dd>When your program contains logic to read one or more files, which of the following statements is NOT true about the error handling logic?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.6 Application: Handling Input Errors</dd><dt>id</dt><dd>testbank-py-1-ch07-65</dd></dl></li><li>Consider the following code segment:
+<pre>
+done = False
+while not done :
+   try :
+      filename = input(&quot;Enter the file name: &quot;)
+      inFile = open(filename, &quot;r&quot;)
+      ____________________
+   except IOError :
+      print(&quot;Error: File not found.&quot;)
+</pre>
+It is supposed to keep on prompting the user for file names until
+the user provides the name of a file that can be opened
+successfully. What line of code should be placed in the blank to
+achieve this goal?
+<ol class="multiple-choice"><li><code>done = False</code></li><li class="correct"><code>done = True</code></li><li><code>done = inFile</code></li><li><code>done = not inFile</code></li></ol><dl><dt>Section</dt><dd>7.6 Application: Handling Input Errors</dd><dt>Title</dt><dd>Complete the code segment for reading a valid file name from the user</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.6 Application: Handling Input Errors</dd><dt>id</dt><dd>testbank-py-1-ch07-66</dd></dl></li><li>
+  Consider the following function call for computing a linear regression:
+
+  <pre>
+  result = scipy.stats.linregress(data1, data2)
+  </pre>
+
+  What is stored in result when this function call completes?
+
+  <ol class="multiple-choice">
+    <li>A Boolean value indicating whether or not the regression was completed successfully.</li>
+    <li>A floating point number between -1 and 1 that indicates the amount of correlation between the data sets.</li>
+    <li>A list containing the mean and median values of both data sets.</li>
+    <li class="correct">A tuple containing the slope, intercept and correlation coefficient for the data sets.</li>
+  </ol>
+<dl><dt>Section</dt><dd>7.6 Application: Handling Input Errors</dd><dt>Title</dt><dd>What is returned when computing a linear regression?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.6 Application: Handling Input Errors</dd><dt>id</dt><dd>testbank-py-2-ch07-50</dd></dl></li><li>
+  Which type of chart can be used to represent the relationship between three dimensional data?
+
+  <ol class="multiple-choice">
+    <li>A bar chart</li>
+    <li class="correct">A bubble chart</li>
+    <li>A histogram</li>
+    <li>A pie chart</li>
+  </ol>
+<dl><dt>Section</dt><dd>7.6 Application: Handling Input Errors</dd><dt>Title</dt><dd>Which type of chart can be used to represent the relationship between three dimensional data?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.6 Application: Handling Input Errors</dd><dt>id</dt><dd>testbank-py-2-ch07-51</dd></dl></li><li>
+  Consider the following code segment:
+
+  <pre>
+  line = input()
+  try:
+    ...
+    if line == &quot;&quot;:
+      ____________________
+    ...
+
+  except RuntimeError:
+    print(&quot;A blank line was encountered.&quot;)
+  </pre>
+
+  This code segment is supposed to print out <code>A blank line was encountered</code> when
+  a blank line is entered by the user.  What code should be placed in the blank so
+  that it will accomplish this goal?
+  
+  <ol class="multiple-choice">
+    <li><code>except RuntimeError</code></li>
+    <li class="correct"><code>raise RuntimeError</code></li>
+    <li><code>RuntimeError(raise)</code></li>
+    <li><code>RuntimeError(except)</code></li>
+  </ol>
+<dl><dt>Section</dt><dd>7.6 Application: Handling Input Errors</dd><dt>Title</dt><dd>Which statement raises an exception?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.6 Application: Handling Input Errors</dd><dt>id</dt><dd>testbank-py-2-ch07-64</dd></dl></li><li>
+  Which function is <strong>not</strong> part of the Python <code>statistics</code> module?
+
+  <ol class="multiple-choice">
+    <li><code>mean</code></li>
+    <li><code>median</code></li>
+    <li><code>stdev</code></li>
+    <li class="correct"><code>average</code></li>
+  </ol>
+<dl><dt>Section</dt><dd>7.6 Application: Handling Input Errors</dd><dt>Title</dt><dd>Which function is not part of the Python statistics module?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>7.6 Application: Handling Input Errors</dd><dt>id</dt><dd>testbank-py-2-ch07-83</dd></dl></li></ol></body>
+    </html>

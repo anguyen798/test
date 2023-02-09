@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="generator" content="HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+    <title>Chapter 7, Python for Everyone, 2e</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="font-size-adjustment" content="-1" />
+    <meta name="copyright"
+          content="Copyright &#169; 2015 Wiley" />
+    <link rel="stylesheet" href="styles/slidy.css" type="text/css" />
+    <link rel="stylesheet" href="styles/horstmann.css" type="text/css" />
+</head>
+<body>
+    <div class="background">
+        <div class="slide ppLayoutCustom">
+    <div><p class="title" >Chapter Seven</p><br />
+</div>
+<div><p class="subtitle" ><span class="fontColorClass1">FILES AND EXCEPTIONS</span></p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Chapter Goals</p><br />
+</div>
+<div><ul><li>To read and write text files
+</li><li>To process collections of data
+</li><li>To process command line arguments
+</li><li>To raise and handle exceptions
+</li></ul></div>
+<div><p><strong><em>In this chapter, you will learn how to write programs that manipulate files
+</em></strong></p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Contents</p><br />
+</div>
+<div><ul><li>Reading and Writing Text Files
+</li><li>Text Input and Output
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" >Reading and Writing Text Files</p><br />
+</div>
+<div><p class="body" ><span class="fontColorClass1">Section 7.1</span></p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Reading and Writing Text Files</p><br />
+</div>
+<div><ul><li>Text files are very commonly used to store information
+<ul><li>They are the most 'portable' types of data files
+</li></ul></li><li>Examples of text files include files that are created with a simple text editor, such as Windows Notepad, and Python source code and HTML files
+<ul></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Opening Files: Reading</p><br />
+</div>
+<div><ul><li>To access a file, you must first <em>open</em> it
+</li><li>Suppose you want to read data from a file named input.txt, located in the same directory as the program
+</li><li>To open a file for reading, you must provide the name of the file as the first argument to the <code>open</code> function and the string "<code>r</code>" as the second argument:
+</li></ul><ul></ul></div>
+<div><pre>infile = open("input.txt", "r")
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Opening Files: Reading (2)</p><br />
+</div>
+<div><ul><li>Important things to keep in mind:
+<ul><li>When opening a file for reading, the file must exist (and otherwise be accessible) or an exception occurs
+</li><li>The file object returned by the <code>open</code> function must be saved in a variable
+<ul><li>All operations for accessing a file are made via the file object
+</li></ul></li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Opening Files: Writing</p><br />
+</div>
+<div><ul><li>To open a file for writing, you provide the name of the file as the first argument to the <code>open</code> function and the string "<code>w</code>" as the second argument:
+</li></ul></div>
+<div><pre>outfile = open("output.txt", "w")
+</pre></div>
+<div><ul><li>If the output file already exists, it is emptied before the new data is written into it
+</li><li>If the file does not exist, an empty file is created
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Closing Files: Important</p><br />
+</div>
+<div><ul><li>When you are done processing a file, be sure to <em>close</em> the file using the <code>close()</code> method:
+</li></ul></div>
+<div><pre>infile.close()
+outfile.close()</pre></div>
+<div><ul><li>If your program exits without closing a file that was opened for writing, some of the output may not be written to the disk file</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Syntax: Opening And Closing Files</p><br />
+</div>
+<div><img src='images/slide10-Picture3.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Reading From a File</p><br />
+</div>
+<div><ul><li>To read a line of text from a file, call the <code>readline()</code> method with the file object that was returned when you opened the file:</li></ul></div>
+<div><pre>line = infile.readline()
+</pre></div>
+<div><ul><li class="">When a file is opened, an input marker is positioned at the beginning of the file 
+</li><li class="">The <code>readline()</code> method reads the text, starting at the current position and continuing until the end of the line is encountered 
+<ul><li class="">The input marker is then moved to the next line
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Reading From a File (2)</p><br />
+</div>
+<div><ul><li>For example, suppose input.txt contains the lines
+<p class="object" >  flying
+</p>
+<p class="object" >  circus
+</p>
+<ul></ul></li><li>The first call to <code>readline()</code> returns the string "<code>flying\n</code>"
+<ul><li>Recall that <code>\n</code> denotes the newline character that indicates the end of the line 
+</li></ul></li><li>If you call <code>readline()</code> a second time, it returns the string "<code>circus\n</code>"
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Reading From a File (3)</p><br />
+</div>
+<div><ul><li>Calling <code>readline()</code> again yields the empty string "" because you have reached the end of the file
+</li><li>If the file contains a blank line, then <code>readline()</code> returns a string containing only the newline character "<code>\n</code>"
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Reading Multiple Lines From a File</p><br />
+</div>
+<div><ul><li>You repeatedly read a line of text and process it until the sentinel value is reached
+</li><li>The sentinel value is an empty string, which is returned by the <code>readline()</code> method after the end of file has been reached</li></ul></div>
+<div><pre>line = infile.readline()
+while line != "" :
+    # Process the line.
+    line = infile.readline()
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Converting File Input</p><br />
+</div>
+<div><ul><li>As with the <code>input</code> function, the <code>readline()</code> method can only return strings
+</li><li>If the file contains numerical data, the strings must be converted to the numerical value using the <code>int()</code> or <code>float()</code> function:
+</li></ul></div>
+<div><pre>value = float(line)
+</pre></div>
+<div><ul><li class="">The newline character at the end of the line is ignored when the string is converted to a numerical value
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Writing To a File</p><br />
+</div>
+<div><ul><li>For example, we can write the string "Hello, World!" to our output file using the statement:
+</li></ul></div>
+<div><pre>outfile.write("Hello, World!\n")
+</pre></div>
+<div><ul><li class="">Unlike <code>print()</code> when writing text to an output file, <em>you must explicitly write the newline character to start a new line</em>
+</li></ul><ul><li class="">You can also write formatted strings to a file with the <code>write</code> method:
+</li></ul></div>
+<div><pre>outfile.write("Number of entries: %d\nTotal: %8.2f\n" 
+  % (count, total))
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example: File Reading/Writing</p><br />
+</div>
+<div><ul><li>Suppose you are given a text file that contains a sequence of floating-point values, stored one value per line 
+</li><li>You need to read the values and write them to a new output file, aligned in a column and followed by their total and average value 
+</li><li>If the input file has the contents:
+<p class="object" >32.0
+</p>
+<p class="object" >54.0
+</p>
+<p class="object" >67.5
+</p>
+<p class="object" >80.25
+</p>
+<p class="object" >115.0</p>
+<ul></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example: File Reading/Writing (2)</p><br />
+</div>
+<div><ul><li>The output file will contain
+<p class="object" >32.00
+</p>
+<p class="object" >54.00
+</p>
+<p class="object" >67.50
+</p>
+<p class="object" >80.25
+</p>
+<p class="object" >115.00
+</p>
+<p class="object" >--------
+</p>
+<p class="object" >Total: 348.75
+</p>
+<p class="object" >Average: 69.75
+</p>
+<ul></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example One</p><br />
+</div>
+<div><ul><li>Open the file total.py
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Common Error</p><br />
+</div>
+<div><ul><li>Backslashes in File Names
+<ul><li>When using a String literal for a file name with path information, you need to supply each backslash twice:
+</li></ul></li></ul></div>
+<div><pre>infile = open("c:\\homework\\input.txt", "r")</pre></div>
+<div><ul><li class="">A single backslash inside a quoted string is the <em><strong>escape character</strong></em>, which means the next character is interpreted differently (for example, "<code>\n</code>" for a newline character)
+</li><li class="">When a user supplies a filename into a program, the user should not type the backslash twice
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" >Text Input and Output</p><br />
+</div>
+<div><p class="body" ><span class="fontColorClass1">Section 7.2</span></p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Text Input and Output</p><br />
+</div>
+<div><ul><li>In the following sections, you will learn how to process text with complex contents, and you will learn how to cope with challenges that often occur with real data
+</li><li>Reading Words Example:</li></ul><ul></ul></div>
+<div style="position:absolute;top:30%;left:2%;width:250px;"><p style="background-color:orange;">Mary had a little lamb</p></div>
+<div style="position:absolute;top:35%;left:20%;width:40%;"><pre>for line in inputFile :
+    line = line.rsplit()</pre></div>
+<div style="position:absolute;top:35%;left:5%;"><img src='images/slide22-RightArrow8.png' /></div>
+<div style="position:absolute;top:35%;left:60%;"><img src='images/slide22-RightArrow9.png' /></div>
+<div style="position:absolute;top:35%;left:73%;width:75px;"><p style="background-color:orange;">Mary had a little lamb</p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Processing Text Input</p><br />
+</div>
+<div><ul><li>There are times when you want to read input by:
+<ul><li>Each word
+</li><li>Each line
+</li><li>A single character
+</li></ul><p class="object" >
+</p>
+<ul></ul></li><li>Python provides methods such: <code>read()</code>, <code>split()</code> and <code>strip()</code> for these tasks
+</li></ul></div>
+<div><p class="" ><em>Processing text input is required for almost all types of programs that interact with the user
+</em></p><br /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Text Input and Output</p><br />
+</div>
+<div><ul><li>Python can treat an input file as though it were a container of strings in which each line comprises an individual string
+</li><li>For example, the following loop reads all lines from a file and prints them:
+</li></ul></div>
+<div><pre>for line in infile :
+    print(line)
+</pre></div>
+<div><ul><li class="">At the beginning of each iteration, the loop variable line is assigned the value of a string that contains the next line of text in the file
+</li></ul><ul><li class="">There is a critical difference between a file and a container:
+<ul><li class="">Once you read the file you must close it before you can iterate over it again
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >An Example of Reading a File</p><br />
+</div>
+<div><ul><li>We have a file that contains a collection of words; one per line:
+</li></ul><p class="object" >spam
+</p>
+<p class="object" >and
+</p>
+<p class="object" >eggs</p>
+<ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Removing The Newline (1)</p><br />
+</div>
+<div><ul><li>Recall that each input line ends with a newline (<code>\n</code>) character
+</li><li>Generally, the newline character must be removed before the input string is used
+</li><li>When the first line of the text file is read, the string line contains:
+</li></ul></div>
+<div><img src='images/slide26-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Removing The Newline (2)</p><br />
+</div>
+<div><ul><li>To remove the newline character, apply the <code>rstrip()</code> method to the string:
+</li></ul></div>
+<div><pre>line = line.rstrip()
+</pre></div>
+<div><ul><li class="">This results in the string:
+</li></ul></div>
+<div><img src='images/slide27-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Character Strip Methods</p><br />
+</div>
+<div><img src='images/slide28-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Character Strip Examples</p><br />
+</div>
+<div><img src='images/slide29-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Reading Words</p><br />
+</div>
+<div><ul><li>Sometimes you may need to read the individual words from a text file 
+</li><li>For example, suppose our input file contains two lines of text
+<p class="object" >Mary had a little lamb,
+</p>
+<p class="object" >whose fleece was white as snow
+</p>
+<ul></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Reading Words (2)</p><br />
+</div>
+<div><ul><li>We would like to print to the terminal, one word per line
+<p class="object" >Mary
+</p>
+<p class="object" >had
+</p>
+<p class="object" >a
+</p>
+<p class="object" >little
+</p>
+<p class="object" >. . .
+</p>
+<ul></ul></li><li>Because there is no method for reading a word from a file, you must first read a line and then split it into individual words
+</li></ul></div>
+<div><pre>line = line.rstrip()
+wordlist = line.split()
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Reading Words (3)</p><br />
+</div>
+<div><ul><li>The <code>split</code> method returns the list of substrings that results from splitting the string at each blank space 
+</li><li>For example, if line contains the string:
+</li></ul></div>
+<div><img src='images/slide32-Picture2.png' /></div>
+<div><ul><li class="">It will be split into 5 substrings that are stored in a list in the same order in which they occur in the string:</li></ul></div>
+<div><img src='images/slide32-Picture3.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Reading Words (4)</p><br />
+</div>
+<div><ul><li>Notice that the last word in the line contains a comma
+</li><li>If we only want to print the words contained in the file without punctuation marks, we can strip those from the substrings using the <code>rstrip()</code> method introduced in the previous section:
+</li></ul></div>
+<div><pre>word = word.rstrip(".,?!")
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Reading Words: Complete Example</p><br />
+</div>
+<div><pre>inputFile = open("lyrics.txt", "r")
+for line in inputFile :
+    line = line.rstrip()
+    wordList = line.split()
+    for word in wordList :
+        word = word.rstrip(".,?!")
+        print(word)
+
+inputFile.close()
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example Two</p><br />
+</div>
+<div><ul><li>Open the file lyrics.py
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Additional String Splitting Methods</p><br />
+</div>
+<div><img src='images/slide36-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Additional String Splitting Examples</p><br />
+</div>
+<div><img src='images/slide37-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Reading Characters</p><br />
+</div>
+<div><ul><li>The <code>read()</code> method takes a single argument that specifies the number of characters to read 
+</li><li>The method returns a string containing the characters 
+</li><li>When supplied with an argument of 1, the <code>read()</code> method returns a string consisting of the next character in the file
+</li></ul></div>
+<div><pre>char = inputFile.read(1)
+</pre></div>
+<div><ul><li class="">If the end of the file is reached, it returns an empty string ""
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Algorithm: Reading Characters</p><br />
+</div>
+<div><pre>while char != "" :
+    Process character
+   char = inputFile.read(1)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Reading Records</p><br />
+</div>
+<div><ul><li>A text file can contain a collection of <strong>data records</strong> in which each record consists of multiple fields 
+</li><li>For example, a file containing student data may consist of records composed of an identification number, full name, address, and class year
+</li><li>When working with text files that contain data records, you generally have to read the entire record before you can process it:</li></ul></div>
+<div><pre class="pseudo">For each record in the file
+    Read the entire record
+    Process the record
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Record Formats: Example</p><br />
+</div>
+<div><ul><li>The organization or format of the records can vary, however, making some formats easier to read than others
+</li><li>A typical format for such data is to store each field on a separate line of the file with all fields of a single record on consecutive lines:
+<p class="object" >  China
+</p>
+<p class="object" >  1330044605
+</p>
+<p class="object" >  India
+</p>
+<p class="object" >  1147995898
+</p>
+<p class="object" >  United States
+</p>
+<p class="object" >  303824646
+</p>
+<p class="object" >  . . .</p>
+<ul></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Record Formats: Example</p><br />
+</div>
+<div><ul><li>Reading the data in this format is rather easy 
+</li><li>Because each record consists of two fields, we read two lines from the file for each record
+</li></ul></div>
+<div><pre>line = infile.readline()
+while line != "" : 
+    countryName = line.rstrip()
+    line = infile.readline() 
+    population = int(line)
+       Process data record
+    line = infile.readline()
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Record Formats: Example 2</p><br />
+</div>
+<div><ul><li>Another common format stores each data record on a single line 
+</li><li>If the record's fields are separated by a specific delimiter ":" you can extract the fields by splitting the line with the <code>split()</code> method
+<p class="object" >  China:1330044605
+</p>
+<p class="object" >  India:1147995898
+</p>
+<p class="object" >  United States:303824646
+</p>
+<p class="object" >  . . .</p>
+<ul></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Record Formats: Example 3</p><br />
+</div>
+<div><ul><li>But what if the fields are not separated by a delimiter?
+<p class="object" >  China 1330044605
+</p>
+<p class="object" >  India 1147995898
+</p>
+<p class="object" >  United States 303824646
+</p>
+<p class="object" >  . . .
+</p>
+<ul></ul></li><li>Because some country names have more than one word, we cannot simply use a blank space as the delimiter because multi-word names would be split incorrectly
+</li><li>Can we use <code>rsplit</code> in this case?
+</li></ul></div>
+<div><pre>inputString = "United States 303824646"
+result = inputString.rsplit(" ",1)
+print(result)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Record Formats: Example 3</p><br />
+</div>
+<div><ul><li>One approach for reading records in this format is to read the line, then search for the first digit in the string returned by <code>readline()</code>:</li></ul></div>
+<div><pre>i = 0
+char = line[0]
+while not line[0].isdigit() :
+    i = i + 1
+</pre></div>
+<div><ul><li class="">You can then extract the country name and population as substrings using the slice operator:
+</li></ul></div>
+<div><pre>countryName = line[0 : i - 1]
+population = int(line[i : ])
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Record Formats: Example 3</p><br />
+</div>
+<div><ul><li>'Slicing' the string read from file
+</li></ul></div>
+<div><img src='images/slide46-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >File Operations</p><br />
+</div>
+<div><img src='images/slide47-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >A Second Example</p><br />
+</div>
+<div><ul><li>Open the file items.py
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" >Command Line Arguments</p><br />
+</div>
+<div><p class="body" ><span class="fontColorClass1">Section 7.3</span></p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Using Command Line Arguments</p><br />
+</div>
+<div><ul><li>We have multiple ways to execute a program depending on the operating system (and the version of the Operating system) and the Python development used 
+<ul><li>We commonly use Wing (our development environment) to run our program
+</li><li>We <em>could</em> also run the program by typing the name of a program in a terminal window
+<ul><li>If we use this method we can pass <strong>command line arguments</strong> to the program
+</li><li>The command line arguments are passed to the program as strings
+</li></ul></li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Command Line Arguments</p><br />
+</div>
+<div><ul><li>Text based programs can be 'parameterized' by using command line arguments
+<ul><li>Filename and options are often typed after the program name at a command prompt:
+</li></ul></li></ul></div>
+<div style="position:absolute;top:20%;left:15%;"><pre>&gt;python program.py -v input.dat
+</pre></div>
+<div style="position:absolute;top:25%;left:45%;"><img src='images/slide51-DownArrow8.png' /></div>
+<div style="position:absolute;top:30%;left:40%;"><pre>def main():
+</pre></div></br></br></br></br>
+<div><ul><li class="">Python provides access to them as a list, <code>argv</code>, of strings as a parameter to the program, in this case <code>main()</code></li></ul><ul></ul></div>
+<div><pre>argv[0]: "program.py"
+argv[1]: "-v"
+argv[2]: "input.dat"
+</pre></div>
+<div><ul><li class="">Options (switches) traditionally begin with a dash '<code>-</code>'
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >When to use Command Line Arguments</p><br />
+</div>
+<div><ul><li>For this class we are going to use an interactive user interface
+<ul><li>The user interface guides the user and is suited to the program we are writing
+</li><li>The command line interface has an advantage when you need to automate the execution of a program
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass6">Processing Text Files Example</span></p><br />
+</div>
+<div><p class="body" ><span class="fontColorClass1">Page 360</span></p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Steps to Processing Text Files</p><br />
+</div>
+<div><ul><li>Problem Statement:
+</li><li>Read two country data files, <code>worldpop.txt</code> and <code>worldarea.txt</code>  
+</li><li>Write a file <code>world_pop_density.txt</code> that contains country names and population densities with the country names aligned left and the numbers aligned right
+</li></ul></div>
+<div><p>Afghanistan 50.56</p>
+<p>Akrotiri 127.64</p>
+<p>Albania 125.91</p>
+<p>Algria 14.18</p>
+<p>American Samoa 288.92</p>
+<p>. . .</p>
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Six Steps to Processing Text Files</p><br />
+</div>
+<div><ul><li class="decimal">Understand the Processing Task
+<ul><li class="lower-roman">Process the data "on the go" or store data and then process?
+</li></ul></li><li class="decimal">Determine which files you need to read and write
+</li><li class="decimal">Choose a mechanism for obtaining the file names
+</li><li class="decimal">Choose between iterating over the file or reading individual lines
+<ul><li class="lower-roman">If all data is on one line, normally use line input
+</li></ul></li><li class="decimal">With line-oriented input, extract required data
+<ul><li class="lower-roman">Examine the line and plan for whitespace, delimiters…
+</li></ul></li><li class="decimal">Use functions to factor out common tasks
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Processing Text Files: Pseudocode</p><br />
+</div>
+<div><p class="object" >Step 1:  Understand the Task
+</p>
+<pre class="psuedo">While there are more lines to be read
+   Read a line from each file
+   Extract the country name
+   population = number following the country name in the line from the 
+      first file
+   area = number following the country name in the line from the second file
+   If area != 0
+   density = population / area
+   Print country name and density
+</pre></div>
+<div><p>Afghanistan 50.56</p>
+<p>Akrotiri 127.64</p>
+<p>Albania 125.91</p>
+<p>Algria 14.18</p>
+<p>American Samoa 288.92</p>
+<p>. . .</p>
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Pseudocode: Step Two</p><br />
+</div>
+<div><pre class="pseudo">Determine the file you need to read and write
+    There are two input files:
+        worldpop.txt
+        worldarea.txt
+    There is one output file:
+        world_pop_density.txt
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Pseudocode: Step Three</p><br />
+</div>
+<div><pre class="pseudo">Choose a mechanism for obtaining the file names
+We have three options:
+   Hardcode the filename as a constant
+   Prompt the user
+   Use a command line argument
+We will use hard-coded files names 
+   The file names are constant in this example
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Pseudocode: Step Four</p><br />
+</div>
+<div><pre class="pseudo">Choose between iterating over the file or reading individual lines
+Generally if the data is grouped on lines we iterate over the file
+If the data is spread over several line, we read the individual lines
+In this example we will read individual lines since we are reading from 
+ two input files
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Pseudocode: Step Five</p><br />
+</div>
+<div><pre class="pseudo">Extract the data into the individual fields
+   Use spilt or rsplit to  extract the data elements
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Pseudocode: Step Six</p><br />
+</div>
+<div><pre class="pseudo">Use functions to factor out common tasks
+Find the repetitive tasks and develop functions to handle them
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example Code</p><br />
+</div>
+<div><ul><li>Open the file population.py
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass6">Exception Handling</span></p><br />
+</div>
+<div><p class="body" ><span class="fontColorClass1">Section 7.4</span></p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Exception Handling</p><br />
+</div>
+<div><ul><li>There are two aspects to dealing with run-time program errors:
+<ul><li class="decimal">Detecting Errors
+</li><li class="decimal">Handling Errors
+</li></ul></li><li>The <code>open</code> function can detect an attempt to read from a non-existent file
+<ul><li>The <code>open</code> function cannot handle the error
+</li><li>There are multiple alternatives, the function does not know which is the correct choice
+</li><li>The function reports the error to another part of the program to be handled
+</li></ul></li><li>Exception handling provides a flexible mechanism for passing control from the point of the error to a <strong>handler</strong> that can deal with the error
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Detecting Errors</p><br />
+</div>
+<div><ul><li>What do you do if someone tries to withdraw too much money from a bank account?
+</li><li>You can <strong>raise</strong> an exception
+</li><li>When you <strong>raise</strong> an exception, execution does not continue with the next statement
+<ul><li>It transfers to the <strong>exception handler
+</strong></li></ul></li></ul></div>
+<div><p><strong>Use the <code>raise</code> statement to signal an exception</strong></p></div>
+<div><pre>if amount &gt; balance :
+    raise ValueError("Amount exceeds balance")
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Exception Classes (a Subset)</p><br />
+</div>
+<div><ul><li>Look for an appropriate exception
+</li></ul></div>
+<div><img src='images/slide66-Picture5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Syntax: Raising an Exception</p><br />
+</div>
+<div><img src='images/slide67-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Handling Exceptions</p><br />
+</div>
+<div><ul><li>Every exception should be handled somewhere in the program
+</li><li>This is a complex problem
+<ul><li>  You need to handle each possible exception and react to it appropriately
+</li></ul></li><li>Handling recoverable errors can be done:
+<ul><li>Simply: Exit the program
+</li><li>User-friendly:  Ask the user to correct the error
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Handling Exceptions: <code>try-except</code></p><br />
+</div>
+<div><ul><li>You handle exceptions with the <code>try/except</code> statement 
+</li><li>Place the statement into a location of your program that knows how to handle a particular exception 
+</li><li>The <code>try</code> block contains one or more statements that may cause an exception of the kind that you are willing to handle 
+</li><li>Each <code>except</code> clause contains the handler for an exception type
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Syntax: Try-Except</p><br />
+</div>
+<div><img src='images/slide70-ContentPlaceholder7.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Try-Except: An Example</p><br />
+</div>
+<div><pre>try :
+    filename = input("Enter filename: ")
+    infile = open(filename, "r")
+    line = infile.readline()
+    value = int(line)
+. . .
+except IOError :
+    print("Error: file not found.")
+except ValueError as exception :
+    print("Error:", str(exception))</pre></div>
+<div class="incremental"><ul><li><code>open()</code> can raise an IOError exception
+</li></ul></div>
+<div class="incremental"><ul><li><code>int()</code> can raise a ValueError exception
+</li></ul></div>
+<div class="incremental"><ul><li>If either of these exceptions is raised, the rest of the instructions in the <code>try</code> block are skipped</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example</p><br />
+</div>
+<div><ul><li>If an IOError exception is raised, the <code>except</code> clause for the <code>IOError</code> exception is executed
+</li><li>If a <code>ValueError</code> exception occurs, then second <code>except</code> clause is executed
+</li><li>If any other exception is raised it will not be handled by any of the <code>except</code> blocks
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Output Messages</p><br />
+</div>
+<div><ul><li>When the body of this handler is executed, it prints the message included with the exception
+</li></ul></div>
+<div><pre>except ValueError as exception :
+    print("Error:", str(exception))
+</pre></div>
+<div><ul><li class="">For example, if the string passed to the <code>int()</code> function was "35x2", then the message included with the exception will be:
+<p class="" ><code>invalid literal for int() with base 10: '35x2'
+</code></p>
+<ul></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Output Messages (2)</p><br />
+</div>
+<div><ul><li>To obtain the message, we must have access to the exception object itself 
+</li><li>You can store the exception object in a variable with this syntax:
+</li></ul></div>
+<div><pre>except ValueError as exception :
+</pre></div>
+<div><ul><li class="">When the handler for <code>ValueError</code> is executed, <code>exception</code> is set to the exception object
+</li><li>In our code, we then obtain the message string by calling <code>str(exception)</code>
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Source of Output Messages</p><br />
+</div>
+<div><ul><li>When you raise an exception, you can provide your own message string. For example, when you call:
+</li></ul></div>
+<div><pre>raise ValueError("Amount exceeds balance")
+</pre></div>
+<div><ul><li class="">The message of the exception, "<code>Amount exceeds balance</code>," is the string provided as the argument to the constructor
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The <code>finally</code> Clause</p><br />
+</div>
+<div><ul><li>The <code>finally</code> clause is used when you need to take some action whether or not an exception is raised 
+</li><li>Here is a typical situation:
+<ul><li>It is important to always close an output file whether or not an exception was raised (to ensure that all output is written to the file)
+</li><li>Place the call to <code>close()</code> inside a <code>finally</code> clause:
+</li></ul></li></ul></div>
+<div><pre>outfile = open(filename, "w")
+try :
+    writeData(outfile)
+finally :
+    outfile.close()
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Syntax: The <code>finally</code> Clause</p><br />
+</div>
+<div><img src='images/slide77-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Programming Tip</p><br />
+</div>
+<div><ul><li>Throw exceptions early
+<ul><li>When a method detects a problem that it cannot solve, it is better to throw an exception rather than try to come up with an imperfect fix
+</li></ul></li><li>Catch exceptions late
+<ul><li>Conversely, a method should only catch an exception if it can really remedy the situation
+</li><li>Otherwise, the best remedy is simply to have the exception propagate to its caller, allowing it to be caught by a competent handler</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Programming Tip</p><br />
+</div>
+<div><ul><li>Do not use <code>except</code> and <code>finally</code> in the same <code>try</code> block
+<ul><li>The <code>finally</code> clause is executed whenever the <code>try</code> block is exited in any of three ways:
+</li><ul><li class="decimal" >After completing the last statement of the <code>try</code> block
+</li><li class="decimal" >After completing the last statement of a <code>except</code> clause, if this <code>try</code> block caught an exception
+</li><li class="decimal" >When an exception was raised in the <code>try</code> block and not handled
+</li></ul></li></ul></div>
+<div><img src='images/slide79.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Programming Tip</p><br />
+</div>
+<div><ul><li>It is better to use two (nested) <code>try</code> clauses to control the flow
+</li></ul></div>
+<div style="float:left;width:50%;"><pre>try :
+    outfile = open(filename, "w")
+  try :
+    # Write output to outfile
+  finally :
+    out.close()  # Close resources
+except IOError :
+  # Handle exception
+</pre></div>
+<div style="float:left;width:40%;"><img src='images/slide80.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The <code>with</code> Statement</p><br />
+</div>
+<div><ul><li>Because a <code>try/finally</code> statement for opening and closing files is so common, Python has a special shortcut:
+</li></ul></div>
+<div><pre>with open(filename, "w") as outfile :
+    Write output to outfile
+</pre></div>
+<div><ul><li class="">This <code>with</code> statement opens the file with the given name, sets <code>outfile</code> to the file object, and closes the file object when the end of the statement has been reached or an exception is raised
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass6">Handling Input Errors</span></p><br />
+</div>
+<div><p class="body" ><span class="fontColorClass1">Section 7.6</span></p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Handling Input Errors</p><br />
+</div>
+<div><ul><li>File Reading Application Example
+<ul><li>Goal:  Read a file of data values
+<ul><li>First line is the count of values
+</li><li>Remaining lines have values
+</li></ul></li><li>Risks:
+<ul><li>The file may not exist
+<ul><li>The <code>open()</code> function will raise an exception when the file does not exist
+</li></ul></li><li>The file might have data in the wrong format
+<ul><li>When there are fewer data items than expected, or when the file doesn't start with the count of values, the program will raise a <code>ValueError</code> exception
+</li><li>Finally, when there are more inputs than expected, a <code>RuntimeError</code> exception should be raised
+</li></ul></li></ul></li></ul></li></ul></div>
+<div style="position:fixed;left:5%;"><p>3
+</p><p>1.45
+</p><p>-2.1
+</p><p>0.05
+</p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Handling Input Errors: <code>main()</code></p><br />
+</div>
+<div><ul><li>Outline for method with all exception handling
+</li></ul></div>
+<div><pre>done = False
+while not done :
+try:
+    # Prompt user for file name
+    data = readFile(filename)  # May raise exceptions
+    # Process data
+    done = true;
+  except IOError:
+      print("File not found.")  
+  except ValueError :
+      print("File contents invalid.")  
+  except RuntimeError as error:
+      print("Error:", str(error))
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Handling Input Errors: <code>readFile()</code></p><br />
+</div>
+<div><ul><li>Creates the file object and calls the <code>readData()</code> function
+</li><li>No exception handling (no except clauses)
+</li><li><code>finally</code> clause closes file in all cases (exception or not)
+</li></ul><ul></ul></div>
+<div><pre>def readFile(filename) :
+    inFile = open(filename, "r") # May throw exceptions 
+    try
+      return readData(inFile) 
+    finally
+      in.close()
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Handling Input Errors: <code>readData()</code></p><br />
+</div>
+<div><ul><li>No exception handling (no try or except clauses)
+</li><li><code>raise</code> creates an <code>ValueError</code> exception and exits
+</li><li><code>RuntimeError</code> exception can occur
+</li></ul></div>
+<div><pre>def readData(inFile) :
+    line = inFile.readline()
+    numberOfValues = int(line) # May raise a ValueError exception.
+    data = []
+    for i in range(numberOfValues) :
+        line = inFile.readline()
+        value = int(line) # May raise a ValueError exception.
+        data.append(value)
+    # Make sure there are no more values in the file.
+    line = inFile.readline()
+    # Extra data in file 
+    if line != "" :
+        raise RuntimeError("End of file expected.")
+    return data
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >One Scenario</p><br />
+</div>
+<div><ul><li class="decimal"><code>main</code> calls <code>readFile
+</code></li><li class="decimal"><code>readFile</code> calls <code>readData
+</code></li><li class="decimal"><code>readData</code> calls <code>int
+</code></li><li class="decimal">There is no integer in the input, and <code>int</code> raises a <code>ValueError</code> exception
+</li><li class="decimal"><code>readData</code> has no <code>except</code> clause; it terminates immediately
+</li><li class="decimal"><code>readFile</code> has no <code>except</code> clause; it terminates immediately after executing the <code>finally</code> clause and closing the file
+</li><li class="decimal">The <code>IOError</code> <code>except</code> clause is skipped
+</li><li class="decimal">The <code>ValueError except</code> clause is executed
+</li></ul><p class="object" >
+</p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example Code</p><br />
+</div>
+<div><ul><li>Open the file analyzedata.py</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary:  File Input/Output</p><br />
+</div>
+<div><ul><li>When opening a file, you supply the name of the file stored on disk and the mode in which the file is to be opened
+</li><li>Close all files when you are done processing them
+</li><li>Use the <code>readline()</code> method to obtain lines of text from a file
+</li><li>Write to a file using the <code>write()</code> method or the <code>print()</code> function
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary:  Processing Text Files</p><br />
+</div>
+<div><ul><li>You can iterate over a file object to read the lines of text in the file
+</li><li>Use the <code>rstrip()</code> method to remove the newline character from a line of text
+</li><li>Use the <code>split()</code> method to split a string into individual words
+</li><li>Read one or more characters with the <code>read()</code> method
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Command Line Arguments</p><br />
+</div>
+<div><ul><li>Programs that start from the command line receive the command line arguments in the argv list defined in the sys module
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary:  Exceptions (1)</p><br />
+</div>
+<div><ul><li>To signal an exceptional condition, use the <code>raise</code> statement to raise an exception object
+</li><li>When you <code>raise</code> an exception, processing continues in an exception handler
+</li><li>Place the statements that can cause an exception inside a <code>try</code> block, and the handler inside an <code>except</code> clause
+</li><li>Once a <code>try</code> block is entered, the statements in a <code>finally</code> clause are guaranteed to be executed, whether or not an exception is raised
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary:  Exceptions (2)</p><br />
+</div>
+<div><ul><li>Raise an exception as soon as a problem is detected
+<ul><li>Handle it only when the problem can be handled
+</li></ul></li><li>When designing a program, ask yourself what kinds of exceptions can occur
+</li><li>For each exception, you need to decide which part of your program can competently handle it
+</li></ul></div>
+
+
+
+
+</div>
+
+    </div>
+    <script src="scripts/jquery-2.1.4.min.js" charset="utf-8" type="text/javascript"></script>
+    <script src="scripts/slidy.js" charset="utf-8" type="text/javascript"></script>
+    
+</body>
+</html>

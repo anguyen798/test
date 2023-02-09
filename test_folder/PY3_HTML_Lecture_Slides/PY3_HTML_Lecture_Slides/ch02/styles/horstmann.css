@@ -1,0 +1,136 @@
+﻿body {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    width: 100%;
+    height: 100%;
+}
+
+div.slide {
+    z-index: 20;
+    margin: 0 0 0 0;
+    padding: 0;
+    border-width: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /*line-height: 100%;*/
+    background-color: transparent;
+    height: 100vh;
+    width: 100%;
+}
+
+
+div.background {
+    z-index: 1;
+    position: absolute;
+    vertical-align: bottom;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: auto;
+    height: 100%;
+    padding: 0 0 0 0.2em;
+    border-width: 0;
+    width: 75%;
+    /*margin-left: 12.5%;*/
+}
+
+p {
+    margin-bottom: 0;
+    margin-left: 20px;
+}
+
+ul {
+    margin-left: 60px;
+    margin-bottom: 10px;
+}
+.centertitle {
+	font-family: "Lucida Sans", sans-serif;
+	font-size: 50px;
+	margin-top: 25px;
+    padding: 10px;
+    border-bottom: 8px solid #ffe06a;
+    color: #000000;
+}	
+	
+.title {
+	font-family: "Lucida Sans", sans-serif;
+	margin-top: 0;
+    padding: 4px;
+    border-bottom: 8px solid #ffe06a;
+    color: #000000;
+}
+
+.subtitle {
+    text-transform: uppercase;
+}
+
+ul li{
+    font-style: normal;
+}
+
+li {
+    font-style: normal;
+    margin-bottom: 10px;
+}
+.pseudo {
+  font-style: normal;
+  font-family: "MarkingPen", "Comic Sans MS", cursive
+}
+.lower-alpha {
+    list-style-type: lower-alpha;
+}
+.upper-alpha {
+    list-style-type: upper-alpha;
+}
+.decimal {
+    list-style-type: decimal;
+}
+.upper-roman {
+    list-style-type: upper-roman;
+}
+.lower-roman {
+    list-style-type: lower-roman;
+}
+.disc {
+    list-style-type: disc;
+}
+.square {
+    list-style-type: square;
+}
+.circle {
+    list-style-type: circle;
+}
+img { padding-top: 10px; padding-left: 10px;}
+body {
+	font-family: "Calibri Light","Calibri","StempelGaramond-Roman","Courier New","Lucida Console","Arial",sans-serif;
+
+background-color: white; 
+	font-size: 20pt;
+}
+li {
+ list-style-type: disc;
+}
+
+.body { 
+color:#404040; 
+}
+
+.fontColorClass1 { 
+color:#262626; 
+}
+
+.fontColorClass2 { 
+color:#637052; 
+}
+
+.fontColorClass3 { 
+color:#00000; 
+}
+
+.fontColorClass4 { 
+color:#FFFF00; 
+}
+
+

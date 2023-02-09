@@ -1,0 +1,2077 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="generator" content="HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+    <title>Chapter 4, Python for Everyone, 2e</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="font-size-adjustment" content="-1" />
+    <meta name="copyright"
+          content="Copyright &#169; 2015 Wiley" />
+    <link rel="stylesheet" href="styles/slidy.css" type="text/css" />
+    <link rel="stylesheet" href="styles/horstmann.css" type="text/css" />
+</head>
+<body>
+    <div class="background">
+        <div class="slide ppLayoutCustom">
+    <div><p class="title" >Chapter 4: Loops</p><br />
+</div>
+<div><img src='images/slide1-Subtitle4.png' /></div>
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Chapter Goals</p><br />
+</div>
+<div><ul><li>To implement while and for loops
+</li><li>To hand-trace the execution of a program
+</li><li>To become familiar with common loop algorithms
+</li><li>To understand nested loops
+</li><li>To implement programs that read and process data sets
+</li><li>To use a computer for simulations
+</li></ul><p class="object" ><em><strong>In this chapter, you will learn about loop statements in Python, as well as techniques for writing programs that simulate activities in the real world.
+</strong></em></p>
+<p class="object" >
+</p>
+<ul></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Contents</p><br />
+</div>
+<div><ul><li>The <code>while</code> loop
+</li><li>Problem Solving: Hand-Tracing
+</li><li>Application: Processing Sentinels
+</li><li>Problem Solving:  Storyboards
+</li><li>Common Loop Algorithms
+</li><li>The <code>for</code> Loop
+</li><li>Nested Loops
+</li><li>Processing Strings
+</li><li>Application:  Random Numbers and Simulation
+</li><li>Graphics:  Digital Image Processing
+</li><li>Problem Solving:  Solve a Simpler Problem First
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" >The <code>while</code> Loop</p><br />
+</div>
+<div><img src='images/slide4-TextPlaceholder6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The <code>while</code> Loop</p><br />
+</div>
+<div><ul><li>Examples of loop applications
+<ul><li>Calculating compound interest
+</li><li>Simulations, event driven programs
+</li><li>Drawing tiles…
+</li></ul></li><li>Compound interest algorithm (Chapter 1)
+</li></ul><ul></ul></div>
+<div style="position:absolute;top:30%;left:10%"><img src='images/slide5-Picture9.png' /></div>
+<div style="position:absolute;top:55%;" class="incremental"><img src='images/slide5-RightArrow8.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Planning the <code>while</code> Loop</p><br />
+</div>
+<div style="float:right;"><img src='images/slide6-Picture8.png' /></div>
+<div style="width:50%;"><p class="object" ><pre>balance = 10.0
+target = 100.0
+year = 0
+rate = 0.025
+while balance &lt; TARGET :
+   year = year + 1
+   interest = balance * RATE/100
+   balance = balance + interest
+</pre></p>
+<p class="object" >
+</p>
+<p class="object" ><em><strong>A loop executes instructions repeatedly while a condition is <code>True</code>
+</strong></em></p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Syntax: <code>while</code> Statement</p><br />
+</div>
+<div><img src='images/slide7-Picture5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Count-Controlled Loops</p><br />
+</div>
+<div><ul><li>A <code>while</code> loop that is controlled by a counter
+</li></ul><pre>counter = 1                    # Initialize the counter
+while counter <= 10 :          # Check the counter
+  print(counter)
+  counter = counter + 1        # Update the loop variable
+</pre><ul></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Event-Controlled Loops</p><br />
+</div>
+<div><ul><li>A <code>while</code> loop that is controlled by a counter
+</li></ul><pre>balance = INITIAL_BALANCE      # Initialize the loop variable
+while balance <= TARGET:       # Check the loop variable
+  year – year + 1
+  balance = balance * 2        # Update the loop variable
+</pre><ul></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Execution of the Loop</p><br />
+</div>
+<div><img src='images/slide10-Picture1.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Execution of the Loop (2)</p><br />
+</div>
+<div><img src='images/slide11-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Doubleinv.py</p><br />
+</div>
+<div><pre>##
+#  This program computes the time required to double an investment.
+#
+
+# Create constant variables.
+RATE = 5.0
+INITIAL_BALANCE = 10000.0
+TARGET = 2 * INITIAL_BALANCE
+      
+# Initialize variables used with the loop.
+balance = INITIAL_BALANCE
+year = 0
+
+# Count the years required for the investment to double.
+while balance < TARGET :
+   year = year + 1
+   interest = balance * RATE / 100
+   balance = balance + interest
+   
+# Print the results.   
+print("The investment doubled after", year, "years.")
+</pre></div>
+<div style="position:absolute;top:33%;left:53%;"><img src='images/slide12-TextBox7.png' /></div>
+<div style="position:absolute;top:47%;left:53%;"><img src='images/slide12-TextBox9.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Investment Example</p><br />
+</div>
+<div><ul><li>Open the file:
+<ul><li>Doubleinv.py
+</li></ul></li><li>Run the program with several test cases
+<ul><li>The program will prompt you for a rate
+</li><li>Enter a mix of valid and invalid rates</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" ><code>while</code> Loop Examples</p><br />
+</div>
+<div><img src='images/slide14-Picture1.png' /></div>
+<div><img src='images/slide14-Picture7.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" ><code>while</code> Loop Examples (2)</p><br />
+</div>
+<div><img src='images/slide15-Picture1.png' /></div>
+<div><img src='images/slide15-Picture6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Common Error: Incorrect Test Condition</p><br />
+</div>
+<div><ul><li>The loop body will only execute if the test condition is <code>True</code>
+</li><li>If <code>bal</code> is initialized as less than <code>TARGET</code> and should grow until it reaches <code>TARGET</code>
+<ul><li>Which version will execute the loop body?
+</li></ul></li></ul><ul></ul></div>
+<div><pre>while bal &lt; TARGET :
+   year = year + 1
+   interest = bal * RATE
+   bal = bal + interest
+</pre></div>
+<div><pre>while bal &gt;= TARGET :
+   year = year + 1
+   interest = bal * RATE
+   bal = bal + interest
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Common Error: Infinite Loops</p><br />
+</div>
+<div><ul><li>The loop body will execute until the test condition becomes <code>False</code>
+</li><li>What if you forget to update the test variable?
+<ul><li><code>bal</code> is the test variable (<code>TARGET</code> doesn't change)
+</li><li>You will loop forever!  (or until you stop the program)
+</li></ul></li></ul><ul></ul></div>
+<div><pre>while bal &lt; TARGET :
+   year = year + 1
+   interest = bal * RATE
+   bal = bal + interest
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Common Error: Off-by-One Errors</p><br />
+</div>
+<div><ul><li>A 'counter' variable is often used in the test condition
+</li><li>Your counter can start at 0 or 1, but programmers often start a counter at 0
+</li><li>If I want to paint all 5 fingers on one hand, when I am done?
+</li></ul></div>
+<div style="float:left;width:34%;"><p>If you start at 0, use "&lt;"
+</br>0, 1, 2, 3, 4
+</p><pre>finger = 1
+FINGERS = 5
+while finger &lt;= FINGERS :
+   # paint finger
+   finger = finger + 1
+</pre></div>
+<div style="float:left;width:15%;"><p></p></div> 
+<div style="float:left;width:33%;"><p>If you start at 1, use "&lt;="
+</br>1, 2, 3, 4, 5
+</p><pre>finger = 0
+FINGERS = 5
+while finger &lt; FINGERS :
+   # paint finger
+   finger = finger + 1
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass2">Hand-Tracing Loops</span></p><br />
+</div>
+<div><img src='images/slide19-TextPlaceholder6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Hand-Tracing Loops</p><br />
+</div>
+<div><ul><li>Example:  Calculate the sum of digits (1+7+2+9)
+<ul><li>Make columns for key variables (n, total, digit)
+</li><li>Examine the code and number the steps
+</li><li>Set variables to state before loop begins</li></ul></li></ul><ul></ul></div>
+<div><img src='images/slide20-Picture11.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Tracing Sum of Digits</p><br />
+</div>
+<div style="position:absolute;top:7%;left:5%;"><img src='images/slide21-Picture13.png' /></div>
+<div style="position:absolute;top:7%;left:60%;"><img src='images/slide21-Picture4.png' /></div>
+<div style="position:absolute;top:10.5%;left:53%;"><img src='images/slide21-Picture11.png' /></div>
+<div style="position:absolute;top:45%;"><ul><li class="">Start executing loop body statements, changing variable values on a new line
+<ul><li class="">Cross out values in previous line
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Tracing Sum of Digits</p><br />
+</div>
+<div style="position:absolute;top:7%;left:5%;"><img src='images/slide22-Picture8.png' /></div>
+<div style="position:absolute;top:7%;left:60%;"><img src='images/slide22-Picture11.png' /></div>
+<div style="position:absolute;top:21.9%;left:57%;"><img src='images/slide22-Picture11-0.png' /></div>
+<div style="position:absolute;top:45%;"><ul><li class="">Continue executing loop statements changing variables
+<ul>1729 / 10 leaves 172 (no remainder)
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Tracing Sum of Digits</p><br />
+</div>
+<div><ul><li>Test condition.  If <code>True</code>, execute loop again
+<ul><li>Variable <code>n</code> is 172, Is 172 &gt; 0?, True! 
+</li></ul></li><li>Make a new line for the second time through and update variables
+</li></ul></div>
+<div style="position:absolute;top:25%;left:5%;"><img src='images/slide23-Picture3.png' /></div>
+<div style="position:absolute;top:25%;left:60%;"><img src='images/slide23-Picture11.png' /></div>
+<div style="position:absolute;top:32.3%;left:53%;"><img src='images/slide23-Picture11-0.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Tracing Sum of Digits</p><br />
+</div>
+<div><ul><li>Third time through
+<ul><li>Variable <code>n</code> is 17 which is still greater than 0
+</li></ul></li><li>Execute loop statements and update variables 
+</li></ul></div>
+<div style="position:absolute;top:25%;left:5%;"><img src='images/slide24-Picture2.png' /></div>
+<div style="position:absolute;top:25%;left:60%;"><img src='images/slide24-Group2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Tracing Sum of Digits</p><br />
+</div>
+<div><ul><li>Fourth loop iteration:
+<ul><li>Variable <code>n</code> is 1 at start of loop.  1 &gt; 0?  True  
+</li><li>Executes loop and changes variable n to 0 (1/10 = 0)</li></ul></li></ul><ul></ul></div>
+<div style="position:absolute;top:25%;left:5%;"><img src='images/slide25-Picture12.png' /></div>
+<div style="position:absolute;top:25%;left:60%;"><img src='images/slide25-Group2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Tracing Sum of Digits</p><br />
+</div>
+<div><ul><li>Because <code>n</code> is 0, the expression(n &gt; 0) is False
+</li><li>Loop body is not executed
+<ul><li>Jumps to next statement after the loop body
+</li></ul></li><li>Finally prints the sum!
+</li></ul></div>
+<div style="position:absolute;top:30%;left:5%;"><img src='images/slide26-Picture1.png' /></div>
+<div style="position:absolute;top:30%;left:60%;"><img src='images/slide26-Group3.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary of the <code>while</code> Loop</p><br />
+</div>
+<div><ul><li><code>while</code> loops are very common 
+</li><li>Initialize variables before you test
+<ul><li>The condition is tested BEFORE the loop body
+<ul><li>This is called pre-test
+</li><li>The condition often uses a counter variable
+</li></ul></li><li>Something inside the loop should change one of the variables used in the test
+</li></ul></li><li>Watch out for infinite loops!
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass2">Sentinel Values</span></p><br />
+</div>
+<div><img src='images/slide28-TextPlaceholder6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Processing Sentinel Values</p><br />
+</div>
+<div><ul><li>Sentinel values are often used:
+<ul><li>When you don't know how many items are in a list, use a 'special' character or value to signal the "last" item
+</li><li>For numeric input of positive numbers, it is common to use the value -1
+<p class="object" ><em><strong>A sentinel value denotes the end of a data set, but it is not part of the data.</strong></em></p>
+<ul></ul></li></ul></li></ul><ul></ul></div>
+<div><pre>salary = 0.0
+while salary &gt;= 0 :
+   salary = float(input())
+      if salary &gt;= 0.0 :
+         total = total + salary
+         count = count + 1
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Averaging a Set of Values</p><br />
+</div>
+<div><pre class="pseudo">Declare and initialize a 'total' variable to 0
+Declare and initialize a 'count' variable to 0
+Declare and initialize a 'salary' variable to 0
+Prompt user with instructions
+Loop until sentinel value is entered
+  Save entered value to input variable ('salary')
+  If salary is not -1 or less (sentinel value)
+    Add salary variable to total variable
+    Add 1 to count variable
+Make sure you have at least one entry before you divide!
+  Divide total by count and output.    
+  Done!
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Sentinel.py (1)</p><br />
+</div>
+<div><pre>##
+#  This program prints the average of salary values that are 
+#  terminated with a sentinel.
+#
+
+# Initialize variables to maintain the running total and count.
+total = 0.0
+count = 0
+
+# Initialize salary to any non-sentinel value.
+salary = 0.0
+
+# Process data until the sentinel is entered.
+
+while salary >= 0.0 :
+   salary = float(input("Enter a salary or -1 to finish: "))
+   if salary >= 0.0 :
+      total = total + salary
+      count = count + 1
+   
+# Compute and print the average salary.
+if count > 0 :
+   average = total / count
+   print("Average salary is", average)
+else :
+   print("No data was entered.")
+</pre></div>
+<div style="position:absolute;top:28%;left:25%;color:green;">1. Outside the while loop: declare and initialize variables to use
+</div>
+<div style="position:absolute;top:44%;left:30%;color:green;">2. Since salary is initialized to 0, the loop statements will execute at least once
+</div>
+<div style="position:absolute;top:51.5%;left:30%;color:green;">3. Input new salary and compare to sentinel
+</div>
+<div style="position:absolute;top:54.5%;left:40%;color:green;">4. Update running total and count (to calculate the average later)
+</div>
+<div style="position:absolute;top:64.5%;left:30%;color:green;">5. Prevent division by 0
+</div>
+<div style="position:absolute;top:69.5%;left:50%;color:green;">6. Calculate and output the average salary using the total and count variables
+</div>
+<div><p>Program Run</p>
+<ul><li><pre>Enter salaries, -1 to finish: 10, 10, 40, -1
+Average salary: 20
+</pre></li></ul></div>
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Sentinel Example</p><br />
+</div>
+<div><ul><li>Open the file:
+<ul><li>Sentinel.py
+</li></ul></li><li> Notice the use of the <code>if()</code> test inside the <code>while</code> loop
+<ul><li>The <code>if()</code> checks to make sure we are not processing the sentinel value
+</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Priming Read</p><br />
+</div>
+<div><ul><li>Some programmers don't like the "trick" of initializing the input variable with a value other than a sentinel
+</li></ul><ul></ul></div>
+<div><pre># Set salary to a value to ensure that the loop 
+# executes at least once
+salary = 0.0
+while salary &gt;= 0 :</pre></div>
+<div><ul><li class="">An alternative is to change the variable with a read before the loop
+</li></ul><ul></ul></div>
+<div><pre>salary = float(input("Enter a salary or -1 to finish: "))
+while salary &gt;= 0 :</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Modification Read</p><br />
+</div>
+<div><ul><li>The input operation at the bottom of the loop is used to obtain the next input.</li></ul><ul></ul></div>
+<div><pre># Priming read
+salary = float(input("Enter a salary or -1 to finish: "))
+while salary &gt;= 0.0 :
+   total = total + salary
+   count = count + 1
+   # Modification read
+   salary = float(input("Enter a salary or -1 to finish: 
+    "))</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Boolean Variables and Sentinels </p><br />
+</div>
+<div><ul><li>A boolean variable can be used to control a loop
+<ul><li>Sometimes called a 'flag' variable</li></ul></li></ul><ul></ul></div>
+<div><pre>done = False
+while not done :
+   value = float(input("Enter a salary or -1 to finish: "))
+   if value < 0.0:
+      done = True
+   else :
+      # Process value
+</pre></div>
+<div style="position:absolute;top:21.5%;left:30%;color:green;">Initialize done so that the loop will execute
+</div>
+<div style="position:absolute;top:30%;left:30%;color:green;">Set done ‘flag’ to True if sentinel value is found
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass2">Storyboards</span></p><br />
+</div>
+<div><img src='images/slide37-TextPlaceholder6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Storyboards</p><br />
+</div>
+<div><ul><li>One useful problem solving technique is the use of storyboards to model user interaction.  It can help answer:
+<ul><li>What information does the user provide, and in which order? 
+</li><li>What information will your program display, and in which format? 
+</li><li>What should happen when there is an error?
+</li><li>When does the program quit?
+</li></ul><p class="object" >
+</p>
+<ul><li><em><strong>A storyboard consists of annotated sketches for each step in an action sequence.</strong></em></li></ul><ul></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Storyboard Example</p><br />
+</div>
+<div><ul><li>Goal: Converting a sequence of values
+<ul><li>Will require a loop and some variables
+</li><li>Handle one conversion each time through the loop</li></ul></li></ul><ul></ul></div>
+<div><img src='images/slide39-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >What Can Go Wrong?</p><br />
+</div>
+<div><p class="object" >Unknown unit types
+</p>
+<ul><li>What is the user misspells centimeters and inches?
+</li><li>What other conversions are available?
+</li><li>Solution:
+<ul><li>Show a list of the acceptable unit types</li></ul></li></ul><ul></ul><ul></ul></div>
+<div><img src='images/slide40-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >What Else Can Go Wrong?</p><br />
+</div>
+<div><ul><li>How does the user quit the program?
+</li></ul></div>
+<div><img src='images/slide41-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass2">Common Loop Algorithms</span></p><br />
+</div>
+<div><img src='images/slide42-TextPlaceholder6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Common Loop Algorithms</p><br />
+</div>
+<div><ul><li class="decimal">Sum and Average Value
+</li><li class="decimal">Counting Matches
+</li><li class="decimal">Prompting Until a Match Is Found
+</li><li class="decimal">Maximum and Minimum
+</li><li class="decimal">Comparing Adjacent Values
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Average Example</p><br />
+</div>
+<div style="float:left;width:45%;"><p class="" >Average of Values
+</p>
+<ul><li class="">First total the values
+</li><li class="">Initialize <code>count</code> to 0
+<ul><li class="">Increment per input
+</li></ul></li><li class="">Check for </span><code>count</code> 0
+<ul><li class="">Before dividing!
+</li></ul></li></ul><ul></ul></div>
+<div style="float:left;width:50%;"><pre>total = 0.0
+count = 0
+inputStr = input("Enter value: ")
+while inputStr != "" :
+   value = float(inputStr)
+   total = total + value
+   count = count + 1
+   inputStr = input("Enter value: ")
+
+if count &gt; 0 : 
+   average = total / count
+else :
+   average = 0.0</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Sum Example</p><br />
+</div>
+<div><ul><li>Sum of Values
+<ul><li>Initialize <code>total</code> to 0
+</li><li>Use <code>while</code> loop with sentinel
+</li></ul></li></ul></div>
+<div><pre>total = 0.0
+inputStr = input("Enter value: ")
+while inputStr != "" :
+   value = float(inputStr)
+   total = total + value
+   inputStr = input("Enter value: ")
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Counting Matches (e.g., Negative Numbers)</p><br />
+</div>
+<div><ul><li class="">Counting Matches
+<ul><li class="">Initialize <code>negatives</code> to 0
+</li><li class="">Use a <code>while</code> loop
+</li><li class="">Add to <code>negatives</code> per match
+</li></ul></div>
+<div><pre>negatives = 0
+inputStr = input("Enter value: ")
+while inputStr != "" :
+   value = int(inputStr)
+   if value &lt; 0 :
+      negatives = negatives + 1
+   inputStr = input("Enter value: ")
+
+print("There were", negatives, "negative values.")
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Prompt Until a Match is Found</p><br />
+</div>
+<div><ul><li>Initialize boolean flag to <code>False</code>
+</li><li>Test sentinel in <code>while</code> loop
+<ul><li>Get input, and compare to range
+<ul><li>If input is in range, change flag to <code>True</code>
+</li><li>Loop will stop executing
+</li></ul></div>
+<div><pre>valid = False
+while not valid :
+   value = int(input("Please enter a positive value &lt; 100: "))
+   if value &gt; 0 and value &lt; 100 :
+      valid = True
+   else :
+      print("Invalid input.")
+</pre></div>
+<div><p class="" ><em><strong>This is an excellent way to validate use provided inputs</strong></em></p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Maximum</p><br />
+</div>
+<div><ul><li>Get first input value
+<ul><li>By definition, this is the largest that you have seen so far 
+</li></ul></li><li>Loop while you have a valid number (non-sentinel)
+<ul><li>Get another input value
+</li><li>Compare new input to largest (or smallest)
+</li><li>Update largest if necessary
+</li></ul></li></ul></div>
+<div><pre>largest = int(input("Enter a value: "))
+inputStr = input("Enter a value: ")
+while inputStr != "" :
+   value = int(inputStr)
+   if value &gt; largest :
+      largest = value
+   inputStr = input("Enter a value: ")
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Minimum</p><br />
+</div>
+<div><ul><li>Get first input value
+<ul><li>This is the smallest that you have seen so far! 
+</li></ul></li><li>Loop while you have a valid number (non-sentinel)
+<ul><li>Get another input value
+</li><li>Compare new input to largest (or smallest)
+</li><li>Update smallest if necessary
+</li></ul></li></ul></div>
+<div><pre>smallest = int(input("Enter a value: "))
+inputStr = input("Enter a value: ")
+while inputStr != "" :
+   value = int(inputStr)
+   if value &lt; smallest :
+      smallest = value
+   inputStr = input("Enter a value: ")
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Comparing Adjacent Values</p><br />
+</div>
+<div><ul><li>Get first input value 
+</li><li>Use <code>while</code> to determine if there are more to check
+<ul><li>Copy input to previous variable
+</li><li>Get next value into input variable
+</li><li>Compare input to previous, and output if same
+</li></ul></li></ul></div>
+<div><pre>value = int(input("Enter a value: "))
+inputStr = input("Enter a value: ")
+while inputStr != "" :
+   previous = value
+   value = int(inputStr)
+   if value == previous :
+      print("Duplicate input")
+   inputStr = input("Enter a value: ")
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Grades Example</p><br />
+</div>
+<div><ul><li>Open the file:
+<ul><li>Grades.py
+</li></ul></li><li>Look carefully at the source code
+</li><li>The maximum possible score is read as user input
+<ul><li>There is a loop to validate the input
+</li></ul></li><li>The passing grade is computed as 60% of the available points
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass2">The <code>for</code> Loop</span></p><br />
+</div>
+<div><img src='images/slide52-TextPlaceholder6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The <code>for</code> Loop</p><br />
+</div>
+<div><ul><li>Uses of a <code>for</code> loop:
+<ul><li>The <code>for</code> loop can be used to iterate over the contents of any <strong>container</strong>.
+</li><li>A <strong>container</strong> is is an object (like a <strong>string</strong>) that contains or stores a collection of elements 
+</li><li>A <strong>string</strong> is a container that stores the collection of characters in the string
+</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >An Example of a <code>for</code> Loop</p><br />
+</div>
+<div><ul><li class="">Note an important difference between the while loop and the for loop
+</li><li class="">In the <code>while</code> loop, the <em>index variable</em> <code>i</code> is assigned 0, 1, and so on
+</li><li class="">In the <code>for</code> loop, the <em>element variable</em> is assigned <code>stateName[0]</code>, <code>stateName[1]</code>, and so on</li></ul></div>
+<div><p><code>while</code> version</p>
+<pre>stateName = "Virginia"
+i = 0
+while i < len(stateName) :
+   letter = stateName[i]
+   print(letter)
+   i = i + 1
+</pre></div>
+<div><p><code>for</code> version</p>
+<pre>stateName = "Virginia"
+for letter in stateName :
+   print(letter)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The <code>for</code> Loop (2)</p><br />
+</div>
+<div><ul><li>Uses of a for loop:
+<ul><li>A for loop can also be used as a count-controlled loop that iterates over a range of integer values
+</li></ul></li></ul></div>
+<div><p><code>while</code> version</p>
+<pre>i = 1
+while i &lt; 10 :
+   print(i)
+   i = i + 1
+ </pre></div>
+<div><p><code>for</code> version</p>
+<pre>for i in range(1, 10) : 
+   print(i)
+</pre></div>
+
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Syntax of a <code>for</code> Statement (Container)</p><br />
+</div>
+<div><ul><li>Using a <code>for</code> loop to iterate over the contents of a container, an element at a time
+</li></ul></div>
+<div><img src='images/slide56-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Syntax of a <code>for</code> Statement (Range)</p><br />
+</div>
+<div><ul><li>You can use a <code>for</code> loop as a count-controlled loop to iterate over a range of integer values
+</li><li>Use the range function for generating a sequence of integers that is less than the argument that can be used with the <code>for</code> loop </li></ul></div>
+<div><img src='images/slide57-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Planning a <code>for</code> Loop</p><br />
+</div>
+<div style="float:right;"><img src='images/slide58-Picture3.png' /></div>
+<div><ul><li>Print the balance at the end of each year for a number of years
+</li></ul></div>
+<div><p><code>for year in range(1, numYears + 1)
+</code></br><span class="pseudo">Update balance</br>
+Print year and balance</span></p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Good Examples of <code>for</code> Loops</p><br />
+</div>
+<div><ul><li>Keep the loops simple!</li></ul><ul></ul></div>
+<div><img src='images/slide59-Picture1.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Investment Example</p><br />
+</div>
+<div><pre>##
+#  This program prints a table showing the growth of an investment.
+#
+
+# Define constant variables.
+RATE = 5.0
+INITIAL_BALANCE = 10000.0
+
+# Obtain the number of years for the computation.
+numYears = int(input("Enter number of years: "))
+   
+# Print the table of balances for each year.
+balance = INITIAL_BALANCE
+for year in range(1, numYears + 1) :
+   interest = balance * RATE / 100
+   balance = balance + interest
+   print("%4d %10.2f" % (year, balance))
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Programming Tip</p><br />
+</div>
+<div><ul><li>Finding the correct lower and upper bounds for a loop can be confusing
+<ul><li>Should you start at 0 or at 1? 
+</li><li>Should you use &lt;= b or &lt; b as a termination condition?
+</li></ul></li><li>Counting is easier for loops with asymmetric bounds
+<ul><li>The following loops are executed b - a times
+</li></ul></div>
+<div style="float:left;width:33%;"><pre>int i = a
+while i &lt; b :
+   . . .
+   i = i + 1
+</pre></div><div style="float:left;width:15%;"><p> </p></div>
+<div style="float:left;width:33%;"><pre>for i in range(a, b) :
+   . . .
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Programming Tip</p><br />
+</div>
+<div><ul><li>The loop with symmetric bounds ("&lt;="), is executed b - a + 1 times 
+<ul><li>That "+1" is the source of many programming errors
+</li></ul></li></ul></div>
+<div style="float:left;width:25%;"><pre>i = a
+while i &lt;= b :
+   . . .
+   i = i + 1
+</pre></div><div style="float:left;width:5%;"><p> </p></div>
+<div style="float:left;width:50%;"><pre># For  this version of the loop 
+#the '+1' is very noticeable!
+
+for year in range(1, numYears + 1) :
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary of the <code>for</code> Loop</p><br />
+</div>
+<div><ul><li><code>for</code> loops are very powerful
+</li><li>The <code>for</code> loop can be used to iterate over the contents of any container, which is an object that contains or stores a collection of elements 
+<ul><li>A string is a container that stores the collection of characters in the string
+</li></ul></li><li>A <code>for</code> loop can also be used as a count-controlled loop that iterates over a range of integer values
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Steps to Writing a Loop</p><br />
+</div>
+<div><ul><li>Planning:
+<ul><li>Decide what work to do inside the loop
+</li><li>Specify the loop condition
+</li><li>Determine loop type
+</li><li>Set up variables before the first loop
+</li><li>Process results when the loop is finished
+</li><li>Trace the loop with typical examples
+</li></ul></li><li>Coding:
+<ul><li>Implement the loop in Python
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >A Special Form of the <code>print</code> Function</p><br />
+</div>
+<div><ul><li>Python provides a special form of the <code>print</code> function that does not start a new line after the arguments are displayed
+</li><li>This is used when we want to print items on the same line using multiple <code>print</code> statements
+</li><li>For example the two statements:
+</li></ul><p><code>print(“00”, end=””)
+</code></br>
+<code>print(3 + 4)
+</code></p>
+<ul><li>Produce the output:
+</li></ul><p><code>007</code>
+</p><ul><li>Including <code>end=""</code> as the last argument to the <code>print</code> function prints an empty string after the arguments, instead on a new line
+</li><li>The output of the next <code>print</code> function starts on the same line
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass2">Nested Loops</span></p><br />
+</div>
+<div><img src='images/slide66-TextPlaceholder6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Loops Inside of Loops</p><br />
+</div>
+<div><ul><li>In Chapter Three we learned how to nest <code>if</code> statements to allow us to make complex decisions
+<ul><li>Remember that to nest the <code>if</code> statements we need to indent the code block 
+</li></ul></li><li>Complex problems sometimes require a nested loop, one loop nested inside another loop
+<ul><li>The nested loop will be indented inside the code block of the first loop
+</li></ul></li><li>A good example of using nested loops is when you are processing cells in a table
+<ul><li>The outer loop iterates over all of the rows in the table
+</li><li>The inner loop processes the columns in the current row
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Our Example Problem Statement</p><br />
+</div>
+<div><ul><li>Print a table header that contains x1, x2, x3, and x4 
+</li><li>Print a table with four columns and ten rows that contain the powers of x1, x2, x3, and x4 for x = 1 to 10 
+</li></ul><ul></ul></div>
+<div><img src='images/slide68-Picture7.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Applying Nested Loops</p><br />
+</div>
+<div style="float:right;"><img src='images/slide69-Picture7.png' /></div>
+<div><ul><li>How would you print a table with rows and columns?
+<ul><li>Print top line (header)
+<ul><li>Use a for loop
+</li></ul></li><li>Print table body…
+<ul><li>How many rows are in the table?
+</li><li>How many columns in the table?
+</li></ul></li><li>Loop per row
+<ul><li>Loop per column
+</li></ul></li><li>In our example there are:
+<ul><li>Four columns in the table
+</li><li>Ten rows in the table</li></ul></li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Pseudocode to Print the Table</p><br />
+</div>
+<div><p class="object" >Print the table header
+</p>
+<pre class="pseudo">for x from 1 to 10
+print a new table row
+print a new line
+</pre><p class="object" >
+</p>
+<ul></ul><ul><li>How do we print a table row?
+</li></ul><pre class="pseudo">For n from 1 to 4
+print x<sup>n</sup>
+</pre><ul><li>We have to place this loop inside the preceding loop
+<ul><li>The inner loop is <em>"nested"</em> inside the outer loop
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Pseudocode to Print the Table</p><br />
+</div>
+<div style="float:right;"><p class="" >n&rarr;</p>
+<img src='images/slide71-Picture7.png' /></div>
+<div style="float:right;width:4%;"><p class="" ></br>x</br>&darr;
+</p></div>
+<div style="width:40%;"><p class="object" >Print the table header:</p>
+<pre class="pseudo">for x from 1 to 10
+for n from 1 to 4
+print x<sup>n</sup>
+print a new line
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Flowchart of a Nested Loop</p><br />
+</div>
+<div><img src='images/slide72.png' /></div>
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Powertable.py</p><br />
+</div>
+<div><pre>##
+#  This program prints a table of powers of x.
+#
+  
+# Initialize constant variables for the max ranges.
+NMAX = 4
+XMAX = 10
+
+# Print table header.      
+for n in range(1, NMAX + 1) :
+   print("%10d" % n, end="")
+
+print()
+for n in range(1, NMAX + 1) :
+   print("%10s" % "x ", end="")
+
+print("\n", "    ", "-" * 35)
+
+# Print table body.
+for x in range(1, XMAX + 1) :   
+   # Print the x row in the table.
+   for n in range(1, NMAX + 1) :   
+      print("%10.0f" % x ** n, end="")
+    
+   print()
+</pre></div>
+<div><p class="" >The <code>end="" </code>suppresses the new line, so the numbers are all printed on the same line
+</p><br /></div>
+<div style="position:absolute;top:59%;left:35%;color:green;">Body of outer loop, x = 1 &rarr; 10
+</div>
+<div style="position:absolute;top:64%;left:40%;color:green;">Body of inner loop, n = 1 &rarr; 4
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The Results</p><br />
+</div>
+<div><img src='images/slide74-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >First Exercise</p><br />
+</div>
+<div><ul><li>Open the program:
+<ul><li>powertable.py
+</li></ul></li><li>Run the program and review the results
+</li><li>Make the following changes:
+<ul><li>Change the value of NMAX to 6 and run the program
+</li><li>What changes in the table?
+</li><li>Change the value of NMAX back to 4
+</li><li>Change the value of XMAX to 4
+</li><li>What changes in the table?
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Nested Loop Examples</p><br />
+</div>
+<div><img src='images/slide76-Picture1.png' /></div>
+<div><img src='images/slide76-ContentPlaceholder4.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Hand Tracing the Loop</p><br />
+</div>
+<div style="width:40%;"><p><pre>for i in range(4) :
+    for j in range(i + 1) :
+	    print ("*", end="")
+	print()
+</pre></p></div>
+<div style="float:right;width:50%;"><img src='images/slide77-Picture6.png' /></div>
+<div><ul><li><code>i</code> will have the values:
+<ul><li>0, 1, 2, 3 – So we will have four lines of stars
+</li></ul></li><li><code>j</code> will have the values
+<ul><li>0 - So we will have one star
+</li><li>0, 1 - So we will have two stars
+</li><li>0, 1, 2 - So we will have three stars
+</li><li>0, 1, 2, 3 - So we will have four stars
+</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Nested Loop Examples (2)</p><br />
+</div>
+<div><img src='images/slide78-Picture1.png' /></div>
+<div><img src='images/slide78-Picture6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Second Problem Statement</p><br />
+</div>
+<div><ul><li>Print the following pattern of brackets:
+<p class="object" >[][][][]
+</p>
+<p class="object" >[][][][]
+</p>
+<p class="object" >[][][][]
+</p>
+<ul></ul></li><li>The pattern consists of:
+<ul><li>Three rows
+</li><li>Each row has four pairs of brackets
+</li></ul></li><li>What do we know?
+<ul><li>We need two nested loops
+<ul><li>The first loop (the outer loop) will print each of the three rows
+</li><li>The second loop (the inner loop) will print the four pairs of brackets</li></ul></li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Pseudocode Code, Code, Results</p><br />
+</div>
+<div><pre class="pseudo">For i = 1 to 3
+  For j = 1 to 4
+    Print “[]”
+  Print a new line
+</pre></div>
+<div><pre>for i in range(3) :
+    for j in range(4) :
+	    print("[]", end="")
+	print()
+</pre></div>
+<div><img src='images/slide80-Picture7.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Exam Averages Problem Statement</p><br />
+</div>
+<div><ul><li>It is common to repeatedly read and process multiple groups of values:
+<ul><li>Write a program that can compute the average exam grade for multiple students
+</li><li>Each student has the same number of exam grades
+</li><li>Prompt the user for the number of exams
+</li><li>When you finish a student prompt the user to see if there are more students to process
+</li></ul></li><li>What do we know?
+</li><li>What do we need to compute?
+</li><li>What is our algorithm / approach?
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Step One: Understand the Problem</p><br />
+</div>
+<div><ul><li>To compute the average grade for a student, we must read and tally all of the grades for that student
+<ul><li>We can use a loop to do this <em><strong>(We have working code to do this portion)
+</strong></em></li></ul></li><li>We need to compute grades for multiple students
+<ul><li>That implies a set of nested loops
+<ul><li>The outer loop processes each student
+</li><li>The inner loop process the student's grades
+</li></ul></li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Step Two</p><br />
+</div>
+<div><ul><li>Compute the grade for one student
+</li><li>Set up the variables and loop 
+</li><li>We know how many grades to process, so we can use a count-controlled loop:
+</li></ul><pre class="pseudo">total score = 0
+For i in range (1, number of exams + 1) :
+Read the next exam score
+Add the exam score to the total score
+Compute the exam average
+Print the exam average
+</pre><ul></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Step Three</p><br />
+</div>
+<div><ul><li>Repeat the process for each student
+</li><li>Since we don't know how many students  there are, we will use a <code>while</code> loop with a sentinel value
+<ul><li>For simplicity we will use "Y" as the sentinel value
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Step Four: Translate to Python</p><br />
+</div>
+<div><pre>##
+#  This program computes the average exam grade for multiple students.
+#
+
+# Obtain the number of exam grades per student.
+numExams = int(input("How many exam grades does each student have? "))
+
+# Initialize moreGrades to a non-sentinel value.
+moreGrades = "Y"
+
+# Compute average exam grades until the user wants to stop.
+while moreGrades == "Y" :
+   
+   # Compute the average grade for one student.
+   print("Enter the exam grades.")
+   total = 0
+   for i in range(1, numExams + 1) :
+      score = int(input("Exam %d: " % i))   # Prompt for each exam grade.
+      total = total + score
+      
+   average = total / numExams
+   print("The average is %.2f" % average)
+   
+   # Prompt as to whether the user wants to enter grades for another student.
+   moreGrades = input("Enter exam grades for another student (Y/N)? ")
+   moreGrades = moreGrades.upper()
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Exam Averages Example</p><br />
+</div>
+<div><ul><li>Open the file:
+<ul><li>examaverages.py
+</li></ul></li><li>Notice that the second loop  (the <code>for</code> loop) is nested inside the <code>while</code> loop
+</li><li>In Wing you should see a line (the indent guide) connecting the <code>for</code> loop on line 17 down to the statement on line 21
+<ul><li>The line is showing you the statements that are included in the <code>for</code> loop
+</li></ul></li><li>If you don't see the indent guide:
+<ul><li>Click on the "Edit" tab
+</li><li>Select "Preferences…"
+</li><li>Under "Editor", select "Indention"
+</li><li>Click the "Show Indent Guides" box
+</li><li>Click the "Apply" button
+</li><li>Click the "Okay" button
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Turning the Indent Guides On</p><br />
+</div>
+<div><img src='images/slide87-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Processing Strings</p><br />
+</div>
+<div><ul><li>A common use of loops is to process or evaluate strings
+</li><li>For example, you may need to count the number of occurrences of one or more characters in a string or verify that the contents of a string meet certain criteria
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass2">Processing Strings</span></p><br />
+</div>
+<div><img src='images/slide89-TextPlaceholder6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >String Processing Examples</p><br />
+</div>
+<div><ul><li>Counting Matches
+</li><li>Finding All Matches
+</li><li>Finding the First or Last Match
+</li><li>Validating a String
+</li><li>Building a New String
+</li></ul><p class="object" >
+</p>
+<ul></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Counting Matches</p><br />
+</div>
+<div><ul><li>Suppose you need to count the number of uppercase letters contained in a string
+</li><li>We can use a <code>for</code> loop to check each character in the string to see if it is upper case
+</li><li>The loop below sets the variable <code>char</code> equal to each successive character in the string
+</li><li>Each pass through the loop tests the next character in the string to see if it is uppercase
+</li></ul></div>
+<div><pre>uppercase = 0
+for char in string :
+   if char.isupper() :
+      uppercase = uppercase + 1
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Counting Vowels</p><br />
+</div>
+<div><ul><li>Suppose you need to count the vowels within a string
+</li><li>We can use a for loop to check each character in the string to see if it is in the string of vowels "aeiuo"
+</li><li>The loop below sets the variable <code>char</code> equal to each successive character in the string
+</li><li>Each pass through the loop tests the lower case of the next character in the string to see if it is in the string "aeiou"
+</li></ul><ul></ul></div>
+<div><pre>vowels = 0
+for char in word :
+   if char.lower() in "aeiou" :
+      vowels = vowels + 1</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Finding All Matches Example</p><br />
+</div>
+<div><ul><li>When you need to examine every character in a string, independent of its position we can use a <code>for</code> statement to examine each character
+</li><li>If we need to print the position of each uppercase letter in a sentence we can test each character in the string and print the position of all uppercase characters
+</li><li>We set the range to be the length of the string
+<ul><li>We test each character
+</li><li>If it is uppercase we print I, its position in the string
+</li></ul></li></ul></div>
+<div><pre>sentence = input("Enter a sentence: ")
+for i in range(len(sentence)) :
+   if sentence[i].isupper() :
+      print(i)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Finding the First Match</p><br />
+</div>
+<div><ul><li>This example finds the position of the first digit in a string
+</li></ul></div>
+<div><pre>found = False
+position = 0
+while not found and position &lt; len(string) :
+   if string[position].isdigit() :
+      found = True
+   else :
+      position = position + 1
+
+if found :
+   print("First digit occurs at position", position)
+else :
+   print("The string does not contain a digit.")
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Finding the Last Match</p><br />
+</div>
+<div><ul><li>Here is a loop that finds the position of the last digit in the string
+</li><li>This approach uses a <code>while</code> loop to start at the last character in a string and test each value moving from the end of the string to the start of the string
+<ul><li>Position is set to the length of the string - 1
+</li><li>If the character is not a digit, we decrease position by 1 
+</li><li>Until we find a digit, or process all the characters
+</li></ul></li></ul></div>
+<div><pre>found = False
+position = len(string) - 1
+while not found and position &gt;= 0 :
+   if string[position].isdigit() :
+      found = True
+   else :
+      position = position - 1
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Validating a String</p><br />
+</div>
+<div><ul><li>In the United States, telephone numbers consist of three parts––area code exchange, and line number––which are commonly specified in the form (###)###-####
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Validating a String (Code)</p><br />
+</div>
+<div><ul><li>We can examine a string to ensure that it contains a correctly formatted phone number (e.g., (703)321-6753)
+</li><li>The loop tests each character to see it it is correct for its position, or a number
+</li></ul></div>
+<div><pre>valid = len(string) == 13
+position = 0
+while valid and position &lt; len(string) :
+   valid = ((position == 0 and string[position] != "(")
+       or (position == 4 and string[position] != ")")
+       or (position == 8 and string[position] != "-")
+       or (position != 0 and position != 4 and position != 8 
+          and string[position].isdigit())) :
+   position = position + 1
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Building a New String</p><br />
+</div>
+<div><ul><li>One of the minor annoyances of online shopping is that many web sites require you to enter a credit card without spaces or dashes, which makes double-checking the number rather tedious
+</li><li>How hard can it be to remove dashes or spaces from a string?
+</li></ul></div>
+<div><img src='images/slide98-Picture5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Building a New String (Code)</p><br />
+</div>
+<div><ul><li>The contents of a string cannot be changed
+</li><li>But nothing prevents us from building a new string
+</li><li>Here is a loop that builds a new string containing a credit card number with spaces and dashes removed:
+<ul><li>We read the credit card number
+</li><li>We initialize a new string to the empty string
+</li><li>We test each character in the user input
+<ul><li>If the character is not a space or dash we append it to the new string
+</li></ul></li></ul></li></ul></div>
+<div><pre>userInput = input("Enter a credit card number: ")
+creditCardNumber = ""
+for char in userInput :
+   if char != " " and char != "-" :
+      creditCardNumber = creditCardNumber + char
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass2">Application:  Random Numbers and Simulations</span></p><br />
+</div>
+<div><img src='images/slide100-TextPlaceholder6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Random Numbers/Simulations</p><br />
+</div>
+<div><ul><li>Games often use random numbers to make things interesting
+<ul><li>Rolling Dice
+</li><li>Spinning a wheel
+</li><li>Picking a card
+</li></ul></li><li>A simulation usually involves looping through a sequence of events
+<ul><li>Days
+</li><li>Events
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Generating Random Numbers</p><br />
+</div>
+<div><ul><li>The Python library has a <em>random number generator</em> that produces numbers that appear to be random
+<ul><li>The numbers are not completely random; the numbers are drawn from a sequence of numbers that does not repeat for a long time
+</li><li><code>random()</code> returns a number that is &gt;= 0 and &lt; 1
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Simulating Die Tosses</p><br />
+</div>
+<div><ul><li>Goal:
+<ul><li>To generate a random integer in a given range we use the <code>randint()</code> function
+</li><li><code>randint</code> has two parameters, the range (inclusive) of numbers generated
+</li></ul></li></ul></div>
+<div style="float:right;width:33%;"><img src='images/slide103-Picture2.png' /></div>
+<div style="width:60%;"><pre>##
+#  This program simulates tosses of a pair of dice.
+#
+
+from random import randint
+
+for i in range(10) :
+   # Generate two random numbers between 1 and 6, inclusive.   
+   d1 = randint(1, 6)
+   d2 = randint(1, 6)
+  
+   # Print the two values.   
+   print(d1, d2)
+</pre></div>
+
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The Monte Carlo Method</p><br />
+</div>
+<div><ul><li>Used to find approximate solutions to problems that cannot be precisely solved
+</li><li>Example:  Approximate pi using the relative areas of a circle inside a square
+<ul><li>Uses simple arithmetic
+</li><li>Hits are inside circle
+</li><li>Tries are total number of tries
+</li><li>Ratio is 4 x Hits / Tries
+</li></ul></li></ul></div>
+<div><img src='images/slide104-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Monte Carlo Example</p><br />
+</div>
+<div><pre>##
+#  This program computes an estimate of pi by simulating dart throws onto a square.
+#
+
+from random import random
+
+TRIES = 10000
+
+hits = 0
+for i in range(TRIES) :
+
+   # Generate two random numbers between -1 and 1   
+   r = random()
+   x = -1 + 2 * r 
+   r = random()
+   y = -1 + 2 * r         
+
+   # Check whether the point lies in the unit circle   
+   if x * x + y * y <= 1 :
+      hits = hits + 1
+    
+# The ratio hits / tries is approximately the same as the ratio 
+# circle area / square area = pi / 4.
+
+piEstimate = 4.0 * hits / TRIES
+print("Estimate for pi:", piEstimate)
+</pre></div>
+<div class="incremental"><p>Program Run
+</br><code>Estimate for pi: 3.1464
+</code></p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass2">Graphics:  Digital Image Processing</span></p><br />
+</div>
+<div><img src='images/slide106-TextPlaceholder6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Manipulating Images</p><br />
+</div>
+<div><ul><li>Digital image processing  is the use of algorithms to manipulate digital images
+</li><li>It is used in:
+<ul><li>Digital photography
+</li><li>Data compression
+</li><li>Computer graphics
+</li><li>Computer vision
+</li><li>Robotics
+</li></ul></li><li>We'll learn how to manipulate images with the <code>ezgraphics</code> package
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Representing Images</p><br />
+</div>
+<div><ul><li>A digital image is composed of pixels arranged in a grid of rows and columns
+<ul><li>Computer images appear "smooth" because very small points on the screen (very close together) are used to reproduce the individual pixels
+</li></ul></li><li>Pixels store data representing a color from the visual spectrum
+<ul><li>The discrete RGB color model is the most used model
+</li><li>The three individual colors are specified by the amount of red, green, and blue light needed to produce a given color
+</li><li>The values are given as integers between 0 (no light present) and 255 (maximum light present)
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Filtering an Image</p><br />
+</div>
+<div><ul><li>Filtering an image modifies the color component values of each pixel in some way
+</li></ul></div>
+<div><img src='images/slide109-Picture5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Processing an Image</p><br />
+</div>
+<div><ul><li>We start by loading the image into our program
+<ul><li>In <code>ezgraphics</code> an image is stored in an instance of the <code>GraphicsImage</code> class
+</li></ul></li></ul><pre>filename = "queen-mary.gif"
+image = GraphicsImage(filename)
+</pre><ul><li>We draw the image on the canvas of a <code>GraphicsWindow
+</code></li></ul><pre>win = GraphicsWindow()
+canvas = win.canvas()
+canvas.drawImage(image)
+win.wait()
+</pre><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Filtering an Image</p><br />
+</div>
+<div><ul><li>To filter an image, you must get the red, green, and blue component values for each pixel
+<ul><li>The pixels are organized into a two-dimensional grid of size <em>width</em> × <em>height</em>:
+</li><li>The rows and columns are numbered sequentially starting at 0, with pixel (0, 0) in the upper-left corner
+</li><li>The row numbers range from 0 to <em>height</em> – 1; the column numbers from 0 to <em>width</em> – 1
+</li></ul></li></ul></div>
+<div><img src='images/slide111-Picture5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Accessing the Component Values of a Pixel</p><br />
+</div>
+<div><ul><li>We use the <code>getRed</code>, <code>getGreen</code> and <code>getBlue</code> methods
+</li></ul><pre>red = image.getRed(0, 4)
+green = image.getGreen(0, 4)
+blue = image.getBlue(0, 4)
+</pre><ul><li>To create the negative of an image
+</li></ul><pre>newRed = 255 - red
+newGreen = 255 - green
+newBlue = 255 – blue
+</pre><ul><li>And then update the pixel
+</li></ul><p class="object" ><code>image.setPixel(0, 4, newRed, newGreen, newBlue)
+</code></p><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The Pseudocode </p><br />
+</div>
+<div><pre class="pseudo">width = image.width()
+height = image.height()
+for row in range(height) :
+  for col in range(width) :
+  Get the current pixel color
+  Filter the pixel
+  Set the pixel to the new color
+image.save("negative" + filename)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" ><code>GraphicsImage</code> Methods</p><br />
+</div>
+<div><img src='images/slide114-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass2">Problem Solving: Solve a Simpler Problem First</span></p><br />
+</div>
+<div><img src='images/slide115-TextPlaceholder2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Simplify a Complex Problem</p><br />
+</div>
+<div><ul><li>As we learn more about programming, the complexity of the tasks we are solving increases
+</li><li>When we are faced with a complex task we should apply a critical skill:
+<ul><li>Simplifying the problem and solving the simpler problem first
+</li></ul></li><li>Our simplification (AKA problem decomposition) skills improve with practice
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >A Sample Problem</p><br />
+</div>
+<div><ul><li>Our assignment is to arrange pictures, lining them up along the top edges, separating them with small gaps, and starting a new row whenever you run out of room in the current row
+<ul><li>This sounds simple, right?
+</li></ul></li></ul></div>
+<div><img src='images/slide117-Picture5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >A Simple Plan</p><br />
+</div>
+<div><ul><li>Let's develop a plan that solves a set of simpler (increasing in complexity) problems
+</li></ul></div>
+<div><img src='images/slide118-Picture5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Increase the Complexity</p><br />
+</div>
+<div><img src='images/slide119-ContentPlaceholder5.png' /></div>
+<div><img src='images/slide119-Picture6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Implementing Our Plan</p><br />
+</div>
+<div><ul><li class="decimal">Specify the canvas coordinates where the upper left corner of the first image should be placed
+</li><li class="decimal">Then place the next picture after the first after the first
+<ul><li>It needs to be drawn so that its left-most edge is positioned at the right-most <em>x</em>-coordinate of the preceding picture
+</li><li>This can be determined by obtaining the width of the first picture and using that value as the <em>x</em>-coordinate for the second picture
+</li></ul></li><li class="decimal">Separate the two pictures with a gap
+</li><li class="decimal">To draw the third picture, it's not sufficient to know the width of the preceding picture
+<ul><li>We also need to know the <em>x</em>-coordinate where it was drawn so we can add that value to the width of the preceding image, plus the gap between the images
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Implementing Our Plan</p><br />
+</div>
+<div><ul><li class="decimal">Now let's put all of the pictures in a row 
+<ul><li>Load the pictures in a loop, and then put each picture to the right of the one that preceded it
+</li><li>In each iteration, you need to track two pictures: the one that is being loaded, and the one that preceded it
+</li></ul></li><li class="decimal">We don't want to have all pictures in a single row 
+<ul><li>The right margin of a picture should not extend past <code>MAX_WIDTH</code>
+</li><li>If the image doesn't fit we need to put it on the next row, below all the pictures in the current row 
+</li><li>We'll set a variable <code>maxY</code> to the maximum <em>y</em>-coordinate of all placed pictures, updating it whenever a new picture is placed</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass2">Summary</span></p><br />
+</div>
+<div><img src='images/slide122-TextPlaceholder2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Two Types of Loops</p><br />
+</div>
+<div><ul><li><code>while</code> Loops
+</li><li><code>for</code> Loops
+</li><li><code>while</code> loops are very commonly used (general purpose)
+</li><li>Uses of the <code>for</code> loop:
+<ul><li>The <code>for</code> loop can be used to iterate over the contents of any container
+</li><li>A <code>for</code> loop can also be used as a count-controlled loop that iterates over a range of integer values
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary</p><br />
+</div>
+<div><ul><li>Each loop requires the following steps:
+<ul><li>Initialization (setup variables to start looping)
+</li><li>Condition (test if we should execute loop body)
+</li><li>Update (change something each time through)
+</li></ul></li><li>A loop executes instructions repeatedly while a condition is <code>True</code>
+</li><li>An off-by-one error is a common error when programming loops 
+<ul><li>Think through simple test cases to avoid this type of error
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary</p><br />
+</div>
+<div><ul><li>A sentinel value denotes the end of a data set, but it is not part of the data
+</li><li>You can use a boolean variable to control a loop
+<ul><li>Set the variable to <code>True</code> before entering the loop 
+</li><li>Set it to <code>False</code> to leave the loop
+</li></ul></li><li>Loops can be used in conjunction with many string processing tasks
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary</p><br />
+</div>
+<div><ul><li>In a simulation, you use the computer to simulate an activity
+<ul><li>You can introduce randomness by calling the random number generator
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+
+    </div>
+    <script src="scripts/jquery-2.1.4.min.js" charset="utf-8" type="text/javascript"></script>
+    <script src="scripts/slidy.js" charset="utf-8" type="text/javascript"></script>
+    
+</body>
+</html>

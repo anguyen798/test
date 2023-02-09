@@ -1,0 +1,186 @@
+import pygame
+from random import randint
+
+def main():
+   game = SnakeGame()
+   game.run()
+
+class ImageSprite(pygame.sprite.Sprite) :
+   def __init__(self, x, y, filename) :
+      super().__init__()
+      self.loadImage(x, y, filename)
+  
+   def loadImage(self, x, y, filename) :
+      img = pygame.image.load(filename).convert()
+      MAGENTA = (255, 0, 255)
+      img.set_colorkey(MAGENTA)
+      self.image = img
+      self.rect = self.image.get_rect()
+      self.rect.x = x
+      self.rect.y = y - self.rect.height
+     
+   def moveBy(self, dx, dy) :
+      self.rect.x = self.rect.x + dx
+      self.rect.y = self.rect.y + dy
+
+class GameBase:
+   def __init__(self, width, height) :
+      pygame.init()
+      self._width = width
+      self._height = height
+  
+      self._display = pygame.display.set_mode((self._width, self._height))
+      self._clock = pygame.time.Clock()
+      self._framesPerSecond = 30
+      self._sprites = pygame.sprite.LayeredUpdates()
+      self._ticks = 0
+      pygame.key.set_repeat(1, 120)
+  
+   def mouseButtonDown(self, x, y) :
+      return
+  
+   def keyDown(self, key) :
+      return
+    
+   def update(self) :
+      self._sprites.update()
+    
+   def draw(self) :
+      self._sprites.draw(self._display)
+    
+   def add(self, sprite) :
+      self._sprites.add(sprite)
+        
+   def getTicks(self) :
+      return self._ticks
+        
+   def quit(self) :
+      pygame.quit()        
+    
+   def run(self) :
+      while True :
+         for event in pygame.event.get() :
+            if event.type == pygame.QUIT :
+               self.quit()
+            elif event.type == pygame.MOUSEBUTTONDOWN :                    
+               self.mouseButtonDown(event.pos[0], event.pos[1])
+            elif event.type == pygame.KEYDOWN :
+               self.keyDown(event.key)
+                    
+         self.update()
+         WHITE = (255, 255, 255)
+         self._display.fill(WHITE)
+         self.draw()
+         pygame.display.update()
+         self._clock.tick(self._framesPerSecond)
+         self._ticks = self._ticks + 1
+
+class Snake() :
+   def __init__(self) :
+      # Start with the snake near the middle of the screen headed up.
+      self._direction = "w"
+      self._head = ImageSprite(378, 306, "head.bmp")
+      self._head._layer = 0
+
+      # Add the first 4 body segments to the snake.
+      self._segments = [ImageSprite(378, 342, "body.bmp"), ImageSprite(378, 378, "body.bmp"), ImageSprite(378, 414, "body.bmp"), ImageSprite(378, 450, "body.bmp")]
+      self._alive = True
+
+   def keyDown(self, key) :
+      if key == pygame.K_w or key == pygame.K_UP :
+         self._direction = "w"
+      elif key == pygame.K_a  or key == pygame.K_LEFT :
+         self._direction = "a"
+      elif key == pygame.K_s  or key == pygame.K_DOWN :
+         self._direction = "s"
+      elif key == pygame.K_d  or key == pygame.K_RIGHT :
+         self._direction = "d"
+
+   # Returns True when the head has collided with the apple.  False otherwise.
+   def move(self, apple) :
+      if self._alive :
+         # Move the last body segment so that it's under the head and at 
+         # the front of the list of segments.
+         headx = self._head.rect.x
+         heady = self._head.rect.y
+         lastx = self._segments[-1].rect.x
+         lasty = self._segments[-1].rect.y
+         self._segments[-1].moveBy(headx-lastx, heady-lasty)
+         self._segments.insert(0, self._segments.pop())
+   
+         # Did we collide with the apple?
+         retval = False
+         if pygame.sprite.collide_rect(self._head, apple) == True :
+            new_seg = ImageSprite(lastx, lasty+36, "body.bmp")
+            self._segments.append(new_seg)
+            retval = True
+   
+         # Move the head.
+         if self._direction == "w" :
+            self._head.moveBy(0, -36)
+         elif self._direction == "s" :
+            self._head.moveBy(0, 36)
+         elif self._direction == "a" :
+            self._head.moveBy(-36, 0)
+         elif self._direction == "d" :
+            self._head.moveBy(36, 0)
+
+         # Check for a collision with the wall.
+         if self._head.rect.x < 0 or self._head.rect.x > 764 or \
+            self._head.rect.y < 0 or self._head.rect.y > 564:
+            self.die()
+
+         # Check for a collision with a body segment.
+         group = pygame.sprite.Group()
+         for seg in self._segments :
+            group.add(seg)
+         if pygame.sprite.spritecollideany(self._head, group) :
+            self.die()
+   
+         # Return whether or not the head collided with the apple.
+         return retval
+
+   def die(self) :
+      self._alive = False
+
+class SnakeGame(GameBase) :
+   def __init__(self) :
+      super().__init__(800, 600)        
+      self._snake = Snake()
+      self._sprites.add(self._snake._head)
+      for body_sprite in self._snake._segments :
+         self._sprites.add(body_sprite)
+
+      self._apple = ImageSprite(randint(0,800-36), randint(0,600-36), "apple.bmp")
+      self._sprites.add(self._apple)
+      self._apple._layer = 2 
+
+   def placeApple(self) :
+      # Place the apple at a random location that can reasoanbly be reached
+      # by the snake.
+      self._apple.rect.x = randint(18, 800-36-18)
+      self._apple.rect.y = randint(18, 600-36-18)
+
+   def keyDown(self, key) : 
+      self._snake.keyDown(key)
+
+   def update(self) :
+      super().update()
+
+      #headx = self._snake._head.rect.x
+      #heady = self._snake._head.rect.y
+
+      # Move the snake every 5 ticks.
+      if self.getTicks() % 5 == 0 :
+         need_to_add = self._snake.move(self._apple)
+         if need_to_add :
+            self._sprites.add(self._snake._segments[-1])
+            self.placeApple()
+
+      # Indicate that the game is over if the snake is not alive.
+      if self._snake._alive == False :
+         self._sprites.add(ImageSprite(200, 325, "game_over.bmp"))
+
+
+
+main()

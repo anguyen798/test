@@ -1,0 +1,861 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/><title></title>
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body><dl></dl><ol><li>What type of algorithm places elements in order?
+<ol class="multiple-choice"><li class="correct">sorting</li><li>searching</li><li>deletion</li><li>insertion</li></ol><dl><dt>Section</dt><dd>12.1 Selecton Sort</dd><dt>Title</dt><dd>What type of algorithm places elements in order?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.1 Selection Sort</dd><dt>id</dt><dd>testbank-py-1-ch12-01</dd></dl></li><li>Which element does selection sort place in the correct location during each iteration?
+
+<ol class="multiple-choice">
+  
+  <li>The smallest in the list</li>
+  <li class="correct">The smallest element that has not been placed in the correct location during a prior iteration</li>
+  <li>The largest element in the list</li>
+  <li>A random element</li>
+</ol><dl><dt>Section</dt><dd>12.1 Selecton Sort</dd><dt>Title</dt><dd>Which element does selection sort place in the correct location during each iteration?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch12-02</dd><dt>section</dt><dd>12.1 Selection Sort</dd><dt>id</dt><dd>testbank-py-2-ch12-02</dd></dl></li><li>What must hold true after 5 iterations of selection sort when it is working to sort a list of 10 elements?
+<ol class="multiple-choice">
+  <li>Exactly 5 more iterations are always necessary to complete the
+  sort</li>
+  <li class="correct">Exactly 4 more iterations are always necessary to complete the
+  sort</li>
+  <li>Up to 5 more iterations may be needed to complete the sort</li>
+  <li>Up to 4 more iterations may be needed to complete the sort</li></ol><dl><dt>Section</dt><dd>12.1 Selecton Sort</dd><dt>Title</dt><dd>What must hold true after 5 iterations of selection sort when it is working to sort a list of 10 elements?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch12-03</dd><dt>section</dt><dd>12.1 Selection Sort</dd><dt>id</dt><dd>testbank-py-2-ch12-03</dd></dl></li><li>Consider a list of 10 elements that is being sorted
+  into ascending order using the selection sort algorithm.  What is guaranteed
+  to be true after the algorithm's outter loop has finished executing for the
+  first time?
+
+ 
+<ol class="multiple-choice">
+  <li>The largest element will be in the correct place</li>
+  <li class="correct">One element will be in the correct place</li>
+  <li>Exactly two elements will be in the correct place</li>
+  <li>At least two elements will be in the correct place</li>
+</ol><dl><dt>Section</dt><dd>12.1 Selecton Sort</dd><dt>Title</dt><dd>After one iteration of selection sort working on a list of 10 elements, what must hold true?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch12-04</dd><dt>section</dt><dd>12.1 Selection Sort</dd><dt>id</dt><dd>testbank-py-2-ch12-04</dd></dl></li><li>Consider the <code>swap</code> function shown below from the
+<code>SelectionSorter</code> class. If we modified it as shown in
+the <code>swap2</code> function shown below, what would be the
+effect on the sort function?
+<pre>
+def swap(values, i, j) :
+   temp = values[i]
+   values[i] = values[j]
+   values[j] = temp
+
+def swap2(values, i, j) :
+   values[i] = values[j]
+   values[j] = values[i]
+</pre><ol class="multiple-choice"><li>There would be no effect</li><li class="correct">Some list elements would be overwritten</li><li>It would sort the list in reverse order</li><li>It would still be correct, but run a little faster</li></ol><dl><dt>Section</dt><dd>12.1 Selecton Sort</dd><dt>Title</dt><dd>Consider the swap function shown below from the SelectionSorter class. If we modified it as shown in the swap2 function shown below, what would be the effect on the sort function?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.1 Selection Sort</dd><dt>id</dt><dd>testbank-py-1-ch12-09</dd></dl></li><li>Suppose you wanted to test your sort on a list filled with
+different elements each time the code is run. What is an efficient
+technique for creating a list of 1,000 elements for each
+run?<ol class="multiple-choice"><li>Run the program many times, entering different values for the
+list elements.</li><li>Make a file with many sets of values and loop through them,
+sorting each one.</li><li class="correct">Use the Random class to generate list elements, sorting each
+set in a loop.</li><li>Create many different lists with different elements in the
+program code and sort each list.</li></ol><dl><dt>Section</dt><dd>12.1 Selecton Sort</dd><dt>Title</dt><dd>What is an efficient technique to create 1,000 elements for each sort test run?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.1 Selection Sort</dd><dt>id</dt><dd>testbank-py-1-ch12-10</dd></dl></li><li>Consider the selection sort function shown below:
+<pre>
+  def selectionSort(values) :
+     for i in range(len(values)) :
+        minPos = minimumPosition(values, i)
+        swap(values, minPos, i)
+  
+</pre>
+The function works correctly in its current form. What would happen
+if the for loop was replaced with: <code>for i in range(len(values)
+- 1) :</code>?
+<ol class="multiple-choice"><li class="correct">The list would still be sorted, but it would take one less
+iteration</li><li>The list would still be sorted, using the same number of
+iterations</li><li>The list would still be sorted, but it would take one more
+iteration</li><li>A runtime error would occur</li></ol><dl><dt>Section</dt><dd>12.1 Selection Sort</dd><dt>Title</dt><dd>What happens when the implementation of selection sort is modified?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.1 Selection Sort</dd><dt>id</dt><dd>testbank-py-1-ch12-11</dd></dl></li><li>Consider the selection sort function shown below:
+<pre>
+  def selectionSort(values) :
+     for i in range(len(values)) :
+        minPos = minimumPosition(values, i)
+        swap(values, minPos, i)
+  
+</pre>
+The function works correctly in its current form. What would happen
+if the line calling <code>swap</code> was replaced with:
+<code>swap(values, i, minPos)</code>?
+<ol class="multiple-choice"><li>The list would still be sorted, but it would take one less
+iteration</li><li class="correct">The list would still be sorted, using the same number of
+iterations</li><li>The list would still be sorted, but it would take one more
+iteration</li><li>A runtime error would occur</li></ol><dl><dt>Section</dt><dd>12.1 Selection Sort</dd><dt>Title</dt><dd>What happens when the implementation of selection sort is modified?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.1 Selection Sort</dd><dt>id</dt><dd>testbank-py-1-ch12-12</dd></dl></li><li>Consider the selection sort function shown below:
+<pre>
+  def selectionSort(values) :
+     for i in range(len(values)) :
+        minPos = minimumPosition(values, i)
+        swap(values, minPos, i)
+  
+</pre>
+The function works correctly in its current form. What would happen
+if the for loop was replaced with: <code>for i in range(1,
+len(values)) :</code>?
+<ol class="multiple-choice"><li>The list would still be sorted</li><li class="correct">All of the elements in the list, except the first one, would be
+sorted</li><li>All of the elements in the list, except the last one, would be
+sorted</li><li>A runtime error would occur</li></ol><dl><dt>Section</dt><dd>12.1 Selection Sort</dd><dt>Title</dt><dd>What happens when the implementation of selection sort is modified?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.1 Selection Sort</dd><dt>id</dt><dd>testbank-py-1-ch12-13</dd></dl></li><li>Consider the selection sort function and function call shown
+below:
+<pre>
+  def selectionSort(values) :
+     for i in range(len(values)) :
+        print(values)
+        minPos = minimumPosition(values, i)
+        swap(values, minPos, i)
+
+  data = [9, 1, 7, 2]
+  selectionSort(data)
+  print(data)
+  
+</pre>
+What is displayed when this code segment executes?
+<ol class="multiple-choice"><li><pre>
+  [1, 2, 7, 9]
+  
+</pre></li><li><pre>
+  [9, 1, 7, 2]
+  [1, 9, 7, 2]
+  [1, 2, 7, 9]
+  
+</pre></li><li><pre>
+  [9, 1, 7, 2]
+  [1, 9, 7, 2]
+  [1, 2, 7, 9]
+  [1, 2, 7, 9]
+  
+</pre></li><li class="correct"><pre>
+  [9, 1, 7, 2]
+  [1, 9, 7, 2]
+  [1, 2, 7, 9]
+  [1, 2, 7, 9]
+  [1, 2, 7, 9]
+  
+</pre></li></ol><dl><dt>Section</dt><dd></dd><dt>Title</dt><dd>Trace Selection Sort for a list containing 4 elements</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.1 Selection Sort</dd><dt>id</dt><dd>testbank-py-1-ch12-15</dd></dl></li><li>Consider the selection sort function and function call shown
+below:
+<pre>
+  def selectionSort(values) :
+     for i in range(len(values)) :
+        print(values)
+        minPos = minimumPosition(values, i)
+        swap(values, minPos, i)
+
+  data = [1, 2, 3]
+  selectionSort(data)
+  print(data)
+  
+</pre>
+What is displayed when this code segment executes?
+<ol class="multiple-choice"><li><pre>
+  []
+  
+</pre></li><li><pre>
+  [1, 2, 3]
+  
+</pre></li><li><pre>
+  [3, 2, 1]
+  
+</pre></li><li class="correct"><pre>
+  [1, 2, 3]
+  [1, 2, 3]
+  [1, 2, 3]
+  [1, 2, 3]
+  
+</pre></li></ol><dl><dt>Section</dt><dd></dd><dt>Title</dt><dd>Trace Selection Sort for a list containing elements that are already sorted</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.1 Selection Sort</dd><dt>id</dt><dd>testbank-py-1-ch12-16</dd></dl></li><li>In a sorting algorithm, it may be necessary to find the
+position of the maximum element in a list, starting from some
+initial position, <code>start</code>. What code should be placed in
+the blank to complete the <code>maximumPosition</code> function?
+<pre>
+def maximumPosition(values, start) :
+   maxPos = start
+   for i in range(start + 1, len(values)) :
+      ____________________
+         maxPos = i
+   return maxPos
+</pre>
+<ol class="multiple-choice">
+  <li><code>if values[maxPos] &gt; values[i] :</code></li>
+  <li class="correct"><code>if values[i] &gt; values[maxPos] :</code></li>
+  <li><code>if values[i] &lt; values[maxPos] :</code></li>
+  <li><code>if values[i] &lt;= values[maxPos] :</code></li>
+</ol><dl><dt>Section</dt><dd>12.1 Selection Sort</dd><dt>Title</dt><dd>Complete the code for finding the maximum value in a list</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch12-14</dd><dt>section</dt><dd>12.1 Selection Sort</dd><dt>id</dt><dd>testbank-py-2-ch12-14</dd></dl></li><li>Which sorting algorithm sorts a list by repeatedly finding the smallest element of the unsorted tail region and moving it?
+
+<ol class="multiple-choice">
+  <li>Insertion sort</li>
+  <li>Merge sort</li>
+  <li>Quick sort</li>
+  <li class="correct">Selection sort</li>
+</ol><dl><dt>Section</dt><dd>12.1 Selection Sort</dd><dt>Title</dt><dd>Which sorting algorithm sorts a list by repeatedly finding the smallest element of the unsorted tail region and moving it?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.1 Selection Sort</dd><dt>id</dt><dd>testbank-py-2-ch12-76</dd></dl></li><li>The following program is supposed to time the performance of
+the <code>selectionSort</code> function. Right now it is missing
+the code, <code>startTime = time()</code>, which records the
+starting time. Where should the missing code be inserted?
+<pre>
+                                   # Line 1
+values = []
+                                   # Line 2
+for i in range(10000) :
+   values.append(randint(1, 100))
+                                   # Line 3
+selectionSort(values)
+                                   # Line 4
+endTime = time()
+</pre><ol class="multiple-choice"><li>Line 1</li><li>Line 2</li><li class="correct">Line 3</li><li>Line 4</li></ol><dl><dt>Section</dt><dd>12.2 Profiling the Selection Sort Algorithm</dd><dt>Title</dt><dd>Where should the timing code be placed to profile selection sort?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.2 Profiling the Selection Sort Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-17</dd></dl></li><li>Consider the following variation of the selection sort
+algorithm:
+<pre>
+def sort(values) :
+   for i in range(len(values)) :
+      maxPos = i
+      for j in range(i + 1, len(values)) :
+         if values[j] &gt; values[maxPos] :
+            maxPos = j
+   temp = values[maxPos]
+   values[maxPos] = values[i]
+   values[i] = values[maxPos]
+</pre>
+If this algorithm takes 5 seconds to sort 15,000 elements, how long
+would you expect it to take to sort 30,000 elements?
+<ol class="multiple-choice"><li>5 seconds</li><li>10 seconds</li><li class="correct">25 seconds</li><li>50 seconds</li></ol><dl><dt>Section</dt><dd>12.2 Profiling the Selection Sort Algorithm</dd><dt>Title</dt><dd>How long will selection sort take to execute when the number of elements is doubled?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.2 Profiling the Selection Sort Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-18</dd></dl></li><li>What is returned by the <code>time()</code> function that resides in Python's <code>time</code> module?
+
+<ol class="multiple-choice">
+  <li>The number of seconds since the program began executing.</li>
+  <li>The number of milliseconds since the program began executing.</li>
+  <li class="correct">The number of seconds since January 1, 1970.</li>
+  <li>The number of milliseconds since January 1, 1970.</li>
+</ol><dl><dt>Section</dt><dd>12.2 Profiling the Selection Sort Algorithm</dd><dt>Title</dt><dd>What is returned by the time() function?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.2 Profiling the Selection Sort Algorithm</dd><dt>id</dt><dd>testbank-py-2-ch12-77</dd></dl></li><li>A particular sorting algorithm visits 
+  <code>0.5n<sup>2</sup> + 2.5n - 3</code> elements in order to 
+  sort a list of <code>n</code> elements.  Which big-Oh
+  expression best describes the growth rate of this sorting algorithm?
+
+<ol class="multiple-choice">
+  <li><code>O(n)</code></li>
+  <li class="correct"><code>O(n<sup>2</sup>)</code></li>
+  <li><code>O(2<sup>n</sup>)</code></li>
+  <li><code>O(0.5)</code></li>
+</ol><dl><dt>Section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>Title</dt><dd>Which big-Oh expression best describes the growth behavior of a function?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch12-05</dd><dt>section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>id</dt><dd>testbank-py-2-ch12-05</dd></dl></li><li>A particular algorithm visits 
+  <code>n<sup>2</sup> + 2<sup>n</sup> + 30000</code> elements in order to 
+  perform its task on a list of <code>n</code> elements.  Which big-Oh
+  expression best describes the growth rate of this algorithm?
+
+<ol class="multiple-choice">
+  <li><code>O(n)</code></li>
+  <li><code>O(n<sup>2</sup>)</code></li>
+  <li class="correct"><code>O(2<sup>n</sup>)</code></li>
+  <li><code>O(30000)</code></li>
+</ol><dl><dt>Section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>Title</dt><dd>Which big-Oh expression best describes the growth behavior of a function?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch12-06</dd><dt>section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>id</dt><dd>testbank-py-2-ch12-06</dd></dl></li><li>A particular algorithm visits 
+  <code>n<sup>3</sup> + nlog(n) + n!</code> elements in order to 
+  perform its task on a list of <code>n</code> elements.  Which big-Oh
+  expression best describes the growth rate of this algorithm?
+
+<ol class="multiple-choice">
+  <li><code>O(n)</code></li>
+  <li><code>O(n<sup>3</sup>)</code></li>
+  <li class="correct"><code>O(n!)</code></li>
+  <li><code>O(nlog(n))</code></li>
+</ol><dl><dt>Section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>Title</dt><dd>Which big-Oh expression best describes the growth behavior of a function?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch12-07</dd><dt>section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>id</dt><dd>testbank-py-2-ch12-07</dd></dl></li><li>Which expression indicates that the number of operations performed by an algorithm grows at least as fast as n<sup>2</sup>?
+
+<ol class="multiple-choice">
+  <li><code>O(n<sup>2</sup>)</code></li>
+  <li><code>Θ(n<sup>2</sup>)</code></li>
+  <li class="correct"><code>Ω(n<sup>2</sup>)</code></li>
+  <li><code>Φ(n<sup>2</sup>)</code></li>
+</ol><dl><dt>Section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>Title</dt><dd>Which expression indicates that the number of operations performed by an algorithm grows at least as fast as n&lt;sup&gt;2&lt;/sup&gt;?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch12-08</dd><dt>section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>id</dt><dd>testbank-py-2-ch12-08</dd></dl></li><li>After 9 iterations of selection sort working on an list of 10
+elements, what must hold true?<ol class="multiple-choice"><li class="correct">The largest element is correctly placed by default.</li><li>One more iteration is needed to complete the sort.</li><li>The smallest element is incorrectly placed.</li><li>The largest element is incorrectly placed.</li></ol><dl><dt>Section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>Title</dt><dd>After 9 iterations of selection sort on an list of 10 elements, what must hold true?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-19</dd></dl></li><li>The performance of an algorithm is most closely related to
+what?<ol class="multiple-choice"><li class="correct">The total number of element visits</li><li>The total number of elements</li><li>The type of elements</li><li>The number of lines of code in the method</li></ol><dl><dt>Section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>Title</dt><dd>The performance of an algorithm is related to what?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-20</dd></dl></li><li>Consider a list with n elements. If we visit each element n
+times, how many total visits will there be?<ol class="multiple-choice"><li><pre>
+n
+</pre></li><li><pre>
+2<sup>n</sup>
+</pre></li><li><pre>
+n<sup>n</sup>
+</pre></li><li class="correct"><pre>
+n<sup>2</sup>
+</pre></li></ol><dl><dt>Section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>Title</dt><dd>If we visit each of n elements n times, how many total visits will there be?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-21</dd></dl></li><li>Suppose an list has n elements. We visit element #1 one time,
+element #2 two times, element #3 three times, and so forth. How
+many total visits will there be?<ol class="multiple-choice"><li><pre>
+2<sup>n</sup>
+</pre></li><li class="correct"><pre>
+n(n + 1) / 2
+</pre></li><li><pre>
+n<sup>2</sup>
+</pre></li><li><pre>
+n<sup>3</sup>
+</pre></li></ol><dl><dt>Section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>Title</dt><dd>How many total element visits will there be in this scenario?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-22</dd></dl></li><li>Which of the following completes the selection sort function
+<code>minimumPosition()</code>?
+<pre>
+def minimumPosition(values, from) :
+   minPos = from
+   for i in range(from + 1, len(values)) :
+      _____________________________
+   return minPos 
+</pre><ol class="multiple-choice"><li><pre>
+if values[i] &gt; values[minPos] : minPos = i
+</pre></li><li class="correct"><pre>
+if values[i] &lt; values[minPos] : minPos = i
+</pre></li><li><pre>
+if values[i] &lt; values[i] : minPos = i
+</pre></li><li><pre>
+if values[i] &lt; values[minPos] : i = minPos 
+</pre></li></ol><dl><dt>Section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>Title</dt><dd>Which statement completes selection sort function minimumPosition()?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-24</dd></dl></li><li>How many comparisons does selection sort make when sorting a
+list of length n?<ol class="multiple-choice"><li><pre>
+n
+</pre></li><li><pre>
+log(2n)
+</pre></li><li class="correct"><pre>
+n(n + 1) / 2
+</pre></li><li><pre>
+n / 2
+</pre></li></ol><dl><dt>Section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>Title</dt><dd>How many comparisons does selection sort make?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-25</dd></dl></li><li>In Big-Oh notation, selection sort is a(n) ____ algorithm.
+<ol class="multiple-choice"><li class="correct"><pre>
+O(n<sup>2</sup>)
+</pre></li><li><pre>
+O(1)
+</pre></li><li><pre>
+log n
+</pre></li><li><pre>
+O(log n<sup>2</sup>)
+</pre></li></ol><dl><dt>Section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>Title</dt><dd>In Big-Oh notation, selection sort is a(n) ____ algorithm.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-26</dd></dl></li><li>Consider the following code snippet:
+<pre>
+def sort(values) :
+   for i in range(1, len(values)) :
+      next = values[i]
+      j = i
+      while j &gt; 0 and values[j-1] &gt; next :
+         values[j] = values[j - 1]
+         j = j - 1
+         values[j] = next
+</pre>
+What sort algorithm is used in this code?<ol class="multiple-choice"><li class="correct">insertion sort</li><li>selection sort</li><li>merge sort</li><li>quicksort</li></ol><dl><dt>Section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>Title</dt><dd>What sort algorithm is used in this code?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-27</dd></dl></li><li>Which sort algorithm starts with an initial sequence of size 1,
+which is assumed to be sorted, and increases the size of the sorted
+sequence in the list in each iteration?<ol class="multiple-choice"><li class="correct">insertion sort</li><li>selection sort</li><li>merge sort</li><li>quicksort</li></ol><dl><dt>Section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>Title</dt><dd>What sort algorithm is used in this code?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-28</dd></dl></li><li>Consider the following function which increments every value in
+a list:
+<pre>
+def incrementList(data) :
+   for i in len(data) :
+      data[i] = data[i] + 1
+</pre>
+What is the big-Oh complexity of this algorithm, where
+<code>n</code> is the number of elements in <code>data</code>?
+<ol class="multiple-choice"><li>O(1)</li><li>O(log(n))</li><li class="correct">O(n)</li><li>O(n<sup>2</sup>)</li></ol><dl><dt>Section</dt><dd>Section 12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>Title</dt><dd>What is the big-Oh complexity of this function for incrementing every element in a list?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-29</dd></dl></li><li>Consider the following function which determines whether or not
+a list contains any repeated values:
+<pre>
+def hasDuplicate(data) :
+   for i in range(len(data)) :
+      for j in range(i + 1, len(data)) :
+         if data[i] == data[j] :
+            return True
+   return False
+</pre>
+What is the big-Oh complexity of this algorithm, where
+<code>n</code> is the number of elements in <code>data</code>?
+<ol class="multiple-choice"><li>O(1)</li><li>O(log(n))</li><li>O(n)</li><li class="correct">O(n<sup>2</sup>)</li></ol><dl><dt>Section</dt><dd>Section 12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>Title</dt><dd>What is the big-Oh complexity of this function for finding duplicate values in a list?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-30</dd></dl></li><li>Consider the following function which determines whether or not
+a sorted list contains any repeated values:
+<pre>
+def sortedHasDuplicate(data) :
+   for i in range(0, len(data) - 1) :
+      if data[i] == data[i + 1] :
+         return True
+   return False
+</pre>
+What is the big-Oh complexity of this algorithm, where
+<code>n</code> is the number of elements in <code>data</code>?
+<ol class="multiple-choice"><li>O(1)</li><li>O(log(n))</li><li class="correct">O(n)</li><li>O(n<sup>2</sup>)</li></ol><dl><dt>Section</dt><dd>Section 12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>Title</dt><dd>What is the big-Oh complexity of this function for finding duplicate values in a list?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-31</dd></dl></li><li>When the size of an list increases by a factor of 100, the time
+required by selection sort increases by a factor of ____.<ol class="multiple-choice"><li>2,000</li><li>5,000</li><li class="correct">10,000</li><li>12,000</li></ol><dl><dt>Section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>Title</dt><dd>When the size increases by a factor of 100, selection sort time increases by a factor of ____.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-75</dd></dl></li><li>In big-Oh notation, when we consider the order of the number of
+  visits an algorithm makes, what do we ignore?
+  
+  <ul>
+    <li>I. Power of two terms</li>
+    <li>II. The coefficients of the terms</li>
+    <li>III. All lower order terms</li>
+  </ul>
+  
+  <ol class="multiple-choice">
+    <li>I only</li>
+    <li>II only</li>
+    <li>I and II only</li>
+    <li class="correct">II and III only</li>
+</ol><dl><dt>Section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>Title</dt><dd>What do we ignore when we consider the order of the number of visits?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch12-23</dd><dt>section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>id</dt><dd>testbank-py-2-ch12-23</dd></dl></li><li>Consider the following big-Oh growth rates:
+
+<pre>
+O(n!)
+O(n<sup>3</sup>)
+O(log(n))
+O(n log(n))
+</pre>
+  
+  Which big-Oh growth rate is most desireable?
+
+<ol class="multiple-choice">
+  <li>O(n!)</li>
+  <li>O(n<sup>3</sup>)</li>
+  <li class="correct">O(log(n))</li>
+  <li>O(n log(n))</li>
+</ol><dl><dt>Section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>Title</dt><dd>Which big-Oh growth rate is most desireable?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>id</dt><dd>testbank-py-2-ch12-78</dd></dl></li><li>Consider the following big-Oh growth rates:
+
+<pre>
+O(1)
+O(2<sup>n</sup>)
+O(n)
+O(n<sup>2</sup>)
+</pre>
+  
+  Which big-Oh growth rate is least desireable?
+
+<ol class="multiple-choice">
+  <li>O(1)</li>
+  <li class="correct">O(2<sup>n</sup>)</li>
+  <li>O(n)</li>
+  <li>O(n<sup>2</sup>)</li>
+</ol><dl><dt>Section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>Title</dt><dd>Which big-Oh growth rate is least desireable?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.3 Analyzing the Performance of the Selection Sort Algorithm</dd><dt>id</dt><dd>testbank-py-2-ch12-79</dd></dl></li><li>How many times can an list with 4,096 elements be cut into two
+equal pieces?<ol class="multiple-choice"><li>16</li><li class="correct">12</li><li>10</li><li>8</li></ol><dl><dt>Section</dt><dd>12.4 Merge Sort</dd><dt>Title</dt><dd>How many times can an list with 4,096 elements be cut into two equal pieces?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.4 Merge Sort</dd><dt>id</dt><dd>testbank-py-1-ch12-33</dd></dl></li><li>How many times can an list with 729 elements be cut into three
+equal pieces?<ol class="multiple-choice"><li>4</li><li>5</li><li class="correct">6</li><li>7</li></ol><dl><dt>Section</dt><dd>12.4 Merge Sort</dd><dt>Title</dt><dd>How many times can an list with 729 elements be cut into three equal pieces?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.4 Merge Sort</dd><dt>id</dt><dd>testbank-py-1-ch12-34</dd></dl></li><li>Consider the code for mergeSort shown below, which works
+correctly:
+<pre>
+def mergeSort(values) :
+   if len(values) &lt;= 1 : return
+   mid = len(values) // 2
+   first = values[ : mid]
+   second = values[mid : ]
+   mergeSort(first)
+   mergeSort(second)
+   mergeLists(first, second, values)
+</pre>
+What would happen if the line <code>mid = len(values) // 2</code>
+was replaced with the line <code>mid = len(values) // 4</code><ol class="multiple-choice"><li>Merge sort would continue to work at the same speed as the
+original version</li><li class="correct">Merge sort would continue to work, but it would be slower than
+the original version</li><li>Merge sort would continue to work, and it would be faster than
+the original</li><li>The modified version would not sort the list successfully</li></ol><dl><dt>Section</dt><dd>12.4 Merge Sort</dd><dt>Title</dt><dd>What is the impact of modifying the mergeSort function?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.4 Merge Sort</dd><dt>id</dt><dd>testbank-py-1-ch12-35</dd></dl></li><li>What is printed when the following code segment executes?
+<pre>
+def mergeSort(values) :
+   if len(values) &lt;= 1 : return
+   print(values)
+   mid = len(values) // 2
+   first = values[ : mid]
+   second = values[mid : ]
+   mergeSort(first)
+   mergeSort(second)
+   mergeLists(first, second, values)
+
+# The implementation of mergeLists has been omitted.
+# It can be found in the textbook.
+
+data = [3, 1, 2, 4]
+mergeSort(data)
+</pre><ol class="multiple-choice"><li><pre>
+[1, 2, 3, 4]
+</pre></li><li><pre>
+[3, 1, 2, 4]
+[1, 2]
+[3, 4]
+</pre></li><li class="correct"><pre>
+[3, 1, 2, 4]
+[3 ,1]
+[2, 4]
+</pre></li><li><pre>
+[3, 1, 2, 4]
+[1, 2]
+[3, 4]
+[1, 2, 3, 4]
+</pre></li></ol><dl><dt>Section</dt><dd>12.4 Merge Sort</dd><dt>Title</dt><dd>Trace this call to the mergeSort function</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.4 Merge Sort</dd><dt>id</dt><dd>testbank-py-1-ch12-36</dd></dl></li><li>Consider this modified version of the <code>mergeLists</code>
+function. While all of the lines of code are the same, the order of
+the lines has been changed so that the while loop involving
+<code>second</code> appears before the while loop involving
+<code>first</code>.
+<pre>
+def mergeLists(first, second, values) :
+   iFrist = 0
+   iSecond = 0
+   j = 0
+
+   while iFirst &lt; len(first) and iSecond &lt; len(second) :
+      if first[iFirst] &lt; second[iSecond] :
+         values[j] = first[iFirst]
+         iFirst = iFirst + 1
+      else :
+         values[j] = second[iSecond]
+         iSecond = iSecond + 1
+      j = j + 1
+
+   while iSecond &lt; len(second) :
+      values[j] = second[iSecond]
+      iSecond = iSecond + 1
+      j = j + 1
+
+   while iFrist &lt; len(first) :
+      values[j] = first[iFirst]
+      iFirst = iFirst + 1
+      j = j + 1
+</pre>
+What impact will this change have?
+<ol class="multiple-choice"><li class="correct">The mergeLists function will continue to run correctly, and at
+the same speed</li><li>The mergeLists function will continue to run correctly, but it
+will be slower</li><li>The mergeLists function will continue to run correctly, but it
+will be faster</li><li>The mergeLists function will no longer work correctly</li></ol><dl><dt>Section</dt><dd>Section 12.4 Merge Sort</dd><dt>Title</dt><dd>What impact results from modifying the mergeLists function?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.4 Merge Sort</dd><dt>id</dt><dd>testbank-py-1-ch12-37</dd></dl></li><li>Which sorting algorithm starts by cutting the list in half and
+then recursively sorts each half?<ol class="multiple-choice"><li>insertion sort</li><li>selection sort</li><li class="correct">merge sort</li><li>Shell sort</li></ol><dl><dt>Section</dt><dd>12.4 Merge Sort</dd><dt>Title</dt><dd>Which sorting algorithm starts by cutting the list in half and then recursively sorts each half?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch12-32</dd><dt>section</dt><dd>12.4 Merge Sort</dd><dt>id</dt><dd>testbank-py-2-ch12-32</dd></dl></li><li>In the textbook, we found that the number of element visits for
+merge sort totaled n + 5nlog<sub>2</sub>n. Lets consider
+sorting 1024 elements. How many visits are needed?
+<ol class="multiple-choice"><li>1,024</li><li>6,144</li><li>51,200</li><li class="correct">52,224</li></ol><dl><dt>Section</dt><dd>12.5 Analyzing the Merge Sort Algorithm</dd><dt>Title</dt><dd>How many visits are needed for a merge sort of 1024 elements?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.5 Analyzing the Merge Sort Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-40</dd></dl></li><li>In the textbook, we found that the number of element visits for
+merge sort totaled n + 5nlog<sub>2</sub>n. Which of the following is the
+appropriate big-Oh notation for merge sort?
+<ol class="multiple-choice"><li><pre>
+5nlog<sub>2</sub>n
+</pre></li><li><pre>
+n + log<sub>2</sub> 
+</pre></li><li><pre>
+n + 5n
+</pre></li><li class="correct"><pre>
+nlog<sub>2</sub>n
+</pre></li></ol><dl><dt>Section</dt><dd>12.5 Analyzing the Merge Sort Algorithm</dd><dt>Title</dt><dd>Which of the following is the appropriate big-Oh notation for merge sort?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.5 Analyzing the Merge Sort Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-41</dd></dl></li><li>Selection sort has O(n<sup>2</sup>) complexity. If a computer
+can sort 1,000 elements in 4 seconds, approximately how many
+seconds will it take the computer to sort 1,000 times that many, or
+1,000,000 elements?
+<ol class="multiple-choice"><li>16</li><li>1,000</li><li>1,000,000</li><li class="correct">4,000,000</li></ol><dl><dt>Section</dt><dd>12.5 Analyzing the Merge Sort Algorithm</dd><dt>Title</dt><dd>How many seconds will it take selection sort to sort 1,000 times as many elements?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.5 Analyzing the Merge Sort Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-42</dd></dl></li><li>Merge sort is a(n) ____ algorithm.
+<ol class="multiple-choice"><li><pre>
+O(n)
+</pre></li><li class="correct"><pre>
+O(n log(n))
+</pre></li><li><pre>
+O(n<sup>2</sup>)
+</pre></li><li><pre>
+O(log n)
+</pre></li></ol><dl><dt>Section</dt><dd>12.5 Analyzing the Merge Sort Algorithm</dd><dt>Title</dt><dd>Merge sort is a(n) ____ algorithm.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.5 Analyzing the Merge Sort Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-43</dd></dl></li><li>Consider the following function, which correctly merges two
+lists:
+<pre>
+def mergeLists(first, second, values) :
+   iFrist = 0
+   iSecond = 0
+   j = 0
+
+   while iFirst &lt; len(first) and iSecond &lt; len(second) :
+      if first[iFirst] &lt; second[iSecond] :
+         values[j] = first[iFirst]
+         iFirst = iFirst + 1
+      else :
+         values[j] = second[iSecond]
+         iSecond = iSecond + 1
+      j = j + 1
+
+   while iFrist &lt; len(first) :
+      values[j] = first[iFirst]
+      iFirst = iFirst + 1
+      j = j + 1
+
+   while iSecond &lt; len(second) :
+      values[j] = second[iSecond]
+      iSecond = iSecond + 1
+      j = j + 1
+      
+</pre>
+What is the big-Oh complexity of this algorithm, where
+<code>n</code> is the total number of elements in
+<code>first</code> and <code>second</code>?
+<ol class="multiple-choice"><li>O(1)</li><li>O(log(n))</li><li class="correct">O(n)</li><li>O(n<sup>2</sup>)</li></ol><dl><dt>Section</dt><dd>Section 12.5 Analyzing the Merge Sort Algorithm</dd><dt>Title</dt><dd>What is the big-Oh complexity of this function for merging two lists?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.5 Analyzing the Merge Sort Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-45</dd></dl></li><li>Consider the following mergeSort function:
+<pre>
+def mergeSort(values) :
+   if len(values) &lt;= 1 : return
+   mid = len(values) // 2
+   first = values[ : mid]
+   second = values[mid : ]
+   mergeSort(first)
+   mergeSort(second)
+   mergeLists(first, second, values)
+
+# The implementation of mergeLists has been omitted.
+# It can be found in the textbook.
+</pre>
+If the function takes 1.0 seconds to sort a list of 10,000
+elements, how long would you expect it to take to sort a list of
+20,000 elements?
+<ol class="multiple-choice"><li>1.1 seconds</li><li class="correct">2.2 seconds</li><li>4.4 seconds</li><li>8.8 seconds</li></ol><dl><dt>Section</dt><dd>12.5 Analyzing the Merge Sort Algorithm</dd><dt>Title</dt><dd>How long would you expect this merge sort to take?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.5 Analyzing the Merge Sort Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-46</dd></dl></li><li>Recall the merge sort algorithm presented in the
+  textbook.  That algorithm requires T(n) = T(n / 2) + T(n / 2) + 5n visits to
+  sort a list of n elements.  The function to merge two sorted lists requires a
+  total of 5n visits.  What does T(n / 2) describe?
+
+  
+  <ol class="multiple-choice">
+    <li>The total number of visits needed to merge sort a list of n elements</li>
+    <li>Half the number of visits needed to merge sort a list of n elements</li>
+    <li class="correct">The total number of visits needed to merge sort a list of n / 2 elements</li>
+    <li>Half the number of visits needed to merge sort a list of n / 2 elements</li>
+</ol><dl><dt>Section</dt><dd>12.5 Analyzing the Merge Sort Algorithm</dd><dt>Title</dt><dd>What does T(n / 2) describe when analyzing the merge sort algorithm?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch12-38</dd><dt>section</dt><dd>12.5 Analyzing the Merge Sort Algorithm</dd><dt>id</dt><dd>testbank-py-2-ch12-38</dd></dl></li><li>Assume we are using quicksort to sort a list into
+  ascending order. Where does quicksort place the pivot element after
+  partitioning the list?
+
+  <ol class="multiple-choice">
+    <li>The pivot element is placed at the lowest index in the list that is still available.</li>
+    <li>The pivot element is placed at the highest index in the list that is still available.</li>
+    <li>The pivot element is placed in a position that is closer to its final correct location.</li>
+    <li class="correct">The pivot element is placed in its final correct location.</li>
+  </ol><dl><dt>Section</dt><dd>12.5 Analyzing the Merge Sort Algorithm</dd><dt>Title</dt><dd>Where does quicksort place the pivot element after partitioning?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch12-44</dd><dt>section</dt><dd>12.5 Analyzing the Merge Sort Algorithm</dd><dt>id</dt><dd>testbank-py-2-ch12-44</dd></dl></li><li>Which sorting algorithm has better than O(n<sup>2</sup>) behavior, even in the worst case?
+
+<ol class="multiple-choice">
+  <li>Insertion sort</li>
+  <li class="correct">Merge sort</li>
+  <li>Quicksort</li>
+  <li>Selection sort</li>
+</ol><dl><dt>Section</dt><dd>12.5 Analyzing the Merge Sort Algorithm</dd><dt>Title</dt><dd>Which sorting algorithm has better than O(n&lt;sup&gt;2&lt;/sup&gt;) behavior, even in the worst case?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.5 Analyzing the Merge Sort Algorithm</dd><dt>id</dt><dd>testbank-py-2-ch12-80</dd></dl></li><li>In the worst case, a linear search locates a value in an list
+of length n in ____ steps.
+<ol class="multiple-choice"><li><pre>
+O(n<sup>2</sup>)
+</pre></li><li><pre>
+O(log n)
+</pre></li><li class="correct"><pre>
+O(n)
+</pre></li><li><pre>
+O(log n<sup>2</sup>)
+</pre></li></ol><dl><dt>Section</dt><dd>12.6 Searching</dd><dt>Title</dt><dd>In the worst case, a linear search locates a value in an list of length n in ____ steps.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.6 Searching</dd><dt>id</dt><dd>testbank-py-1-ch12-47</dd></dl></li><li>The following code is an example of a ___ search.
+<pre>
+def search(values, v) :
+   for i in range(len(values)) :
+      if values[i] == v :
+         return i
+   return -1  
+</pre><ol class="multiple-choice"><li>sorted</li><li>binary</li><li class="correct">linear</li><li>random</li></ol><dl><dt>Section</dt><dd>12.6 Searching</dd><dt>Title</dt><dd>This code is an example of a _____ search.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.6 Searching</dd><dt>id</dt><dd>testbank-py-1-ch12-48</dd></dl></li><li>Suppose you have a phone number and need to find the address
+that it corresponds to. If there are 2,000,000 entries, how many do
+you expect to search in a printed phone directory before finding
+the address you are looking for?<ol class="multiple-choice"><li>Approximately 50,000 records</li><li>Approximately 75,000 records</li><li class="correct">Approximately 1,000,000 records</li><li>Approximately 1,200,000 records</li></ol><dl><dt>Section</dt><dd>12.6 Searching</dd><dt>Title</dt><dd>How many phone book entries would you expect to search?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.6 Searching</dd><dt>id</dt><dd>testbank-py-1-ch12-49</dd></dl></li><li>If an element is present in a list of length n, how many
+element visits, in the worst case, are necessary to find it using a
+linear search?<ol class="multiple-choice"><li><pre>
+n / 2
+</pre></li><li class="correct"><pre>
+n
+</pre></li><li><pre>
+2<sup>n</sup>
+</pre></li><li><pre>
+n<sup>2</sup>
+</pre></li></ol><dl><dt>Section</dt><dd>12.6 Searching</dd><dt>Title</dt><dd>How many phone book entries would you expect to search?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.6 Searching</dd><dt>id</dt><dd>testbank-py-1-ch12-50</dd></dl></li><li>If an element is present in a list of length n, how many
+element visits, on average, are necessary to find it using a linear
+search?<ol class="multiple-choice"><li class="correct"><pre>
+n / 2
+</pre></li><li><pre>
+n
+</pre></li><li><pre>
+2<sup>n</sup>
+</pre></li><li><pre>
+n<sup>2</sup>
+</pre></li></ol><dl><dt>Section</dt><dd>12.6 Searching</dd><dt>Title</dt><dd>How many phone book entries would you expect to search?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.6 Searching</dd><dt>id</dt><dd>testbank-py-1-ch12-51</dd></dl></li><li>Another name for linear search is ____ search.<ol class="multiple-choice"><li>sorted</li><li class="correct">sequential</li><li>random</li><li>binary</li></ol><dl><dt>Section</dt><dd>12.6 Searching</dd><dt>Title</dt><dd>Another name for linear search is ____ search.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.6 Searching</dd><dt>id</dt><dd>testbank-py-1-ch12-52</dd></dl></li><li>Binary search is an ____ algorithm.<ol class="multiple-choice"><li><pre>
+O(n)
+</pre></li><li><pre>
+O(n<sup>2</sup>)
+</pre></li><li class="correct"><pre>
+O(log n)
+</pre></li><li><pre>
+O(n log n)
+</pre></li></ol><dl><dt>Section</dt><dd>12.6 Searching</dd><dt>Title</dt><dd>Binary search is an ____ algorithm.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.6 Searching</dd><dt>id</dt><dd>testbank-py-1-ch12-53</dd></dl></li><li>Given an ordered list with 15 elements, how many elements must
+be visited in the worst case of binary search?<ol class="multiple-choice"><li>8</li><li class="correct">4</li><li>3</li><li>2</li></ol><dl><dt>Section</dt><dd>12.6 Searching</dd><dt>Title</dt><dd>For an ordered list with 15 elements, how many elements must be visited in the worst case of binary search?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.6 Searching</dd><dt>id</dt><dd>testbank-py-1-ch12-54</dd></dl></li><li>A search technique where, in each step, you split the size of
+the search in half is called a____ search.<ol class="multiple-choice"><li>random</li><li class="correct">binary</li><li>linear</li><li>merging</li></ol><dl><dt>Section</dt><dd>12.6 Searching</dd><dt>Title</dt><dd>A search technique where, in each step, you split the size of the search in half is called a____ search.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.6 Searching</dd><dt>id</dt><dd>testbank-py-1-ch12-56</dd></dl></li><li>Consider the following function for performing a linear search:
+<pre>
+def linearSearch(values, target) :
+   for i in range(len(values)) :
+      if values[i] == target :
+         return i
+   return -1
+</pre>
+How many elements will be visited when <code>values</code> is
+<code>[1, 5, 7, 6, 2, 4, 9, 3, 8, 0]</code> and <code>target</code>
+is <code>2</code>?
+<ol class="multiple-choice"><li>0</li><li>2</li><li class="correct">5</li><li>10</li></ol><dl><dt>Section</dt><dd>12.6 Searching</dd><dt>Title</dt><dd>How many elements are visited during a linear search?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.6 Searching</dd><dt>id</dt><dd>testbank-py-1-ch12-58</dd></dl></li><li>Consider the following function for performing a linear search:
+<pre>
+def linearSearch(values, target) :
+   for i in range(len(values)) :
+      if values[i] == target :
+         return i
+   return -1
+</pre>
+How many elements will be visited when <code>values</code> is
+<code>[1, 5, 7, 6, 2, 4, 9, 3, 8, 0]</code> and <code>target</code>
+is <code>10</code>?
+<ol class="multiple-choice"><li>0</li><li>2</li><li>5</li><li class="correct">10</li></ol><dl><dt>Section</dt><dd>12.6 Searching</dd><dt>Title</dt><dd>How many elements are visited during a linear search?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.6 Searching</dd><dt>id</dt><dd>testbank-py-1-ch12-59</dd></dl></li><li>Consider the following function for performing a binary search:
+<pre>
+def binarySearch(values, low, high, target) :
+   if low &lt;= high :
+      mid = (low + high) // 2
+
+      if values[mid] == target :
+         return mid
+      elif values[mid] &lt; target :
+         return binarySearch(values, mid + 1, high, target)
+      else :
+         return binarySearch(values, low, mid - 1, target)
+
+   else :
+      return -1
+</pre>
+How many elements will be visited when <code>values</code> is
+<code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code>, <code>low</code> is
+<code>0</code>, <code>high</code> is <code>9</code>, and
+<code>target</code> is <code>2</code>?
+<ol class="multiple-choice"><li>1</li><li class="correct">3</li><li>5</li><li>10</li></ol><dl><dt>Section</dt><dd>12.6 Searching</dd><dt>Title</dt><dd>How many elements are visited during a binary search?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.6 Searching</dd><dt>id</dt><dd>testbank-py-1-ch12-60</dd></dl></li><li>Consider the following function for performing a binary search:
+<pre>
+def binarySearch(values, low, high, target) :
+   if low &lt;= high :
+      mid = (low + high) // 2
+
+      if values[mid] == target :
+         return mid
+      elif values[mid] &lt; target :
+         return binarySearch(values, mid + 1, high, target)
+      else :
+         return binarySearch(values, low, mid - 1, target)
+
+   else :
+      return -1
+</pre>
+How many elements will be visited when <code>values</code> is
+<code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code>, <code>low</code> is
+<code>0</code>, <code>high</code> is <code>9</code>, and
+<code>target</code> is <code>10</code>?
+<ol class="multiple-choice"><li>0</li><li>2</li><li class="correct">4</li><li>10</li></ol><dl><dt>Section</dt><dd>12.6 Searching</dd><dt>Title</dt><dd>How many elements are visited during a binary search?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.6 Searching</dd><dt>id</dt><dd>testbank-py-1-ch12-61</dd></dl></li><li>Can binary search be applied to the following list?
+<pre>
+data = [1, 4, -6, 7, 2, 10, 21]
+</pre><ol class="multiple-choice"><li>Yes, binary search will return the correct result for this
+list</li><li class="correct">No, binary search can only be applied to a list that is in
+sorted order</li><li>No, binary search can only be applied to a list whose length is
+a power of 2</li><li>No, binary search cannot be applied to lists containing
+negative values</li></ol><dl><dt>Section</dt><dd>12.6 Searching</dd><dt>Title</dt><dd>Can binary search be used to search this list?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.6 Searching</dd><dt>id</dt><dd>testbank-py-1-ch12-62</dd></dl></li><li>A binary search ____ a linear search.
+  
+  <ol class="multiple-choice">
+    <li>can't be compared to</li>
+    <li>generally has a similar running time to</li>
+    <li class="correct">is generally faster than</li>
+    <li>is generally slower than</li>
+  </ol><dl><dt>Section</dt><dd>12.6 Searching</dd><dt>Title</dt><dd>What is the relationship between a binary search and a linear search?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch12-55</dd><dt>section</dt><dd>12.6 Searching</dd><dt>id</dt><dd>testbank-py-2-ch12-55</dd></dl></li><li>Can you search the following list using binary search?
+<pre>
+values = [6, 5, 2, 4, 0, 1, -17, -1]
+</pre>
+
+<ol class="multiple-choice">
+  <li>Yes. Binary search can be applied to any list.</li>
+  <li class="correct">No. Binary search can only be applied to a sorted list.</li>
+  <li>Yes, but the algorithm runs more slowly because the list is not in sorted order.</li>
+  <li>No, binary search cannot be used on a list that contains negative numbers.</li>
+</ol><dl><dt>Section</dt><dd>12.6 Searching</dd><dt>Title</dt><dd>Can you search this list using binary search?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch12-57</dd><dt>section</dt><dd>12.6 Searching</dd><dt>id</dt><dd>testbank-py-2-ch12-57</dd></dl></li><li>What requirement must be satisified before an element can be located in a list using a binary search?
+
+<ol class="multiple-choice">
+  <li>The list must only contain integers</li>
+  <li class="correct">The list must be sorted</li>
+  <li>The length of the list must be a power of 2</li>
+  <li>The list must not contain any repeated values</li>
+</ol><dl><dt>Section</dt><dd>12.6 Searching</dd><dt>Title</dt><dd>What requirement must be satisified before an element can be located in a list using a binary search?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.6 Searching</dd><dt>id</dt><dd>testbank-py-2-ch12-82</dd></dl></li><li>Which of the following statements about running times of
+algorithms is correct?<ol class="multiple-choice"><li>An algorithm that is <code>O(1)</code> means that only one
+comparison takes place.</li><li class="correct">When determining the running time, constants are not taken into
+consideration.</li><li>When determining the running time, lower-order terms must be
+taken into consideration.</li><li>An algorithm that is <code>O(n)</code> means that the number of
+comparisons does not grow as the size of the list increases.</li></ol><dl><dt>Section</dt><dd>12.7 Problem Solving: Estimating the Running Time of an Algorithm</dd><dt>Title</dt><dd>Which of the following statements about running times of algorithms is correct?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.7 Problem Solving: Estimating the Running Time of an Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-63</dd></dl></li><li>A portion of your program includes the loop shown in the code
+snippet below to examine the elements of a list <code>lst:</code><pre>
+count = 0
+targetVal = 70
+for i in range(len(lst)) :
+   if lst[i] &gt;= targetVal :
+      count = count + 1
+</pre>
+What can you conclude about the running time of this section of
+code?<ol class="multiple-choice"><li class="correct">Its running time will be <code>O(n)</code>.</li><li>Its running time will be <code>O(n<sup>2</sup>)</code>.</li><li>Its running time will be <code>O(log n)</code>.</li><li>Its running time will be <code>O(n log n)</code>.</li></ol><dl><dt>Section</dt><dd>12.7 Problem Solving: Estimating the Running Time of an Algorithm</dd><dt>Title</dt><dd>What can you conclude about the running time of this section of code?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.7 Problem Solving: Estimating the Running Time of an Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-64</dd></dl></li><li>The function <code>findLargest</code> examines the elements of
+an list <code>lst</code> which contains non-negative values
+<pre>
+curLargest = -1
+for i in range(len(lst)) :
+   if lst[i] &gt;= curLargest : 
+      curLargest = lst[i]
+</pre>
+What can you conclude about the running time of this section of
+code?<ol class="multiple-choice"><li class="correct">Its running time will be <code>O(n)</code>.</li><li>Its running time will be <code>O(n<sup>2</sup>)</code>.</li><li>Its running time will be <code>O(log n)</code>.</li><li>Its running time will be <code>O(n log n)</code>.</li></ol><dl><dt>Section</dt><dd>12.7 Problem Solving: Estimating the Running Time of an Algorithm</dd><dt>Title</dt><dd>What can you conclude about the running time of this section of code?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.7 Problem Solving: Estimating the Running Time of an Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-65</dd></dl></li><li>An algorithm that tests whether the first list element is equal
+to any of the other list elements would be an ____ algorithm.<ol class="multiple-choice"><li><pre>
+O(1)
+</pre></li><li class="correct"><pre>
+O(n)
+</pre></li><li><pre>
+O(log n)
+</pre></li><li><pre>
+O(n log n)
+</pre></li></ol><dl><dt>Section</dt><dd>12.7 Problem Solving: Estimating the Running Time of an Algorithm</dd><dt>Title</dt><dd>Testing whether the first element is equal to any other element would be an ____ algorithm.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.7 Problem Solving: Estimating the Running Time of an Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-67</dd></dl></li><li>An algorithm that cuts the work in half in each step is an ____
+algorithm.<ol class="multiple-choice"><li><pre>
+O(n)
+</pre></li><li><pre>
+O(n<sup>2</sup>)
+</pre></li><li class="correct"><pre>
+O(log n)
+</pre></li><li><pre>
+O(n log n)
+</pre></li></ol><dl><dt>Section</dt><dd>12.7 Problem Solving: Estimating the Running Time of an Algorithm</dd><dt>Title</dt><dd>An algorithm that cuts the work in half in each step is an ____ algorithm.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.7 Problem Solving: Estimating the Running Time of an Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-70</dd></dl></li><li>Which method must a user-defined class implement in order for
+list's sort method to work correctly?
+<ol class="multiple-choice"><li><code>__int__</code></li><li class="correct"><code>__lt__</code></li><li><code>__repr__</code></li><li><code>__sort__</code></li></ol><dl><dt>Section</dt><dd>12.7 Problem Solving: Estimating the Running Time of an Algorithm</dd><dt>Title</dt><dd>Which method must be implemented in order for list's sort method to work correctly?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.7 Problem Solving: Estimating the Running Time of an Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-71</dd></dl></li><li>Which sorting algorithm does the following code segment employ?
+<pre>
+def mysterySort(values, start, to) :
+   if start &gt;= to :
+      return
+   p = partition(values, start, to)
+   mysterySort(values, start, p)
+   mysterySort(values, p + 1, to)
+</pre><ol class="multiple-choice"><li>Merge Sort</li><li class="correct">Quicksort</li><li>Selection Sort</li><li>Shell Sort</li></ol><dl><dt>Section</dt><dd>12.7 Problem Solving: Estimating the Running Time of an Algorithm</dd><dt>Title</dt><dd>Which sorting algorithm does the following code segment employ?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.7 Problem Solving: Estimating the Running Time of an Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-72</dd></dl></li><li>Which sorting algorithm does the following code segment employ?
+<pre>
+def mysterySort(values) :
+   if len(values) &lt;= 1 :
+      return
+   first = values[ : mid]
+   second = values[mid : ]
+   mysterySort(first)
+   mysterySort(second)
+   mergeLists(first, second, values)
+</pre><ol class="multiple-choice"><li class="correct">Merge Sort</li><li>Quicksort</li><li>Selection Sort</li><li>Shell Sort</li></ol><dl><dt>Section</dt><dd>12.7 Problem Solving: Estimating the Running Time of an Algorithm</dd><dt>Title</dt><dd>Which sorting algorithm does the following code segment employ?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.7 Problem Solving: Estimating the Running Time of an Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-73</dd></dl></li><li>Which sorting algorithm does the following code segment employ?
+<pre>
+def mysterySort(values) :
+   for i in range(len(values)) :
+      minPos = minimumPosition(values, i)
+      temp = values[minPos]
+      values[minPos] = values[i]
+      values[i] = temp
+</pre><ol class="multiple-choice"><li>Merge Sort</li><li>Quicksort</li><li class="correct">Selection Sort</li><li>Shell Sort</li></ol><dl><dt>Section</dt><dd>12.7 Problem Solving: Estimating the Running Time of an Algorithm</dd><dt>Title</dt><dd>Which sorting algorithm does the following code segment employ?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.7 Problem Solving: Estimating the Running Time of an Algorithm</dd><dt>id</dt><dd>testbank-py-1-ch12-74</dd></dl></li><li>The <code>checklist</code> function is shown below:
+
+<pre>
+def checklist(lst) :
+   if(lst[0] &gt;= lst[len(lst)-1] :
+      return True
+   return False
+</pre>
+
+What can you conclude about the running time of this function?
+
+<ol class="multiple-choice">
+  <li>Its running time will be <code>O(n)</code>.</li>
+  <li>Its running time will be <code>O(n<sup>2</sup>)</code>.</li>
+  <li>Its running time will be <code>O(log n)</code>.</li>
+  <li class="correct">Its running time will be <code>O(1)</code>.</li>
+</ol><dl><dt>Section</dt><dd>12.7 Problem Solving: Estimating the Running Time of an Algorithm</dd><dt>Title</dt><dd>What can you conclude about the running time of a function?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch12-66</dd><dt>section</dt><dd>12.7 Problem Solving: Estimating the Running Time of an Algorithm</dd><dt>id</dt><dd>testbank-py-2-ch12-66</dd></dl></li><li>Consider the following code segment that examines the
+  elements of two lists: 
+
+<pre>
+matches = 0
+for i in range(len(lst1)) :
+   for j in range(len(lst2)) :
+      if lst1[i] == lst2[j] :
+         matches = matches + 1
+</pre>
+
+What can you conclude about the running time of this 
+code segment if both lists contain <code>n</code> elements?
+
+<ol class="multiple-choice">
+  <li>Its running time will be <code>O(n)</code>.</li>
+  <li class="correct">Its running time will be <code>O(n<sup>2</sup>)</code>.</li>
+  <li>Its running time will be <code>O(log n)</code>.</li>
+  <li>Its running time will be <code>O(n log n)</code>.</li>
+</ol><dl><dt>Section</dt><dd>12.7 Problem Solving: Estimating the Running Time of an Algorithm</dd><dt>Title</dt><dd>What can you conclude about the running time of this code segment?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch12-68</dd><dt>section</dt><dd>12.7 Problem Solving: Estimating the Running Time of an Algorithm</dd><dt>id</dt><dd>testbank-py-2-ch12-68</dd></dl></li><li>Consider the following function:
+
+<pre>
+def findElement(lst, newVal) :
+   pos = binarySearch(lst, newVal)
+   return pos
+</pre>
+
+What can you conclude about the running time of this function if <code>lst</code> contains <code>n</code> elements?
+
+<ol class="multiple-choice">
+  <li>Its running time will be <code>O(n)</code>.</li>
+  <li>Its running time will be <code>O(n<sup>2</sup>)</code>.</li>
+  <li class="correct">Its running time will be <code>O(log n)</code>.</li>
+  <li>Its running time will be <code>O(n log n)</code>.</li>
+</ol><dl><dt>Section</dt><dd>12.7 Problem Solving: Estimating the Running Time of an Algorithm</dd><dt>Title</dt><dd>What can you conclude about the running time of this code segment?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch12-69</dd><dt>section</dt><dd>12.7 Problem Solving: Estimating the Running Time of an Algorithm</dd><dt>id</dt><dd>testbank-py-2-ch12-69</dd></dl></li><li>Which sorting algorithm was enhanced to create Shell sort?
+
+<ol class="multiple-choice">
+  <li class="correct">Insertion sort</li>
+  <li>Merge sort</li>
+  <li>Quicksort</li>
+  <li>Selection sort</li>
+</ol><dl><dt>Section</dt><dd>12.7 Problem Solving: Estimating the Running Time of an Algorithm</dd><dt>Title</dt><dd>Which sorting algorithm was enhanced to create Shell sort?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>12.7 Problem Solving: Estimating the Running Time of an Algorithm</dd><dt>id</dt><dd>testbank-py-2-ch12-83</dd></dl></li></ol></body>
+    </html>

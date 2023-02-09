@@ -1,0 +1,190 @@
+## A game similar to Frogger.  Most of the code for this game is provided
+#  in Toolbox 10.1.  The additions beyond what is shown in that toolbox
+#  are marked by comments that begin with Problem 29.
+import pygame
+from random import randint
+
+def main() :
+   game = SnakeGame()
+   game.run()
+
+class ImageSprite(pygame.sprite.Sprite) :
+   def __init__(self, x, y, filename) :
+      super().__init__()
+      self.loadImage(x, y, filename)
+  
+   def loadImage(self, x, y, filename) :
+      img = pygame.image.load(filename).convert()
+      MAGENTA = (255, 0, 255)
+      img.set_colorkey(MAGENTA)
+      self.image = img
+      self.rect = self.image.get_rect()
+      self.rect.x = x
+      self.rect.y = y - self.rect.height
+     
+   def moveBy(self, dx, dy) :
+      self.rect.x = self.rect.x + dx
+      self.rect.y = self.rect.y + dy
+
+class Car(ImageSprite):
+   def __init__(self, x, lane) :
+      self._lane = lane
+      y = 300 + 200 * lane        
+      super().__init__(x, y, "car" + str(randint(0, 9)) + ".bmp") 
+     
+      if lane == 0 :
+         self.image = pygame.transform.flip(self.image, True, False)
+      self._layer = 1
+
+   def update(self) :
+      if self._lane == 0 : 
+         self.rect.x = self.rect.x + 1
+      else :
+         self.rect.x = self.rect.x - 1
+
+class GameBase:
+   def __init__(self, width, height) :
+      pygame.init()
+      self._width = width
+      self._height = height
+  
+      self._display = pygame.display.set_mode((self._width, self._height))
+      self._clock = pygame.time.Clock()
+      self._framesPerSecond = 30
+      self._sprites = pygame.sprite.LayeredUpdates()
+      self._ticks = 0
+      pygame.key.set_repeat(1, 120)
+  
+   def mouseButtonDown(self, x, y) :
+      return
+  
+   def keyDown(self, key) :
+      return
+    
+   def update(self) :
+      self._sprites.update()
+    
+   def draw(self) :
+      self._sprites.draw(self._display)
+    
+   def add(self, sprite) :
+      self._sprites.add(sprite)
+        
+   def getTicks(self) :
+      return self._ticks
+        
+   def quit(self) :
+      pygame.quit()        
+    
+   def run(self) :
+      while True :
+         for event in pygame.event.get() :
+            if event.type == pygame.QUIT :
+               self.quit()
+            elif event.type == pygame.MOUSEBUTTONDOWN :                    
+               self.mouseButtonDown(event.pos[0], event.pos[1])
+            elif event.type == pygame.KEYDOWN :
+               self.keyDown(event.key)
+                    
+         self.update()
+         WHITE = (255, 255, 255)
+         self._display.fill(WHITE)
+         self.draw()
+         pygame.display.update()
+         self._clock.tick(self._framesPerSecond)
+         self._ticks = self._ticks + 1
+
+class Snake(ImageSprite) :
+   def __init__(self, x, y) :
+         super().__init__(x, y, "snake.bmp") 
+         self._alive = True
+         self._layer = 2
+  
+   def keyDown(self, key) :
+      if self._alive :
+         distance = 20
+         if key == pygame.K_w or key == pygame.K_UP :
+            self.moveBy(0, -distance)
+         elif key == pygame.K_a  or key == pygame.K_LEFT :
+            self.moveBy(-distance, 0)
+         elif key == pygame.K_s  or key == pygame.K_DOWN :
+            self.moveBy(0, distance)
+         elif key == pygame.K_d  or key == pygame.K_RIGHT :
+            self.moveBy(distance, 0)
+         
+   def die(self) :
+      if self._alive :
+         self.image = pygame.transform.flip(self.image, True, True)
+         self._alive = False
+
+class SnakeGame(GameBase) :
+   def __init__(self) :
+     super().__init__(800, 600)        
+     self._snake = Snake(400, 600)
+     self._frog = ImageSprite(400, 100, "frog.bmp") 
+     self._cars = pygame.sprite.Group()
+     # Problem 29: Keep track of the frog's status.
+     self._frog_alive = True     
+     # Problem 29: Keep track of when the most recent game ended.
+     self._game_end_tick = -91
+     # Problem 29: Load sprites to indicate if the player has won or lost.
+     self._won = ImageSprite(300, 400, "won.bmp")
+     self._lost = ImageSprite(300, 400, "lost.bmp")
+
+   def addCar(self, lane) :
+      if lane == 0 :
+         x = -100
+      else :
+         x = self._width
+      newCar = Car(x, lane)
+      self._cars.add(newCar)
+      self.add(newCar)
+
+   def keyDown(self, key) : 
+      self._snake.keyDown(key)
+
+   def update(self) :
+      super().update()
+  
+      if self.getTicks() % 240 == 0 : # Add a new car to each lane
+         self.addCar(0)
+         self.addCar(1)              
+  
+      if self.getTicks() == 480 :
+         # Problem 29: If we have reached the correct tick count to start the
+         # next game then clear any won/lost message, put the snake in the
+         # correct location and make the frog alive.
+         self._won.kill()
+         self._lost.kill()
+         self._snake = Snake(400, 600)
+         self._frog_alive = True
+         self.add(self._snake) 
+         self.add(self._frog) 
+
+      # Problem 29: Pause for 3 seconds after the player wins or loses the game
+      # before reseting.
+      if self.getTicks() == self._game_end_tick + 90 :
+         self._sprites = pygame.sprite.LayeredUpdates()
+         self._cars = pygame.sprite.Group()
+         self._ticks = -1
+         self._game_end_tick = -91
+         
+      # Problem 29: Check for a collision with the snake when the snake
+      # is alive.
+      if pygame.sprite.spritecollideany(self._snake, self._cars) and self._snake._alive :
+         self._snake.die()
+         # Problem 29: Mark when the game ended and display a message 
+         # indicating that the player lost.
+         self._game_end_tick = self.getTicks()
+         self.add(self._lost) 
+         
+      # Problem 29: Check for a collision with the frog when the frog is alive.
+      if (pygame.sprite.collide_rect(self._snake, self._frog)) and self._frog_alive: 
+         self._frog.kill()
+         # Problem 29: Mark that the frog is no longer alive, when the game 
+         # ended, and display a message indicating that the player won.
+         self._frog_alive = False
+         self._game_end_tick = self.getTicks()
+         self.add(self._won) 
+
+main()

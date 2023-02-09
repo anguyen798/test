@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="generator" content="HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+    <title>Chapter 6, Python for Everyone, 2e</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="font-size-adjustment" content="-1" />
+    <meta name="copyright"
+          content="Copyright &#169; 2015 Wiley" />
+    <link rel="stylesheet" href="styles/slidy.css" type="text/css" />
+    <link rel="stylesheet" href="styles/horstmann.css" type="text/css" />
+</head>
+<body>
+    <div class="background">
+        <div class="slide ppLayoutCustom">
+    <div><p class="title" >Chapter 6: Lists</p><br />
+</div>
+<div><img src='images/slide1-Subtitle3.png' /></div>
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Chapter Goals</p><br />
+</div>
+<div><ul><li>To collect elements using lists
+</li><li>To use the <code>for</code> loop for traversing lists
+</li><li>To learn common algorithms for processing lists
+</li><li>To use lists with functions
+</li><li>To work with tables of data
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Contents</p><br />
+</div>
+<div><ul><li>Basic Properties of Lists
+</li><li>List Operations
+</li><li>Common List Algorithms
+</li><li>Using Lists with Functions
+</li><li>Problem Solving: Adapting Algorithms
+</li><li>Problem Solving: Discovering Algorithms by Manipulating Physical Objects
+</li><li>Tables
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass2">Basic Properties of Lists</span></p><br />
+</div>
+<div><p class="body" ><span class="fontColorClass3">Section 6.1</span></p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Creating a List</p><br />
+</div>
+<div><ul><li>Specify a list variable with the subscript operator [] 
+<p class="object" >
+</p>
+<ul></ul></li></ul><p class="object" >
+</p>
+<ul></ul><ul></ul></div>
+<div><img src='images/slide5-Picture1.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Accessing List Elements</p><br />
+</div>
+<div><ul><li>A list is a sequence of <em>elements</em>, each of which has an integer position or <em>index</em>
+</li><li>To access a list element, you specify which index you want to use. That is done with the subscript operator in the same way that you access individual characters in a string
+</li></ul></div><br/>
+<div style="float:left;width:33%;"><img src='images/slide6-TextBox6.png' />
+<p><code>print(values[5])
+</code></p></div>
+<div style="float:left;width:33%;"><img src='images/slide6-TextBox6-0.png' />
+<p><code>values[5] = 87
+</code></p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Creating Lists/Accessing Elements</p><br />
+</div>
+<div><img src='images/slide7-ContentPlaceholder5.png' /></div>
+<div><pre class="pseudo"># 1: Creating a list
+values = [32, 54, 67.5, 29, 35, 80, 115, 44.5, 100, 65]
+
+# 2: Accessing a list element
+values[5] = 87
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Lists Vs. Strings</p><br />
+</div>
+<div><ul><li>Both lists and strings are <strong>sequences</strong>, and the [] operator is used to access an element in any sequence
+</li><li>There are two differences between lists and strings: 
+<ul><li>Lists can hold values of any type, whereas strings are sequences of characters 
+</li><li>Moreover: 
+<ul><li>Strings are immutable—you cannot change the characters in the sequence 
+</li><li>Lists are <em>mutable</em>
+</li></ul></li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Out of Range Errors</p><br />
+</div>
+<div><ul><li>Out-of-Range Errors:
+</li><li>Perhaps the most common error in using lists is accessing a nonexistent element
+</li></ul><p class="object" >
+</p>
+<div><pre>values = [2.3, 4.5, 7.2, 1.0, 12.2, 9.0, 15.2, 0.5]
+values[8] = 5.4
+# Error––values has 8 elements, 
+# and the index can range from 0 to 7
+</pre></div><p class="object" >
+</p>
+<ul><li>If your program accesses a list through an out-of-range index, the program will generate an exception at run time</li></ul><ul></ul></div>
+
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Determining List Length</p><br />
+</div>
+<div><ul><li>You can use the <code>len()</code> function to obtain the length of the list; that is, the number of elements:
+</li></ul></div>
+<div><p><code>numElements = len(values)
+</code></p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Using The Square Brackets</p><br />
+</div>
+<div><ul><li>Note that there are two distinct uses of the square brackets. When the square brackets immediately follow a variable name, they are treated as the subscript operator:
+</li></ul></div>
+<div><p><code>values[4]
+</code></p></div><br/>
+<div><ul><li class="">When the square brackets follow an "=" they create a list:
+</li></ul></div>
+<div><p><code>values = [4]
+</code></p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Loop Over the Index Values</p><br />
+</div>
+<div><ul><li>Given the values list that contains 10 elements, we will want to set a variable, say <code>i</code>, to 0, 1, 2, and so on, up to 9
+</li></ul></div>
+<div><pre># First version (list index used)
+for i in range(10) :
+    print(i, values[i])
+</pre></div>
+<div><pre># Better version (list index used)
+for i in range(len(values)) :
+    print(i, values[i])
+</pre></div>
+<div><pre># Third version: index values not needed (traverse 
+# list elements)
+for element in values :
+    print(element)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >List References</p><br />
+</div>
+<div><ul><li>Make sure you see the difference between the:
+<ul><li>List variable:  The named 'alias' or pointer to the list
+</li><li>List contents:  Memory where the values are stored
+</li></ul></li></ul></div>
+<div><p><code>values = [32, 54, 67.5, 29, 35, 80, 115, 44.5, 100, 65]
+</code></p></div>
+<div style="position:absolute;top:29.5%;left:30%;"><p>List variable</p>
+</div>
+<div style="position:absolute;top:30.5%;left:60%;"><p>List contents</p>
+</div>
+<div style="position:absolute;top:34%;left:30.75%;"><img src='images/slide13-Picture1.png' /></div>
+<div style="position:absolute;top:35%;left:60%;"><img src='images/slide13-Picture2.png' /></div>
+<div style="position:absolute;top:39%;left:43%;"><p>Reference</p>
+</div>
+<div style="position:absolute;top:58%;left:68%;"><p>Values</p>
+</div>
+<div style="position:absolute;top:45%;left:2%;width:45%;"><p>A list variable contains a reference to the list contents.  The reference is the location of the list contents (in memory). 
+</p></div>
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >List Aliases</p><br />
+</div>
+<div><ul><li>When you copy a list variable into another, both variables refer to the same list
+<ul><li>The second variable is an <em>alias</em> for the first because both variables reference the same list
+</li></ul></li></ul></div>
+<div><pre>scores = [10, 9, 7, 4, 5]
+values = scores     # Copying list reference
+</pre></div></br></br>
+<div style="position:absolute;top:28%;left:59%;"><p>List contents</p>
+</div>
+<div style="width:30%;"><p>A list variable specifies the location of a list. Copying the reference yields a second reference to the same list.
+</p></div>
+<div style="position:absolute;top:33%;left:33%;"><img src='images/slide14-Picture10.png' /></div>
+<div style="position:absolute;top:47%;left:40%;"><p>References</p>
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Modifying Aliased Lists</p><br />
+</div>
+<div><ul><li>You can modify the list through either of the variables:
+</li></ul></div>
+<div><pre>scores[3] = 10
+print(values[3])   # Prints 10
+</pre></div>
+<div><img src='images/slide15-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Reverse Subscripts</p><br />
+</div>
+<div><ul><li>Python, unlike other languages, uses negative subscripts to provide access to the list elements in reverse order.
+<ul><li>For example, a subscript of -1 provides access to the last element in the list:
+</li><li>Similarly, <code>values[-2]</code> is the second-to-last element.
+</li></ul></li></ul><p class="object" ><em><strong>Just because you can do this, does not mean you should…</strong></em></p>
+<ul></ul></div>
+<div style="position:absolute;top:25%;left:55%;"><img src='images/slide16-Picture2.png' /></div>
+<div style="width:50%;"><pre>last = values[-1]
+print("The last element in the list is", last)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass2">List Operations</span></p><br />
+</div>
+<div><p class="body" ><span class="fontColorClass3">Section 6.2</span></p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >List Operations</p><br />
+</div>
+<div><ul><li>Appending Elements
+</li><li>Inserting an Element
+</li><li>Finding an Element
+</li><li>Removing an Element
+</li><li>Concatenation 
+</li><li>Equality / Inequality Testing
+</li><li>Sum, Maximum, Minimum, and Sorting
+</li><li>Copying Lists
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Appending Elements</p><br />
+</div>
+<div><ul><li>Sometimes we may not know the values that will be contained in the list when it's created 
+</li><li>In this case, we can create an empty list and add elements to the end as needed
+</li></ul></div>
+<div style="width:40%;"><pre>#1
+friends = []
+
+#2
+friends.append("Harry")
+
+#3
+friends.append("Emily")
+friends.append("Bob")
+friends.append("Cari")</pre></div>
+<div class="incremental" style="position:fixed;top:18%;left:40%;"><img src='images/slide19-Picture2.png' /></div>
+<div class="incremental" style="position:fixed;top:30%;left:45%;"><img src='images/slide19-Picture2-0.png' /></div>
+<div class="incremental" style="position:fixed;top:43%;left:50%;"><img src='images/slide19-Picture2-1.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Inserting an Element</p><br />
+</div>
+<div><ul><li>Sometimes the order in which elements are added to a list is important
+<ul><li>A new element has to be inserted at a specific position in the list
+</li></ul></li></ul></div>
+<div style="width:45%;"><pre>#1
+friends = ["Harry", "Emily", "Bob", "Cari"]
+
+#2
+friends.insert(1, "Cindy")
+</pre></div>
+<div class="incremental" style="position:fixed;top:18%;left:50%;"><img src='images/slide20-Picture2.png' /></div>
+<div class="incremental" style="position:fixed;top:18%;left:50%;"><img src='images/slide20-Picture2-0.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Finding an Element</p><br />
+</div>
+<div><ul><li>If you simply want to know whether an element is present in a list, use the <code>in</code> operator:
+</li></ul></div>
+<div><pre>if "Cindy" in friends :
+    print("She's a friend")
+</pre></div>
+<div><ul><li class="">Often, you want to know the position at which an element occurs
+<ul><li class="">The <code>index()</code> method yields the index of the first match
+</li></ul></li></ul></div>
+<div><pre>friends = ["Harry", "Emily", "Bob", "Cari", "Emily"]
+n = friends.index("Emily") # Sets n to 1
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Removing an Element</p><br />
+</div>
+<div><ul><li>The <code>pop()</code> method removes the element at a given position
+</li></ul><p class="object" >
+</p></div>
+<div><pre>friends = ["Harry", "Cindy", "Emily", "Bob", "Cari","Bill"]
+friends.pop(1)
+</pre></div>
+<div><ul><li class="">All of the elements following the removed element are moved up one position to close the gap
+</li><li class="">The length of the list is reduced by 1
+</li></ul></div>
+<div class="incremental"><img src='images/slide22-Picture2.png' /></div>
+<div class="incremental"><img src='images/slide22-Picture2-0.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Concatenation</p><br />
+</div>
+<div><ul><li>The concatenation of two lists is a new list that contains the elements of the first list, followed by the elements of the second</li></ul></div>
+<div><pre>myFriends = ["Fritz", "Cindy"]
+yourFriends = ["Lee", "Pat", "Phuong"]
+</pre></div>
+<div><ul><li class="">Two lists can be concatenated by using the plus (<code>+</code>) operator:
+</li></ul></div>
+<div><pre>ourFriends = myFriends + yourFriends
+# Sets ourFriends to ["Fritz", "Cindy", "Lee", "Pat","Phuong"]
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Replication</p><br />
+</div>
+<div><ul><li>As with string replication of two lists is a new list that contains the elements of the first list, followed by the elements of the second</li></ul></div>
+<div><pre>monthInQuarter = [ 1, 2, 3] * 4
+</pre></div>
+<div><ul><li class="">Results in the list [1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2 ,3]
+</li><li class="">You can place the integer on either side of the <code>*</code> operator
+</li><li class="">The integer specifies how many copies of the list should be concatenated
+</li><li class="">One common use of replication is to initialize a list with a fixed value
+</li></ul></div>
+<div><pre>monthlyScores = [0] * 12
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Equality / Inequality Testing</p><br />
+</div>
+<div><ul><li>You can use the <code>==</code> operator to compare whether two lists have the same elements, in the same order
+</li></ul></div>
+<div><pre>[1, 4, 9] == [1, 4, 9]     # True
+[1, 4, 9 ] == [4, 1, 9]    # False
+</pre></div>
+<div><ul><li class="">The opposite of <code>==</code> is <code>!=</code>
+</li></ul></div>
+<div><pre>[1, 4, 9] != [4, 9]     # True
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Sum, Maximum, Minimum</p><br />
+</div>
+<div><ul><li>If you have a list of numbers, the <code>sum()</code> function yields the sum of all values in the list
+</li></ul></div>
+<div><pre>sum([1, 4, 9, 16]) # Yields 30
+</pre></div>
+<div><ul><li class="">For a list of numbers or strings, the <code>max()</code> and <code>min()</code> functions return the largest and smallest value:</li></ul></div>
+<div><pre>max([1, 16, 9, 4])                  # Yields 16
+min("Fred", "Ann", "Sue")           # Yields "Ann"
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Sorting</p><br />
+</div>
+<div><ul><li>The <code>sort()</code> method sorts a list of numbers or strings
+</li></ul></div>
+<div><pre>values = [1, 16, 9, 4]
+values.sort() # Now values is [1, 4 , 9, 16]
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Copying Lists</p><br />
+</div>
+<div><ul><li>As discussed, list variables do not themselves hold list elements
+</li><li>They hold a reference to the actual list
+</li><li>If you copy the reference, you get another reference to the same list:
+</li></ul></div>
+<div><pre>prices = values
+</pre></div>
+<div><img src='images/slide28-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Copying Lists (2)</p><br />
+</div>
+<div><ul><li>Sometimes, you want to make a copy of a list; that is, a new list that has the same elements in the same order as a given list
+</li><li>Use the <code>list()</code> function:
+</li></ul></div>
+<div><pre>prices = list(values)
+</pre></div>
+<div><img src='images/slide29-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Slices of a List</p><br />
+</div>
+<div><ul><li>Sometimes you want to look at a part of a list.  Suppose you are given a list of temperatures, one per month:
+</li></ul><pre>temperatures = [18, 21, 24, 33, 39, 40, 39, 36, 30, 22, 18]
+</pre><ul><li>You are only interested in the temperatures for the third quarter, with index values 6, 7, and 8
+</li><li>You can use the slice operator to obtain them:
+</li></ul><pre>thirdQuarter = temperatures[6 : 9]
+</pre><ul><li>The arguments are the first element to include, and the first to exclude
+<ul><li>So in our example we get elements 6, 7, and 8
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Slices (2)</p><br />
+</div>
+<div><ul><li>Both indexes used with the slice operator are optional
+</li><li>If the first index is omitted, all elements from the first are included
+</li><li>The slice:
+</li></ul><pre>temperatures[ : 6] 
+</pre><ul><li>Includes all elements up to, but not including, position 6
+</li><li>The slice:
+</li></ul><pre>temperatures[6 : ] 
+</pre><ul><li>Includes all elements starting at position 6 to the end of the list
+</li><li>You can assign values to a slice:
+</li></ul><pre>temperatures[6 : 9] = [45, 44, 40]
+</pre><ul><li>Replaces the values in elements 6, 7, and 8
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Common List Functions And Operators</p><br />
+</div>
+<div><img src='images/slide32-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Common List Functions And Operators (2)</p><br />
+</div>
+<div><img src='images/slide33-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Common List Methods</p><br />
+</div>
+<div><img src='images/slide34-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" >Common List Algorithms</p><br />
+</div>
+<div><p class="body" ><span class="fontColorClass3">Section 6.3</span></p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Common List Algorithms</p><br />
+</div>
+<div><ul><li>Filling a List
+</li><li>Combining List Elements
+</li><li>Element Separators
+</li><li>Maximum and Minimum
+</li><li>Linear Search
+</li><li>Collecting and Counting Matches
+</li><li>Removing Matches
+</li><li>Swapping Elements
+</li><li>Reading Input</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Filling a List</p><br />
+</div>
+<div><ul><li>This loop creates and fills a list with squares (0, 1, 4, 9, 16, ...)
+</li></ul></div>
+<div><pre>values = []
+for i in range(n) :
+    values.append(i * i)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Combining List Elements</p><br />
+</div>
+<div><ul><li>Here is how to compute a sum of numbers:
+</li></ul></div>
+<div><pre>result = 0.0
+for element in values :
+    result = result + element
+</pre></div>
+<div><ul><li class="">To concatenate strings, you only need to change the initial value:
+</li></ul></div>
+<div><pre>result = ""
+for element in names :
+    result = result + element
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Element Separators</p><br />
+</div>
+<div><ul><li>When you display the elements of a list, you usually want to separate them, often with commas or vertical lines, like this:
+</li></ul><pre>Harry, Emily, Bob
+</pre><ul></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Element Separators (2)</p><br />
+</div>
+<div><ul><li>Add the separator before each element (there's one fewer separator than there are numbers) in the sequence except the initial one (with index 0), like this:
+</li></ul></div>
+<div><pre>for i in range(len(names)) :
+    if i &gt; 0 :
+        result = result + ", "
+    result = result + names[i]
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Element Separators (3)</p><br />
+</div>
+<div><ul><li>If you want to print values without adding them to a string:
+</li></ul></div>
+<div><pre>for i in range(len(values)) :
+    if i &gt; 0 :
+        print(" | ", end="")
+    print(values[i], end="")
+print()
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Maximum and Minimum</p><br />
+</div>
+<div><ul><li>Here is the implementation of the max algorithm (already covered in Chapter 4, this one is just specific to a list):
+</li></ul></div>
+<div><pre>largest = values[0]
+for i in range(1, len(values)) :
+    if values[i] &gt; largest :
+        largest = values[i]
+</pre></div>
+<div><ul><li>Here is the min algorithm:
+</li></ul></div>
+<div><pre>smallest = values[0]
+for i in range(1, len(values)) :
+    if values[i] &lt; smallest :
+        smallest = values[i]
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Linear Search</p><br />
+</div>
+<div><ul><li>Finding the first value that is &gt; 100. You need to visit all elements until you have found a match or you have come to the end of the list:</li></ul></div>
+<div style="float:left;width:50%;"><pre>limit = 100
+pos = 0
+found = False
+while pos &lt; len(values) and not found :
+    if values[pos] &gt; limit :
+        found = True
+    else :
+        pos = pos + 1
+if found :
+    print("Found at position:", pos)
+else :
+    print("Not found")
+</pre></div>
+<div style="float:left;width:40%"><p>A linear search inspects elements in sequence until a match is found.
+<p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Collecting and Counting Matches</p><br />
+</div>
+<div><ul><li>Collecting all matches:
+</li></ul></div>
+<div><pre>limit = 100
+result = []
+for element in values :
+    if (element &gt; limit) :
+        result.append(element)
+</pre></div>
+<div><ul><li>Counting matches:
+</li></ul></div>
+<div><pre>limit = 100
+counter = 0
+for element in values :
+    if (element &gt; limit) :
+        counter = counter + 1
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Removing Matches</p><br />
+</div>
+<div><ul><li>Remove all elements that match a particular condition
+<ul><li>Example: remove all strings of length &lt; 4 from a list
+</li></ul></li></ul></div>
+<div><pre>i = 0
+while i &lt; len(words) :
+    word = words[i]
+    if len(word) &lt; 4 :
+        words.pop(i)
+    else :
+        i = i + 1
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Swapping Elements</p><br />
+</div>
+<div><ul><li>For example, you can sort a list by repeatedly swapping elements that are not in order
+</li><li>Swap the elements at positions <code>i</code> and <code>j</code> of a list values
+</li><li>We'd like to set <code>values[i]</code> to <code>values[j]</code>
+</li><li>But that overwrites the value that is currently stored in <code>values[i]</code>, so we want to save that first:
+</li></ul></div>
+<div style="float:left;width:33%;"><img src='images/slide46-Picture2.png' /></div>
+<div style="float:left;width:40%;"><img src='images/slide46-TextBox6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Swapping Elements (2)</p><br />
+</div>
+<div><ul><li>Swapping elements [1] and [3]
+<ul><li>This sets up the scenario for the actual code that will follows
+</li></ul></li></ul></div>
+<div><img src='images/slide47-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Swapping Elements (3)</p><br />
+</div>
+<div><pre># Step 2
+temp = values[i]
+
+# Step 3
+values[i] = values[j]
+</pre></div>
+<div><img src='images/slide48-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Swapping Elements (4)</p><br />
+</div>
+<div><pre># Step 4
+# temp contains values[i]
+values[j] = temp
+</pre></div>
+<div><img src='images/slide49-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Reading Input</p><br />
+</div>
+<div><ul><li>It is very common to read input from a user and store it in a list for later processing
+</li></ul></div>
+<div><pre>values = []
+print("Please enter values, Q to quit:")
+userInput = input("")
+while userInput.upper() != "Q" :
+    values.append(float(userInput))
+    userInput = input("")
+</pre></div>
+<div><p>Program Run</></div>
+<div><pre>Please enter values, Q to quit:
+32
+29
+67.5
+Q
+</pre></div>
+
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example One</p><br />
+</div>
+<div><ul><li>Open the file largest.py in Wing
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Built-In Operations For Lists</p><br />
+</div>
+<div><ul><li>Use the <code>insert()</code> method to insert a new element at any position in a list
+</li><li>The <code>in</code> operator tests whether an element is contained in a list
+</li><li>Use the <code>pop()</code> method to remove an element from any position in a list
+</li><li>Use the <code>remove()</code> method to remove an element from a list by value
+</li><li>Two lists can be concatenated using the plus (<code>+</code>) operator
+</li><li>Use the <code>list()</code> function to copy lists
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Built-In Operations For Lists</p><br />
+</div>
+<div><ul><li>Use the slice operator (<code>:</code>) to extract a sublist or substrings
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example Problems</p><br />
+</div>
+<div><ul><li>Open the file largest.py in Wing
+</li><li>Modify the program to find and print both the largest and smallest number
+<ul><li>Find the largest number
+</li><li>Print the list
+<ul><li>Print the string " &lt;== largest value" next to the largest number
+</li></ul></li><li>Find the smallest number
+</li><li>Print the list
+<ul><li>Print the string " &lt;== smallest value" next to the smallest number
+</li></ul></li><li>Modify the program again
+<ul><li>Find the largest number
+</li><li>Find the smallest number
+</li><li>Print the list
+<ul><li>Print the string " &lt;== largest value" next to the largest number
+</li><li>Print the string " &lt;== smallest value" next to the smallest number
+</li></ul></li></ul></li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass2">Using Lists With Functions</span></p><br />
+</div>
+<div><p class="body" ><span class="fontColorClass3">Section 6.4</span></p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Using Lists With Functions</p><br />
+</div>
+<div><ul><li>A function can accept a list as an argument
+</li><li>The following function visits the list elements, but it does not modify them
+</li></ul></div>
+<div><pre>def sum(values) :
+    total = 0
+    for element in values :
+        total = total + element
+    return total
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Modifying List Elements</p><br />
+</div>
+<div><ul><li>The following function multiplies all elements of a list by a given factor:
+</li></ul></div>
+<div><pre>def multiply(values, factor) :
+    for i in range(len(values)) :
+        values[i] = values[i] * factor
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example: Step 1</p><br />
+</div>
+<div><ul><li>The parameter variables <code>values</code> and <code>factor</code> are created
+</li></ul></div>
+<div><img src='images/slide58-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example: Step 2</p><br />
+</div>
+<div><ul><li>The parameter variables are initialized with the arguments that are passed in the call
+</li><li>In our case, <code>values</code> is set to <code>scores</code> and <code>factor</code> is set to 10
+<ul><li>Note that <code>values</code> and <code>scores</code> are references to the <em>same</em> list
+</li></ul></li></ul></div>
+<div><pre># Function call
+multiply(scores, 10)
+</pre></div>
+<div><img src='images/slide59-Picture4.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example: Step 3</p><br />
+</div>
+<div><ul><li>The function multiplies all list elements by 10
+</li></ul></div>
+<div><pre>def multiply(values, factor) :
+    for i in range(len(values)) :
+        values[i] = values[i] * factor
+</pre></div>
+<div><img src='images/slide60-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example: Step 4</p><br />
+</div>
+<div><ul><li>The function returns. Its parameter variables are removed
+</li><li>However, <code>scores</code> still refers to the list with the modified elements
+</li></ul></div>
+<div><img src='images/slide61-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Returning Lists From Functions</p><br />
+</div>
+<div><ul><li>Simply build up the result in the function and return it 
+</li><li>In this example, the <code>squares()</code> function returns a list of squares from 0<sup>2</sup> up to (<em>n</em> – 1)<sup>2</sup>:
+</li></ul></div>
+<div><pre>def squares(n) :
+    result = []
+    for i in range(n) :
+        result.append(i * i)
+    return result
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example One</p><br />
+</div>
+<div><ul><li>Open the file reverse.py
+</li><li>This program reads values from the user, multiplies them by 10, and prints them in reverse order
+</li><li>The <code>readFloats</code> function returns a list
+</li><li>The <code>multiply</code> function has a list argument, it modifies the list elements
+</li><li>The <code>printReversed</code> function has a list argument, but it does not modify the list elements
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Call By: Value Vs. Reference</p><br />
+</div>
+<div><ul><li>Call by value:
+<ul><li>When the contents of a variable that was passed to a function can never be changed by that function
+</li></ul></li><li>Call by reference:
+<ul><li>Function can change the arguments of a method call
+</li><li>A Python method can mutate the contents of a list when it receives a reference to the list
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Tuples</p><br />
+</div>
+<div><ul><li>A tuple is similar to a list, but once created, its contents cannot be modified (a tuple is an immutable version of a list)
+</li><li>A tuple is created by specifying its contents as a comma-separated sequence. You can enclose the sequence in parentheses:
+</li></ul></div>
+<div><p><code>triple = (5, 10, 15)</code></p></div>
+<div><ul><li class="">If you prefer, you can omit the parentheses:
+</li></ul></div>
+<div><p><code>triple = 5, 10, 15</code></p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Returning Multiple Values</p><br />
+</div>
+<div><ul><li>It is common practice in Python, however, to use tuples to return multiple values
+</li></ul></div>
+<div><pre># Function definition
+def readDate() :
+    print("Enter a date:")
+    month = int(input(" month: "))
+    day = int(input(" day: "))
+    year = int(input(" year: "))
+    return (month, day, year) # Returns a tuple.
+
+# Function call: assign entire value to a tuple
+date = readDate()
+
+# Function call: use tuple assignment: 
+(month, day, year)  = readDate()
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass2">Problem Solving</span></p><br />
+</div>
+<div><p class="body" ><span class="fontColorClass3">Section 6.5: </span><span class="fontColorClass3">Adapting Algorithms</span></p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Adapting Algorithms</p><br />
+</div>
+<div><ul><li>Consider this example problem: You are given the quiz scores of a student. You are to compute the final quiz score, which is the sum of all scores after dropping the lowest one.
+<ul><li>For example, if the scores are:
+</li></ul><p class="object" >     8, 7, 8.5, 9.5, 7, 5, 10
+</p>
+<ul><li>then the final score is 50.
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Adapting a Solution</p><br />
+</div>
+<div><ul><li>What steps will we need?
+<ul><li>Find the minimum
+</li><li>Remove it from the list
+</li><li>Calculate the sum
+</li></ul></li><li>What tools do we know?
+<ul><li>Finding the minimum value (Section 6.3.4)
+</li><li>Removing matches (Section 6.3.7)
+</li><li>Calculating the sum (Section 6.4)
+</li></ul></li><li>But wait…We need to find the POSITION of the minimum value, not the value itself
+<ul><li>Hmmm…Time to adapt
+</li></ul></li></ul></div>
+<div><img src='images/slide69-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Planning a Solution</p><br />
+</div>
+<div><ul><li>Refined Steps:
+<ul><li>Find the minimum value
+</li><li>Find its position
+</li><li>Remove it from the list
+</li><li>Calculate the sum
+</li></ul></li><li>Let's try it!
+<ul><li>Find the position of the minimum:
+<ul><li>At position 5
+</li></ul></li></ul>
+<ul><li>Remove it from the list
+</li><li>Calculate the sum
+</li></ul></li></ul></div>
+<div style="position:absolute;top:10%;left:50%;"><img src='images/slide70-Picture2.png' /></div>
+<div style="position:absolute;top:30%;left:50%;"><img src='images/slide70-Picture8.png' /></div>
+<div style="position:absolute;top:45%;left:50%;"><img src='images/slide70-Picture3.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Adapting the Code</p><br />
+</div>
+<div><ul><li>Adapt smallest value to smallest position:
+</li></ul></div>
+<div><p>Original algorithm
+</p></div>
+<div><pre>smallest = values[0]
+for i in range(1, len(values)) :
+    if values[i] &lt; smallest :
+        smallest = values[i]
+</pre></div>
+<div><p>Adapted algorithm
+</p></div>
+<div><pre>smallestPosition = 0
+for i in range(1, len(values)) :
+    if values[i] &lt; values[smallestPosition] :
+        smallestPosition = i
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Working Out an Example</p><br />
+</div>
+<div><ul><li>Problem Statement:  The final quiz score for a student is computed by adding up all of the scores except the lowest two
+</li><li>For example, if the scores are: 8, 4, 7, 9, 9, 7, 5, 10
+</li><li>The final score is 50
+</li><li>We are going develop the algorithm and write a program to compute the final score
+</li></ul>
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Step One</p><br />
+</div>
+<div><ul><li>We want to start with a high level decomposition of the problem:
+<ul><li>Read the data into a list
+</li><li>Process the data
+</li><li>Display the results
+</li></ul></li><li>We will refer back to the algorithms and list operations to help guide our design.  Most of the tasks associated with this problem can be solved by using or adapting one or more of the algorithms
+</li><li>Our next step in the stepwise refine is to identify the step we need to process the data:
+<ul><li class="decimal">Read inputs
+</li><li class="decimal">Remove the minimum
+</li><li class="decimal">Remove the minimum again
+</li><li class="decimal">Calculate the sum
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Step Two</p><br />
+</div>
+<div><ul><li>Now we start to determine the algorithms we need
+</li><li>We have working algorithms for reading the inputs, and calculating the sum
+</li><li>To remove the minimum value we can find the minimum (we have an algorithm for that) and remove it.  
+<ul><li>It is a bit more efficient to find the position of the minimum value and "pop" that position
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Step Three</p><br />
+</div>
+<div><ul><li>Plan the functions we need 
+<ul><li>We can compute the sum with the existing <code>sum</code> function
+</li><li>We need a function to read the floating point numbers; <code>readFloats()</code>
+</li><li>We need a function to remove the minimum; <code>removeMinimum()</code>  (we will call this twice)
+</li></ul></li><li>Our main function can be structured as:
+<pre>scores = readFloats()
+removeMinimum(scores)
+removeMinimum(scores)
+total = sum(scores)
+print(“Final Score : “, total)
+</pre><ul></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Step Four</p><br />
+</div>
+<div><ul><li>Assemble and test your code
+</li><li>Review your code and make sure you handle the "normal" and "exceptional" cases
+<ul><li>How do you handle an empty list?
+</li><li>A list with a single element?
+</li><li>What if you don't find a smallest number?
+</li></ul></li><li>Remember in our problem statement we are dropping two grades
+</li><li>It is not possible to compute a minimum if the list is empty or has a single element
+<ul><li>In that case we should terminate the program with an error message <em><strong>before</strong></em> attempting to call the remove minimum function
+</li></ul></li><li>Develop your test cases, and the expected outputs
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Testing</p><br />
+</div>
+<div><ul><li>Develop your test cases, and the expected outputs
+</li></ul><p class="object" >
+</p>
+<ul></ul></div>
+<div><img src='images/slide77-Table5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >scores.py</p><br />
+</div>
+<div><ul><li>Open the file scores.py in Wing
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >A Second Example</p><br />
+</div>
+<div><ul><li>Problem Statement:  Our task is to analyze whether a die is fair by counting how often each value (1, 2, 3, 4, 5, 6) appears
+</li><li>Our input will be a series of die toss values
+</li><li>For example, if the scores are: 1, 2, 1, 3, 4, 6, 5, 6
+</li><li>The result is 1: 2; 2: 1; 3: 1; 4: 1; 5: 1; 6: 2
+</li><li>We are going develop the algorithm and write a program to compute and print the frequency of each die value
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Step One</p><br />
+</div>
+<div><ul><li>We want to start with a high level decomposition of the problem:
+<ul><li>Read the die values
+</li><li>Count how often the values (1, 2, …, 6) appear
+</li><li>Print the counts
+</li></ul></li><li>If we think about this we can simplify; do we need to store the values?  
+<ul><li>We are only counting the number of times each die toss occurs.  If we create a list counter we can read and then discard the inputs
+</li></ul></li><li>Our next step in the stepwise refine is to identify the steps we need to process the data:
+<ul><li class="decimal">Read input
+</li><li class="decimal">For each input value:
+<ul><li class="decimal">Increment the corresponding counter
+</li></ul></li><li class="decimal">Print the counters
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Step Two</p><br />
+</div>
+<div><ul><li>Determine the algorithms we need:
+</li><li>We don't have an algorithm for reading inputs and incrementing a counter (yet) but it is easy to build one
+<ul><li>If we have a list of length 6 we can simply
+</li></ul></li></ul><p><code>counters[value – 1] = counters[value – 1] + 1
+</code></p><ul><li>To make it easier was can can not use the [0] position and have
+</li></ul><p><code>counters[value] = counters[value] + 1
+</code></p><ul><li>So, if we define <code>counters = [0] * (sides + 1)
+</code></li><li>Now we can focus on printing the counters
+</li><li>We can use a count controlled loop and a format string to print the results
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Step Three</p><br />
+</div>
+<div><ul><li>Plan the Functions we need:
+<ul><li><code>countInputs(sides)              # will count the inputs
+</code></li><li><code>printCounters(counters)    # will print the counters
+</code></li></ul></li><li>The main function calls these functions:
+</li></ul><pre>counters = countInputs(6)
+printCounters(counters)
+</pre><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Step Four</p><br />
+</div>
+<div><ul><li>Assemble and test your program:
+</li><li>When updating a counter we have to make sure we do not generate an boundary error; we have to reject inputs &lt; 1 and &gt; 6
+</li></ul></div>
+<div><img src='images/slide83-Table5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >dice.py</p><br />
+</div>
+<div><ul><li>Open the file dice.py
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass2">Discovering Algorithms by Manipulating Physical Objects</span></p><br />
+</div>
+<div><p class="body" ><span class="fontColorClass3">Section 6.6</span></p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Discovering Algorithms</p><br />
+</div>
+<div><ul><li>Consider this example problem: 
+<ul><li>You are given a list whose size is an even number, and you are to switch the first and the second half
+</li></ul></li><li>For example, if the list contains the eight numbers:    
+</li></ul>
+<div><img src='images/slide86-Picture2.png' /></div>
+<ul><li>Rearrange it to:
+</li></ul></div>
+<div><img src='images/slide86-Picture3.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Manipulating Objects</p><br />
+</div>
+<div><ul><li>One useful technique for discovering an algorithm is to manipulate physical objects
+</li><li>Start by lining up some objects to denote an array 
+<ul><li>Coins, playing cards, or small toys are good choices
+</li></ul>
+<div><img src='images/slide87-Picture2.png' /></div>
+<ul></ul></li><li>Visualize removing one object
+</li></ul></div>
+<div><img src='images/slide87-Picture3.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Manipulating Objects</p><br />
+</div>
+<div><ul><li>Visualize inserting one object
+</li></ul>
+<div><img src='images/slide88-Picture3.png' /></div>
+<ul><li>How about swapping two coins?
+</li></ul></div>
+<div><img src='images/slide88-Picture4.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Manipulating Objects</p><br />
+</div>
+<div><ul><li>Back to our original problem. Which tool(s) to use?
+<ul><li>How about swapping two coins?  Four times?
+</li></ul></li></ul></div>
+<div><img src='images/slide89-Picture2.png' /></div>
+<div><img src='images/slide89-Picture5.png' /></div>
+<div><img src='images/slide89-Picture6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Develop an Algorithm</p><br />
+</div>
+<div><ul><li class="">Pick two locations (indexes) for the first swap and start a loop
+</li></ul></div></br></br></br></br>
+<div style="position:absolute;top:15%;left:2%;"><img src='images/slide90-Picture2.png' /></div>
+<div style="position:absolute;top:14%;left:40.5%;"><code>j</code></div>
+<div style="position:absolute;top:14%;left:21%;"><code>i</code></div>
+<div><ul><li>How can j be set to handle any number of items?
+<ul><li>… if size is 8, j is index 4…
+</li></ul></li><li>And when do we stop our loop?
+</li></ul></div>
+<div style="float:left;width:33%;"><img src='images/slide90-Picture1.png' /></div>
+<div style="float:left;width:33%;"><img src='images/slide90-Picture2-0.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >swaphalves.py</p><br />
+</div>
+<div><ul><li>Open the file swaphalves.py
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass2">Tables</span></p><br />
+</div>
+<div><p class="body" ><span class="fontColorClass3">Section 6.7</span></p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Tables</p><br />
+</div>
+<div><ul><li>Lists can be used to store data in two dimensions (2D) like a spreadsheet
+<ul><li>Rows and Columns
+</li><li>Also known as a 'matrix'
+</li></ul></li></ul></div>
+<div><img src='images/slide93-Picture3.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Creating Tables</p><br />
+</div>
+<div><ul><li>Here is the code for creating a table that contains 8 rows and 3 columns, which is suitable for holding our medal count data:
+</li></ul></div>
+<div><img src='images/slide94-Picture3.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Creating Tables (2)</p><br />
+</div>
+<div><ul><li>This creates a list in which each element is itself another list:
+</li></ul></div>
+<div><img src='images/slide95-Picture3.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Creating Tables (3)</p><br />
+</div>
+<div><ul><li>Sometimes, you may need to create a table with a size that is too large to initialize with literal values
+</li><li>First, create a list that will be used to store the individual rows
+</li></ul></div>
+<div><p><code>table = []</code></p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Creating Tables (4)</p><br />
+</div>
+<div><ul><li>Then create a new list using replication (with the number of columns as the size) for each row in the table and append it to the list of rows:
+</li></ul></div>
+<div><pre>ROWS = 5
+COLUMNS = 20
+for i in range(ROWS) :
+    row = [0] * COLUMNS
+    table.append(row)
+</pre></div>
+<div><ul><li class="">The result is a table that consists of 5 rows and 20 columns
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Accessing Elements</p><br />
+</div>
+<div style="position:absolute;top:10%;left:55%;"><img src='images/slide98-Picture2.png' /></div>
+<div><ul><li>Use two index values:
+<ul><li>Row then column</li></ul>
+</li><li><code>medalCount = counts[3][1]
+</code></li></ul></div>
+<div><ul><li class="">To print
+<ul><li class="">Use nested <code>for</code> loops
+</li><li class="">Outer row(i) , inner column(j) :
+</li></ul></li></ul></div>
+<div style="width:55%;"><pre>for i in range(COUNTRIES):
+    # Process the ith row
+    for j in range(MEDALS) :
+        # Process the jth column in the ith row
+        print("%8d" % counts[i][j], end="")  
+    print() # Start a new line at the end of the row
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Locating Neighboring Elements</p><br />
+</div>
+<div><ul><li>Some programs that work with two-dimensional lists need to locate the elements that are adjacent to an element 
+</li><li>This task is particularly common in games
+</li><li>You are at location  i, j
+</li><li>Watch out for edges!
+<ul><li>No negative indexes!
+</li><li>Not off the 'board'
+</li></ul></li></ul></div>
+<div><img src='images/slide99-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Adding Rows and Columns</p><br />
+</div>
+<div><ul><li>Rows (x) Columns (y)
+</li></ul></div>
+<div style="position:absolute;top:10%;left:45%;"><img src='images/slide100-Picture3.png' /></div>
+<div style="width:33%"><pre>total = 0
+for j in range(MEDALS):
+    total = total + counts[i][j]
+</pre></div>
+<div style="position:absolute;top:33%;left:5%;"><img src='images/slide100-Picture2.png' /></div>
+<div style="position:absolute;top:50%;left:35%;"><pre>total = 0
+for i in range(MEDALS):
+    total = total + counts[i][j]
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Using Tables With Functions</p><br />
+</div>
+<div><ul><li>When you pass a table to a function, you will want to recover the dimensions of the table. If <code>values</code> is a table, then:
+</li></ul><p><code>len(values) is the number of rows
+</code></p><p><code>len(values[0]) is the number of columns
+</code></p><ul><li>For example, the following function computes the sum of all elements in a table:
+</li></ul></div>
+<div><pre>def sum(values) :
+    total = 0
+    for i in range(len(values)) :
+        for j in range(len(values[0])) :
+            total = total + values[i][j]
+return total
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example</p><br />
+</div>
+<div><ul><li>Open the file medals.py
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass2">Summary</span></p><br />
+</div>
+<div><img src='images/slide103-TextPlaceholder6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary:  Lists</p><br />
+</div>
+<div><ul><li>A list is a container that stores a sequence of values
+</li><li>Each individual element in a list is accessed by an integer index i, using the notation <code>list[i]</code>
+</li><li>A list index must be at least zero and less than the number of elements in the list
+</li><li>An out-of-range error, which occurs if you supply an invalid list index, can cause your program to terminate
+</li><li>You can iterate over the index values or the elements of a list
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary:  Lists</p><br />
+</div>
+<div><ul><li>A list reference specifies the location of a list. Copying the reference yields a second reference to the same list
+</li><li>A linear search inspects elements in sequence until a match is found
+</li><li>Use a temporary variable when swapping elements
+</li><li>Lists can occur as function parameters and return values
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Lists</p><br />
+</div>
+<div><ul><li>When calling a function with a list argument, the function receives a list reference, not a copy of the list
+</li><li>A tuple is created as a comma-separated sequence enclosed in parentheses
+</li><li>By combining fundamental algorithms, you can solve complex programming tasks
+</li><li>You should be familiar with the implementation of fundamental algorithms so that you can adapt them
+</li><li>Discover algorithms by manipulating physical objects
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Lists</p><br />
+</div>
+<div><ul><li>Use a two-dimensional list to store tabular data
+</li><li>Individual elements in a two-dimensional list are accessed by using two index values, <code>table[i][j]
+</code></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Built-In Operations For Lists</p><br />
+</div>
+<div><ul><li>Use the <code>insert()</code> method to insert a new element at any position in a list
+</li><li>The <code>in</code> operator tests whether an element is contained in a list
+</li><li>Use the <code>pop()</code> method to remove an element from any position in a list
+</li><li>Use the <code>remove()</code> method to remove an element from a list by value
+</li><li>Two lists can be concatenated using the plus (<code>+</code>) operator
+</li><li>Use the <code>list()</code> function to copy 
+</li><li>Use the slice operator (<code>:</code>) to extract a sublist or substrings
+</li></ul></div>
+
+
+
+
+</div>
+
+
+    </div>
+    <script src="scripts/jquery-2.1.4.min.js" charset="utf-8" type="text/javascript"></script>
+    <script src="scripts/slidy.js" charset="utf-8" type="text/javascript"></script>
+    
+</body>
+</html>

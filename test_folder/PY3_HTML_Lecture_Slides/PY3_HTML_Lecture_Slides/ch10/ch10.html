@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="generator" content="HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+    <title>Chapter 10, Python for Everyone, 2e</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="font-size-adjustment" content="-1" />
+    <meta name="copyright"
+          content="Copyright &#169; 2015 Wiley" />
+    <link rel="stylesheet" href="styles/slidy.css" type="text/css" />
+    <link rel="stylesheet" href="styles/horstmann.css" type="text/css" />
+</head>
+<body>
+    <div class="background">
+        <div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass1">Chapter 10</span></p><br />
+</div>
+<div><p class="body" ><strong><span class="fontColorClass2">INHERITANCE</span></strong></p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Chapter Goals</p><br />
+</div>
+<div><ul><li>To learn about inheritance
+</li><li>To implement subclasses that inherit and override superclass methods
+</li><li>To understand the concept of polymorphism</li></ul><ul></ul></div>
+<div><p class="" >In this chapter, you will learn how the notion of inheritance expresses the relationship between specialized and general classes</p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Contents</p><br />
+</div>
+<div><ul><li>Inheritance Hierarchies
+</li><li>Implementing Subclasses
+</li><li>Calling the Superclass constructor
+</li><li>Overriding Methods
+</li><li>Polymorphism
+</li><li>Application: A Geometric Shape Hierarchy
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Inheritance Hierarchies</p><br />
+</div>
+<div><ul><li>In object-oriented programming, inheritance is a relationship between:
+<ul><li>A <em>superclass</em>:  a more generalized class
+</li><li>A <em>subclass</em>:  a more specialized class
+</li></ul></li><li>The subclass 'inherits' data (variables) and behavior (methods) from the superclass
+</li></ul></div>
+<div><img src='images/slide4-Picture10.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >A Vehicle Class Hierarchy</p><br />
+</div>
+<div style="position:absolute;top:10%;left:35%;"><img src='images/slide5-Picture1.png' /></div>
+<div style="position:absolute;top:15%;left:5%;"><ul><li>General
+</li></ul></div>
+<div style="position:absolute;top:30%;left:5%;"><ul><li>Specialized
+</li></ul></div>
+<div style="position:absolute;top:45%;left:5%;"><ul><li>More Specific
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The Substitution Principle</p><br />
+</div>
+<div><ul><li>Since the subclass Car "<strong>is-a</strong>" Vehicle
+<ul><li>Car shares common traits with Vehicle
+</li><li>You can substitute a Car object in an algorithm that expects a Vehicle object
+</li></ul></li></ul></div>
+<div style="float:right;"><img src='images/slide6-Picture10.png' /></div>
+<div style="width:45%;"><pre>myCar = Car(. . .)
+processVehicle(myCar)
+</pre></div>
+<div class="incremental" style="position:absolute;top:41%;left:88%;"><img src='images/slide6-TextBox10.png' /></div>
+<div><p class="" >The 'is-a' relationship is represented by an arrow in a class diagram and means that the subclass can behave as an object of the superclass
+</p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Quiz Question Hierarchy</p><br />
+</div>
+<div style="float:right;"><p style="text-align:center;">The 'root' of the hierarchy is shown at the top</p><br />
+<img src='images/slide7-Picture20.png' /></div>
+<div><ul><li>There are different types of quiz questions:
+<p class="object" >1) Fill-in-the-blank
+</p>
+<p class="object" >2) Single answer choice
+</p>
+<p class="object" >3) Multiple answer choice
+</p>
+<p class="object" >4) Numeric answer
+</p>
+<p class="object" >5) Free Response
+</p>
+<p class="object" >
+</p>
+</li></ul></div>
+<div><ul><li class="">A question can:
+<ul><li class="">Display its text
+</li><li class="">Check for correct answer
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Questions.py</p><br />
+</div>
+<div><pre>##
+#  This module defines a class that models exam questions. 
+#
+
+## A question with a text and an answer.
+#
+class Question :
+   ## Constructs a question with empty question and answer strings.
+   #
+   def __init__(self) :
+      self._text = ""
+      self._answer = ""
+      
+   ##  Sets the question text.
+   #   @param questionText the text of this question
+   #
+   def setText(self, questionText) :   
+      self._text = questionText
+</pre></div>
+<div><p class="" >The class <code>Question</code> is the 'root' of the hierarchy, also known as the superclass
+</p></div>
+<div><ul><li>Only handles strings
+</li><li>No support for:
+<ul><li>Numeric answers
+</li><li>Multiple answer choice
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Questions.py</p><br />
+</div>
+<div><pre> ## Sets the answer for this question.
+   #  @param correctResponse the answer
+   #
+   def setAnswer(self, correctResponse) :
+      self._answer = correctResponse
+
+   ## Checks a given response for correctness.
+   #  @param response the response to check
+   #  @return True if the response was correct, False otherwise
+   #
+   def checkAnswer(self, response) :
+      return response == self._answer
+
+   ## Displays this question.
+   #
+   def display(self) :
+      print(self._text)    
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Questions.py</p><br />
+</div>
+<div><pre>##
+#  This program shows a simple quiz with one question.
+#
+
+from questions import Question
+
+# Create the question and expected answer.
+q = Question()
+q.setText("Who is the inventor of Python?")
+q.setAnswer("Guido van Rossum")      
+
+# Display the question and obtain user's response.
+q.display()
+response = input("Your answer: ")
+print(q.checkAnswer(response))
+</pre></div>
+<div><p class="" >Creates an object of the <code>Question</code> class and uses methods
+</p></div>
+<div class="incremental"><img src='images/slide10-Picture2.png' /></div>
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Programming Tip</p><br />
+</div>
+<div><ul><li>Use a single class for variation in <em>values</em>, inheritance for variation in <em>behavior
+</em><ul><li>If two vehicles only vary by fuel efficiency, use an instance variable for the variation, not inheritance
+</li></ul><ul><li>If two vehicles behave differently, use inheritance
+</li></ul></div>
+<div><pre># Car instance variable
+milesPerGallon
+</pre></div>
+<div><p class="" ><em>Be careful not to over-use inheritance
+</em></p></div>
+<div style="position:absolute;top:35%;left:56.5%;"><img src='images/slide11-Picture1.png' /></div>
+<div style="position:absolute;top:45%;left:45%;"><img src='images/slide11-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The Cosmic Superclass: <code>object</code></p><br />
+</div>
+<div><ul><li>In Python, every class that is declared without an explicit superclass automatically extends the class <code>object</code></li></ul></div>
+<div><img src='images/slide12-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Implementing Subclasses</p><br />
+</div>
+<div><ul><li>Consider implementing <code>ChoiceQuestion</code> to handle:    
+</li></ul></div>
+<div><img src='images/slide13-Picture1.png' /></div>
+<div><ul><li class="">How does <code>ChoiceQuestion</code> differ from <code>Question</code>?
+<ul><li class="">It stores choices (1,2,3 and 4) in addition to the question
+</li><li class="">There must be a method for adding multiple choices
+<ul><li class="">The <code>display()</code> method will show these choices below the question, numbered appropriately</li></ul></li></ul></li></ul></div>
+<div><p class="" ><em>In this section you will see how to form a subclass and how a subclass automatically inherits from its superclass
+</em></p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Inheriting from the Superclass</p><br />
+</div>
+<div><ul><li>Subclasses inherit from the superclass:
+<ul><li>All methods that it does not override
+</li><li>All instance variables
+</li></ul></li><li>The Subclass can
+<ul><li>Add new instance variables
+</li><li>Add new methods
+</li><li>Change the implementation of inherited methods
+</li></ul></div>
+<div><p>Form a subclass by specifying what is different from the superclass
+</p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Overriding Superclass Methods</p><br />
+</div>
+<div><ul><li>Can you re-use any methods of the <code>Question</code> class?
+<ul><li>Inherited methods perform exactly the same
+</li><li>If you need to change how a method works:
+<ul><li>Write a new more specialized method in the subclass
+</li><li>Use the same method name as the superclass method you want to replace
+</li><li>It must take all of the same parameters
+</li></ul></li><li>This will <em><strong>override</strong></em> the superclass method
+</li></ul></li><li>The new method will be invoked with the same method name when it is called on a subclass object
+</li></ul></div>
+<div><p>A subclass can override a method of the superclass by providing a new implementation
+</p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Planning the Subclass</p><br />
+</div>
+<div><ul><li>Pass the name of the superclass <code>Question</code> as part of the definition of the subclass
+<ul><li>Inherits <code>text</code> and <code>answer</code> variables
+</li><li>Add new instance variable <code>choices
+</code></li></ul></li></ul></div>
+<div><img src='images/slide16-Picture8.png' /></div>
+<div><pre>class ChoiceQuestion(Question):
+    # The subclass has its own constructor.
+    def _ _init_ _(self) :
+        . . .
+        # This instance variable is added to the subclass.
+        self._choices = []
+
+    # This method is added to the subclass
+    def addChoice(self, choice, correct) :
+        . . . 
+    # This method overrides a method from the superclass
+    def void display(self) :
+        . . .   
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Syntax 10.1: Subclass Definition</p><br />
+</div>
+<div><ul><li>The class name inside parentheses in the class header denotes inheritance
+</li></ul></div>
+<div><img src='images/slide17-Picture9.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Implementing <code>AddChoice()</code></p><br />
+</div>
+<div><ul><li>The method will receive three parameters
+<ul><li>As usual for a class method the <code>self</code> parameter is required
+</li><li>The text for the choice
+</li><li>A Boolean denoting if it is the correct choice or not
+</li></ul></li><li>It appends the text as a <code>_choice</code>, sets choice number to the <code>_answer </code>and calls the inherited <code>setAnswer()</code> method:
+</li></ul></div>
+<div><pre>def addChoice(self, choice, correct) :
+    self._choices.append(choice)
+    if correct :
+        # Convert the length of the list to a string.
+        choiceString = str(len(self._choices))
+        self.setAnswer(choiceString)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Common Error 10.1 (1) </p><br />
+</div>
+<div><ul><li>Confusing Super- and Subclasses
+</li><li>If you compare an object of type <code>ChoiceQuestion</code> with an object of type <code>Question</code>, you find that: 
+<ul><li>the <code>ChoiceQuestion</code> object is larger; it has an added instance variable, <code>_choices</code>,
+</li><li>the <code>ChoiceQuestion</code> object is more capable; it has an <code>addChoice()</code> method<code>
+</code></li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Common Error 10.1 (2) </p><br />
+</div>
+<div><ul><li>So why is <code>ChoiceQuestion</code> called the <em>subclass</em> and <code>Question</code> the <em>superclass</em>?
+<ul><li>The <em>super/sub</em> terminology comes from set theory
+</li><li>Look at the set of all questions
+</li><li>Not all of them are <code>ChoiceQuestion</code> objects; some of them are other kinds of questions
+</li><li>The more specialized objects in the subset have a richer state and more capabilities
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >10.3  Calling the Superclass Constructor (1)</p><br />
+</div>
+<div><ul><li>A subclass constructor can only define the instance variables of the subclass
+</li><li>But the superclass instance variables also need to be defined
+</li><li>The superclass is responsible for defining its own instance variables 
+</li><li>Because this is done within its constructor, the constructor of the subclass must explicitly call the superclass constructor
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >10.3  Calling the Superclass Constructor (2)</p><br />
+</div>
+<div><ul><li>To distinguish between super- and sub- class constructor use the <code>super()</code> function in place of the <code>self</code> reference when calling the constructor:
+</li></ul></div>
+<div><pre>class ChoiceQuestion(Question) :
+    def _ _init_ _(self) :
+        super()._ _init_ _()
+        self._choices = []
+</pre></div>
+<div><ul><li class="">The superclass constructor should be called before the subclass defines its own instance variables
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >10.3  Calling the Superclass Constructor (3)</p><br />
+</div>
+<div><ul><li>If a superclass constructor requires arguments, you must provide those arguments to the <code>_ _init_ _()</code> method
+</li></ul></div>
+<div><pre>class ChoiceQuestion(Question) :
+    def _ _init_ _(self, questionText) :
+        super()._ _init_ _(questionText)
+        self._choices = []
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Syntax 10.2: Subclass Constructor</p><br />
+</div>
+<div><img src='images/slide24-Picture8.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example: Superclass Constructor (1)</p><br />
+</div>
+<div><ul><li>Suppose we have defined a <code>Vehicle</code> class and the constructor which requires an argument:
+</li></ul></div>
+<div><pre>class Vehicle :
+    def _ _init_ _(self, numberOfTires) :
+        self._numberOfTires = numberOfTires
+        . . .
+</pre></div>
+<div><ul><li class="">We can extend the Vehicle class by defining a Car subclass:
+</li></ul></div>
+<div><pre>class Car(Vehicle) :
+    def _ _init_ _(self) :    # 1
+</pre></div>
+<div><img src='images/slide25-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example: Superclass Constructor (2)</p><br />
+</div>
+<div><ul><li>Now as the subclass is defined, the parts of the object are added as attributes to the object:
+</li></ul></div>
+<div><pre>        # Call the superclass constructor to define its     
+        # instance variable.
+        super()._ _init_ _(4)   # 2
+
+        # This instance variable is added by the 
+        # subclass.
+        self._plateNumber = "??????"  # 3
+</pre></div>
+<div class="incremental"><img src='images/slide26-Picture2.png' /></div>
+<div class="incremental"><img src='images/slide26-Picture2-0.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >10.4  Overriding Methods</p><br />
+</div>
+<div><ul><li>The <code>ChoiceQuestion</code> class needs a <code>display()</code> method that overrides the <code>display()</code> method of the <code>Question</code> class
+</li><li>They are two different method implementations
+</li><li>The two methods named <code>display</code> are:
+<ul><li><code>Question display()
+</code><ul><li>Displays the text of the private attribute of class <code>Question
+</code></li></ul></li><li><code>ChoiceQuestion display()
+</code><ul><li>Overrides <code>Question display</code> method
+</li><li>Displays the instance variable text String
+</li><li>Displays the list of choices which is an attribute of <code>ChoiceQuestion
+</code></li></ul></li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Tasks Needed for <code>display()</code>: 1</p><br />
+</div>
+<div><ul><li>Display the question text
+</li><li>Display the answer choices
+</li></ul>
+<ul><li>The second part is easy because the answer choices are an instance variable of the subclass
+</li></ul></div>
+<div><pre>class ChoiceQuestion(Question) :
+    . . .
+    def display(self) :
+        # Display the question text.
+        . . .
+        # Display the answer choices.
+        for i in range(len(self._choices()) :
+            choiceNumber = i + 1
+            print("%d: %s" % (choiceNumber, 
+               self._choices[i]))
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Tasks Needed for <code>display()</code>: 2</p><br />
+</div>
+<div><ul><li>Display the question text
+</li><li>Display the answer choices
+</li></ul><ul><li>The first part is trickier!
+<ul><li>You can't access the <code>text</code> variable of the superclass directly because it is private
+</li><li>Call the <code>display()</code> method of the superclass, using the <code>super()</code> function:
+</li></ul></li></ul></div>
+<div><pre>def display(self) :
+# Display the question text.
+super().display() # OK
+# Display the answer choices.
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Tasks Needed for <code>display()</code>: 3</p><br />
+</div>
+<div><ul><li>Display the question text
+</li><li>Display the answer choices
+</li></ul><ul><li>The first part is trickier! (Continued)
+<ul><li>If you use the <code>self</code> reference instead of the <code>super()</code> function, then the method will not work as intended</li></ul></li></ul></div>
+<div><pre>def display(self) :
+    # Display the question text.
+    self.display() 
+       # Error—invokes display() of ChoiceQuestion.
+. . .
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >questiondemo2.py</p><br />
+</div>
+<div><pre>##
+#  This program shows a simple quiz with two choice questions.
+#
+
+from choicequestions import ChoiceQuestion
+
+def main() :
+   first = ChoiceQuestion()
+   first.setText("In what year was the Python language first released?")
+   first.addChoice("1991", True)
+   first.addChoice("1995", False)
+   first.addChoice("1998", False)
+   first.addChoice("2000", False)
+
+   second = ChoiceQuestion()
+   second.setText("In which country was the inventor of Python born?")
+   second.addChoice("Australia", False)
+   second.addChoice("Canada", False)
+   second.addChoice("Netherlands", True)
+   second.addChoice("United States", False)
+
+   presentQuestion(first)
+   presentQuestion(second)
+
+## Presents a question to the user and checks the response.
+#  @param q the question
+#
+def presentQuestion(q) :
+   q.display()
+   response = input("Your answer: ")
+   print(q.checkAnswer(response))
+
+# Start the program.
+main()
+</pre></div>
+<div style="position:absolute;top:40%;left:45%;"><p style="background-color:orange;">Creates two objects of the ChoiceQuestion class, uses new <code>addChoice()</code> method
+</p></div>
+<div style="position:absolute;top:63%;left:45%;"><p style="background-color:orange;">Calls <code>presentQuestion()
+</code></p></div>
+<div style="position:absolute;top:76%;left:45%;"><p style="background-color:orange;">Uses <code>ChoiceQuestion</code> (subclass) <code>display()</code> method
+</p></div>
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >choicequestions.py (1)</p><br />
+</div>
+<div><pre>## A question with multiple choices.
+#
+class ChoiceQuestion(Question) :
+   # Constructs a choice question with no choices.
+   def __init__(self) :
+      super().__init__()
+      self._choices = []
+
+   ## Adds an answer choice to this question.
+   #  @param choice the choice to add
+   #  @param correct True if this is the correct choice, False otherwise
+   #
+   def addChoice(self, choice, correct) :
+      self._choices.append(choice)
+      if correct :
+         # Convert len(choices) to string.
+         choiceString = str(len(self._choices))
+         self.setAnswer(choiceString)
+		    
+   # Override Question.display().
+   def display(self) :
+      # Display the question text.
+      super().display()
+      
+      # Display the answer choices.
+      for i in range(len(self._choices)) :
+         choiceNumber = i + 1
+         print("%d: %s" % (choiceNumber, self._choices[i]))
+</pre></div>
+<div style="position:absolute;top:13%;left:55%;"><p style="background-color:orange;">Inherits from <code>Question</code> class
+</p></div>
+<div style="position:absolute;top:39%;left:55%;"><p style="background-color:orange;">New <code>addChoice()</code> method
+</p></div>
+<div style="position:absolute;top:59%;left:55%;"><p style="background-color:orange;">Overridden <code>display()</code> method
+</p></div>
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >choicequestions.py (2)</p><br />
+</div>
+<div><p>Program Run
+</p></div>
+<div><pre>In what year was the Python language first released?
+1: 1991
+2: 1995
+3: 1998
+4: 2000
+Your answer: 2
+False
+In which country was the inventor of Python born?
+1: Australia
+2: Canada
+3: Netherlands
+4: United States
+Your answer: 3
+True
+</pre></div>
+
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+<div><p class="title" >Common Error 10.2  (1)</p><br />
+</div>
+<div><ul><li class="">Extending the functionality of a superclass method but forgetting to call the <code>super()</code> method
+</li><li class="">For example, to compute the salary of a manager, get the salary of the underlying <code>Employee</code> object and add a bonus:</li></ul></div>
+<div><pre>class Manager(Employee) :
+    . . .
+    def getSalary(self) :
+        base = self.getSalary() 
+           # Error: should be super().getSalary()
+        return base + self._bonus
+</pre></div>
+<div><ul><li>Here <code>self</code> refers to an object of type <code>Manager</code> and there is a <code>getSalary()</code> method in the <code>Manager</code> class
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+<div><p class="title" >Common Error 10.2  (2)</p><br />
+</div>
+<div><ul><li>Whenever you call a superclass method from a subclass method with the same name, be sure to use the <code>super()</code> function in place of the <code>self</code> reference
+</li></ul></div>
+<div><pre>class Manager(Employee) :
+    . . .
+    def getSalary(self) :
+        base = super().getSalary()
+        return base + self._bonus
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >10.5 Polymorphism</p><br />
+</div>
+<div><ul><li><code>QuestionDemo2</code> passed two <code>ChoiceQuestion</code> objects to the <code>presentQuestion()</code> method
+<ul><li>Can we write a <code>presentQuestion()</code> method that displays both <code>Question</code> and <code>ChoiceQuestion</code> types?
+</li><li><strong>With inheritance, this goal is very easy to realize!
+</strong></li><li>In order to present a question to the user, we need not know the exact type of the question 
+</li><li>We just display the question and check whether the user supplied the correct answer
+</li></ul></li></ul></div>
+<div><pre>def presentQuestion(q) :
+    q.display()
+    response = input("Your answer: ")
+    print(q.checkAnswer(response))
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Which <code>display()</code> method was called?</p><br />
+</div>
+<div><ul><li><code>presentQuestion()</code> simply calls the <code>display()</code> method of whatever type is passed:
+</li></ul></div>
+<div><pre>def presentQuestion(q) :
+  q.display()
+  . . .
+</pre></div>
+<div><ul><li>If passed an object of the <code>Question</code> class:
+<ul><li><code>Question display()
+</code></li></ul></li>
+<li>If passed an object of the <code>ChoiceQuestion</code> class:
+<ul><li><code>ChoiceQuestion display()
+</code></li></ul></li></ul></div>
+<div><ul><li class="">The variable <code>q</code> does not know the type of object to which it refers:
+</li></ul></div>
+<div><img src='images/slide38-Group2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Why Does This Work?</p><br />
+</div>
+<div><ul><li>As discussed in Section 10.1, we can substitute a subclass object whenever a superclass object is expected:
+</li></ul></div>
+<div><pre>second = ChoiceQuestion()
+presentQuestion(second)   # OK to pass a ChoiceQuestion
+</pre></div>
+<div><ul><li class="">Note however you cannot substitute a superclass object when a subclass object is expected
+<ul><li class="">An <code>AttributeError</code> exception will be raised
+</li><li class="">The parent class has fewer capabilities than the child class (you cannot invoke a method on an object that has not been defined by that object's class)
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Polymorphism Benefits</p><br />
+</div>
+<div><ul><li>In Python, method calls <em>are always determined by the type of the actual object,</em> <strong>not</strong> the type of the variable containing the object reference 
+<ul><li>This is called <em>dynamic method lookup
+</em></li><li>Dynamic method lookup allows us to treat objects of different classes in a uniform way 
+</li></ul></li><li>This feature is called <strong>polymorphism 
+</strong></li><li>We ask multiple objects to carry out a task, and each object does so in its own way
+</li><li>Polymorphism makes programs <em>easily extensible
+</em></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Questiondemo3.py</p><br />
+</div>
+<div><pre>##
+#  This program shows a simple quiz with two question types.
+#
+
+from questions import Question
+from choicequestions import ChoiceQuestion
+
+def main() :
+   first = Question()
+   first.setText("Who was the inventor of Python?")
+   first.setAnswer("Guido van Rossum")
+
+   second = ChoiceQuestion()
+   second.setText("In which country was the inventor of Python born?")
+   second.addChoice("Australia", False)
+   second.addChoice("Canada", False)
+   second.addChoice("Netherlands", True)
+   second.addChoice("United States", False)
+
+   presentQuestion(first)
+   presentQuestion(second)
+
+## Presents a question to the user and checks the response.
+#  @param q the question
+#
+def presentQuestion(q) :
+   q.display()   # Uses dynamic method lookup.
+   response = input("Your answer: ")
+   print(q.checkAnswer(response))   # checkAnswer uses dynamic method lookup.
+   
+# Start the program.
+main()
+</pre></div>
+<div style="position:absolute;top:28%;left:50%;"><p style="background-color:orange;">Creates an object of the <code>Question</code> class
+</p></div>
+<div style="position:absolute;top:34%;left:50%;"><p style="background-color:orange;">Creates an object of the <code>ChoiceQuestion</code> class, uses new <code>addChoice()</code> method
+</p></div>
+<div style="position:absolute;top:56%;left:50%;"><p style="background-color:orange;">Calls <code>presentQuestion()</code> passed both types of objects
+</p></div>
+<div style="position:absolute;top:71.7%;left:50%;"><p style="background-color:orange;">Receives a parameter of the super-class type
+</p></div>
+<div style="position:absolute;top:74.7%;left:57.5%;"><p style="background-color:orange;">Uses appropriate <code>display()</code> method
+</p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+<div><p class="title" >Special Topic 10.2</p><br />
+</div>
+<div><ul><li class="">Subclasses and Instances:
+<ul><li class="">You learned that the <code>isinstance()</code> function can be used to determine if an object is an instance of a specific class 
+</li><li class="">But the <code>isinstance()</code> function can also be used to determine if an object is an instance of a subclass 
+</li><li class="">For example, the function call:
+</li></ul></li>
+<div><pre>isinstance(q, Question)
+</pre><ul><li>Will return <code>True</code> if <code>q</code> is an instance of the <code>Question</code> class or of any subclass that extends the <code>Question</code> class,
+</li><li>Otherwise, it returns <code>False
+</code></li></ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Use of <code>isinstance()</code></p><br />
+</div>
+<div><ul><li>A common use of the <code>isinstance()</code> function is to verify that the arguments passed to a function or method are of the correct type
+</li></ul></div>
+<div><pre>def presentQuestion(q) :
+    if not isintance(q, Question) :
+        raise TypeError("The argument is not a Question or 
+           one of its subclasses.")
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+<div><p class="title" >Special Topic 10.3</p><br />
+</div>
+<div><ul><li>Dynamic Method Lookup 
+<ul><li>Suppose we move the <code>presentQuestion()</code> method to inside the <code>Question</code> class and call it as follows:</li></ul></li></ul></div>
+<div><pre>cq = ChoiceQuestion()
+cq.setText("In which country was the inventor of Python born?")
+. . .
+cq.presentQuestion()
+</pre></div>
+<div><ul><li class="">Which <code>display()</code> and <code>checkAnswer()</code> methods will be called?
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+<div><p class="title" >Dynamic Method Lookup </p><br />
+</div>
+<div><ul><li>If you look at the code of the <code>presentQuestion()</code> method, you can see that these methods are executed on the <code>self</code> reference parameter
+<ul><li>Because of dynamic method lookup, the <code>ChoiceQuestion</code> versions of the <code>display()</code> and <code>checkAnswer()</code> methods are called automatically
+</li><li>This happens even though the <code>presentQuestion()</code> method is declared in the <code>Question</code> class, which has no knowledge of the <code>ChoiceQuestion</code> class
+</li></ul></li></ul></div>
+<div><pre>class Question :
+   def presentQuestion(self) :
+       self.display()
+       response = input("Your answer: ")
+       print(self.checkAnswer(response))
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+<div><p class="title" >Special Topic 10.4</p><br />
+</div>
+<div><ul><li>Abstract Classes and methods
+<ul><li>If it is desirable to <em><strong>force</strong></em> subclasses to override a method of a base class, you can declare a method as <strong>abstract</strong>
+</li></ul><ul><li>You cannot instantiate an object that has abstract methods
+<ul><li>Therefore the class is considered abstract (it has 1+ abstract methods)
+</li><li>It's a tool to force programmers to create subclasses (avoids the trouble of coming up with useless default methods that others might inherit by accident)
+</li></ul></li><li>In Python, there is no explicit way to specify that a method is an abstract method. Instead, the common practice among Python programmers is to have the method raise a <code>NotImplementedError</code> exception as its only statement:
+</li></ul></li></ul></div>
+<div><pre>class Account :
+    . . .
+    def deductFees(self) :
+       raise NotImplementedError
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+<div><p class="title" >Common Error 10.3</p><br />
+</div>
+<div><ul><li>Don't Use Type Tests
+<ul><li>Some programmers use specific type tests in order to implement behavior that varies with each class:
+</li></ul></li></ul></div>
+<div><pre>if isinstance(q, ChoiceQuestion) :   # Don't do this.
+    # Do the task the ChoiceQuestion way.
+elif isinstance(q, Question) :
+    # Do the task the Question way.
+</pre></div>
+<div><ul><li class="">This is a poor strategy
+</li><li class="">If a new class such as <code>NumericQuestion</code> is added, then you need to revise all parts of your program that make a type test, adding another case:
+</li></ul></div>
+<div><pre>elif isinstance(q, NumericQuestion) :
+    # Do the task the NumericQuestion way.
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Alternate to Type Tests</p><br />
+</div>
+<div><ul><li>Polymorphism
+<ul><li>Whenever you find yourself trying to use type tests in a hierarchy of classes, reconsider and use polymorphism instead
+</li><li>Declare a method <code>doTheTask()</code> in the superclass, override it in the subclasses, and call:
+</li></ul></li></ul></div>
+<div><pre>q.doTheTask()
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Steps to Using Inheritance</p><br />
+</div>
+<div><ul><li>As an example, we will consider a bank that offers customers the following account types:
+<p class="object" >1) A savings account that earns interest. The interest compounds monthly and is based on the minimum monthly balance
+</p><p class="object" >2) A checking account that has no interest, gives you three free withdrawals per month, and charges a $1 transaction fee for each additional withdrawal
+</p><ul></ul></li><li>The program will manage a set of accounts of both types
+<ul><li>It should be structured so that other account types can be added without affecting the main processing loop
+</li></ul></li><li>The menu:    <code>D)eposit W)ithdraw M)onth end Q)uit
+</code><ul><li>For deposits and withdrawals, query the account number and amount. Print the balance of the account after each transaction
+</li><li>In the "Month end" command, accumulate interest or clear the transaction counter, depending on the type of the bank account. Then print the balance of all accounts
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Steps to Using Inheritance</p><br />
+</div>
+<div><ul><li>1) List the classes that are part of the hierarchy
+<ul><li><code>SavingsAccount
+</li></ul><ul><li></code><code>CheckingAccount
+</code></li></ul></li></ul>
+<ul><li>2) Organize the classes into an inheritance
+<ul><li>Hierarchy
+</li></ul><ul><li>Base on superclass <code>BankAccount
+</code></li></ul></li></ul></div>
+<div><img src='images/slide51-Picture11.png' /></div>
+<div><ul><li>3) Determine the common responsibilities
+<ul><li>a. Write pseudocode for each task
+</li></ul><ul><li>b. Find common tasks
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Using Inheritance: Pseudocode</p><br />
+</div>
+<div><pre class="pseudo">For each user command
+    If it is a deposit or withdrawal
+        Deposit or withdraw the amount from the specified account.
+		Print the balance.
+	If it is month end processing
+	    For each account
+		    Call month end processing.
+			Print the balance.
+</pre></div>
+<div><pre class="pseudo">Deposit money.
+Withdraw money.
+Get the balance.
+Carry out month end processing.
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Steps to Using Inheritance</p><br />
+</div>
+<div><ul><li>4) Decide which methods are overridden in subclasses
+<ul><li>For each subclass and each of the common responsibilities, decide whether the behavior can be inherited or whether it needs to be overridden
+</li></ul></li></ul><ul><li>5) Declare the public interface of each subclass
+<ul><li>Typically, subclasses have responsibilities other than those of the superclass. List those, as well as the methods that need to be overridden 
+</li><li>You also need to specify how the objects of the subclasses should be constructed.
+</li></ul></li></ul><ul><li>6) Identify instance variables
+<ul><li>List the instance variables for each class. Place instance variables that are common to all classes in the base of the hierarchy
+</li></ul></li></ul><ul><li>7) Implement constructors and methods
+</li></ul><ul><li>8) Construct objects of different subclasses and process them
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >10.6 Application</p><br />
+</div>
+<div><ul><li>Creating a geometric shape class hierarchy
+<ul><li>To create complex scenes beyond the simple graphics introduced in Chapter 2, you may need a large number of shapes that vary in color, size, or location
+</li><li>Rather than calling the various methods again and again, it would be useful to have classes that model the various geometric shapes
+</li><li>Using shape classes, a programmer can create a shape object with specific characteristics, then use the same object to draw multiple instances of the shape with only minor changes
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Inheritance Diagram of Geometric Shapes</p><br />
+</div>
+<div><img src='images/slide55-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The Base Class</p><br />
+</div>
+<div><ul><li>The <code>GeometricShape</code> class should provide the functionality that is common among the various subclasses: 
+<ul><li>Setting the colors used to draw the shape
+</li><li>Getting and setting the coordinates for the upper-left corner of a bounding box
+</li><li>Computing the width and height of the shape (or the bounding box used to define the shape)
+</li><li>Drawing the shape on a canvas
+</li></ul></li><li>Due to the amount of variation between shapes all subclasses will have to override the <code>draw()</code> method
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Attributes of the Base Class</p><br />
+</div>
+<div><ul><li>The instance variables <code>_fill</code> and <code>_outline</code> can store the fill and outline colors used by the shapes
+</li><li>Coordinates of the top left hand corner of the bounding box for the shape can be stored in the instance variables <code>_x</code> and <code>_y
+</code></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Setting the Attributes</p><br />
+</div>
+<div><ul><li>The constructor of the <code>GeometricShape</code> base class needs to define the common instance variables
+</li></ul></div>
+<div><pre>class GeometricShape :
+    ## Construct a basic geometric shape.
+    # @param x the x-coordinate of the shape
+    # @param y the y-coordinate of the shape
+    def _ _init_ _(self, x, y) :
+        self._x = x
+        self._y = y
+        self._fill = None
+        self._outline = "black"
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Accessor Methods</p><br />
+</div>
+<div><ul><li>As expected they will return the values stored in the instance variables
+</li></ul></div>
+<div><pre>def getX(self) :
+    return self._x
+
+def getY(self) :
+    return self._y
+</pre></div>
+<div><ul><li class="">Because the <code>getWidth()</code> and <code>getHeight()</code> methods return zero they should be overridden by subclasses</li></ul></div>
+<div><pre>def getWidth(self) :
+     return 0
+
+def getHeight(self) :
+     return 0
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Mutator Methods</p><br />
+</div>
+<div><ul><li>We define three mutator methods for setting the colors
+</li><li>Two methods set the outline or fill color individually, and the third method sets both to the same color:
+</li></ul></div>
+<div><pre>def setFill(self, color = None) :
+    self._fill = color
+
+def setOutline(self, color = None) :
+    self._outline = color
+
+def setColor(self, color) :
+    self._fill = color
+    self._outline = color
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Other Methods</p><br />
+</div>
+<div><ul><li>The <code>move()</code> method moves the shape by a given amount (x, y) coordinates
+</li></ul></div>
+<div><pre>def moveBy(self, dx, dy) :
+    self._x = self._x + dx
+    self._y = self._y + dy
+</pre></div>
+<div><ul><li class="">As indicated earlier, the <code>draw()</code> method has to be overridden for each subclass's specific shape but the common operation (setting the drawing colors) is included here
+</li></ul></div>
+<div><pre>def draw(self, canvas) :
+    canvas.setFill(self._fill)
+    canvas.setOutline(self._outline)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The <code>Rectangle</code> Class (1)</p><br />
+</div>
+<div><ul><li>The <code>Rectangle</code> class inherits from <code>GeometricShape
+</code></li><li>The constructor passes the upper-left corner to the superclass and stores the width and height
+</li></ul></div>
+<div><pre>def _ _init_ _(self, x, y, width, height) :
+    super()._ _init_ _(x, y)
+    self._width = width
+    self._height = height
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The <code>Rectangle</code> Class (2)</p><br />
+</div>
+<div><ul><li>The <code>draw</code> method is overridden in the <code>Rectangle</code> subclass to include the call to the appropriate <code>canvas</code> method
+</li></ul><ul><li>Accessors are overridden (from the ones that return zero)
+</li></ul></div>
+<div><pre>def draw(self, canvas) :
+    super().draw(canvas)   # Parent method sets colors
+    canvas.drawRect(self.getX(), self.getY(), self._width, 
+       self._height)
+</pre></div>
+<div><pre>def getWidth(self) :
+    return self._width
+
+def getHeight(self) :
+    return self._height
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The <code>Line</code> Class (1)</p><br />
+</div>
+<div><ul><li>A line is specified by its start and end points
+</li></ul></div>
+<div><img src='images/slide64-Picture2.png' /></div>
+<div><ul><li class="">It is possible that neither of these points is the upper-left corner of the bounding box
+</li><li class="">Instead, we need to compute the smaller of the <em>x</em>- and <em>y</em>-coordinates and pass those values to the superclass constructor
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The <code>Line</code> Class (2)</p><br />
+</div>
+<div><ul><li>We also need to store the start and end points in instance variables because we need them to draw the line
+</li></ul></div>
+<div><pre>def _ _init_ _(self, x1, y1, x2, y2) :
+    super()._ _init_ _(min(x1, x2), min(y1, y2))
+    self._startX = x1
+    self._startY = y1
+    self._endX = x2
+    self._endY = y2
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" ><code>Line</code> Class: Methods (1)</p><br />
+</div>
+<div><ul><li>The width and height are the differences between the starting and ending <code>x-</code> and <code>y-</code>coordinates
+</li><li>However, if the line isn't sloping downward, we need to take the absolute values of the difference
+</li></ul></div>
+<div><pre>def getWidth(self) :
+    return abs(self._endX - self._startX)
+
+def getHeight(self) :
+    return abs(self._endY - self._startY)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" ><code>Line</code> Class: Methods (2)</p><br />
+</div>
+<div><ul><li>As noted the <code>draw()</code> method must be overridden
+</li></ul></div>
+<div><pre>def draw(self, canvas) :
+    super().draw(canvas)
+    canvas.drawLine(self._startX, self._startY, self._endX, 
+       self._endY)
+</pre></div>
+<div><ul><li class="">Also the <code>moveBy()</code> method must be overridden so that it adjusts the starting and ending points, in addition to the top-left corner
+</li></ul></div>
+<div><pre>def moveBy(self, dx, dy) :
+    super().moveBy(dx, dy)
+    self._startX = self._startX + dx
+    self._startY = self._startY + dy
+    self._endX = self._endX + dx
+    self._endY = self._endY + dy
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Wrapper Class: <code>Square</code></p><br />
+</div>
+<div><ul><li>A wrapper class wraps or encapsulates the functionality of another class to provide a more convenient interface 
+</li><li>For example, we could draw a square using the <code>Rectangle</code> subclass
+<ul><li>But it requires that we supply both the width and height
+</li><li>Because a square is a special case of a rectangle, we can define a <code>Square</code> subclass that extends, or <em>wraps</em>, the <code>Rectangle</code> class and only requires one value, the length of a side
+</li></ul></li></ul></div>
+<div><pre>class Square(Rectangle) :
+    def _ _init_ _(self, x, y, size) :
+        super()._ _init_ _(x, y, size, size)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Testshapes.py</p><br />
+</div>
+<div><pre>##
+#  This program tests several of the geometric shape classes.
+#
+
+from ezgraphics import GraphicsWindow
+from shapes import Rectangle, Line
+
+# Create the window.
+win = GraphicsWindow()
+canvas = win.canvas()
+
+# Draw a rectangle.
+rect = Rectangle(10, 10, 90, 60)
+rect.setFill("light yellow")
+rect.draw(canvas)
+
+# Draw another rectangle.
+rect.moveBy(rect.getWidth(), rect.getHeight())
+rect.draw(canvas)
+
+# Draw six lines of different colors.
+colors = ["red", "green", "blue", "yellow", "magenta", "cyan"]
+
+line = Line(10, 150, 300, 150)
+
+for i in range(6) :
+   line.setColor(colors[i])
+   line.draw(canvas)
+   line.moveBy(10, 10)
+   
+win.wait()
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Groups of Shapes</p><br />
+</div>
+<div><ul><li>The <code>Group</code> subclass does not actually draw a geometric shape
+</li><li>Instead it can be used to group basic geometric shapes to create a complex shape
+<ul><li>For example, suppose you construct a door using a rectangle, a circle for the doorknob, and a circle for the peep hole
+</li><li>The three components can be stored in a <code>Group</code> in which the individual shapes are defined relative to the position of the group
+</li><li>This allows the entire group to be moved to a different position without having to move each individual shape
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The <code>Group</code> Class</p><br />
+</div>
+<div><ul><li>To create a <code>Group</code>, you provide the coordinates of the upper-left corner of its bounding box
+</li><li>The class defines an instance variable that stores the shapes in a list
+</li><li>As new shapes are added to a <code>Group</code> object, the width and height of the bounding box expands to enclose the new shapes</li></ul></div>
+<div><img src='images/slide71-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" ><code>Group</code> Class Methods (1)</p><br />
+</div>
+<div><ul><li>Create the group with its bounding box positioned at (<em>x</em>, <em>y</em>)
+</li></ul></div>
+<div><pre>def _ _init_ _(self, x = 0, y = 0) :
+    super()._ _init_ _(x, y)
+    self._shapeList = []
+</pre></div>
+<div><ul><li class="">Adding a shape to the group involves several steps
+<ul><li class="">First, the shape has to be appended to the list:
+</li></ul></li></ul></div>
+<div><pre>def add(self, shape) :
+    self._shapeList.append(shape)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" ><code>Group</code> Class Methods (2)</p><br />
+</div>
+<div><ul><li>The individual shapes are positioned relative to the upper-left corner of the group's bounding box
+</li><li>We must ensure that each shape is positioned below and to the right of this point.  If it is not, it must be moved</li></ul></div>
+<div><pre># Keep the shape within top and left edges of the 
+# bounding box.
+if shape.getX() &lt; 0 :
+    shape.moveBy(-shape.getX(), 0)
+if shape.getY() &lt; 0 :
+    shape.moveBy(0, -shape.getY())
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" ><code>Group</code> Class Methods (3)</p><br />
+</div>
+<div><ul><li>The width of the group is determined by the rightmost extent of any of the group's members
+</li><li>The rightmost extent of a shape is <code>shape.getX() + shape.getWidth()
+</code><li>The following method computes the maximum of these extents:
+</li></li></ul></div>
+<div><pre>def getWidth(self) :
+    width = 0
+    for shape in self._shapeList :
+        width = max(width, shape.getX() + 
+           shape.getWidth())
+    return width
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" ><code>Group</code> Class Methods (4)</p><br />
+</div>
+<div><ul><li>The height of the group (the bottommost extent) is computed in the same way as the width
+</li></ul></div>
+<div><pre>def getHeight(self) :
+    height = 0
+    for shape in self._shapeList :
+        height = max(height, shape.getY() + 
+           shape.getHeight())
+    return height
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" ><code>Group</code> Class Methods (5)</p><br />
+</div>
+<div><ul><li>The entire group can be drawn on the canvas
+</li><li>The shapes contained in the group are defined relative to the upper-left corner of its bounding box
+</li><li>Before a shape can be drawn, it has to be moved to its position relative to the upper-left corner of the group's bounding box</li></ul></div>
+<div><pre>def draw(self, canvas) :
+    for shape in self._shapeList :
+        shape.moveBy(self.getX(), self.getY())
+        shape.draw(canvas)
+        shape.moveBy(-self.getX(), -self.getY())
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary:  Inheritance</p><br />
+</div>
+<div><ul><li>A subclass inherits data and behavior from a superclass
+</li><li>You can always use a subclass object in place of a superclass object
+</li><li>A subclass inherits all methods that it does not override
+</li><li>A subclass can override a superclass method by providing a new implementation
+</li><li>In Python a class name inside parentheses in the class header indicates that a class inherits from a superclass
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary:  Overriding Methods</p><br />
+</div>
+<div><ul><li>An overriding method can extend or replace the functionality of the superclass method
+</li><li>Use the reserved word <code>super</code> to call a superclass method
+</li><li>To call a superclass constructor, use the <code>super</code> reserved word before the subclass defines its own instance variables
+</li><li>The constructor of a subclass can pass arguments to a superclass constructor, using the reserved word <code>super
+</code></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Polymorphism</p><br />
+</div>
+<div><ul><li>A subclass reference can be used when a superclass reference is expected
+</li><li>Polymorphism ("having multiple shapes") allows us to manipulate objects that share a set of tasks, even though the tasks are executed in different ways
+</li><li>An <code>abstract</code> method is a method whose implementation is not specified
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Use Inheritance for Designing a Hierarchy of Shapes</p><br />
+</div>
+<div><ul><li>The <code>GeometricShape</code> class provides methods that are common to all shapes
+</li><li>Each subclass of <code>GeometricShape</code> must override the <code>draw()</code> method
+</li><li>A shape class constructor must initialize the coordinates of its upper-left corner
+</li><li>Each shape subclass must override the methods for computing the width and height
+</li><li>A <code>Group</code> contains shapes that are drawn and moved together
+</li></ul></div>
+
+
+
+
+</div>
+
+    </div>
+    <script src="scripts/jquery-2.1.4.min.js" charset="utf-8" type="text/javascript"></script>
+    <script src="scripts/slidy.js" charset="utf-8" type="text/javascript"></script>
+    
+</body>
+</html>

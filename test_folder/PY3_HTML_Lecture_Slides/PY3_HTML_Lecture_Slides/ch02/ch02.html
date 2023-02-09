@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="generator" content="HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+    <title>Chapter 2, Python for Everyone, 2e</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="font-size-adjustment" content="-1" />
+    <meta name="copyright"
+          content="Copyright &#169; 2015 Wiley" />
+    <link rel="stylesheet" href="styles/slidy.css" type="text/css" />
+    <link rel="stylesheet" href="styles/horstmann.css" type="text/css" />
+</head>
+<body>
+    <div class="background">
+        <div class="slide ppLayoutCustom">
+    <div><p class="title" >Chapter Two</p><br />
+</div>
+<div><p class="subtitle" ><span class="fontColorClass1">Programming with numbers and strings</span></p><br />
+</div>
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Introduction</p><br />
+</div>
+<div><ul><li>Numbers and character strings are important data types in any Python program
+<ul><li>These are the fundamental building blocks we use to build more complex data structures
+</li></ul></li><li>In this chapter, you will learn how to work with numbers and text. 	We will write several simple programs that use them</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Chapter Goals</p><br />
+</div>
+<div><ul><li>To declare and initialize variables and constants
+</li><li>To understand the properties and limitations of integers and floating-point numbers
+</li><li>To appreciate the importance of comments and good code layout
+</li><li>To write arithmetic expressions and assignment statements
+</li><li>To create programs that read, and process inputs, and display the results
+</li><li>To learn how to use Python strings
+</li><li>To create simple graphics programs using basic shapes and text</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Contents</p><br />
+</div>
+<div><p class="object" >2.1 Variables<br />2.2 Arithmetic<br />2.3 Problem Solving:  First Do It By Hand<br />2.4  Strings<br />2.5 Input and Output<br />2.6 Graphics: Simple Drawings</p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass3">2.1  Variables</span></p><br />
+</div>
+<div><img src='images/slide5-TextPlaceholder6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Variables</p><br />
+</div>
+<div><ul><li>A variable is a named storage location in a computer program
+</li><li>There are many different types of variables, each type used to store different things
+</li><li>You 'define' a variable by telling the compiler:
+<ul><li>What name you will use to refer to it
+</li><li>The initial value of the variable
+</li></ul></li><li>You use an assignment statement to place a value into a variable
+<p class="object" >
+</p>
+<ul></ul></li></ul><p class="object" >
+</p>
+<ul></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Variable Definition</p><br />
+</div>
+<div><ul><li>To define a variable, you must specify an initial value.</li></ul><ul></ul></div>
+<div><img src='images/slide7-Picture6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The Assignment Statement</p><br />
+</div>
+<div><ul><li>Use the <strong>assignment statement </strong>'=' to place a new value into a variable
+</li></ul><p class="object" ><code>cansPerPack = 6   # define & initializes the variable cansPerPack
+</code></p>
+<ul><li>Beware:  The "=" sign is NOT used for comparison:
+<ul><li>It copies the value on the right side into the variable on the left side
+</li><li>You will learn about the comparison operator in the next chapter</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Assignment Syntax</p><br />
+</div>
+<div><ul><li>The value on the right of the '=' sign is assigned to the variable on the left</li></ul><ul></ul></div>
+<div><img src='images/slide9-Picture7.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >An Example: Soda Deal</p><br />
+</div>
+<div><ul><li>Soft drinks are sold in cans and bottles. A store offers a six-pack of 12-ounce cans for the same price as a two-liter bottle. Which should you buy? (12 fluid ounces equal approximately 0.355 liters.)
+</li></ul><ul></ul></div>
+<div style="float:left;width:33%;" class="incremental"><p class="" >List of variables:<br />Number of cans per pack<br />Ounces per can<br />Ounces per bottle</p><br />
+</div>
+<div style="float:left;width:33%;" class="incremental"><p class="" >Type of number:<br />Whole number<br />Whole number<br />Number with fraction</p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Why Different Types?</p><br />
+</div>
+<div><ul><li class="">There are three different types of data that we will use in this chapter:
+<ul><li class=" decimal">A whole number (no fractional part) &nbsp;&nbsp;&nbsp; 7 &nbsp;&nbsp;&nbsp; (integer or int)
+</li><li class=" decimal">A number with a fraction part &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8.88 &nbsp;&nbsp;&nbsp; (float)
+</li><li class=" decimal">A sequence of characters &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">"Bob" &nbsp;&nbsp;&nbsp; (string)
+</span></li></ul>
+<ul></ul></li><li class="">The data type is associated with the <strong>value</strong>, not the <strong>variable</strong>:
+</li></ul><p class="" ><code>cansPerPack = 6    # int
+</code></p>
+<p class="" ><code>canVolume = 12.0   # float</code></p>
+<ul></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Updating a Variable (Assigning a Value)</p><br />
+</div>
+<div><ul><li>If an existing variable is assigned a new value, that value replaces the previous contents of the variable. 
+</li><li>For example:
+<ul><li>cansPerPack = 6
+</li><li>cansPerPack = 8
+</li></ul></li></ul><ul></ul></div>
+<div style ="position:absolute;top:19.99%;left:29.89%;"><img src='images/slide12-Picture2.png' /></div>
+<div style ="position:absolute;top:24.91%;left:29.89%;"><img src='images/slide12-Picture3.png' /></div>
+<div><img src='images/slide12-Picture6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Updating a Variable (Computed)</p><br />
+</div>
+<div><ul><li>Executing the Assignment: 
+</li></ul><p class="object" ><code>cansPerPack = cansPerPack + 2
+</code></p>
+<ul><li>Step by Step:
+</li><li>Step 1:  Calculate the right hand side of the assignment. Find the value of cansPerPack, and add 2 to it.
+</li></ul><ul></ul></div>
+<div><img src='images/slide13-Picture1.png' /></div>
+<div class="incremental"><ul><li class="">Step 2:  Store the result in the variable named on the left side of the assignment operator</li></ul>
+<img src='images/slide13-Picture9.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >A Warning…</p><br />
+</div>
+<div><ul><li>Since the data type is associated with the value and not the variable:
+<ul><li>A variable can be assigned different values at different places in a program
+</li></ul><p class="object" ><code>taxRate = 5  # an int
+</code></p>
+<p class="object" >
+</p>
+<p class="object" >Then later…
+</p>
+<p class="object" >
+</p>
+<code>taxRate = 5.5  # a float
+</code><p class="object" >
+</p>
+<p class="object" >And then 
+</p>
+<p class="object" >
+</p>
+<code>taxRate = “Non- taxable”  # a string
+</code><p class="object" ><strong>
+</strong></p>
+<ul></ul></li><li>If you use a variable and it has an unexpected type an error will occur in your program</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Our First Program of the Day…</p><br />
+</div>
+<div><ul><li>Open Wing (our IDE) and create a new file
+<ul><li>type in the following 
+</li><li>save the file as typetest.py
+</li><li>Run the program
+</li></ul></li></ul><p class="object" >
+</p>
+<pre># Testing different types in the same variable
+taxRate = 5  # int
+print(taxRate)
+taxrate = 5.5  # float
+print(taxRate)
+taxRate = "Non-taxable" # string
+print(taxRate)
+print(taxRate + 5)
+</pre><p class="object" >
+</p>
+<ul><li>So…
+<ul><li>Once you have initialized a variable with a value of a particular type you should take great care to keep storing values of the same type in the variable</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >A Minor Change</p><br />
+</div>
+<div><ul><li>Change line 8 to read:
+</li></ul><p><code>print(taxRate + “??”)
+</code></p><p class="object" >
+</p>
+<ul><li>Save your changes
+</li><li>Run the program
+</li></ul>
+<ul><li>What is the result?
+</li></ul><p class="object" >
+</p>
+<ul><li>When you use the "+" operator with strings the second argument is concatenated to the end of the first
+<ul><li>We'll cover string operations in more detail later in this chapter</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Table 1: Number Literals in Python</p><br />
+</div>
+<div><img src='images/slide17-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Naming Variables</p><br />
+</div>
+<div><ul><li>Variable names should describe the purpose of the variable
+<ul><li>'canVolume' is better than 'cv'
+</li></ul></li><li>Use These Simple Rules
+<ul><li class="decimal">Variable names must start with a letter or the underscore ( _ ) character
+<ul><li class="decimal">Continue with letters (upper or lower case), digits or the underscore
+</li></ul></li><li class="decimal">You cannot use other symbols (? or %...) and spaces are not permitted
+</li><li class="decimal">Separate words with 'camelCase' notation
+<ul><li class="decimal">Use upper case letters to signify word boundaries
+</li></ul></li><li class="decimal">Don't use 'reserved' Python words (see Appendix C, pages A6 and A7)
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Table 2: Variable Names in Python</p><br />
+</div>
+<div><img src='images/slide19-Picture1.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Programming Tip: Use Descriptive Variable Names</p><br />
+</div>
+<div><ul><li>Choose descriptive variable names
+</li><li>Which variable name is more self descriptive?
+</li></ul><p><code>canVolume = 0.35
+</code></p>
+<p><code>cv = 0.355
+</code></p>
+</pre><ul><li>This is particularly important when programs are written by more than one person.
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Constants</p><br />
+</div>
+<div><ul><li>In Python a <strong>constant</strong> is a variable whose value <em><strong>should not </strong></em>be changed after it's assigned an initial value
+<ul><li>It is a good practice to use all caps when naming constants
+</li></ul></li></ul><p><code>BOTTLE_VOLUME = 2.0
+</code></p><ul><li>It is good style to use named constants to explain numerical values to be used in calculations  
+<ul><li>Which is clearer?
+</li></ul></li></ul><p><code>totalVolume = bottles * 2
+</code></p>
+<p><code>totalVolume = bottles * BOTTLE_VOLUME
+</code></p>
+</pre><ul><li>A programmer reading the first statement may not understand the significance of the "2"  
+</li><li>Python will let you change the value of a <strong>constant</strong>
+<ul><li>Just because you can do it, doesn't mean you should do it</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Constants: Naming & Style</p><br />
+</div>
+<div><ul><li>It is customary to use all UPPER_CASE letters for constants to distinguish them from variables.
+<ul><li>It is a nice visual way cue 
+</li></ul></li></ul><pre>BOTTLE_VOLUME = 2   # Constant 
+MAX_SIZE = 100      # Constant
+taxRate = 5         # Variable
+</pre><ul></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Python Comments</p><br />
+</div>
+<div><ul><li>Use comments at the beginning of each program, and to clarify details of the code
+</li><li>Comments are a courtesy to others and a way to document your thinking
+<ul><li>Comments to add explanations for humans who read your code 
+</li></ul></li><li>The compiler ignores comments
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Commenting Code: 1st Style</p><br />
+</div>
+<div><pre>##
+#  This program computes the volume (in liters) of a six-pack of soda
+#  cans and the total volume of a six-pack and a two-liter bottle
+#
+
+# Liters in a 12-ounce can
+CAN_VOLUME = 0.355
+
+# Liters in a two-liter bottle.
+BOTTLE_VOLUME = 2
+
+# Number of cans per pack.
+cansPerPack = 6
+
+# Calculate total volume in the cans.
+totalVolume = cansPerPack * CAN_VOLUME
+print("A six-pack of 12-ounce cans contains", totalVolume, "liters.")
+
+# Calculate total volume in the cans and a 2-liter bottle.
+totalVolume = totalVolume + BOTTLE_VOLUME
+print("A six-pack and a two-liter bottle contain", totalVolume, "liters.")
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Commenting Code: 2nd Style</p><br />
+</div>
+<div><pre>##
+# This program computes the volume (in liters) of a six-pack of soda
+# cans and the total volume of a six-pack and a two-liter bottle
+#
+## CONSTANTS ##
+CAN_VOLUME = 0.355 # Liters in a 12-ounce can
+BOTTLE_VOLUME = 2 # Liters in a two-liter bottle
+
+# Number of cans per pack.
+cansPerPack = 6
+
+# Calculate total volume in the cans.
+totalVolume = cansPerPack * CAN_VOLUME
+print("A six-pack of 12-ounce cans contains", totalVolume, "liters.")
+
+# Calculate total volume in the cans and a 2-liter bottle.
+totalVolume = totalVolume + BOTTLE_VOLUME
+print("A six-pack and a two-liter bottle contain", totalVolume, "liters.")
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Undefined Variables</p><br />
+</div>
+<div><ul><li>You must define a variable before you use it: (i.e. it must be defined somewhere above the line of code where you first use the variable)
+</li></ul><pre>canVolume = 12 * literPerOunce
+literPerOunce = 0.0296
+</pre><ul><li>The correct order for the statements is:
+</li></ul><pre>literPerOunce = 0.0296
+canVolume = 12 * literPerOunce</pre>
+<ul></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass3">2.2  Arithmetic</span></p><br />
+</div>
+<div><img src='images/slide27-TextPlaceholder6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Basic Arithmetic Operations</p><br />
+</div>
+<div><ul><li>Python supports all of the basic arithmetic operations:
+<ul><li>Addition  	"+"
+</li><li>Subtraction  	"-"
+</li><li>Multiplication  "*"
+</li><li>Division              "/"
+</li></ul></li><li>You write your expressions a bit differently
+</li></ul><ul></ul></div>
+<div style="float:left;width:33%;"><img src='images/slide28-Picture9.png' /></div>
+<div style="float:left;width:33%;"><img src='images/slide28-Picture10.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Precedence</p><br />
+</div>
+<div><ul><li>Precedence is similar to Algebra:
+<ul><li>PEMDAS
+<ul><li>Parenthesis, Exponent, Multiply/Divide, Add/Subtract</li></ul></li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Mixing Numeric Types</p><br />
+</div>
+<div><ul><li>If you mix integer and floating-point values in an arithmetic expression, the result is a floating-point value
+</li><li>      <code>7 + 4.0    # Yields the floating value 11.0</code>
+</li><li>Remember from our earlier example:
+<ul><li>If you mix stings with integer or floating point values the result is an error</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Powers</p><br />
+</div>
+<div><ul><li>Double stars ** are used to calculate an exponent
+</li><li> Analyzing the expression:
+</li></ul><p class="object" >
+</p>
+<div><img src='images/slide31-Picture2.png' /></div>
+<p class="object" >
+</p>
+<ul><li>Becomes:
+<ul><li><code>b * ((1 + r / 100) ** n)</code>
+<p class="object" >
+</p>
+<ul></ul></li></ul></li></ul><ul></ul></div>
+<div style ="position:absolute;top:22.21%;left:55.28%;"><img src='images/slide31-Picture9.png' /></div>
+
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Floor Division</p><br />
+</div>
+<div><ul><li>When you divide two integers with the / operator, you get a floating-point value. For example,
+</li></ul><p class="object" ><code>7 / 4
+</code></p>
+<ul><li>Yields 1.75
+</li><li>We can also perform <strong>floor division </strong>using the // operator 
+<ul><li>The "//" operator computes the quotient and discards the fractional part
+</li></ul></li></ul><p class="object" ><code>7 // 4
+</code></p>
+<ul><li>Evaluates to 1 because 7 divided by 4 is 1.75 with a fractional part of 0.75, which is discarded
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Calculating a Remainder</p><br />
+</div>
+<div><ul><li>If you are interested in the remainder of dividing two integers, use the "%" operator (called modulus):
+</li></ul><p class="object" ><code>remainder = 7 % 4
+</code></p>
+<ul><li>The value of remainder will be 3
+</li><li>Sometimes called modulo divide
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >A Simple Example</p><br />
+</div>
+<div><ul><li>Open a new file in the Wing IDE
+</li><li>Type in the following:
+</li></ul><pre># Convert pennies to dollars and cents
+pennies = 1729
+dollars = pennies // 100  # Calculates the number of dollars
+cents = pennies % 100     # Calculates the number of pennies
+print("I have", dollars, "and", cents, "cents")
+</pre><ul><li>Save the file
+</li><li>Run the file
+</li><li>What is the result?</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Integer Division and Remainder Examples</p><br />
+</div>
+<div><img src='images/slide35-Picture1.png' /></div>
+<div><ul><li>Handy to use for making change:
+<ul><pre>pennies = 1729
+dollars = pennies / 100  # 17
+cents = pennies % 100    # 29
+</pre></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Calling Functions</p><br />
+</div>
+<div><ul><li>Recall that a function is a collection of programming instructions that carry out a particular task
+</li><li>The <code>print()</code> function can display information, but there are many other functions available in Python
+</li><li>When calling a function you must provide the correct number of arguments
+<ul><li>The program will generate an error message if you don't</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Calling Functions That Return a Value</p><br />
+</div>
+<div><ul><li>Most functions return a value. That is, when the function completes its task, it passes a value back to the point where the function was called
+</li><li>For example:
+<ul><li>The call <code>abs(-173)</code> returns the value 173.
+</li><li>The value returned by a function can be stored in a variable:
+<ul><li><code>distance = abs(x)
+</code></li></ul></li><li>You can use a function call as an argument to the <strong>print</strong> function
+</li><li>Go to the python shell window in Wing and type:
+</li></ul><code>print(abs(-173))
+</code><p class="object" >
+</p>
+<ul></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Built-in Mathematical Functions</p><br />
+</div>
+<div><img src='images/slide38-Picture1.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Python Libraries (Modules)</p><br />
+</div>
+<div><ul><li>A <strong>library</strong> is a collection of code, written and compiled by someone else, that is ready for you to use in your program
+</li><li>A <strong>standard library </strong>is a library that is considered part of the language and must be included with any Python system
+</li><li>Python's standard library is organized into <strong>modules</strong>
+<ul><li>Related functions and data types are grouped into the same module
+</li><li>Functions defined in a module must be explicitly loaded into your program before they can be used</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Using Functions from the Math Module</p><br />
+</div>
+<div><ul><li>For example, to use the <code>sqrt()</code> function, which computes the square root of its argument:
+<p class="object" >
+</p>
+<pre># First include this statement at the top of your   
+# program file. 
+from math import sqrt
+
+# Then you can simply call the function as
+
+y = sqrt(x)
+</pre><ul></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Built-in Functions</p><br />
+</div>
+<div><ul><li><strong>Built-in</strong> functions are a small set of functions that are defined as a part of the Python language
+<ul><li>They can be used without importing any modules</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Functions from the Math Module</p><br />
+</div>
+<div><img src='images/slide42-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Floating-point to Integer Conversion</p><br />
+</div>
+<div><ul><li>You can use the functions <code>int()</code> and <code>float()</code> to convert between integer and floating point values:
+</li></ul><pre>balance = total + tax   # balance: float
+dollars = int (balance) # dollars: integer
+</pre><ul><li>You lose the fractional part of the floating-point value (no rounding occurs)
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Arithmetic Expressions</p><br />
+</div>
+<div><img src='images/slide44-Picture1.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Roundoff Errors</p><br />
+</div>
+<div><ul><li>Floating point values are not exact
+<ul><li>This is a limitation of binary values; not all floating point numbers have an exact representation  
+</li></ul></li><li>Open Wing, open a new file and type in:
+</li></ul><pre>price = 4.35
+quantity = 100
+total = price * quantity 
+# Should be 100 * 4.35 = 435.00
+print(total) 
+</pre><ul><li>You can deal with roundoff errors by
+<ul><li>rounding to the nearest integer (see Section <span class="fontColorClass6">2.2.4</span>) 
+</li><li>or by displaying a fixed number of digits after the decimal separator (see Section <span class="fontColorClass6">2.5.3</span>)
+</li></ul></li></ul><p class="object" >
+</p>
+<p class="object" >
+</p>
+<ul></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Unbalanced Parentheses</p><br />
+</div>
+<div><ul><li>Consider the expression
+</br><code>((a + b) * t / 2 * (1 - t)
+</code><ul><li>What is wrong with the expression?
+</li></ul></li><li>Now consider this expression 
+</br><code>(a + b) * t) / (2 * (1 - t)
+</code><ul><li>This expression has three "(" and three ")", but it still is not correct
+</li></ul></li><li>At any point in an expression the count of "(" must be greater than or equal to the count of ")"
+</li><li>At the end of the expression the two counts must be the same</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Additional Programming Tips</p><br />
+</div>
+<div><ul><li>Use spaces in expressions
+</br><code>totalCans = fullCans + emptyCans
+</code></li></ul><ul><li>Is easier to read than
+</br><code>totalCans=fullCans+emptyCans
+</code></li></ul><ul><li>Other ways to import modules:
+</li></ul><pre>From math import, sqrt, sin, cos  # imports the functions listed
+From math import *  # imports all functions from the module
+Import math # imports all functions from the module
+</pre><ul><li>If you use the last style you have to add the module name and a "." before each function call
+</br><code>y = math.sqrt(x)
+</code></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass3">2.3  Problem Solving</span></p><br />
+</div>
+<div><p class="body" ><span class="fontColorClass1">Develop the algorithm first, then write the Python </span></p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >2.3 Problem Solving:  First by Hand</p><br />
+</div>
+<div><ul><li>A very important step for developing an algorithm is to first carry out the computations by hand
+<ul><li>If you can't compute a solution by hand, how do you write the program?
+</li></ul></li><li>Example Problem:  
+<ul><li>A row of black and white tiles needs to be placed along a wall. For aesthetic reasons, the architect has specified that the first and last tile shall be black.
+</li><li>Your task is to compute the number of tiles needed and the gap at each end, given the space available and the width of each tile.</li></ul></li></ul><ul></ul></div>
+<div><img src='images/slide49-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Start with Example Values</p><br />
+</div>
+<div style="position:absolute;top:5%;left:45%"><img src='images/slide50-Picture2.png' /></div>
+<div><ul><li>Givens
+</li><li>Total width: 100 inches
+</li><li>Tile width: 5 inches
+</li><li>Test your values
+<ul><li>Let's see… 100/5 = 20, perfect!  20 tiles. No gap.
+</li><li>But wait… BW…BW  "…first and last tile shall be black."
+</li></ul></li><li>Look more carefully at the problem….
+<ul><li>Start with one black, then some number of WB pairs
+</li></ul><p class="object" >
+</p>
+<div><img src='images/slide50-Picture7.png' /></div>
+<p class="object" >
+</p>
+<ul><li>Observation:  each pair is 2x width of 1 tile
+<ul><li>In our example, 2 x 5 = 10 inches</li></ul></li></ul></li></ul><ul></ul></div>
+
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Keep Applying Your Solution</p><br />
+</div>
+<div><ul><li>Total width: 100 inches
+</li><li>Tile width: 5 inches
+</li></ul><p class="object" >
+</p>
+<p class="object" >
+</p>
+<p class="object" >
+</p>
+<ul><li>Calculate total width of all tiles
+<ul><li>One black tile: 5"
+</li><li>9 pairs of BWs: 90"
+</li><li>Total tile width: 95"
+</li></ul></li><li>Calculate gaps (one on each end)
+<ul><li>100 – 95 = 5" total gap
+</li><li>5" gap / 2 = 2.5" at each end</li></ul></li></ul><ul></ul></div>
+<div style="position:absolute;top:5%;left:45%"><img src='images/slide51-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Now Devise an Algorithm</p><br />
+</div>
+<div><ul><li>Use your example to see how you calculated values
+</li><li>How many pairs?
+<ul><li>Note:  must be a whole number
+</li><li>Integer part of:  (total width – tile width) / 2 x tile width
+</li></ul></li><li>How many tiles?
+<ul><li>1 + 2 x the number of pairs
+</li></ul></li><li>Gap at each end
+<ul><li>(total width – number of tiles x tile width) / 2</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The Algorithm</p><br />
+</div>
+<div><ul><li>Calculate the number of pairs of tiles
+<ul><li>Number of pairs = integer part of (total width – tile width) / (2 * tile width)
+</li></ul></li><li>Calculate the number of tiles
+<ul><li>Number of tiles = 1 + (2 * number of pairs)
+</li></ul></li><li>Calculate the gap
+<ul><li>Gap at each end = (total width – number of tiles * tile width / 2
+</li></ul></li><li>Print the number of pairs of tiles
+</li><li>Print the total number of tiles in the row
+</li><li>Print the gap</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass3">2.4 Strings</span></p><br />
+</div>
+<div><img src='images/slide54-TextPlaceholder6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Strings</p><br />
+</div>
+<div><ul><li>Start with some simple definitions:
+<ul><li>Text consists of <strong>characters
+</strong></li><li><strong>Characters </strong>are letters, numbers, punctuation marks, spaces…<strong>
+</strong></li><li>A <strong>string</strong> is a sequence of <strong>characters
+</strong></li></ul></li><li>In Python, string literals are specified by enclosing a sequence of <strong>characters</strong> within a matching pair of either single or double quotes
+</li></ul><p class="object" >  <code>print("This is a string.", 'So is this.')
+</code></p>
+<ul><li>By allowing both types of delimiters, Python makes it easy to include an apostrophe or quotation mark within a string
+<ul><li>  <code>message = 'He said "Hello"'
+</code></li><li>Remember to use matching pairs of quotes, single with single, double with double</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >String Length</p><br />
+</div>
+<div><ul><li>The number of characters in a string is called the length of the string (For example, the length of "Harry" is 5)
+</li><li>You can compute the length of a string using Python's len() function:
+</li></ul><p class="object" ><code>length = len("World!") # length is 6
+</code></p>
+<ul><li>A string of length 0 is called the empty string. It contains no characters and is written as "" or ''
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >String Concatenation ("+")</p><br />
+</div>
+<div><ul><li>You can 'add' one String onto the end of another
+</li></ul><pre>firstName = "Harry"
+lastName = "Morgan"
+name  = firstName + lastName  # HarryMorgan
+print("my name is:", name)
+</pre>
+<ul><li>You wanted a space in between the two names?
+</li></ul><p class="object" ><code>name = firstName + " " + lastName  # Harry Morgan
+</code></p>
+<p class="object" >Using "+" to concatenate strings is an example of a concept called operator overloading.  The "+" operator performs different functions of variables of different types</p>
+<ul></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >String Repetition ("*")</p><br />
+</div>
+<div><ul><li>You can also produce a string that is the result of repeating a string multiple times
+</li><li>Suppose you need to print a dashed line
+</li><li>Instead of specifying a literal string with 50 dashes, you can use the * operator to create a string that is comprised of the string "-" repeated 50 times
+</li></ul><p class="object" > <code>dashes = "-" * 50
+</code></p>
+<ul><li>results in the string
+</li><li>  "-------------------------------------------------"
+</li></ul><p class="object" >The "*" operator is also overloaded</p>
+<ul></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Converting Numbers to Strings</p><br />
+</div>
+<div><ul><li>Use the <code>str()</code> function to convert between numbers and strings
+</li><li>Open Wing, then open a new file and type in:
+</li></ul><pre>balance = 888.88
+dollars = 888   
+balanceAsString = str(balance) 
+dollarsAsString = str(dollars)
+print(balanceAsString)
+print(dollarsAsString) 
+</pre><ul><li>To turn a string containing a number into a numerical value, we use the <code>int()</code> and <code>float()</code> functions:
+</li></ul><pre>id = int("1729")
+price = float("17.29")
+print(id)
+print(price) 
+</pre><ul><li><strong>This conversion is important when the strings come from user input</strong>
+<p class="object" >
+</p>
+<ul></ul></li></ul><p class="object" >
+</p>
+<ul></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Strings and Characters</p><br />
+</div>
+<div><ul><li><strong>Strings</strong> are sequences of <strong>characters
+</strong><ul><li>Python uses <strong>Unicode</strong> characters
+<ul><li><strong>Unicode</strong> defines over 100,000 characters
+</li><li><strong>Unicode</strong> was designed to be able to encode text in essentially all written languages
+</li></ul></li><li>Characters are stored as integer values
+<ul><li>See the ASCII subset on Unicode chart in Appendix A
+</li><li>For example, the letter 'H' has a value of 72</li></ul></li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Copying a Character from a String</p><br />
+</div>
+<div><ul><li>Each character inside a string has an index number:</li></ul><ul></ul></div>
+<div><img src='images/slide61-Table7.png' /></div>
+<div><ul><li class="">The first character is index zero (0)
+</li><li class="">The [] operator returns a character at a given index inside a string:
+</li></ul><p class="" >name = "Harry"
+</p>
+<p class="" >start = name[0]
+</p>
+<p class="" >last = name[4]
+</p>
+<p class="" >
+</p>
+<ul></ul><ul></ul></div>
+<div style="position:absolute;top:38%;left:40%;"><img src='images/slide61-Table6.png' /></div>
+<div style="position:absolute;top:47%;left:37%;"><img src='images/slide61-CircularArrow8.png' /></div>
+<div style="position:absolute;top:47%;left:40%;"><img src='images/slide61-CircularArrow9.png' /></div>
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >String Operations</p><br />
+</div>
+<div><img src='images/slide62-Picture1.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Methods</p><br />
+</div>
+<div><ul><li>In computer programming, an object is a software entity that represents a value with certain behavior
+<ul><li>The value can be simple, such as a string, or complex, like a graphical window or data file
+</li></ul></li><li>The behavior of an object is given through its <strong>methods</strong>
+<ul><li>A method is a collection of programming instructions to carry out a specific task – similar to a function
+</li></ul></li><li>But unlike a <strong>function</strong>, which is a standalone operation, a <strong>method</strong> can only be applied to an object of the type for which it was defined
+<ul><li>Methods are specific to a type of object
+</li><li>Functions are general and can accept arguments of different types 
+</li></ul></li><li>You can apply the <code>upper()</code> method to any string, like this:
+<ul><li><pre>name = "John Smith"
+# Sets uppercaseName to "JOHN SMITH"
+uppercaseName = name.upper()</pre></li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Some Useful String Methods</p><br />
+</div>
+<div><img src='images/slide64-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >String Escape Sequences</p><br />
+</div>
+<div><ul><li>How would you print a double quote?
+<ul><li>Preface the " with a "\" inside the double quoted String
+</li></ul></li></ul><p class="object" ><code>print("He said \"Hello\"")
+</code></p>
+<p class="object" >
+</p>
+<ul></ul><ul><li>OK, then how do you print a backslash?
+<ul><li>Preface the \ with another \
+</li></ul></li></ul><p class="object" ><code>System.out.print(""C:\\Temp\\Secret.txt"")
+</code></p>
+<p class="object" >
+</p>
+<ul></ul><ul><li>Special characters inside Strings
+<ul><li>Output a newline with a '\n'
+</li></ul></li></ul><p class="object" ><code>print("*\n**\n***\n")
+</code></p>
+<ul></ul><ul></ul></div>
+<div><img src='images/slide65-TextBox6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass3">2.5  Input and Output</span></p><br />
+</div>
+<div><img src='images/slide66-TextPlaceholder6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Input and Output</p><br />
+</div>
+<div><ul><li>You can read a String from the console with the input() function:
+<ul><li>  <code>name = input("Please enter your name")
+</code></li></ul></li><li>Converting a String variable to a number can be used if numeric (rather than string input) is needed
+<ul><li>  <code>age = int(input("Please enter age: "))
+</code></li></ul><p class="object" >
+</p>
+<ul><li>The above is equivalent to doing it two steps (getting the input and then converting it to a number):
+</li><li><pre>aString = input("Please enter age: ") # String input
+age = int(aString)	              # Converted to int 
+</pre></li></ul><p class="object" >
+</p>
+<ul></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Formatted Output</p><br />
+</div>
+<div><ul><li>Outputting floating point values can look strange:
+<code>Price per liter:  1.21997
+</code><ul></ul></li><li>To control the output appearance of numeric variables, use formatted output tools such as:
+<p><code>print("Price per liter %.2f"  %(price))
+</code></p><p>Price per liter: 1.22
+</p><p class="object" >
+</p><code>&nbsp;print("Price per liter %10.2f"  %(price))
+</code></p><p>Price per liter:       1.22
+</p><p class="object" >
+</p>
+<p class="object" >
+</p>
+<p class="object" >
+</p>
+<ul></ul></li><li>The %10.2f is called a format specifier
+</li></ul><ul></ul></div>
+<!--<div><img src='images/slide68-RightBrace7.png' /></div>
+<div><img src='images/slide68-Picture11.png' /></div>
+<div><img src='images/slide68-RightBrace8.png' /></div>
+<div><p class="" ><span class="fontColorClass7">10 spaces</span></p><br />
+</div>
+<div><p class="" ><span class="fontColorClass5">2 spaces</span></p><br />
+</div> -->
+
+<div  style ="position:absolute;top:66.13%;left:45.41%;min-height:54.44%;width:7.5%;text-align:right;">
+<img src='images/slide68-RightBrace7.png' /></div>
+<div  style ="position:absolute;top:66.51%;left:78.74%;min-height:9.7%;width:8.4%;text-align:right;">
+<img src='images/slide68-RightBrace8.png' /></div>
+<div  style ="position:absolute;top:75.44%;left:58.77%;min-height:5.83%;width:14.79%;vertical-align:top;"><p class="" style="margin-left:30px;"><span  style="font-size:1em;font-family:Arial, sans-serif;color:#00B050;">10 spaces</span></p></div>
+<div  style ="position:absolute;top:75.76%;left:77.12%;min-height:5.83%;width:13.25%;vertical-align:top;"><p class="" style="margin-left:30px;"><span  style="font-size:1em;font-family:Arial, sans-serif;color:#0033CC;">2 spaces</span></p></div>
+<div  style ="position:absolute;top:59.58%;left:44.97%;min-height:5.56%;width:41.79%;">
+<img src='images/slide68-Picture11.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Syntax: Formatting Strings</p><br />
+</div>
+<div><img src='images/slide69-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Format Flag Examples</p><br />
+</div>
+<div><ul><li>Left Justify a String:
+</li><li>     print("%-10s" %("Total:"))
+</li></ul><p class="object" > </br>
+</p>
+<ul><li>Right justify a number with two decimal places
+<ul><li> print("%10.2f" %(price))
+</li></ul></li></ul><p class="object" ></br>
+</p>
+<ul><li>And you can print multiple values:
+<ul><li> print("%-10s%10.2f" %("Total: ", price))</li></ul></li></ul><ul></ul></div>
+<div style ="position:absolute;top:5.44%;left:58.77%;"><img src='images/slide70-Picture9.png' /></div>
+<div style ="position:absolute;top:20.44%;left:58.77%;"><img src='images/slide70-Picture8.png' /></div>
+<div style ="position:absolute;top:49.44%;left:83.77%;"><img src='images/slide70-Picture11.png' /></div>
+<div style ="position:absolute;top:49.44%;left:3.77%;"><img src='images/slide70-Picture10.png' /></div>
+<div style ="position:absolute;top:50.44%;left:18.77%;"><img src='images/slide70-Picture7.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Volume2.py</p><br />
+</div>
+<div><pre>##
+#  This program prints the price per ounce for a six-pack of cans.
+#
+
+# Define constant for pack size.
+CANS_PER_PACK = 6
+
+# Obtain price per pack and can volume.
+userInput = input("Please enter the price for a six-pack: ")
+packPrice = float(userInput)
+
+userInput = input("Please enter the volume for each can (in ounces): ")
+canVolume = float(userInput)
+
+# Compute pack volume. 
+packVolume = canVolume * CANS_PER_PACK
+
+# Compute and print price per ounce.
+pricePerOunce = packPrice / packVolume
+print("Price per ounce: %8.2f" % pricePerOunce)
+</pre></div>
+
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Format Specifier Examples</p><br />
+</div>
+<div><img src='images/slide72-ContentPlaceholder1.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass3">2.6  Graphics</span></p><br />
+</div>
+<div><p class="body" ><span class="fontColorClass1">Simple Drawings</span></p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Drawing Simple Graphics</p><br />
+</div>
+<div><ul><li>To help you create simple drawings, we have included a graphics module with the book that is a simplified version of Python's more complex library module
+</li><li>The module code and usage instructions are available with the source code for the book on its companion web site
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Using the Graphics Module (1)</p><br />
+</div>
+<div><ul><li>To create a graphical application using the graphics module, carry out the following at the top of your program:
+</li></ul><p><code>from graphics import GraphicsWindow
+</code></p><ul><li>Create a graphics window (640 x 480 pixels):
+</li></ul><p><code>win = GraphicsWindow(640, 480)
+</code></p>
+<ul><li>Access the canvas contained in the graphics window:
+</li></ul><p><code>canvas = win.canvas()
+</code></p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Using the Graphics Module (2)</p><br />
+</div>
+<div><ul><li>Create your drawing
+</li></ul><p class="object" ><code>canvas.drawRect(15, 10, 20, 30)
+</code></p>
+<ul><li>Have the program wait for the user to close the window (by clicking the close button)
+<ul><li>Without this statement, the program would terminate immediately and the graphics window would disappear, leaving no time for you to see your drawing
+</li></ul></li></ul><p class="object" ><code>win.wait()
+</code></p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >A Graphics Window</p><br />
+</div>
+<div><img src='images/slide77-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >A Complete Drawing Example</p><br />
+</div>
+<div><pre>##
+#  This program creates a graphics window with a rectangle. It provides the
+#  template used with all of the graphical programs used in the book.
+#
+
+from ezgraphics import GraphicsWindow
+
+# Create the window and access the canvas.
+win = GraphicsWindow()
+canvas = win.canvas()
+
+# Draw on the canvas.
+canvas.drawRect(5, 10, 20, 30)
+
+# Wait for the user to close the window.
+win.wait()
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Table 10: GraphicsWindow Methods</p><br />
+</div>
+<div><img src='images/slide79-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Drawing Shapes</p><br />
+</div>
+<div><ul><li>Basic shapes have 4 properties: <strong>x coordinate</strong>, <strong>y coordinate</strong>, <strong>width</strong> and <strong>height</strong>
+</li><li>Example: 
+</li></ul><p><code>canvas.drawRect(15, 10, 20, 30)
+</code></p><ul><li>This statement draws a rectangle with the upper top left corner at point (x = 15, y = 10) in the window with a height of 20 and a width of 30
+</li><li>Common shapes that can be drawn include: rectangles, squares, circles and ovals
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Drawing Lines</p><br />
+</div>
+<div><ul><li>Lines require 4 slightly different properties than drawing shapes:
+<ul><li>Point 1(x coordinate, y coordinate)
+</li><li>Point 2(x coordinate, y coordinate)
+</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Table 13: Common Shapes, Lines and Text</p><br />
+</div>
+<div><img src='images/slide82-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The Canvas and Shapes Can Be Colored</p><br />
+</div>
+<div><ul><li>If you use the default setting (not changing the fill or outline), shapes are outlined in black and there is no fill color
+</li><li>The fill color and outline can be set to different colors with the method calls:
+</li></ul><p><code>setFill(<color name>)
+</p></code><p>OR
+</p><p><code>setFill(<red level>, <green level>, <blue level>)
+</code></p><p>
+</p><p><code>setOutline(<color name>)
+</code></p><p>OR
+</p><p><code>setOutline(<red level>, <green level>, <blue level>)
+</code></p></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Example of Setting Color</p><br />
+</div>
+<div><ul><li>The following statements draw a rectangle that is outlined in black and filled with green
+</li></ul><pre>canvas.setOutline("black")
+canvas.setFill(0, 255, 0)
+canvas.drawRect(10, 20, 100, 50)
+</pre><ul></ul><ul></ul></div>
+<div><img src='images/slide84-Picture2.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Table 11: Common Color Names</p><br />
+</div>
+<div><img src='images/slide85-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Table 12: GraphicsCanvas Color Methods </p><br />
+</div>
+<div><img src='images/slide86-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Variables</p><br />
+</div>
+<div><ul><li>A variable is a storage location with a name
+</li><li>When defining a variable, you must specify an initial value
+</li><li>By convention, variable names should start with a lower case letter
+</li><li>An assignment statement stores a new value in a variable, replacing the previously stored value
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Operators </p><br />
+</div>
+<div><ul><li>The assignment operator "=" does not denote mathematical equality
+</li><li>Variables whose initial value should not change are typically capitalized by convention
+</li><li>The "/" operator performs a division yielding a value that may have a fractional value
+</li><li>The "//" operator performs a division, the remainder is discarded
+</li><li>The "%" operator computes the remainder of a floor division
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Python Overview</p><br />
+</div>
+<div><ul><li>The Python library declares many mathematical functions, such as <code>sqrt()</code> and <code>abs()</code>
+</li><li>You can convert between integers, floats and strings using the respective functions: <code>int(), float(), str()</code>
+</li><li>Python libraries are grouped into modules. Use the <code>import</code> statement to use methods from a module
+</li><li>Use the <code>input()</code> function to read keyboard input in a console window
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Python Overview</p><br />
+</div>
+<div><ul><li>Use the format specifiers to specify how values should be formatted
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Strings</p><br />
+</div>
+<div><ul><li>Strings are sequences of characters
+</li><li>The <code>len()</code> function yields the number of characters in a string
+</li><li>Use the "+" operator to concatenate strings; that is, to put them together to yield a longer string
+</li><li>In order to perform a concatenation, the "+" operator requires both arguments to be strings. Numbers must be converted to strings using the <code>str()</code> function
+</li><li>String index numbers are counted starting with 0
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Strings</p><br />
+</div>
+<div><ul><li>Use the [ ] operator to extract the elements of a string.
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Graphics</p><br />
+</div>
+<div><ul><li>Graphical shapes (such as squares, rectangles, circles, ovals), or lines and text can be drawn using the graphics module
+</li><li>The color of graphical objects can be set with the <code>setOutline()</code> and <code>setFill()</code> methods
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+
+    </div>
+    <script src="scripts/jquery-2.1.4.min.js" charset="utf-8" type="text/javascript"></script>
+    <script src="scripts/slidy.js" charset="utf-8" type="text/javascript"></script>
+    
+</body>
+</html>

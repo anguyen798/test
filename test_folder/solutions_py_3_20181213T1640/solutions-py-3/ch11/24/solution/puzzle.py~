@@ -1,0 +1,128 @@
+##
+#  Solve a summation puzzle using backtracking.
+#
+
+def main() :
+   # Get input from the user.
+   print("word1 + word2 = answer")
+   word1 = input("Enter word1: ")
+   word2 = input("Enter word2: ")
+   answer = input("Enter answer: ")
+
+   # Find all of the solutions to the puzzle.
+   puzzle = SummationPS(word1, word2, answer)
+   sols = solve(puzzle)
+   for s in sols:
+      print(s)
+
+## Model a general partial solution to a problem.  This is an abstract class.
+#
+class PartialSolution() :
+   ACCEPT = 0
+   ABANDON = 1
+   CONTINUE = 2
+
+   ## Examine a partial solution to see if it is acceptable, is not done, but
+   #  should be continued, or should be abandoned.
+   #  @return ABANDON, ACCEPT or CONTINUE
+   #
+   def examine() :
+      raise NotImplementedError
+
+   ## Extend the current partial solution.
+   #  @return a list of extended partial solutions
+   #
+   def extend() :
+      raise NotImplementedError
+
+## Represent a partial solution to the summation puzzle.
+#
+class SummationPS(PartialSolution) :
+
+   ## Construct a new solution to the problem.
+   #  @param w1 the first word in the sum
+   #  @param w2 the second word in the sum
+   #  @param ans the answer word
+   #
+   def __init__(self, w1, w2, ans) :
+      super().__init__()
+      self._w1 = w1
+      self._w2 = w2
+      self._ans = ans
+
+   ## Examine a partial solution to see if it is acceptable, is not done, but
+   #  should be continued, or should be abandoned.
+   #  @return ABANDON, ACCEPT or CONTINUE
+   #
+   def examine(self) :
+      for ch in self._w1 + self._w2 + self._ans :
+         if ch not in "1234567890" :
+            return self.CONTINUE
+
+      if int(self._w1) + int(self._w2) == int(self._ans) :
+         return self.ACCEPT
+
+      return self.ABANDON
+
+   ## Extend the current partial solution by replacing a letter with numbers.
+   #  @return a list of extended partial solutions
+   #
+   def extend(self) :
+      results = []
+
+#      let = ""
+#      for ch in self._w1 + self._w2 + self._ans :
+#         if ch not in "0123456789":
+#            let = ch
+#            break
+      let = ""
+      i = 0
+      merged = self._w1 + self._w2 + self._ans
+      while i < len(merged) and let == "":
+        if merged[i] not in "0123456789":
+          let = merged[i]
+        i = i + 1
+
+
+
+      if let == "":
+         return []
+
+      valid = "0123456789"
+      for ch in self._w1 + self._w2 + self._ans :
+         valid = valid.replace(ch, "")
+      if valid == "":
+         return []
+
+      for i in valid :
+         new_w1 = self._w1.replace(let, i)
+         new_w2 = self._w2.replace(let, i)
+         new_ans = self._ans.replace(let, i)
+
+         results.append(SummationPS(new_w1, new_w2, new_ans))
+
+      return results
+
+   ## Generate a string representation of the solution.
+   #  @return a string representing the solution
+   #
+   def __repr__(self) :
+      return self._w1 + " + " + self._w2 + " = " + self._ans
+      
+## Generates all solutions to the problem that can be extended from the
+#  provided partial solution.
+#  @param ps the starting solution
+#  @return a list of solutions that start from ps
+#
+def solve(ps) :
+   solutions = []
+   status = ps.examine()
+   if status == PartialSolution.ACCEPT :
+      solutions.append(ps)
+   elif status != PartialSolution.ABANDON :
+      for p in ps.extend() :
+         solutions = solutions + solve(p)
+   return solutions
+
+# Call the main function.
+main()

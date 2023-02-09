@@ -1,0 +1,952 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/><title></title>
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body><dl></dl><ol><li>A class that represents the most general entity in an
+inheritance hierarchy is called a/an ______.
+<ol class="multiple-choice"><li>Default class</li><li class="correct">Superclass</li><li>Subclass</li><li>Inheritance class</li></ol><dl><dt>Section</dt><dd>10.1 Inheritance Hierarchies</dd><dt>Title</dt><dd>A class that represents the most general entity in an inheritance hierarchy is called a/an ______.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.1 Inheritance Hierarchies</dd><dt>id</dt><dd>testbank-py-1-ch10-01</dd></dl></li><li>A class that represents a more specific entity in an
+inheritance hierarchy is called a/an _______.
+<ol class="multiple-choice"><li>Default class</li><li>Superclass</li><li class="correct">Subclass</li><li>Inheritance class</li></ol><dl><dt>Section</dt><dd>10.1 Inheritance Hierarchies</dd><dt>Title</dt><dd>A class that represents a more specific entity in an inheritance hierarchy is called a/an _______.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.1 Inheritance Hierarchies</dd><dt>id</dt><dd>testbank-py-1-ch10-02</dd></dl></li><li>You are creating a class inheritance hierarchy about motor
+vehicles that will contain classes named <code>Vehicle</code>,
+<code>Auto</code>, and <code>Motorcycle</code>. Which of the
+following statements is correct?
+<ol class="multiple-choice"><li><code>Vehicle</code> should be the subclass, while
+<code>Auto</code>, and <code>Motorcycle</code> should be the
+default classes</li><li><code>Vehicle</code> should be the subclass, while
+<code>Auto</code>, and <code>Motorcycle</code> should be the
+superclasses</li><li><code>Vehicle</code> should be the default class, while
+<code>Auto</code>, and <code>Motorcycle</code> should be the
+subclasses</li><li class="correct"><code>Vehicle</code> should be the superclass, while
+<code>Auto</code>, and <code>Motorcycle</code> should be the
+subclasses</li></ol><dl><dt>Section</dt><dd>10.1 Inheritance Hierarchies</dd><dt>Title</dt><dd>Creating a class inheritance hierarchy</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.1 Inheritance Hierarchies</dd><dt>id</dt><dd>testbank-py-1-ch10-03</dd></dl></li><li>Which of the following statements about inheritance is correct?
+<ol class="multiple-choice"><li>You can always use a superclass object in place of a subclass
+object.</li><li class="correct">You can always use a subclass object in place of a superclass
+object.</li><li>A superclass inherits data and behavior from a subclass.</li><li>A superclass inherits only behavior from a subclass.</li></ol><dl><dt>Section</dt><dd>10.1 Inheritance Hierarchies</dd><dt>Title</dt><dd>Which statement about inheritance is correct?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.1 Inheritance Hierarchies</dd><dt>id</dt><dd>testbank-py-1-ch10-04</dd></dl></li><li>Assume that you are creating a new Python class named
+<code>Vehicle</code>, as shown below:
+<pre>
+class Vehicle :
+   . . .
+</pre>
+What is <code>Vehicle</code>'s superclass?
+<ol class="multiple-choice"><li><code>dict</code></li><li><code>None</code></li><li class="correct"><code>object</code></li><li><code>set</code></li></ol><dl><dt>Section</dt><dd>10.1 Inheritance Hierarchies</dd><dt>Title</dt><dd>Identify the superclass of a class</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.1 Inheritance Hierarchies</dd><dt>id</dt><dd>testbank-py-1-ch10-05</dd></dl></li><li>What is the substitution principle?<ol class="multiple-choice"><li>A subclass inherits data and behavior from a superclass</li><li>You can create an object from a concrete class, but not from an
+abstract class.</li><li>You can always use a superclass object when a subclass object
+is expected</li><li class="correct">You can always use a subclass object when a superclass object
+is expected</li></ol><dl><dt>Section</dt><dd>10.1 Inheritance Hierarchies</dd><dt>Title</dt><dd>What is the substitution principle?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.1 Inheritance Hierarchies</dd><dt>id</dt><dd>testbank-py-1-ch10-64</dd></dl></li><li>What is the purpose of using an inheritance hierarchy?<ol class="multiple-choice"><li class="correct">To share common code among the classes</li><li>To create objects from concrete classes</li><li>To create objects from abstract classes</li><li>To create objects using constructors</li></ol><dl><dt>Section</dt><dd>10.1 Inheritance Hierarchies</dd><dt>Title</dt><dd>What is the purpose of using an inheritance hierarchy?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.1 Inheritance Hierarchies</dd><dt>id</dt><dd>testbank-py-1-ch10-65</dd></dl></li><li>What would be the inhertiance relationships between classes
+<code>Apples, Pears,</code> and <code>Fruit?</code><ol class="multiple-choice"><li><code>Apples</code> inherit from <code>Pears</code></li><li class="correct"><code>Apples</code> and <code>Pears</code> inherit from
+<code>Fruit</code></li><li><code>Fruit</code> inherits from <code>Apples</code> and
+<code>Pears</code></li><li><code>Pears</code> inherits from <code>Apples</code></li></ol><dl><dt>Section</dt><dd>10.1 Inheritance Hierarchies</dd><dt>Title</dt><dd>What would be the inhertiance relationships between classes Apples, Pears, and Fruit? `</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.1 Inheritance Hierarchies</dd><dt>id</dt><dd>testbank-py-1-ch10-66</dd></dl></li><li>Identify the list of superclasses from the list of pairs below:
+<pre>
+Manager, Employee 
+GraduateStudent, Student
+BankAccount, CheckingAccount
+Vehicle, Minivan                  
+</pre><ol class="multiple-choice"><li class="correct"><pre>
+Employee, Student, BankAccount, Vehicle
+</pre></li><li><pre>
+Manager, GraduateStudent, CheckingAccount, Minivan
+</pre></li><li><pre>
+Employee, Student, CheckingAccount, Minivan
+</pre></li><li><pre>
+Manager, GraduateStudent, BankAccount, Vehicle
+</pre></li></ol><dl><dt>Section</dt><dd>10.1 Inheritance Hierarchies</dd><dt>Title</dt><dd>Identify the list of superclasses.</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.1 Inheritance Hierarchies</dd><dt>id</dt><dd>testbank-py-1-ch10-73</dd></dl></li><li>Which class is the direct or indirect superclass of every class in Python?
+
+<ol class="multiple-choice">
+  <li><code>default</code></li>
+  <li><code>None</code></li>
+  <li class="correct"><code>object</code></li>
+  <li><code>super</code></li>
+</ol><dl><dt>Section</dt><dd>10.1 Inheritance Hierarchies</dd><dt>Title</dt><dd>Which class is the direct or indirect superclass of every class in Python?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.1 Inheritance Hierarchies</dd><dt>id</dt><dd>testbank-py-2-ch10-75</dd></dl></li><li>A subclass object can always be used when a superclass object is expected.  This fact is referred to as:
+
+<ol class="multiple-choice">
+  <li>generalized interoperability</li>
+  <li>method overriding</li>
+  <li>the replacement policy</li>
+  <li class="correct">the substitution principle</li>
+</ol><dl><dt>Section</dt><dd>10.1 Inheritance</dd><dt>Title</dt><dd>What term is used to describe the notion that a subclass object can always be used when a superclass object is expected?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.1 Inheritance Hierarchies</dd><dt>id</dt><dd>testbank-py-2-ch10-79</dd></dl></li><li>Consider the following code segment:
+
+<pre>
+class Animal :
+  # The body of the class has been omitted
+
+class Dinosaur(Animal) :
+  # The body of the class has been omitted
+
+class Triceratops(Dinosaur) :
+  # The body of the class has been omitted
+
+class Pterodactyl(Dinosaur) :
+  # The body of the class has been omitted
+</pre>
+
+Which class is at the root of the inheritance hierarchy?
+
+<ol class="multiple-choice">
+  <li class="correct">Animal</li>
+  <li>Dinosaur</li>
+  <li>Pterodactyl</li>
+  <li>Triceratops</li>
+</ol><dl><dt>Section</dt><dd>10.1 Inheritance</dd><dt>Title</dt><dd>Which class is at the root of the inheritance hierarchy?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.1 Inheritance Hierarchies</dd><dt>id</dt><dd>testbank-py-2-ch10-80</dd></dl></li><li>What does the subclass inherit from a superclass?
+<ol class="multiple-choice"><li class="correct">Data and behavior</li><li>Only behaviors</li><li>Only data</li><li>Nothing</li></ol><dl><dt>Section</dt><dd>10.2 Implementing Subclasses</dd><dt>Title</dt><dd>What does the subclass inherit from a superclass?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.2 Implementing Subclasses</dd><dt>id</dt><dd>testbank-py-1-ch10-06</dd></dl></li><li>Insert the missing code in the following code fragment. This
+fragment is intended to call the <code>Vehicle</code> class's
+method.<pre>
+class Vehicle :
+   def setVehicleClass(self, numberAxles) :
+      ...
+          
+class Motorcycle(Vehicle) :
+   def __init__(self) :
+      __________________
+      harley = Motorcycle()
+</pre><ol class="multiple-choice"><li class="correct"><pre>
+self.setVehicleClass(2)
+</pre></li><li><pre>
+setVehicleClass(2)
+</pre></li><li><pre>
+Motorcycle.setVehicleClass(2)
+</pre></li><li><pre>
+Vehicle.setVehicleClass(2)
+</pre></li></ol><dl><dt>Section</dt><dd>10.2 Implementing Subclasses</dd><dt>Title</dt><dd>Complete the code to call a superclass method</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.2 Implementing Subclasses</dd><dt>id</dt><dd>testbank-py-1-ch10-07</dd></dl></li><li>Insert the missing code in the following code fragment. This
+fragment is intended to call the <code>Vessel</code> class's
+method.
+<pre>
+class Vessel :
+   def setVesselClass(self, vesselLength) :
+      ...
+          
+class JetSki(Vessel) :
+   def __init__(self) :
+      __________________
+      mySki = JetSki()
+</pre><ol class="multiple-choice"><li><pre>
+JetSki.setVessel(12)
+</pre></li><li><pre>
+setVesselClass(12)
+</pre></li><li class="correct"><pre>
+self.setVesselClass(12)
+</pre></li><li><pre>
+Vessel.setVessel(12)
+</pre></li></ol><dl><dt>Section</dt><dd>10.2 Implementing Subclasses</dd><dt>Title</dt><dd>Complete the code to call a superclass method</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.2 Implementing Subclasses</dd><dt>id</dt><dd>testbank-py-1-ch10-08</dd></dl></li><li>You are creating a Motorcycle class which is supposed to
+inherit from the Vehicle class. Which of the following class
+declaration statements will accomplish this?
+<ol class="multiple-choice"><li><pre>
+class Motorcycle(self) :
+</pre></li><li><pre>
+class Motorcycle extends Vehicle :
+</pre></li><li><pre>
+class Motorcycle is Vehicle :
+</pre></li><li class="correct"><pre>
+class Motorcycle(Vehicle) :
+</pre></li></ol><dl><dt>Section</dt><dd>10.2 Implementing Subclasses</dd><dt>Title</dt><dd>Which class declaration statement indicates inheritance?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.2 Implementing Subclasses</dd><dt>id</dt><dd>testbank-py-1-ch10-11</dd></dl></li><li>Which of the following is true regarding subclasses?
+<ol class="multiple-choice"><li>A subclass inherits methods from its superclass but not
+instance variables.</li><li>A subclass inherits instance variables from its superclass but
+not methods.</li><li class="correct">A subclass inherits methods and instance variables from its
+superclass.</li><li>A subclass does not inherit methods or instance variables from
+its superclass.</li></ol><dl><dt>Section</dt><dd>10.2 Implementing Subclasses</dd><dt>Title</dt><dd>Which is true regarding subclasses?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.2 Implementing Subclasses</dd><dt>id</dt><dd>testbank-py-1-ch10-13</dd></dl></li><li>Which of the following is true regarding subclasses?
+<ol class="multiple-choice"><li>A subclass that inherits methods from its superclass may not
+override the methods.</li><li>A subclass that inherits instance variables from its superclass
+may not declare additional instance variables.</li><li>A subclass may inherit methods or instance variables from its
+superclass but not both.</li><li class="correct">A subclass may inherit methods and instance variables from its
+superclass, and may also implement its own methods and declare its
+own instance variables.</li></ol><dl><dt>Section</dt><dd>10.2 Implementing Subclasses</dd><dt>Title</dt><dd>Which is true regarding subclasses?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.2 Implementing Subclasses</dd><dt>id</dt><dd>testbank-py-1-ch10-14</dd></dl></li><li>Which of the following is true regarding subclasses?
+<ol class="multiple-choice"><li>A subclass has access to private instance variables of its
+superclass.</li><li>A subclass does not have access to public instance variables of
+its superclass.</li><li>A subclass must specify the implicit parameter to use methods
+inherited from its superclass.</li><li class="correct">A subclass has no access to private instance variables of its
+superclass.</li></ol><dl><dt>Section</dt><dd>10.2 Implementing Subclasses</dd><dt>Title</dt><dd>Which is true regarding subclasses?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.2 Implementing Subclasses</dd><dt>id</dt><dd>testbank-py-1-ch10-15</dd></dl></li><li>What must a subclass do to modify a private superclass instance
+variable?
+<ol class="multiple-choice"><li>The subclass must simply use the name of the superclass
+instance variable.</li><li>The subclass must declare its own instance variable with the
+same name as the superclass instance variable.</li><li class="correct">The subclass must use a public method of the superclass (if it
+exists) to update the superclass's private instance variable.</li><li>The subclass must have its own public method to update the
+superclass's private instance variable.</li></ol><dl><dt>Section</dt><dd>10.2 Implementing Subclasses</dd><dt>Title</dt><dd>How to modify a private superclass instance variable</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.2 Implementing Subclasses</dd><dt>id</dt><dd>testbank-py-1-ch10-17</dd></dl></li><li>Consider the following class hierarchy:
+<pre>
+class Vehicle :
+  
+   def __init__(self, type) :
+      self._type = type
+    
+class LandVehicle(Vehicle) :
+   def __init__(self, type) :
+      super().__init__(type)
+ 
+class Auto(Vehicle) :
+   def __init__(self, type) :
+      ____________________________ 
+</pre>
+Complete the code in the <code>Auto</code> class constructor to
+store the type data.<ol class="multiple-choice"><li><pre>
+super(type)
+</pre></li><li><pre>
+super().super().__init__(type)
+</pre></li><li class="correct"><pre>
+super().__init__(type)
+</pre></li><li>This cannot be done unless the <code>Auto</code> class declares
+an instance variable named <code>type</code>.</li></ol><dl><dt>Section</dt><dd>10.2 Implementing Subclasses</dd><dt>Title</dt><dd>Complete the code to use a subclass</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.2 Implementing Subclasses</dd><dt>id</dt><dd>testbank-py-1-ch10-18</dd></dl></li><li>Which statement is correct about the following code segment:
+<pre>
+class Pizza :
+   . . .
+
+class Food(Pizza) :
+   . . .
+</pre><ol class="multiple-choice"><li><code>Pizza</code> is a subclass of <code>Food</code></li><li class="correct"><code>Food</code> is a subclass of <code>Pizza</code></li><li><code>Food</code> and <code>Pizza</code> do not have a
+superclass / subclass relationship</li><li>The code segment does not allow one to determine what the
+superclass / subclass relationship is between the classes</li></ol><dl><dt>Section</dt><dd>10.2 Implementing Subclasses</dd><dt>Title</dt><dd>Identify the relationship between the classes in a code segment</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.2 Implementing Subclasses</dd><dt>id</dt><dd>testbank-py-1-ch10-19</dd></dl></li><li>What is the name of the superclass in the following code
+segment?
+<pre>
+class Triceratops(Dinosaur) :
+   def eat(self, what) :
+      . . .
+</pre><ol class="multiple-choice"><li class="correct"><code>Dinosaur</code></li><li><code>eat</code></li><li><code>Triceratops</code></li><li><code>what</code></li></ol><dl><dt>Section</dt><dd>10.2 Implementing Subclasses</dd><dt>Title</dt><dd>What is the name of the superclass in a code segment?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.2 Implementing Subclasses</dd><dt>id</dt><dd>testbank-py-1-ch10-20</dd></dl></li><li>What is the name of the subclass in the following code segment?
+<pre>
+class Apple(Fruit) :
+   def getCalories(self) :
+      . . .
+</pre><ol class="multiple-choice"><li class="correct"><code>Apple</code></li><li><code>Fruit</code></li><li><code>getCalories</code></li><li><code>self</code></li></ol><dl><dt>Section</dt><dd>10.2 Implementing Subclasses</dd><dt>Title</dt><dd>What is the name of the subclass in a code segment?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.2 Implementing Subclasses</dd><dt>id</dt><dd>testbank-py-1-ch10-21</dd></dl></li><li>Which set of classes represents the relationship that all
+circles are ovals?
+<ol class="multiple-choice"><li class="correct"><pre>
+class Circle(Oval) :
+   . . .
+</pre></li><li><pre>
+class Oval(Circle) :
+   . . .
+</pre></li><li><pre>
+class Circle :
+   . . .
+class Oval :
+   . . .
+</pre></li><li><pre>
+class Shape :
+   . . .
+class Circle(Shape) :
+   . . .
+class Oval(Shape) :
+   . . .
+</pre></li></ol><dl><dt>Section</dt><dd>10.2 Implementing Subclasses</dd><dt>Title</dt><dd>Which classes correctly model the relationship between two types of entities?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.2 Implementing Subclasses</dd><dt>id</dt><dd>testbank-py-1-ch10-22</dd></dl></li><li>You have been asked to write a program that involves animals.
+Some animals are herbivores. Within this program, any animal that
+is not a herbivore is a carnivore. Which set of class definitions
+is most appropriate for this program?
+<ol class="multiple-choice"><li><pre>
+class Animal :
+   . . .
+class Herbivore(Animal) :
+   . . .
+class Carnivore(Herbivore) :
+   . . .  
+   
+</pre></li><li><pre>
+class Animal :
+   . . .
+class Carnivore(Animal) :
+   . . .
+class Herbivore(Carnivore) :
+   . . .  
+   
+</pre></li><li class="correct"><pre>
+class Animal :
+   . . .
+class Herbivore(Animal) :
+   . . .
+class Carnivore(Animal) :
+   . . .  
+   
+</pre></li><li><pre>
+class Animal(Herbivore, Carnivore) :
+   . . .
+class Herbivore :
+   . . .
+class Carnivore :
+   . . .  
+   
+</pre></li></ol><dl><dt>Section</dt><dd>10.2 Implementing Subclasses</dd><dt>Title</dt><dd>Which collection of classes represents a particular scenario?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.2 Implementing Subclasses</dd><dt>id</dt><dd>testbank-py-1-ch10-23</dd></dl></li><li>Which group of classes is poorly designed?
+<ol class="multiple-choice"><li><pre>
+class Vegetable :
+   . . .
+class Dog :
+   . . .
+</pre></li><li><pre>
+class Pet :
+   . . .
+class Dog(Pet) :
+   . . .
+   
+</pre></li><li><pre>
+class Fruit :
+   . . .
+class Vegetable :
+   . . .
+</pre></li><li class="correct"><pre>
+class Dog :
+   . . .
+class Cat(Dog) :
+   . . .
+</pre></li></ol><dl><dt>Section</dt><dd>10.2 Implementing Subclasses</dd><dt>Title</dt><dd>Which set of classes is poorly designed?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.2 Implementing Subclasses</dd><dt>id</dt><dd>testbank-py-1-ch10-25</dd></dl></li><li>Which set of classes is poorly designed?
+<ol class="multiple-choice"><li><pre>
+class Pet :
+   . . .
+class Cat(Pet) :
+   . . .
+class Dog(Pet) :
+   . . .
+   
+</pre></li><li class="correct"><pre>
+class Pizza :
+   . . .
+class Food(Pizza) :
+   . . .
+class Apple(Food) :
+   . . .
+</pre></li><li><pre>
+class Vehicle :
+   . . .
+class Car(Vehicle) :
+   . . .
+class HatchBack(Car) :
+   . . .
+</pre></li><li><pre>
+class Pizza :
+   . . .
+class Employee :
+   . . .
+class Textbook :
+   . . .
+</pre></li></ol><dl><dt>Section</dt><dd>10.2 Implementing Subclasses</dd><dt>Title</dt><dd>Which group of classes is poorly designed?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.2 Implementing Subclasses</dd><dt>id</dt><dd>testbank-py-1-ch10-26</dd></dl></li><li>Consider the following code segment:
+<pre>
+class Fruit :
+   def __init__(self, name) :
+      . . .
+
+class Apple :
+   def __init__self(self, name) :
+      . . .
+</pre>
+Which statement successfully creates a new <code>Apple</code>
+object?
+<ol class="multiple-choice"><li><code>x = Fruit()</code></li><li><code>x = Fruit(&quot;Apple&quot;)</code></li><li><code>x = Apple()</code></li><li class="correct"><code>x = Apple(&quot;McIntosh&quot;)</code></li></ol><dl><dt>Section</dt><dd>10.2 Implementing Subclasses</dd><dt>Title</dt><dd>Which statement successfully creates a new object?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.2 Implementing Subclasses</dd><dt>id</dt><dd>testbank-py-1-ch10-27</dd></dl></li><li>Consider classes <code>Oranges, Pears, Apples, Fruit</code>.
+Which should be the superclass?<ol class="multiple-choice"><li><code>Oranges</code></li><li><code>Pears</code></li><li><code>Apples</code></li><li class="correct"><code>Fruit</code></li></ol><dl><dt>Section</dt><dd>10.2 Implementing Subclasses</dd><dt>Title</dt><dd>Which should be the superclass?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.2 Implementing Subclasses</dd><dt>id</dt><dd>testbank-py-1-ch10-60</dd></dl></li><li>Identify the subclass and
+superclass in the following code segment:
+<pre>
+class ChoiceQuestion(Question) :
+   def __init__(self) :
+   . . .
+</pre>
+<ol class="multiple-choice">
+  <li>The subclass is <code>Question</code>. The superclass is
+  <code>ChoiceQuestion</code>.</li>
+  <li class="correct">The subclass is <code>ChoiceQuestion</code>. The superclass is
+  <code>Question</code>.</li>
+  <li>The subclass is <code>init</code>. The superclass is
+  <code>self</code>.</li>
+  <li>The subclass is <code>ChoiceQuestion</code>.  The superclass is
+  <code>object</code>.</li>
+</ol><dl><dt>Section</dt><dd>10.2 Implementing Subclasses</dd><dt>Title</dt><dd>Identify the subclass and superclass in a code segment</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch10-10</dd><dt>section</dt><dd>10.2 Implementing Subclasses</dd><dt>id</dt><dd>testbank-py-2-ch10-10</dd></dl></li><li>Which of the following class declaration statements will create a class <code>Dog</code> that is a subclass of <code>Pet</code>?
+<ol class="multiple-choice"><li><pre>
+class Dog is Pet :
+</pre></li><li class="correct"><pre>
+class Dog(Pet) :
+</pre></li><li><pre>
+class Dog extends Pet :
+</pre></li><li><pre>
+class Dog(self) :
+</pre></li></ol><dl><dt>Section</dt><dd>10.2 Implementing Subclasses</dd><dt>Title</dt><dd>Which class declaration creates a subclass of a specific superclass?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch10-12</dd><dt>section</dt><dd>10.2 Implementing Subclasses</dd><dt>id</dt><dd>testbank-py-2-ch10-12</dd></dl></li><li>Which of the following statements indicates that
+  <code>ClassA</code> is a superclass of <code>ClassB</code>?
+
+  <ol class="multiple-choice">
+    <li class="correct"><code>class ClassB(ClassA) :</code></li>
+    <li><code>class ClassA(ClassB) : </code></li>
+    <li><code>class ClassB extends ClassA : </code></li>
+    <li><code>class ClassA extends ClassB : </code></li>
+  </ol><dl><dt>Section</dt><dd>10.2 Implementing Subclasses</dd><dt>Title</dt><dd>Which statement indicates that on class is a superclass of another class?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch10-16</dd><dt>section</dt><dd>10.2 Implementing Subclasses</dd><dt>id</dt><dd>testbank-py-2-ch10-16</dd></dl></li><li>You are creating a <code>Pen</code> class that will be
+  a subclass of a <code>WritingImplement</code> class. Which statement
+  accomplishes this goal?
+
+  <ol class="multiple-choice">
+    <li class="correct"><code>class Pen(WritingImplement) :</code></li>
+    <li><code>class WritingImplement(Pen) :</code></li>
+    <li><code>subclass Pen(WritingImplement) :</code></li>
+    <li><code>subclass WritingImplement(Pen) :</code></li>
+</ol><dl><dt>Section</dt><dd>10.2 Implementing Subclasses</dd><dt>Title</dt><dd>Which statement creates Pen as a subclass of WritingImplement?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch10-24</dd><dt>section</dt><dd>10.2 Implementing Subclasses</dd><dt>id</dt><dd>testbank-py-2-ch10-24</dd></dl></li><li>A class name inside parentheses in the class header indicates that the:
+  <ol class="multiple-choice">
+    <li>class inherits from a default class</li>
+    <li class="correct">class inherits from a superclass</li>
+    <li>class inherits from a subclass</li>
+    <li>class inherits from the <code>object</code> class</li></ol><dl><dt>Section</dt><dd>10.2 Implementing Subclasses</dd><dt>Title</dt><dd>What does a class name inside parentheses in the class header indicate?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch10-09</dd><dt>section</dt><dd>10.2 Implementing Subclasses</dd><dt>id</dt><dd>testbank-py-2-ch10-09</dd></dl></li><li>Which of the following statements about superclasses and
+subclasses is true?
+<ol class="multiple-choice"><li>A superclass is larger than its subclass.</li><li>A superclass inherits from a subclass.</li><li>A superclass extends a subclass.</li><li class="correct">A subclass extends a superclass.</li></ol><dl><dt>Section</dt><dd>10.3 Calling the Superclass Constructor</dd><dt>Title</dt><dd>Which of the following statements about superclasses and subclasses is true?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.3 Calling the Superclass Constructor</dd><dt>id</dt><dd>testbank-py-1-ch10-28</dd></dl></li><li>Assume that you have a class <code>Apple</code> which is a
+subclass of <code>Fruit</code>. Which statement can be used in
+<code>Apple</code>'s constructor to invoke <code>Fruit</code>'s
+constructor?
+<ol class="multiple-choice"><li><code>__init__()</code></li><li><code>Apple().__init__()</code></li><li><code>Fruit().__init__()</code></li><li class="correct"><code>super().__init__()</code></li></ol><dl><dt>Section</dt><dd>10.3 Calling the Superclass Constructor</dd><dt>Title</dt><dd>Which statement invokes the superclass constructor?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.3 Calling the Superclass Constructor</dd><dt>id</dt><dd>testbank-py-1-ch10-29</dd></dl></li><li>Consider the following classes:
+<pre>
+class Vehicle :
+   def __init__(self, name) :
+      self._name = name
+
+class LandVehicle(Vehicle) :
+   def __init__(self, numWheels) :
+      super().__init__(&quot;Land Vehicle&quot;)
+      ____________________
+   def getWheels(self) :
+      return self._numWheels
+</pre>
+What statement should be placed in the blank to complete the
+constructor for <code>LandVehicle</code>?
+<ol class="multiple-choice"><li><code>_numWheels = numWheels</code></li><li class="correct"><code>self._numWheels = numWheels</code></li><li><code>super()._numWheels = numWheels</code></li><li><code>super().__init__(numWheels)</code></li></ol><dl><dt>Section</dt><dd>10.3</dd><dt>Title</dt><dd>Which statement should be used to complete the implementation of the constructor?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.3 Calling the Superclass Constructor</dd><dt>id</dt><dd>testbank-py-1-ch10-30</dd></dl></li><li>What must be included in the subclass constructor as the first
+statement<code>?</code><ol class="multiple-choice"><li>Initialization of all instance variables</li><li class="correct">A call to the superclass constructor</li><li>A call to the accessor and mutator methods</li><li>A call to the subclass constructor</li></ol><dl><dt>Section</dt><dd>10.3 Calling the Superclass Constructor</dd><dt>Title</dt><dd>What must be included in the subclass constructor as the first statement?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.3 Calling the Superclass Constructor</dd><dt>id</dt><dd>testbank-py-1-ch10-67</dd></dl></li><li>Which of the following statements is true?
+  
+  <ol class="multiple-choice">
+    <li class="correct">A method that is overridden in a subclass can perform a task that is totally different from the task performed by the same method in the superclass.</li>
+    <li>A method that is overridden in a subclass cannot invoke the method in the superclass with the same name.</li>
+    <li>A method that is overridden in a subclass must extend the functionality of the superclass by invoking the superclass method.</li>
+    <li>Every method in a subclass must override a superclass method.</li>
+
+</ol><dl><dt>Section</dt><dd>10.3 Calling the Superclass Constructor</dd><dt>Title</dt><dd>What must be included in the subclass constructor as the first statement?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch10-69</dd><dt>section</dt><dd>10.3 Calling the Superclass Constructor</dd><dt>id</dt><dd>testbank-py-2-ch10-69</dd></dl></li><li>Consider the following code snippet:<pre>
+class BankAccount :
+   . . . 
+   
+   def deposit(self, amount) :
+      self._transactionCount = self._transactionCount + 1
+      super().deposit(amount)
+
+    
+</pre>
+Which of the following statements is correct?<ol class="multiple-choice"><li>This method will call itself.</li><li>This method calls a public method in its subclass.</li><li>This method calls a private method in its superclass</li><li class="correct">This method calls a public method in its superclass</li></ol><dl><dt>Section</dt><dd>10.4 Overriding Methods</dd><dt>Title</dt><dd>Which statement about using the super keyword is true?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.4 Overriding Methods</dd><dt>id</dt><dd>testbank-py-1-ch10-32</dd></dl></li><li>Consider the following code segment:
+<pre>
+class Fruit :
+   . . .
+   def getName(self) :
+      . . .
+
+class Apple(Fruit) :
+   . . .
+   def getName(self) :
+      . . .
+</pre>
+Which statement is most correct?
+<ol class="multiple-choice"><li>The <code>Apple</code> class overrides the <code>Fruit</code>
+class</li><li class="correct">The <code>Apple</code> class overrides the <code>getName</code>
+method</li><li>The <code>Fruit</code> class overrides the <code>Apple</code>
+class</li><li>The <code>Fruit</code> class overrides the <code>getName</code>
+method</li></ol><dl><dt>Section</dt><dd>10.4 Overriding Methods</dd><dt>Title</dt><dd>What is being overridden?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.4 Overriding Methods</dd><dt>id</dt><dd>testbank-py-1-ch10-35</dd></dl></li><li>Which method is being overridden in the following code segment?
+<pre>
+class Dinosaur :
+   def __init__(self) :
+      . . .
+   def getName(self) :
+      . . .
+   def draw(self) :
+      . . .
+
+class Triceratops(Dinosaur) :
+   def __init__(self) :
+      . . .
+   def draw(self) :
+      . . .
+</pre><ol class="multiple-choice"><li><code>Dinosaur</code></li><li class="correct"><code>draw</code></li><li><code>getName</code></li><li><code>Triceratops</code></li></ol><dl><dt>Section</dt><dd>10.4 Overriding Methods</dd><dt>Title</dt><dd>Which method is overridden in a code segment?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.4 Overriding Methods</dd><dt>id</dt><dd>testbank-py-1-ch10-36</dd></dl></li><li>Which method is being overridden in the following code segment?
+<pre>
+class Car :
+   def __init__(self, make, model, color) :
+      . . .
+   def getMake(self) :
+      . . .
+   def getModel(self) :
+      . . .
+   def getColor(self) :
+      . . .
+
+class Apple :
+   def __init__(self, color) :
+      . . .
+   def getColor(self) :
+      . . .
+</pre><ol class="multiple-choice"><li><code>getMake</code></li><li><code>getModel</code></li><li><code>getColor</code></li><li class="correct">No method is being overridden in this code segment</li></ol><dl><dt>Section</dt><dd>10.4 Overriding Methods</dd><dt>Title</dt><dd>Which method is overridden in a code segment?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.4 Overriding Methods</dd><dt>id</dt><dd>testbank-py-1-ch10-37</dd></dl></li><li>Consider the following classes:
+<pre>
+class Dinosaur :
+   . . .
+
+class Triceratops(Dinosaur) :
+   . . .
+
+class Pterodactyl(Dinosaur) :
+   . . .
+</pre>
+Which of the following statements is correct?
+<ol class="multiple-choice"><li>Methods in <code>Dinosaur</code> can call methods in
+<code>Pterodactyl</code></li><li>Methods in <code>Dinosaur</code> can call methods in
+<code>Triceratops</code></li><li class="correct">Methods in <code>Triceratops</code> can call methods in
+<code>Dinosaur</code></li><li>Methods in <code>Triceratops</code> can call methods in
+<code>Pterodactyl</code></li></ol><dl><dt>Section</dt><dd>10.4 Overriding Methods</dd><dt>Title</dt><dd>When can a class call methods from another class?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.4 Overriding Methods</dd><dt>id</dt><dd>testbank-py-1-ch10-38</dd></dl></li><li>Consider the following class definitions:
+<pre>
+class Vehicle :
+   . . .
+   def __init__(self) :
+      self._numAxles = 0
+   . . .
+   def setAxles(self, num) :
+      self._numAxles = num
+   . . .
+
+class Motorcycle(Vehicle) :
+   def __init__(self) :
+      super().__init__()
+      ________________________
+</pre>
+Which statement should be placed in the blank so that all
+motorcycles have 2 axles?
+<ol class="multiple-choice"><li><code>setAxles(2)</code></li><li class="correct"><code>self.setAxles(2)</code></li><li><code>super().setAxles(2)</code></li><li><code>Vehicle.setAxles(2)</code></li></ol><dl><dt>Section</dt><dd>10.4 Overriding Methods</dd><dt>Title</dt><dd>Which statement completes this code segment involving inheritance of methods?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.4 Overriding Methods</dd><dt>id</dt><dd>testbank-py-1-ch10-39</dd></dl></li><li>Consider the following class definitions:
+<pre>
+class Dinosaur :
+   . . .
+   def eat(self, what) :
+      . . .
+
+class Triceratops(Dinosaur) :
+   . . .
+   ____________________
+      . . .
+</pre>
+What statement should be placed in the blank to override the
+implementation of the <code>eat</code> method?
+<ol class="multiple-choice"><li><code>allow eat(self, what) :</code></li><li class="correct"><code>def eat(self, what) :</code></li><li><code>new eat(self, what) :</code></li><li><code>override eat(self, what) :</code></li></ol><dl><dt>Section</dt><dd>10.4 Overriding Methods</dd><dt>Title</dt><dd>What method declaration will override a method implementation?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.4 Overriding Methods</dd><dt>id</dt><dd>testbank-py-1-ch10-40</dd></dl></li><li>Consider the following class definitions:
+<pre>
+class Fruit :
+   . . .
+   def getColor(self) :
+      . . .
+
+class Apple(Fruit) :
+   . . .
+</pre>
+Which statement is most correct?
+<ol class="multiple-choice"><li>Apple cannot have a method named <code>getColor</code></li><li class="correct">Apple inherits the <code>getColor</code> method from
+<code>Fruit</code></li><li>Apple must override the <code>getColor</code> method from
+<code>Fruit</code></li><li>Apple must call the <code>getColor</code> method from
+<code>Fruit</code></li></ol><dl><dt>Section</dt><dd>10.4 Overriding Methods</dd><dt>Title</dt><dd>Which statement about methods is most correct?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.4 Overriding Methods</dd><dt>id</dt><dd>testbank-py-1-ch10-41</dd></dl></li><li>To compute the salary of a manager, the program must first get
+the salary of the underlying <code>Employee</code> object and then
+add a bonus.
+<pre>
+class Manager(Employee) :
+   . . .           
+   def getSalary(self) :
+      _________________________
+      return base + self._bonus 
+</pre>
+Which statement correctly completes the code:<ol class="multiple-choice"><li><code>base = self.getSalary()</code></li><li class="correct"><code>base = super().getSalary()</code></li><li><code>base = super().self.getSalary()</code></li><li><code>base = super(self.getSalary()</code>)</li></ol><dl><dt>Section</dt><dd>10.4 Overriding Methods</dd><dt>Title</dt><dd>Complete the code</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.4 Overriding Methods</dd><dt>id</dt><dd>testbank-py-1-ch10-61</dd></dl></li><li>What type of method is used to extend or replace the
+functionality of the superclass method?<ol class="multiple-choice"><li>Concrete method</li><li>Abstract method</li><li class="correct">Overriding method</li><li>Constructor method</li></ol><dl><dt>Section</dt><dd>10.4 Overriding Methods</dd><dt>Title</dt><dd>What type of method is used to extend or replace the functionality of the superclass method?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.4 Overriding Methods</dd><dt>id</dt><dd>testbank-py-1-ch10-63</dd></dl></li><li>When you call a superclass method from a subclass method
+(without overriding the method), what keyword must replace the
+<code>self</code> reference?<ol class="multiple-choice"><li class="correct"><pre>
+super
+</pre></li><li><pre>
+base
+</pre></li><li><pre>
+reference
+</pre></li><li><pre>
+def
+</pre></li></ol><dl><dt>Section</dt><dd>10.4 Overriding Methods</dd><dt>Title</dt><dd>When you call a superclass method from a subclass method (without overriding the method), what keyword must replace the self reference?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.4 Overriding Methods</dd><dt>id</dt><dd>testbank-py-1-ch10-70</dd></dl></li><li>Consider the following code snippet:<pre>
+class Vehicle :
+   . . .  
+   def setVehicleAttributes(self) : 
+      . . . 
+ 
+class Auto(Vehicle) : 
+   . . .  
+   def setVehicleAttributes(self) 
+      . . . 
+    
+</pre>
+Which of the following statements is correct?
+
+<ol class="multiple-choice">
+  <li>The subclass is overloading a superclass method.</li>
+  <li class="correct">The subclass is overriding a superclass method.</li>
+  <li>This subclass is referencing a superclass method.</li>
+  <li>The subclass is shadowing a superclass method.</li>
+</ol><dl><dt>Section</dt><dd>10.4 Overriding Methods</dd><dt>Title</dt><dd>Which statement is correct about this code?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch10-31</dd><dt>section</dt><dd>10.4 Overriding Methods</dd><dt>id</dt><dd>testbank-py-2-ch10-31</dd></dl></li><li>Which function must be used to call a method of a
+  superclass?
+  <ol class="multiple-choice">
+    <li><code>__init__</code></li>
+    <li><code>parent</code></li>
+    <li class="correct"><code>super</code></li>
+    <li><code>self</code></li>
+</ol><dl><dt>Section</dt><dd>10.4 Overriding Methods</dd><dt>Title</dt><dd>Which function must be used to call a method of a superclass?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch10-33</dd><dt>section</dt><dd>10.4 Overriding Methods</dd><dt>id</dt><dd>testbank-py-2-ch10-33</dd></dl></li><li>To override a superclass method in a subclass, the subclass method must:
+  
+  <ol class="multiple-choice">
+    <li>use a different method name than the superclass method.</li>
+    <li class="correct">use the same method name as the superclass method.</li>
+    <li>use the same list of parameter variables as the superclass method.</li>
+    <li>use a different list of parameter variables than the superclass method.</li>
+</ol><dl><dt>Section</dt><dd>10.4 Overriding Methods</dd><dt>Title</dt><dd>What must be done to override a superclass method in a subclass?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch10-34</dd><dt>section</dt><dd>10.4 Overriding Methods</dd><dt>id</dt><dd>testbank-py-2-ch10-34</dd></dl></li><li>If a method in a subclass carries out the action of
+  the superclass method and also does some additional work then the method in
+  the subclass is said to ____________________ the functionality of the
+  superclass method.
+
+<ol class="multiple-choice">
+  <li class="correct">extend</li>
+  <li>interpolate</li>
+  <li>reference</li>
+  <li>replace</li>
+</ol><dl><dt>Section</dt><dd>10.4 Overriding Methods</dd><dt>Title</dt><dd>What term is used to describe a method that performs carries out the action of the superclass method and also does some additional work?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.4 Overriding Methods</dd><dt>id</dt><dd>testbank-py-2-ch10-81</dd></dl></li><li>Consider the following code snippet:<pre>
+aVehicle = new Auto() 
+aVehicle.moveForward(200)
+</pre>
+If the <code>Auto</code> class inherits from the
+<code>Vehicle</code> class, and both classes have an implementation
+of the <code>moveForward</code> method with the same set of
+parameters, which statement is correct?<ol class="multiple-choice"><li class="correct">The <code>moveForward</code> method of the <code>Auto</code>
+class will be executed.</li><li>The <code>moveForward</code> method of the <code>Vehicle</code>
+class will be executed.</li><li>You must specify in the code which class's
+<code>moveForward</code> method is to be used.</li><li>It is not possible to determine which class's method is
+called.</li></ol><dl><dt>Section</dt><dd>10.5 Polymorphism</dd><dt>Title</dt><dd>Which method will be executed?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.5 Polymorphism</dd><dt>id</dt><dd>testbank-py-1-ch10-42</dd></dl></li><li>Consider the following program:
+<pre>
+class Dinosaur :
+   def __init__(self, name=&quot;dinosaur&quot;) :
+      self._name = name
+      
+   def display(self) :
+      print(self._name)
+
+class Triceratops(Dinosaur) :
+   def __init__(self) :
+      super().__init__(&quot;triceratops&quot;)
+
+x = Triceratops()
+x.display()
+</pre>
+What is displayed when it executes?
+<ol class="multiple-choice"><li><code>dinosaur</code></li><li class="correct"><code>triceratops</code></li><li>Nothing is displayed</li><li>The program crashes with a method not implemented error</li></ol><dl><dt>Section</dt><dd>10.5 Polymorphism</dd><dt>Title</dt><dd>Trace code involving multiple classes</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.5 Polymorphism</dd><dt>id</dt><dd>testbank-py-1-ch10-45</dd></dl></li><li>Consider the following program:
+<pre>
+class Dinosaur :
+   def __init__(self, name=&quot;dinosaur&quot;) :
+      self._name = name
+      
+   def display(self) :
+      print(self._name)
+
+class Triceratops(Dinosaur) :
+   def __init__(self) :
+      super().__init__(&quot;triceratops&quot;)
+
+x = Dinosaur()
+x.display()
+</pre>
+What is displayed when it executes?
+<ol class="multiple-choice"><li class="correct"><code>dinosaur</code></li><li><code>triceratops</code></li><li>Nothing is displayed</li><li>The program crashes with a method not implemented error</li></ol><dl><dt>Section</dt><dd>10.5 Polymorphism</dd><dt>Title</dt><dd>Trace code involving multiple classes</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.5 Polymorphism</dd><dt>id</dt><dd>testbank-py-1-ch10-46</dd></dl></li><li>What is wrong with the following classes?
+<pre>
+class Person :
+   . . .
+   def getName(self) :
+      return self._name
+   . . .
+
+class Physician(Person) :
+   . . .
+   def getName(self) :
+      return &quot;Dr. &quot; + self.getName()
+   . . .
+</pre><ol class="multiple-choice"><li>The return statement cannot include string concatenation</li><li>The <code>Physician</code> class cannot contain a method named
+<code>getName</code></li><li class="correct">The body of the <code>getName</code> method in
+<code>Physician</code> contains a logic error</li><li><code>Physician</code> is not a subclass of
+<code>Person</code></li></ol><dl><dt>Section</dt><dd>10.5 Polymorphism</dd><dt>Title</dt><dd>What is wrong with these classes?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.5 Polymorphism</dd><dt>id</dt><dd>testbank-py-1-ch10-47</dd></dl></li><li>Consider the following class:
+<pre>
+class Pet :
+   def makeSound(self) :
+      raise NotImplementedError
+</pre>
+This class is said to be:
+<ol class="multiple-choice"><li class="correct">an abstract class</li><li>a dynamic class</li><li>an iterator class</li><li>a method class</li></ol><dl><dt>Section</dt><dd>10.5 Polymorphism</dd><dt>Title</dt><dd>What type of class is this?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.5 Polymorphism</dd><dt>id</dt><dd>testbank-py-1-ch10-48</dd></dl></li><li>Consider the following classes:
+<pre>
+class Vehicle :
+   def __init__(self, type) :
+      self._type = type
+   def getType(self) :
+      return self._type
+
+class LandVehicle(Vehicle) :
+   def __init__(self, type) :
+      super().__init__(type)
+
+class Auto(LandVehicle) :
+   def __init__(self, type) :
+      super().__init__(type)
+</pre>
+What is displayed by the following code segment?
+<pre>
+x = Auto(&quot;Sedan&quot;)
+print(x.getType())
+</pre><ol class="multiple-choice"><li><code>Auto</code></li><li class="correct"><code>Sedan</code></li><li><code>Vehicle</code></li><li>A runtime error occurs</li></ol><dl><dt>Section</dt><dd>10.5 Polymorphism</dd><dt>Title</dt><dd>Trace a code segment involving several classes</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.5 Polymorphism</dd><dt>id</dt><dd>testbank-py-1-ch10-49</dd></dl></li><li>Consider the following code segment:
+<pre>
+class Employee :
+   def __init__(self, name) :
+      . . .
+   def getSalary(self) :
+      . . .
+   . . .
+
+class Programmer(Employee) :
+   def __init__(self, name) :
+      . . .
+   def writeProgram(self) :
+      . . .
+</pre>
+Which of the following code segments is <strong>not</strong> legal?
+<ol class="multiple-choice"><li><pre>
+e = Employee(&quot;Bob&quot;)
+print(e.getSalary())
+</pre></li><li class="correct"><pre>
+e = Employee(&quot;Bob&quot;)
+e.writeProgram()
+</pre></li><li><pre>
+p = Programmer(&quot;Bob&quot;)
+print(p.getSalary())
+</pre></li><li><pre>
+p = Programmer(&quot;Bob&quot;)
+p.writeProgram()
+</pre></li></ol><dl><dt>Section</dt><dd>10.5 Polymorphism</dd><dt>Title</dt><dd>Which method invocation is not legal?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.5 Polymorphism</dd><dt>id</dt><dd>testbank-py-1-ch10-50</dd></dl></li><li>What term describes the process of manipulating objects that
+share a set of tasks, even though the tasks are executed in
+different ways? <ol class="multiple-choice"><li>Inheritance</li><li class="correct">Polymorphism</li><li>Hierarchy</li><li>Overriding</li></ol><dl><dt>Section</dt><dd>10.5 Polymorphism</dd><dt>Title</dt><dd>What term describes the process of manipulating objects that share a set of tasks, even though the tasks are executed in different ways?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.5 Polymorphism</dd><dt>id</dt><dd>testbank-py-1-ch10-54</dd></dl></li><li>Which of the following statements about abstract methods is
+true?<ol class="multiple-choice"><li class="correct">An abstract method has a name and parameters, but its
+implementation is not specified.</li><li>An abstract method has parameters and is fully implemented, but
+it has no defined name.</li><li>An abstract method has a name and is fully implemented, but it
+has no parameters.</li><li>An abstract method has only a name, but it implementation is
+not specified and it has no parameters.</li></ol><dl><dt>Section</dt><dd>10.5 Polymorphism</dd><dt>Title</dt><dd>Which of the following statements about abstract methods is true?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.5 Polymorphism</dd><dt>id</dt><dd>testbank-py-1-ch10-55</dd></dl></li><li>If a class has an abstract method, which of the following
+statements is NOT true?<ol class="multiple-choice"><li>You cannot inherit from this class.</li><li>You cannot construct an object from this class.</li><li class="correct">You can construct an object from this class.</li><li>All non-abstract subclasses of this class must implement this
+method.</li></ol><dl><dt>Section</dt><dd>10.5 Polymorphism</dd><dt>Title</dt><dd>If a class has an abstract method, which of the following statements is NOT true?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.5 Polymorphism</dd><dt>id</dt><dd>testbank-py-1-ch10-57</dd></dl></li><li>A class from which you cannot create objects is called a/an
+____.<ol class="multiple-choice"><li>Concrete class.</li><li>Non-inheritable class.</li><li>Superclass.</li><li class="correct">Abstract class.</li></ol><dl><dt>Section</dt><dd>10.5 Polymorphism</dd><dt>Title</dt><dd>What statement about classes is true?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.5 Polymorphism</dd><dt>id</dt><dd>testbank-py-1-ch10-59</dd></dl></li><li>Consider the following code snippet:
+<pre>
+anEmployee = new Programmer() 
+anEmployee.increaseSalary(2500)
+</pre>
+
+If the <code>Programmer</code> class inherits from the
+<code>Employee</code> class, and both classes have an
+implementation of the <code>increaseSalary</code> method with the
+same set of parameters, which statement is correct?
+
+<ol class="multiple-choice">
+  <li>An additional line of code must be added to the snippet shown 
+  previously to specify which method will execute.</li>
+  <li>It is not possible to determine which class's method will be 
+  executed without seeing the complete class definitions.</li>
+  <li>The <code>increaseSalary</code> method of the <code>Employee</code> class
+  will be executed.</li>
+  <li class="correct">The <code>increaseSalary</code> method of the
+  <code>Programmer</code> class will be executed.</li>
+</ol><dl><dt>Section</dt><dd>10.5 Polymorphism</dd><dt>Title</dt><dd>Which method will be executed?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch10-43</dd><dt>section</dt><dd>10.5 Polymorphism</dd><dt>id</dt><dd>testbank-py-2-ch10-43</dd></dl></li><li>
+Assume that a <code>Programmer</code> class inherits from an
+<code>Employee</code> class, and that both classes have an
+implementation of an <code>increaseSalary</code> method with the
+same set of parameters. Which class's <code>increaseSalary</code>
+method is to be executed is determined by:
+
+<ol class="multiple-choice">
+  <li>checking whether or not the <code>super</code> function is called in the method body.</li>
+  <li>the number of instance variables in the class.</li>
+  <li>the order in which the programmer declared the classes.</li>
+  <li class="correct">the type of the object on which the method is invoked.</li>
+</ol><dl><dt>Section</dt><dd>10.5 Polymorphism</dd><dt>Title</dt><dd>What does Python use to determine which method to execute?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch10-44</dd><dt>section</dt><dd>10.5 Polymorphism</dd><dt>id</dt><dd>testbank-py-2-ch10-44</dd></dl></li><li>Which of the following statements is true?
+  
+  <ol class="multiple-choice">
+    <li>A programmer cannot create an instance a concrete class.</li>
+    <li>A programmer cannot create an instance of an abstract class.</li>
+    
+    <li class="correct">Abstract classes are designed to force programmers to create subclasses.</li>
+    <li>Calling any method defined in an abstract class will raise a <code>NotImplementedError</code> exception.</li>
+</ol><dl><dt>Section</dt><dd>10.5 Polymorphism</dd><dt>Title</dt><dd>Which of the following statements about classes is true?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch10-56</dd><dt>section</dt><dd>10.5 Polymorphism</dd><dt>id</dt><dd>testbank-py-1-ch10-56</dd></dl></li><li>What statement is commonly used to prevent a class's user from invoking an abstract method?
+
+  <ol class="multiple-choice">
+    <li class="correct"><code>raise NotImplementedError</code></li>
+    <li><code>return NotImplementedError</code></li>
+    <li><code>self.NotImplementedError</code></li>
+    <li><code>set NotImplementedError</code></li>
+</ol><dl><dt>Section</dt><dd>10.5 Polymorphism</dd><dt>Title</dt><dd>What statement is commonly used to prevent a class's user from invoking an abstract method?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch10-58</dd><dt>section</dt><dd>10.5 Polymorphism</dd><dt>id</dt><dd>testbank-py-2-ch10-58</dd></dl></li><li>What is the role of polymorphism?
+  
+  <ol class="multiple-choice">
+    
+    <li class="correct">Polymorphism allows a programmer to manipulate objects that share a set of tasks, even though the tasks are executed in different ways.</li>
+
+    <li>Polymorphism allows a programmer to use a subclass object in place of a superclass object.</li>
+
+    <li>Polymorphism allows a subclass to override a superclass method by providing a completely new implementation.</li>
+
+    <li>Polymorphism allows a subclass to extend a superclass method by performing the superclass task plus some additional work.</li>
+
+</ol><dl><dt>Section</dt><dd>10.5 Polymorphism</dd><dt>Title</dt><dd>What is the role of polymorphism?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch10-74</dd><dt>section</dt><dd>10.5 Polymorphism</dd><dt>id</dt><dd>testbank-py-2-ch10-74</dd></dl></li><li>What term is used for a class that does not include any abstract methods?
+
+<ol class="multiple-choice">
+  <li>Cement class</li>
+  <li class="correct">Concrete class</li>
+  <li>Iron class</li>
+  <li>Steel class</li>
+</ol><dl><dt>Section</dt><dd>10.5 Polymorphism</dd><dt>Title</dt><dd>What term is used for a class that does not include any abstract methods?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.5 Polymorphism</dd><dt>id</dt><dd>testbank-py-2-ch10-76</dd></dl></li><li>What object oriented programming concept can often be used to eliminate explicit type tests?
+
+<ol class="multiple-choice">
+  <li>Class variables</li>
+  <li>Encapsulation</li>
+  <li>Functions</li>
+  <li class="correct">Polymorphism</li>
+</ol><dl><dt>Section</dt><dd>10.5 Polymorphism</dd><dt>Title</dt><dd>What object oriented programming concept can often be used to eliminate explicit type tests?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.5 Polymorphism</dd><dt>id</dt><dd>testbank-py-2-ch10-77</dd></dl></li><li>What is dynamic method lookup?
+
+<ol class="multiple-choice">
+  <li class="correct">Dynamic method lookup is the process of determining, at runtime, what method will be invoked based on the type of the object.</li>
+  <li>Dynamic method lookup is the process of finding a method amongst a collection of classes that do not have a common superclass (other than <code>object</code>).</li>
+  <li>Dynamic method lookup is the process of finding a method in a superclass when it has not been overridden in a subclass.</li>
+  <li>Dynamic method lookup is the process of overriding a method in a subclass that has already been defined in the superclass.</li>
+</ol><dl><dt>Section</dt><dd>10.5 Polymorphism</dd><dt>Title</dt><dd>What is dynamic method lookup?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.5 Polymorphism</dd><dt>id</dt><dd>testbank-py-2-ch10-78</dd></dl></li><li>Given the following hierarchy, which class is considered the
+base class?<pre>
+class GeometricShape :
+. . . 
+
+class Line(GeometricShape) :
+. . . 
+
+class Rectangle(GeometricShape) :
+. . . 
+
+class Square(Rectangle) :
+. . .     
+</pre><ol class="multiple-choice"><li><code>Square</code></li><li><code>Rectangle</code></li><li><code>Line</code></li><li class="correct"><code>GeometricShape</code></li></ol><dl><dt>Section</dt><dd>10.6 Application: A Geometric Shape Class Hierarchy</dd><dt>Title</dt><dd>What is the base class?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.6 Application: A Geometric Shape Class Hierarchy</dd><dt>id</dt><dd>testbank-py-1-ch10-51</dd></dl></li><li>Assuming that a class called <code>Oval</code> is already
+defined with a constructor <code>__init__(self, x, y, width,
+height)</code>, how could this be used to make a circle?<ol class="multiple-choice"><li>Use one value for <code>x</code> and <code>y</code></li><li class="correct">Pass the same value for each <code>width</code> and
+<code>height</code></li><li>Use one value for <code>x</code>, <code>y</code>,
+<code>width</code>, and <code>height</code></li><li>It is not possible to make a circle using the <code>Oval</code>
+class</li></ol><dl><dt>Section</dt><dd>10.6 Application: A Geometric Shape Class Hierarchy</dd><dt>Title</dt><dd>How can you make a circle using the Oval class</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.6 Application: A Geometric Shape Class Hierarchy</dd><dt>id</dt><dd>testbank-py-1-ch10-53</dd></dl></li><li>Given the code snippet below, what instance variables does an
+object of the <code>Rectangle</code> class have?
+<pre>
+class GeometricShape :
+   def __init__(self, x, y) :
+      self._x = x
+      self._y = y
+      self._fill = None
+      self._outline = &quot;blue&quot;
+      . . . 
+
+class Rectangle(GeometricShape) :
+   def __init__(self, x, y, width, height) :
+      super().__init__(x, y)
+      self._width = width
+      self._height = height
+      . . . 
+</pre><ol class="multiple-choice"><li class="correct"><code>_x, _y, _width, _height, _fill, _outline</code></li><li><code>_x, _y, _width, _height</code></li><li><code>_x, _y</code></li><li><code>_width, _height</code></li></ol><dl><dt>Section</dt><dd>10.6 Application: A Geometric Shape Class Hierarchy</dd><dt>Title</dt><dd>Given the code snippet below, what instance variables does an object of the Rectangle class have?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.6 Application: A Geometric Shape Class Hierarchy</dd><dt>id</dt><dd>testbank-py-1-ch10-62</dd></dl></li><li>Given the code snippet below, what methods does an object of
+the <code>Rectangle</code> class have?
+<pre>
+class GeometricShape :
+   def __init__(self, x, y) :
+      self._x = x
+      self._y = y
+      self._fill = None
+      self._outline = &quot;blue&quot;
+      . . . 
+
+   def getX(self) :
+      return self._x
+  
+   def getY(self) : 
+      return self._y 
+  
+class Rectangle(GeometricShape) : 
+   def __init__(self, x, y, width, height) : 
+      super().__init__(x, y)
+      self._width = width
+      self._height = height
+    
+   def getWidth(self) :
+      return self._width
+    
+   def getHeight(self) :
+      return self._height
+</pre><ol class="multiple-choice"><li><pre>
+getWidth(), getHeight()
+</pre></li><li><pre>
+getX(), getY(), getWidth(), getHeight()
+</pre></li><li><pre>
+getX(), getY(), setColor()
+</pre></li><li class="correct"><pre>
+getX(), getY(), getWidth(), getHeight()
+</pre></li></ol><dl><dt>Section</dt><dd>10.6 Application: A Geometric Shape Class Hierarchy</dd><dt>Title</dt><dd>Given the code snippet below, what instance variables does an object of the Rectangle class have?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.6 Application: A Geometric Shape Class Hierarchy</dd><dt>id</dt><dd>testbank-py-1-ch10-68</dd></dl></li><li>Assuming the <code>Rectangle</code> class is already designed
+with a constructor <code>__init__(self, x, y, width,
+height)</code>, which code snippet creates a square in the top left
+corner?
+<ol class="multiple-choice"><li class="correct"><pre>
+square = Rectangle(0, 0, 100, 100)
+</pre></li><li><pre>
+square = Rectangle(100, 100, 0, 0)
+</pre></li><li><pre>
+square = Rectangle(0, 0, 0, 0)
+</pre></li><li><pre>
+square = Rectangle(100, 100, 100, 100)
+</pre></li></ol><dl><dt>Section</dt><dd>10.6 Application: A Geometric Shape Class Hierarchy</dd><dt>Title</dt><dd>Assuming the Rectangle class is already designed with a constructor __init__(self, x, y, width, height), which code snippet creates a square in the top left corner?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.6 Application: A Geometric Shape Class Hierarchy</dd><dt>id</dt><dd>testbank-py-1-ch10-71</dd></dl></li><li>Assuming the <code>Rectangle</code> class is already designed
+with a constructor <code>__init__(self, x, y, width,
+height)</code>, which code snippet creates a square in the middle
+of a frame with FRAME_WIDTH = 400, FRAME_HEIGHT = 600?
+<ol class="multiple-choice"><li><pre>
+square = Rectangle(FRAME_WIDTH/2, FRAME_HEIGHT/2, 100, 100)
+</pre></li><li><pre>
+square = Rectangle(FRAME_WIDTH, FRAME_HEIGHT, 100, 100)
+</pre></li><li><pre>
+square = Rectangle(FRAME_WIDTH-50, FRAME_HEIGHT - 50, 100, 100)
+</pre></li><li class="correct"><pre>
+square = Rectangle(FRAME_WIDTH/2 - 50, FRAME_HEIGHT/2 - 50, 100, 100)
+</pre></li></ol><dl><dt>Section</dt><dd>10.6 Application: A Geometric Shape Class Hierarchy</dd><dt>Title</dt><dd>Assuming the Rectangle class is already designed with a constructor __init__(self, x, y, width, height), which code snippet creates a square in the top left corner?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.6 Application: A Geometric Shape Class Hierarchy</dd><dt>id</dt><dd>testbank-py-1-ch10-72</dd></dl></li><li>Consider a class hierarchy for representing shapes.  
+The hierarchy includes a <code>GeometricShape</code> base class that defines
+and manages all of characteristics and operations that are common to all 
+shapes.  A portion of this class is shown below:
+
+<pre>
+class GeometricShape :
+   def __init__(self, x, y):
+     self._x = x
+     self._y = y
+     self._fill = None
+     self._outline = &quot;black&quot;
+
+   def setColor(self, color) :
+     self._fill = color
+     self._outline = color
+
+   def getX(self) :
+     return self._x
+
+   def setPosition(self, newx, newy) :
+     self._x = newx
+     self._y = newy
+
+   def draw(self, canvas) :
+     raise NotImplementedError
+</pre>
+
+Which method must be overridden in a subclass of <code>GeometricShape</code>?
+
+<ol class="multiple-choice">
+  <li class="correct"><code>draw</code></li>
+  <li><code>getX</code></li>
+  <li><code>setColor</code></li>
+  <li><code>setPosition</code></li>
+</ol><dl><dt>Section</dt><dd>10.6 Application: A Geometric Shape Class Hierarchy</dd><dt>Title</dt><dd>What methods must be overridden to create new shapes?</dd><dt>type</dt><dd>mc</dd><dt>from</dt><dd>testbank-py-1-ch10-52</dd><dt>section</dt><dd>10.6 Application: A Geometric Shape Class Hierarchy</dd><dt>id</dt><dd>testbank-py-2-ch10-52</dd></dl></li><li>
+  Key presses and mouse clicks are referred to as:
+
+  <ol class="multiple-choice">
+    <li>actions.</li>
+    <li>activities.</li>
+    <li class="correct">events.</li>
+    <li>movements.</li>
+  </ol>
+<dl><dt>Section</dt><dd>10.6 Application: A Geometric Shape Class Hierarchy</dd><dt>Title</dt><dd>Key presses and mouse clicks are referred to as:</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.6 Application: A Geometric Shape Class Hierarchy</dd><dt>id</dt><dd>testbank-py-3-ch10-82</dd></dl></li><li>
+  Assume that <code>framesPerSecond</code> has previously been initialized to 30 and that <code>clock</code> and <code>display</code> have also been initialized appropriately. Which statement should be included at the bottom of the game loop so that game elements appear to move smoothly?
+
+  <ol class="multiple-choice">
+    <li class="correct"><code>clock.tick(framesPerSecond)</code></li>
+    <li><code>clock.sleep(framesPerSecond)</code></li>
+    <li><code>display.fill(framesPerSecond)</code></li>
+    <li><code>display.update(framesPerSecond)</code></li>
+  </ol>
+<dl><dt>Section</dt><dd>10.6 Application: A Geometric Shape Class Hierarchy</dd><dt>Title</dt><dd>Which statement should be included at the bottom of the game loop so that game elements appear to move smoothly?</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.6 Application: A Geometric Shape Class Hierarchy</dd><dt>id</dt><dd>testbank-py-3-ch10-83</dd></dl></li><li>
+  An image that can be displayed efficiently in a game is referred to as a:
+
+  <ol class="multiple-choice">
+    <li>bitmap.</li>
+    <li>fairy.</li>
+    <li>graphic.</li>
+    <li class="correct">sprite.</li>
+  </ol>
+<dl><dt>Section</dt><dd>10.6 Application: A Geometric Shape Class Hierarchy</dd><dt>Title</dt><dd>An image that can be displayed efficiently in a game is referred to as a:</dd><dt>type</dt><dd>mc</dd><dt>section</dt><dd>10.6 Application: A Geometric Shape Class Hierarchy</dd><dt>id</dt><dd>testbank-py-3-ch10-84</dd></dl></li></ol></body>
+    </html>

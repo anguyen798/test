@@ -1,0 +1,14 @@
+Enter the cost of the car: 40000
+How many miles will you drive each year? 15000
+Enter the price of gas per gallon: 4
+Enter the fuel efficiency in mpg: 50
+How much can you sell the car for after 5 years? 18000
+The total cost of ownership is 28000.00.
+
+Enter the cost of the car: 24000
+How many miles will you drive each year? 15000
+Enter the price of gas per gallon: 4
+Enter the fuel efficiency in mpg: 50
+How much can you sell the car for after 5 years? 8000
+The total cost of ownership is 22000.00.
+

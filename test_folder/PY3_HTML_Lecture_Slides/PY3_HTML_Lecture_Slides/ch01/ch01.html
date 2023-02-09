@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="generator" content="HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+    <title>Chapter 1, Python for Everyone, 2e</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="font-size-adjustment" content="-1" />
+    <meta name="copyright"
+          content="Copyright &#169; 2015 Wiley" />
+    <link rel="stylesheet" href="styles/slidy.css" type="text/css" />
+    <link rel="stylesheet" href="styles/horstmann.css" type="text/css" />
+</head>
+<body>
+    <div class="background">
+        <div class="slide ppLayoutTitle">
+    <div><p class="centertitle" ><span class="fontColorClass1">Chapter One: Introduction</span></p><br />
+</div>
+<div><p class="subtitle" ><span class="fontColorClass2">A Short Introduction to Hardware, Software, and Algorithm development</span></p><br />
+</div>
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Chapter Goals</p><br />
+</div>
+<div><ul><li>In this chapter you will earn:
+<ul><li>About computer hardware, software and programming
+</li><li>How to write and execute your first Python program
+</li><li>How to diagnose and fix programming errors
+</li><li>How to use pseudocode to describe an algorithm
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Our First Definition</p><br />
+</div>
+<div><p class="object" ><em><strong>Algorithm:
+</strong></em></p>
+<ul><li>An <em><strong>algorithm</strong></em> is a step by step description of how to solve a problem
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Computer Programs</p><br />
+</div>
+<div><ul><li>A computer program tells a computer the sequence of steps needed to complete a specific task
+<ul><li>The program consists of a very large number of primitive (simple) instructions
+</li></ul></li><li>Computers can carry out a wide range of tasks because they can execute different programs 
+<ul><li>Each program is designed to direct the computer to work on a specific task
+</li></ul></li></ul><p class="object" ><em><strong>Programming:
+</strong></em></p>
+<ul><li>The act of designing, implementing, and testing computer programs
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass1">Hardware and Software</span></p><br />
+</div>
+<div><p class="body" ><span class="fontColorClass2">The building blocks that make up a computer</span></p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Hardware</p><br />
+</div>
+<div><ul><li><em><strong>Hardware</strong></em> consists of the physical elements in a computer system. 
+<ul><li>Some very visible examples are the monitor, the mouse, external storage, and the keyboard.
+</li></ul></li><li>The <em><strong>central processing unit </strong></em>(CPU) performs program control and data processing 
+</li><li>Storage devices include memory (RAM) and secondary storage
+<ul><li>Hard disk
+</li><li>Flash drives
+</li><li>CD/DVD drives
+</li></ul></li><li>Input / output devices allow the user to interact with the computer
+<ul><li>Mouse, keyboard, printer, screen…
+</li></ul></li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Simple View of a Computer's Components</p><br />
+</div>
+<div><img src='images/slide7-Picture6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The CPU</p><br />
+</div>
+<div><ul><li>The CPU has two components, the <strong>control unit</strong> and the <strong>arithmetic logic unit</strong>
+</li><li>The <em><strong>control unit</strong></em><em> </em>directs operation of the processor 
+<ul><li>All computer resources are managed by the <strong>control unit</strong>
+</li><li>It controls communication and co-ordination between input/output devices 
+</li><li>It reads and interprets instructions and determines the sequence for processing the data
+</li><li>It provides timing and control signals 
+</li></ul></li><li>The the <em><strong>arithmetic logic unit</strong></em><em> </em>contains the circuitry to perform calculations and do comparisons 
+<ul><li>It is the workhorse portion of the computer and its job is to do precisely what the control unit tells it to do</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Storage</p><br />
+</div>
+<div><ul><li>There are two types of storage:
+<ul><li>Primary Storage
+</li><li>Secondary Storage
+</li></ul></li><li>Primary storage is composed of memory chips: electronic circuits that can store data as long as it is provided electric power
+</li><li>Secondary storage provides a slower, less expensive storage that is persistent: the data persists without electric power
+</li><li>Computers store both data and programs
+<ul><li>The data and program are located in secondary storage and loaded into memory when the program is executed
+</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Memory</p><br />
+</div>
+<div><ul><li>A simple way to envision primary memory is a table of cells all the same size, one byte, and each containing a unique address beginning with 0 
+<ul><li>The "typical" computer has a main memory ranging from 4 gigabytes (GB), to 32 GB 
+</li></ul></li><li>How big is a gigabyte? 
+<ul><li>A byte is 8 bits 
+</li><li>A kilobyte, KB, is 1024 bytes, or "about 1 thousand bytes"
+</li><li>A megabyte, MB, is 1,048,576 bytes, or "about 1 million bytes"
+</li><li>A <em><strong>gigabyte</strong></em>, GB, is 1,073,741,824 bytes or "about 1 billion bytes"</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Executing a Program</p><br />
+</div>
+<div><ul><li>Program instructions and data (such as text, numbers, audio, or video) are stored in digital format 
+</li><li>When a program is started, it is brought into memory, where the CPU can read it 
+</li><li>The CPU runs the program one instruction at a time  
+<ul><li>The program may react to user input
+</li></ul></li><li>The instructions and user input guide the program execution
+<ul><li>The CPU reads data (including user input), modifies it, and writes it back to memory, the screen, or secondary storage</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Software</p><br />
+</div>
+<div><ul><li><strong>Software</strong> is typically realized as an application program
+<ul><li>Microsoft Word is an example of software
+</li><li>Computer Games are software
+</li><li>Operating systems and device drivers are also software 
+</li></ul></li><li>Software 
+<ul><li>Software is a sequence of instructions and decisions implemented in some language and translated to a form that can be executed or run on the computer 
+</li></ul></li><li>Computers execute very basic instructions in rapid succession
+<ul><li>The basic instructions can be grouped together to perform complex tasks
+</li></ul></li><li>Programming is the act of designing and implementing computer programs
+<p class="object" >
+</p>
+<ul></ul></li></ul><p class="object" >
+</p>
+<ul></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutSectionHeader">
+    <div><p class="title" ><span class="fontColorClass1">Algorithms</span></p><br />
+</div>
+<div><img src='images/slide13-TextPlaceholder6.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Introduction to Algorithms</p><br />
+</div>
+<div><ul><li>If you want a computer to perform a task, you start by writing an algorithm 
+</li><li>An <em><strong>Algorithm</strong></em> is:
+<ul><li>a sequence (the order mattering) of actions to take to accomplish the given task 
+</li><li>An algorithm is like a recipe; it is a set of instructions written in a sequence that achieves a goal 
+</li></ul></li><li>For complex problems software developers write an algorithm before they attempt to write a computer program
+</li><li>For this class we will ALWAYS write an algorithm for each project
+</li><li>Developing algorithms is a fundamental problem solving skill
+<ul><li>It has uses in many fields outside of Computer Science
+</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Algorithm: Formal Definition</p><br />
+</div>
+<div><p class="object" >An <em><strong>algorithm</strong></em> describes a sequence of steps that is:
+</p>
+<ul><li class="decimal">Unambiguous
+<ul><li class="lower-alpha">No "assumptions" are required to execute the algorithm
+</li><li class="lower-alpha">The algorithm uses precise instructions
+</li></ul></li><li class="decimal">Executable
+<ul><li class="lower-alpha">The algorithm can be carried out in practice
+</li></ul></li><li class="decimal">Terminating
+<ul><li class="lower-alpha">The algorithm will eventually come to an end, or halt</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Problem Solving: Algorithm Design</p><br />
+</div>
+<div><ul><li>Algorithms are simply plans
+<ul><li>Detailed plans that describe the steps to solve a specific problem
+</li></ul></li><li>You already know quite a few
+<ul><li>Calculate the area of a circle
+</li><li>Find the length of the hypotenuse of a triangle
+</li></ul></li><li>Some problems are more complex and require more steps
+<ul><li>Calculate PI to 100 decimal places
+</li><li>Calculate the trajectory of a missile</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >A Simple Example</p><br />
+</div>
+<div><ul><li>A simple algorithm to get yourself a drink of orange juice 
+<ul><li>For simplicity, the following are true:
+<ul><li>You have a clean glass in the cabinet 
+</li><li>You have orange juice in your refrigerator
+</li></ul></li><li>So one valid algorithm is:
+<ul><li class="decimal">get a glass from your cabinet
+</li><li class="decimal">go to the refrigerator and get the orange juice container
+</li><li class="decimal">open the orange juice container
+</li><li class="decimal">pour the orange juice from the container into the glass
+</li><li class="decimal">put the orange juice container back in the refrigerator
+</li><li class="decimal">drink your juice
+</li></ul></li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Second Example: Selecting a Car</p><br />
+</div>
+<div><p class="object" >Problem Statement:
+</p>
+<ul><li>You have the choice of buying two cars 
+</li><li>One is more fuel efficient than the other, but also more expensive 
+</li><li>You know the price and fuel efficiency (in miles per gallon, mpg) of both cars 
+</li><li>You plan to keep the car for ten years  
+</li><li>Which car is the better deal?
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Developing the Algorithm</p><br />
+</div>
+<div><p class="object" >Determine the inputs and outputs
+</p>
+<p class="object" >From the problem statement we know:
+</p>
+<ul><li>Car 1: Purchase price, Fuel Efficiency
+</li><li>Car 2: Purchase price, Fuel Efficiency
+</li><li>Price per gallon = $4.00
+</li><li>Annual miles driven= 15,000
+</li><li>Length of time = 10 years
+</li></ul><p class="object" >For each car we need to calculate:
+</p>
+<ul><li>Annual fuel consumed for each car
+</li><li>Annual fuel cost for each car
+</li><li>Operating cost for each car
+</li><li>Total cost of each car
+</li></ul><ul><li>Then we select the car with the lowest total cost</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Translating the Algorithm to Pseudocode</p><br />
+</div>
+<div><ul><li>Break down the problem into smaller tasks
+<ul><li>'Calculate total cost' for each car
+</li><li>To calculate the total cost for each year we need to calculate the operating cost
+</li><li>The operating cost depends on the annual fuel cost
+</li><li>The annual fuel cost is the price per gallon * the annual fuel consumed
+</li><li>The annual fuel consumed is the annual miles drive / fuel efficiency
+</li></ul></li><li>Describe each subtask as pseudocode
+<ul><li>    <span class="pseudo">total cost = purchase price + operating cost</span>
+</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The Pseudocode</p><br />
+</div>
+<div><p class="object" ><pre class="pseudo">For each Car, compute the total cost
+Annual fuel consumed  = annual miles driven / fuel efficiency
+Annual fuel cost = price per gallon * annual fuel consumed
+Operating cost = Length of time * annual fuel cost
+Total cost = purchase price + operating cost
+If total cost1 < total cost2
+Choose Car1
+Else
+Choose Car2</p><br />
+</div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Bank Account Example</p><br />
+</div>
+<div><ul><li>Problem Statement:
+<ul><li>You put $10,000 into a bank account that earns 5 percent interest per year. How many years does it take for the account balance to be double the original? 
+</li></ul></li><li>How would you solve it?
+<ul><li>Manual method
+<ul><li>Make a table
+</li><li>Add lines until done
+</li></ul></li><li>Use a spreadsheet!
+<ul><li>Write a formula
+<ul><li>Per line, based on line above</li></ul></li></ul></li></ul></li></ul><ul></ul></div>
+<div><img src='images/slide22-Picture7.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Develop the Algorithm Steps</p><br />
+</div>
+<div><ul><li>You put $10,000 into a bank account that earns 5 percent interest per year. How many years does it take for the account balance to be double the original? 
+</li></ul><ul><li>Break it into steps
+<ul><li>Start with a year value of 0 and a balance of $10,000
+</li><br/><br/><br/><li>Repeat the following while the balance is less than $20,000
+<ul><li>Add 1 to the year value
+</li><li>Multiply the balance by 1.05
+<ul><li>(5% increase)
+</li></ul></li></ul><p class="object" >
+</p>
+<p class="object" >
+</p>
+<ul><li>Report the final year value as the answer</li></ul></li></ul></li></ul><ul></ul></div>
+<div style="position:absolute;top:17.78%;left:75.17%;min-height:13.08%;width:26.67%;"><img src='images/slide23-Picture8.png' /></div>
+<div style="position:absolute;top:33.33%;left:75.17%;min-height:35.21%;width:27.5%;"><img src='images/slide23-Picture9.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Translate to pseudocode</p><br />
+</div>
+<div><ul><li>Pseudocode
+<ul><li>Half-way between natural language and a programming language
+</li></ul></li><li>Modified Steps
+<ul><li class="pseudo">Set the year value of 0
+</li><li class="pseudo">Set the balance to $10,000
+</li><li class="pseudo">While the balance is less than $20,000
+<ul><li class="pseudo">Add 1 to the year value
+</li><li class="pseudo">Multiply the balance by 1.05
+</li></ul></li><li class="pseudo">Report the final year value as the answer
+</li></ul></li><li>The pseudocode is easily translated into Python
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The Python Language</p><br />
+</div>
+<div><ul><li>In the early 1990's, Guido van Rossum designed what would become the Python programming language 
+</li><li>Van Rossum was dissatisfied with the languages available
+<ul><li>They were optimized to write large programs that executed quickly
+</li></ul></li><li>He needed a language that could not only be used to create programs quickly but also make them easy to modify
+<ul><li>It was designed to have a much simpler and cleaner syntax than other popular languages such as Java, C and C++  (making it easier to learn)
+</li><li>Python is interpreted, making it easier to develop and test short programs
+</li></ul></li><li>Python programs are executed by the Python interpreter
+<ul><li>The interpreter reads your program and executes it</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Programming Environments</p><br />
+</div>
+<div><ul><li>There are several ways of creating a computer program
+<ul><li>Using an Integrated Development Environment (IDE)
+</li><li>Using a text editor 
+</li></ul></li><li>You should use the method you are most comfortable with
+<ul><li>I'll use the Wing IDE for all my in-class examples</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >IDE Components</p><br />
+</div>
+<div><ul><li>The source code editor can help programming by:
+<ul><li>Listing line numbers of code
+</li><li>Color lines of code (comments, text…)
+</li><li>Auto-indent source code 
+</li></ul></li><li>Output window
+</li><li>Debugger
+</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The Wing IDE</p><br />
+</div>
+<div><img src='images/slide28-Picture9.png' /></div>
+<div class="incremental" style ="position:absolute;top:28%;left:59.17%;min-height:10%;width:17.5%;"><img src='images/slide28-LeftArrow9.png' /></div>
+<div class="incremental" style ="position:absolute;top:50.73%;left:9.22%;min-height:10%;width:19.17%;text-align:right;">
+<img src='images/slide28-RightArrow8.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Your First Program</p><br />
+</div>
+<div><ul><li>Traditional 'Hello World' program in Python
+</li></ul><p class="object" >
+</p>
+<p class="object" >
+</p>
+<ul></ul><ul></ul></div>
+<div><pre># My first Python program.
+print("Hello, World!")</pre></div>
+<div><ul><li class="">We will examine this program in the next section
+<ul><li class="">Typing the program into your IDE would be good practice!
+</li><li class="">Be careful of spelling e.g., 'print' vs. 'primt'
+</li><li class="">PyTHon iS CaSe SeNsItiVe
+</li></ul></li></ul><p class="" >
+</p>
+<p class="" >
+</p>
+<ul></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Text Editor Programming</p><br />
+</div>
+<div><ul><li>You can also use a simple text editor to write your source code
+</li><li>Once saved as Hello.py, you can use a console window to:
+<ul><li>Compile the program
+</li><li>Run the program</li></ul></li></ul><ul></ul></div>
+<div style ="position:absolute;top:34.36%;left:16.29%;min-height:10%;width:32.5%;"><img src='images/slide30-Picture10.png' /></div>
+<div class="incremental" style ="position:absolute;top:35.36%;left:47.29%;min-height:10%;width:32.5%;"><img src='images/slide30-LeftArrow9.png' /></div>
+<div class="incremental" style ="position:absolute;top:38.13%;left:1.38%;min-height:10.51%;width:15.56%;text-align:right;">
+<img src='images/slide30-RightArrow11.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Organize Your Work</p><br />
+</div>
+<div><ul><li>Your 'source code' is stored in .py files
+</li><li>Create a folder for this course
+</li><li>Create one folder per program inside the course folder
+<ul><li>A program can consist of several .py files
+</li></ul></li><li>Be sure you know where your IDE stores your files
+<ul><li>You need to be able to find you files
+</li></ul></li><li>Backup your files:
+<ul><li>To a USB flash drive
+</li><li>To a network drive
+</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Python Interactive Mode</p><br />
+</div>
+<div><ul><li>Like other languages you can write/save a complete Python program in a file and let the interpreter execute the instructions all at once
+</li><li>Alternatively you can run instructions one at a time using interactive mode
+<ul><li>It allows quick 'test programs' to be written
+</li><li>Interactive mode allows you to write python statements directly in the console window</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Source Code to a Running Program</p><br />
+</div>
+<div><ul><li>The compiler reads your program and generates byte code instructions (simple instructions for the Python Virtual machine)
+<ul><li>The Python Virtual machine is a program that is similar to the CPU of your computer
+</li><li>Any necessary libraries (e.g. for drawing graphics) are automatically located and included by the virtual machine</li></ul></li></ul><ul></ul></div>
+<div><img src='images/slide33-Picture7.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Let's Get Started!</p><br />
+</div>
+<div><ul><li>Open the Wing IDE on you lab computer
+</li><li>We are going to start simple, and as we learn more about Python, we'll use additional features in Wing</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The Wing IDE</p><br />
+</div>
+<div><img src='images/slide35-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >The Wing Tool Bar</p><br />
+</div>
+<div><p class="object" >In the spirit of keeping things simple we will start with the four icons in the top left corner 
+</p>
+<ul><li>If you don't see the tool bar press "Shift" and "F2"
+</li></ul><ul><li>Create a new file
+</li><li>Open a file from disk
+</li><li>Save the active file
+</li><li>Save all unsaved items</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Writing Our First Program</p><br />
+</div>
+<div><ul><li>Click on the icon to create a new file
+</li><li>The File Editor window will open</li></ul><ul></ul></div>
+<div><img src='images/slide37-Picture5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >"Hello World"</p><br />
+</div>
+<div><ul><li>Type the following into the Editor:
+<pre># My first Python program
+print(“Hello World!”)
+</pre><ul></ul></li><li>Save your file as "hello.py"
+</li><li>This is "Step Two  Write a simple program" from page 7 in your text
+</li><li>Remember – Python is <strong>case sensitive
+</strong><ul><li>You have to enter the upper and lower case letters exactly as this appear above</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Read to Run</p><br />
+</div>
+<div><img src='images/slide39-ContentPlaceholder5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Running your Program</p><br />
+</div>
+<div><ul><li>Click the Green Arrow in the Tool Bar</li></ul><ul></ul></div>
+<div><img src='images/slide40-Picture5.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Analyzing Your First Program</p><br />
+</div>
+<div><ul><li class="">A Python program contains one or more lines of instructions (statements) that will be translated and executed by the interpreter
+<pre># My first Python program
+Print(“Hello World!”)
+</pre><ul></ul></li><li class="">The first line is a comment (a statement that provides descriptive information about the program to programmers)
+</li><li class="">The second line contains a statement that prints a line of text onscreen, "Hello, World!"</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Basic Python Syntax: <code>print</code></p><br />
+</div>
+<div><ul><li>Using the Python <code>print()</code> function.
+<ul><li>A function is a collection of programming instructions that carry out a particular task (in this case to print a value onscreen)
+</li><li>It's code that somebody else wrote for you!</li></ul></li></ul><ul></ul></div>
+<div><img src='images/slide42-Picture7.png' /></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Syntax for Python Functions</p><br />
+</div>
+<div><ul><li>To use, or call, a function in Python you need to specify:
+<ul><li>The name of the function that you want to use (in the previous example the name was <code>print</code>)
+</li><li>Any values (arguments) needed by the function to carry out its task (in this case, "Hello World!") 
+</li><li>Arguments are enclosed in parentheses and multiple arguments are separated with commas
+</li><li>A sequence of characters enclosed in quotations marks are called a string</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >More Examples of the print Function</p><br />
+</div>
+<div><ul><li>Printing numerical values
+<ul><li><code>print(3 + 4)</code> 
+</li><li>Evaluates the expression 3 + 4 and displays 7
+</li></ul></li><li>Passing multiple values to the function
+<ul><li><code>print("the answer is", 6 * 7)</code>
+</li><li>Displays The answer is 42
+</li><li>Each value passed to the function is displayed, one after another, with a blank space after each value
+</li></ul></li><li>By default the print function starts a new line after its arguments are printed
+<ul><li><code>print("Hello")</code>
+</li><li><code>print("World!")</code>
+</li><li>Prints two lines of text
+</li><li>Hello
+</li><li>World!
+</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Our Second Program: printtest.py</p><br />
+</div>
+<div><pre>##
+#  Sample Program that demonstrates the print function
+#
+#  Prints 7
+
+print(3 + 4)
+
+#  Print Hello World! on two lines
+print(“Hello”)
+print(“World!”)
+#  Print multiple values with a single print function call
+print(“My favorite number are”, 3 + 4, “and” 3 + 10)
+
+#  Print Hello World! on two lines
+print(“Goodbye”)
+print()
+print(“Hope to see you again”)
+</pre></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Errors</p><br />
+</div>
+<div><ul><li>There are two Categories of Errors:
+<ul><li>Compile-time Errors 
+<ul><li>aka Syntax Errors
+<ul><li>Spelling, capitalization, punctuation
+</li><li>Ordering of statements, matching of parenthesis, quotes…
+</li></ul></li><li>No executable program is created by the compiler
+</li><li>Correct first error listed, then compile again 
+<ul><li>Repeat until all errors are fixed
+</li></ul></li><li>Run-time Errors
+<ul><li>aka Logic Errors
+</li><li>The program runs, but produces unintended results
+</li><li>The program may 'crash'</li></ul></li></ul></li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Syntax Errors</p><br />
+</div>
+<div><ul><li>Syntax error are caught by the compiler
+</li><li>What happens if you
+<ul><li>Miss-capitalize a word:&nbsp;&nbsp;&nbsp;&nbsp;<code>Print("Hello World!")</code>
+</li><li>Leave out quotes:&nbsp;&nbsp;&nbsp;&nbsp;<code>print(Hello World!)</code>
+</li><li>Mismatch quotes:&nbsp;&nbsp;&nbsp;&nbsp;<code>print("Hello World!')</code>
+</li><li>Don't match brackets:&nbsp;&nbsp;&nbsp;&nbsp;<code>print('Hello'</code>
+</li></ul></li><li>Type each example above in the Wing <strong>Python Shell </strong>window
+<ul><li>What error messages are generated?</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Logic Errors</p><br />
+</div>
+<div><ul><li>What happens if you
+<ul><li>Divide by zero:&nbsp;&nbsp;&nbsp;&nbsp;<code>print(1/0)</code>
+</li><li>Misspell output:&nbsp;&nbsp;&nbsp;&nbsp;<code>	print("Hello, Word!")</code>
+</li><li>Forget to output:&nbsp;&nbsp;&nbsp;&nbsp;Remove line 2
+</li></ul></li><li>Programs will compile and run
+<ul><li>The output may not be as expected
+</li></ul></li><li>Type each example above in the Wing <strong>Python Shell </strong>window
+<ul><li>What error messages are generated?</li></ul></li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Computer Basics</p><br />
+</div>
+<div><ul><li>Computers rapidly execute very simple instructions
+</li><li>A <em>program</em> is a sequence of instructions and decisions
+</li><li><em>Programming</em> is the art (and science) of designing, implementing, and testing computer programs
+</li><li>The Central  Processing Unit (CPU) performs program control and data processing
+</li><li>Storage devices include memory and secondary storage (e.g., a USB Flash Drive) </li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Python</p><br />
+</div>
+<div><ul><li>Python was designed in a way that makes it easier to learn than other programming languages such as Java, C and C++
+</li><li>The designers goal was to give Python simpler and cleaner syntax
+</li><li>Set aside some time to become familiar with the programming environment that you will use for your class work
+<ul><li>It is important to practice with the tool so you can focus on learning Python
+</li></ul></li><li>An editor is a program for entering and modifying text, such as a Python program</li></ul><ul></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Python</p><br />
+</div>
+<div><ul><li>Python is case sensitive
+<ul><li>You must be careful about distinguishing between upper and lowercase letters
+</li></ul></li><li>The Python compiler translates source code into byte code instructions that are executed by the Virtual machine
+</li><li>A function is called by specifying the function's name and its parameters
+</li><li>A string is a sequence of characters enclosed in quotation marks
+</li></ul></div>
+
+
+
+
+</div>
+<div class="slide ppLayoutObject">
+    <div><p class="title" >Summary: Errors and Pseudocode</p><br />
+</div>
+<div><ul><li>A compile-time error is a violation of the programming language rules that is detected by the compiler
+</li><li>A run-time error causes a program to take an action that the programmer did not intend
+</li><li>Pseudo code is an informal description of a sequence of steps for solving a problem
+</li><li>An algorithm for solving a problem is a sequence of steps that is unambiguous, executable, and terminating</li></ul><ul></ul></div>
+
+
+
+
+</div>
+
+    </div>
+    <script src="scripts/jquery-2.1.4.min.js" charset="utf-8" type="text/javascript"></script>
+    <script src="scripts/slidy.js" charset="utf-8" type="text/javascript"></script>
+    
+</body>
+</html>
